@@ -35,3 +35,15 @@ jobs:
           git push
           # The above command will fail if no changes were present, so we ignore
           # that.
+      - name: Add comment to PR
+        if: github.event_name == 'pull_request'
+        env:
+          URL: ${{ github.event.issue.comments_url }}
+          GITHUB_TOKEN: sergiu121:${{ secrets.ACCESS_TOKEN }}
+        run: |
+          curl \
+            -X POST \
+            $URL \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            --data '{ "body": "Publised at http://linux-kernel-labs.github.io/docs/${{ github.ref }}" }'
