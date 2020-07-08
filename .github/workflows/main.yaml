@@ -31,6 +31,7 @@ jobs:
           git add .
           git commit -m 'Update "${{ github.ref }}"' -a || true
           #git remote set-url origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git push
           # The above command will fail if no changes were present, so we ignore
           # that.
