@@ -2,6 +2,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build_job:
@@ -46,4 +49,4 @@ jobs:
             $URL \
             -H "Content-Type: application/json" \
             -H "Authorization: token $GITHUB_TOKEN" \
-            --data '{ "body": "Publised at http://linux-kernel-labs.github.io/docs/${{ github.ref }}" }'
+            --data '{ "body": "Publised at http://sergiu121.github.io/docs/${{ github.ref }}" }'
