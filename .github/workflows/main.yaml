@@ -23,7 +23,7 @@ jobs:
       - name: Commit documentation changes
         run: |
           git clone https://github.com/Sergiu121/sergiu121.github.io github-pages
-          mkdir github-pages/docs/${{ github.ref }}
+          mkdir -p github-pages/docs/${{ github.ref }}
           cp -r build/html/* github-pages/docs/${{ github.ref }}
           cd github-pages/docs/${{ github.ref }}
           git config --local user.email "action@github.com"
