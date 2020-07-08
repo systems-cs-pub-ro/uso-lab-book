@@ -26,9 +26,9 @@ jobs:
       - name: Commit documentation changes
         run: |
           git clone https://github.com/Sergiu121/sergiu121.github.io.git github-pages
-          mkdir -p github-pages/docs/${{ github.ref }}
-          cp -r build/html/* github-pages/docs/${{ github.ref }}
-          cd github-pages/docs/${{ github.ref }}
+          mkdir -p github-pages/${{ github.ref }}
+          cp -r build/html/* github-pages/${{ github.ref }}
+          cd github-pages/${{ github.ref }}
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
@@ -49,4 +49,4 @@ jobs:
             -u $GITHUB_TOKEN \
             $URL \
             -H "Content-Type: application/json" \
-            --data '{ "body": "Publised at http://sergiu121.github.io/docs/${{ github.ref }}" }'
+            --data '{ "body": "Publised at http://sergiu121.github.io/${{ github.ref }}" }'
