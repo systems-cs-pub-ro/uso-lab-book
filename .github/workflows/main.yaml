@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install native dependencies
-        run: sudo apt-get update -y && sudo apt-get install -y ditaa graphviz
+        run: sudo apt-get update -y && sudo apt-get install -y ditaa graphviz python3-setuptools
       - name: Install pip dependencies
         run: sudo pip3 install -r requirements.txt
       - name: Build documentation
