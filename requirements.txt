@@ -1,0 +1,3 @@
+Sphinx
+romnnn_sphinx_press_theme
+sphinxcontrib-ditaa
