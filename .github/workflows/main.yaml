@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    name: Build documentation
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install native dependencies
+        run: sudo apt-get update -y && sudo apt-get install -y ditaa graphviz
+      - name: Install pip dependencies
+        run: sudo pip3 install -r requirements.txt
+      - name: Build documentation
+        run: make html
+      - uses: actions/upload-artifact@v1
+        with:
+          name: docs
+          path: build
+      - name: Commit documentation changes
+        run: |
+          git clone https://github.com/Sergiu121/sergiu121.github.io github-pages
+          mkdir github-pages/docs/${{ github.ref }}
+          cp -r build/html/* github-pages/docs/${{ github.ref }}
+          cd github-pages/docs/${{ github.ref }}
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m 'Update "${{ github.ref }}"' -a || true
+          #git remote set-url origin https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/${{ github.repository }}
+          git push
+          # The above command will fail if no changes were present, so we ignore
+          # that.
