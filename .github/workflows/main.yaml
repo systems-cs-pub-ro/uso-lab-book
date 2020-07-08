@@ -22,7 +22,7 @@ jobs:
           path: build
       - name: Commit documentation changes
         run: |
-          git clone https://github.com/Sergiu121/sergiu121.github.io github-pages
+          git clone https://github.com/Sergiu121/sergiu121.github.io.git github-pages
           mkdir -p github-pages/docs/${{ github.ref }}
           cp -r build/html/* github-pages/docs/${{ github.ref }}
           cd github-pages/docs/${{ github.ref }}
