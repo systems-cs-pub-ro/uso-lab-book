@@ -1,0 +1,9 @@
+version: '3'
+services:
+  docs-build:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    tty: true
+    volumes:
+      - ../:/volume
