@@ -30,9 +30,9 @@ author = 'USO Team'
 extensions = [
         'sphinxcontrib.ditaa'
 ]
-
-ditaa_args = ['--svg']
-ditaa_output_suffix = 'svg'
+ditaa = "java"
+ditaa_args = ["-jar", "/usr/share/ditaa/ditaa.jar"]
+ditaa_log_enable = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
