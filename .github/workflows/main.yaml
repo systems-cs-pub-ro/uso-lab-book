@@ -26,9 +26,13 @@ jobs:
       - name: Commit documentation changes
         run: |
           git clone https://github.com/Sergiu121/sergiu121.github.io.git github-pages
+          if test ${{ github.ref}} == 'refs/heads/master'; then
+          cp -r build/html/* github-pages/docs
+          else
           mkdir -p github-pages/${{ github.ref }}
           cp -r build/html/* github-pages/${{ github.ref }}
-          cd github-pages/${{ github.ref }}
+          fi
+          cd github-pages/
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
