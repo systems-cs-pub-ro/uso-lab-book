@@ -2,6 +2,11 @@
 
 ## Prerequisites
 
+There are two ways of building the documentation for the labs:
+* installing Sphinx on your computer;
+* running Sphinx inside a docker container that you build and run on your
+  machine.
+
 ### Installing on your own computer
 
 In order to build the documentation you will need the following packages:
