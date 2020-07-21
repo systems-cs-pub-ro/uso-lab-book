@@ -7,7 +7,7 @@ USO lab book
 ========================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Networking:
 
    chapters/net/browser.rst
