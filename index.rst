@@ -60,6 +60,17 @@ USO lab book
    chapters/improve-cli/improve-shell.rst
    chapters/improve-cli/term-multiplexing.rst
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Fișiere
+
+   chapters/files/paths.rst
+   chapters/files/files.rst
+   chapters/files/file_editor.rst
+   chapters/files/io_redirection.rst
+   chapters/files/archive.rst
+   chapters/files/file_system.rst
+
 
 Indices and tables
 ==================
