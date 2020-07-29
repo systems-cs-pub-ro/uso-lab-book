@@ -8,15 +8,6 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
-   :caption: Networking:
-
-   chapters/net/browser.rst
-   chapters/net/troubleshoot.rst
-   chapters/net/services.rst
-   chapters/net/extra.rst
-
-.. toctree::
-   :maxdepth: 3
    :caption: Dezvoltarea aplicațiilor
 
    chapters/app-dev/git-intro.rst
@@ -32,6 +23,27 @@ USO lab book
    chapters/app-dev/make-advanced-automation.rst
    chapters/app-dev/make-contribute.rst
    chapters/app-dev/extra.rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Networking:
+
+   chapters/net/browser.rst
+   chapters/net/troubleshoot.rst
+   chapters/net/services.rst
+   chapters/net/extra.rst
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Becoming a CLI ninja apprentice:
+
+   chapters/improve-cli/improve-terminal.rst
+   chapters/improve-cli/inspect-fs.rst
+   chapters/improve-cli/inspect-sys.rst
+   chapters/improve-cli/inspect-files.rst
+   chapters/improve-cli/process-files.rst
+   chapters/improve-cli/improve-shell.rst
+   chapters/improve-cli/term-multiplexing.rst
 
 
 Indices and tables
