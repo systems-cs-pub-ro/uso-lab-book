@@ -20,14 +20,14 @@ graphiz
 For debian-based installs, you can install them by using:
 
 ```
-# apt-get install python3-pip ditaa graphiz
+# apt-get install python3-pip ditaa graphviz
 ```
 
 In order do build the rest of the documentation, you will need to install them
 using pip3 by running the following command in the repo directory:
 
 ```
-pip3 -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Installing inside of docker
