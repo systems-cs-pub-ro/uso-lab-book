@@ -35,6 +35,21 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
+   :caption: Instalarea și utilizarea aplicațiilor:
+
+   chapters/app-install/start.rst
+   chapters/app-install/run.rst
+   chapters/app-install/config.rst
+   chapters/app-install/summary1.rst
+   chapters/app-install/show-config.rst
+   chapters/app-install/install.rst
+   chapters/app-install/install-non-standard.rst
+   chapters/app-install/update.rst
+   chapters/app-install/show.rst
+   chapters/app-install/summary2.rst
+
+.. toctree::
+   :maxdepth: 3
    :caption: Becoming a CLI ninja apprentice:
 
    chapters/improve-cli/improve-terminal.rst
