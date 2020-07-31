@@ -25,7 +25,7 @@ USO lab book
    chapters/app-dev/git-contribute.rst
    chapters/app-dev/make-setup.rst
    chapters/app-dev/make-intro.rst
-   chapters/app-dev/make-header.rst
+   chapters/app-dev/make-multiple.rst
    chapters/app-dev/make-lib.rst
    chapters/app-dev/make-debug.rst
    chapters/app-dev/make-simple-automation.rst

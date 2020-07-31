@@ -23,8 +23,8 @@ b. Variabile pentru linker
 c. Modificarea fișierului Makefile folosind variabile
 =====================================================
 
-d. Comiterea schimbărilor făcute
-================================
+d. Crearea unui nou commit cu schimbările făcute
+================================================
 
 ****************
 2) Regula .PHONY
@@ -34,7 +34,7 @@ a. Necesitatea folosirii regulii .PHONY
 =======================================
 
 b. Adăugarea target-ului .PHONY
-===========================
+===============================
 
 c. Comiterea schimbărilor făcute
 ================================
