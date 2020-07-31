@@ -13,29 +13,33 @@ Aceste fișiere vor fi folosite pentru crearea unei biblioteci. Proiectul deja c
 2) Crearea și folosirea unei biblioteci statice
 ***********************************************
 
+***************************************
+3) Legarea la biblioteca statică creată
+***************************************
+
 Aici după ce o vor crea și după ce vor crea fișierul executabul vor observa 
 dimesiunea executabilului.
 
 ***************************************************************************
-3) Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii statice
+4) Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii statice
 ***************************************************************************
 
 ***********************************
-4) Crearea unei biblioteci dinamice
+5) Crearea unei biblioteci dinamice
 ***********************************
 
 ****************************************
-5) Legarea la biblioteca dinamică creată
+6) Legarea la biblioteca dinamică creată
 ****************************************
 
 Vor observa din nou dimensiunea (mai mică de data asta) a fișierului executabil.
 
 ****************************************************************************
-6) Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii dinamice
+7) Adăugarea unei reguli noi în Makefile pentru crearea bibliotecii dinamice
 ****************************************************************************
 
 ********************************
-7) LD_PRELOAD și beneficiile lui
+8) LD_PRELOAD și beneficiile lui
 ********************************
 
 Aici vor scrie singuri o bibliotecă care să conțină o funcție sqrt similară cu cea 
@@ -43,7 +47,7 @@ din biblioteca math, o vor compila și vor folosi LD_PRELOAD pentru a vedea cum 
 folosească propria funcție sqrt, chiar dacă executabilul este legat și la biblioteca math.
 
 *****************
-8) Gist pe Github
+9) Gist pe GitHub
 *****************
 
-Vor învăța cum să creeze un gist pe Github-ul lor.
+Vor învăța cum să creeze un gist pe GitHub-ul lor.

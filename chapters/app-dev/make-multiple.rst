@@ -1,6 +1,6 @@
-####################################################
-Compilarea unui cod sursă C cu fișier header asociat
-####################################################
+############################################################
+Compilarea unui program din surse și fișiere header multiple
+############################################################
 
 *************************
 1) Inspectarea fișierelor
@@ -9,9 +9,9 @@ Compilarea unui cod sursă C cu fișier header asociat
 Vor analiza cum se leagă fișierele cod sursă între ele. Unde sunt incluse headerele.
 Să vadă că fișiere cod sursă nu se includ în niciun alt fișier.
 
-**********************************
-2) Compilarea fișierelor cod sursă
-**********************************
+********************************************
+2) Compilarea programului din surse multiple
+********************************************
 
 Aici vor compila fișierele și vor obține fișierul binar final.
 
@@ -49,4 +49,4 @@ cod sursă.
 f. Verificarea istoricului git
 ==============================
 
-`git log`
+``git log``

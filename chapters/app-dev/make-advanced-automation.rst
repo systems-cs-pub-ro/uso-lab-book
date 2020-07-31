@@ -12,7 +12,7 @@ Adăugarea dependențelor pentru regulile deja existente.
 2) Folosirea de variabile în fișiere Makefile
 *********************************************
 
-Introducerea variabilelor.
+Introducerea variabilelor. De adăugat și ceva despre variabile de debug și specificarea arhitecturii la bonus/best practice
 
 a. Variabile pentru compilator
 ==============================
@@ -33,7 +33,7 @@ d. Comiterea schimbărilor făcute
 a. Necesitatea folosirii regulii .PHONY
 =======================================
 
-b. Adăugarea regulii .PHONY
+b. Adăugarea target-ului .PHONY
 ===========================
 
 c. Comiterea schimbărilor făcute

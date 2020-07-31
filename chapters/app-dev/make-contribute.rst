@@ -1,12 +1,15 @@
-########################################
-Contribuirea la un proiect deja existent
-########################################
+#####################################################
+Contribuirea la un proiect de pe GitHub deja existent
+#####################################################
 
 *******************************
 1) Pregătirea mediului de lucru
 *******************************
 
 Aici vor clona un repository deja cu un proiect mai mare deja existent.
+De avut în vedere că pentru unele (poate majoritatea) proiecte vor trebui să facă 
+fork și apoi clone la fork-ul lor, pentru că nu vor avea drepturi să facă push 
+la un branch în upstream-ul original.
 
 *************************
 2) Compilarea proiectului
@@ -33,3 +36,4 @@ funcționalitatea proiectului și vor observa schimbarea comporamentului program
 *******************************************************
 
 Vor comite modificările făcute și vor crea un PR pe Github.
+Precizat că PR este acronim uzual pentru Pull Request.

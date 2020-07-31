@@ -8,9 +8,9 @@ Compilarea unui cod sursă C simplu
 
 Își vor crea un branch cu numele lor pe care vor lucra pe parcursul acestei secțiuni.
 
-******************************
-2) Compilarea unui cod sursă C
-******************************
+*************************************
+2) Compilarea unui fișier cod sursă C
+*************************************
 
 Aici vor găsi în primul director un cod sursă C. Vor avea de compilat codul
 și rulat binarul pentru a vedea că totul e în regulă. Scopul este să rezulte 2 binare: a.out

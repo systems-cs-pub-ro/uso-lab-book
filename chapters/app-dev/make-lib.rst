@@ -1,6 +1,6 @@
-############################################
-Legarea executabilelor la biblioteci externe
-############################################
+##################################################
+Legarea executabilelor folosind biblioteci externe
+##################################################
 
 *************************
 1) Inspectarea fișierelor
@@ -15,6 +15,7 @@ legarea la o bibliotecă externă.
 *************************
 
 Aici vor avea nevoie să compileze cu -l<lib> pentru a funcționa.
+Și cu -L <path-to-lib> pentru a-i spune path-ul unde să caute <lib>.
 
 a. Instalarea bibliotecii necesare pentru compilarea codului
 ============================================================
