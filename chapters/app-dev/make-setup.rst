@@ -1,10 +1,8 @@
-#############################
-Pregătirea spațiului de lucru
-#############################
+Pregătirea mediului de lucru
+============================
 
-************************************
-1) Clonarea repository-ului de lucru
-************************************
+1) Clonarea repository-ului
+---------------------------
 
 Aici se vor afla mai multe directoare (fiecare va avea fișiere cod sursă,
 la unele e nevoie de folosirea unor biblioteci, unele au fișiere header,
