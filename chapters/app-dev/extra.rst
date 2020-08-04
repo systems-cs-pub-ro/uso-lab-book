@@ -13,6 +13,7 @@ Aceste fișiere vor fi folosite pentru crearea unei biblioteci. Proiectul deja c
 3) Legarea la biblioteca statică creată
 ---------------------------------------
 
+Legarea se mai numește și linking.
 Aici după ce o vor crea și după ce vor crea fișierul executabul vor observa 
 dimesiunea executabilului.
 

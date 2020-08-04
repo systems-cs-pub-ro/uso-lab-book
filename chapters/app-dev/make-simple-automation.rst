@@ -1,8 +1,8 @@
 Introducere în utilitarul Make și fișiere Makefile
 ==================================================
 
-1) Folosirea unui Makefile existentă
-------------------------------------
+1) Folosirea unui Makefile existent
+-----------------------------------
 
 Aici vor avea la dispoziție un director cu cod sursă și Makefile și vor 
 rula toate targeturile din Makefile, pe rând, și vor observa care este efectul fiecăreia.
