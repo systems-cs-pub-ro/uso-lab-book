@@ -6,13 +6,13 @@ Contribuirea la un alt repository
 
 Include crearea, validarea lui, și GitHub Student Pack.
 
-2) Crearea unui branch de lucru
--------------------------------
+2) Crearea unui branch nou
+--------------------------
 
 ``git checkout -b <my-branch>``
 
-3) Crearea unui commit cu noile schimbări în repository
--------------------------------------------------------
+3) Crearea unui commit cu noile schimbări
+-----------------------------------------
 
 ``git add`` + ``git commit -m`` + ``git push``
 

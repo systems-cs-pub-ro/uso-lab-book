@@ -32,8 +32,8 @@ c. Crearea commitului local cu un mesaj corespunzător
 ``git pull`` + explicații (de ce trebuie să dăm mai întâi pull și după aceea push)
 ``git commit -m "bla"`` + bune practici pentru a scrie un mesaj de commit bun
 
-d. Publicarea commitului pe repository-ul la distanță
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+d. Publicarea commitului pe repository-ul remote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``git push`` + verificare pe GitHub că apar schimbările.
 

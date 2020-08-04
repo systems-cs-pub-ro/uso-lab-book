@@ -28,6 +28,8 @@ e. Revenirea la branch-ul cu modificări și crearea unui nou commit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``git stash pop`` + ``git add`` + ``git commit`` + ``git commit``
+``git stash lis`` ``git stash show -p`` ``git stash apply``
+Poți să faci apply/pop și la altceva decât vârful stivei stash folosind ``git stash pop stash@{2}``.
 
 2) Modificarea mesajului de commit
 ----------------------------------

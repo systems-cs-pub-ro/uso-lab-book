@@ -16,7 +16,7 @@ să îl compileze asemănător cu exemplul anterior.
 Modificarea codului astfel încât să se foloseasca DEBUG, recompilarea surselor și observarea
 diferențelor față de punctul anterior.
 
-2) Comiterea modificărilor anterioare
--------------------------------------
+2) Crearea unui nou commit cu modificările anterioare
+-----------------------------------------------------
 
 Vor comite modificările făcute.
