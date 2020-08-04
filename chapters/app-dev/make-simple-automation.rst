@@ -5,7 +5,7 @@ Introducere în utilitarul Make și fișiere Makefile
 ------------------------------------
 
 Aici vor avea la dispoziție un director cu cod sursă și Makefile și vor 
-rula toate regulile din Makefile, pe rând, și vor observa care este efectul fiecăreia.
+rula toate targeturile din Makefile, pe rând, și vor observa care este efectul fiecăreia.
 Abia după ce se acomodează cu acest lucru își vor crea propriul Makefile.
 
 2) Crearea primului Makefile
@@ -13,15 +13,15 @@ Abia după ce se acomodează cu acest lucru își vor crea propriul Makefile.
 
 Vor crea un Makefile simplu.
 
-a. Adăugarea regulii all
-^^^^^^^^^^^^^^^^^^^^^^^^
+a. Adăugarea targetului all
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vor adăuga regulă all. 
+Vor adăuga targetul all. 
 
-b. Adăugarea regulii clean
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+b. Adăugarea targetului clean
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vor adăuga regulă clean.
+Vor adăuga targetul clean.
 
 c. Adăugarea fișierului Makefile în repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -34,27 +34,27 @@ Vor comite modificările făcute anterior.
 Aici vor redenumi fișierul Makefile creat anterior și îl vor folosi folosind `make -f`.
 De asemenea vor comite această schimbare.
 
-4) Adăugarea unor reguli de creare a fișierelor obiect
-------------------------------------------------------
+4) Adăugarea targeturilor de creare a fișierelor obiect
+-------------------------------------------------------
 
-Vor adăuga câte o regulă pentru fiecare fișier cod sursă pentru a-l compila până la modul obiect.
+Vor adăuga câte un target pentru fiecare fișier cod sursă pentru a-l compila până la modul obiect.
 
-5) Modificarea regulii de creare a executabilului
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5) Modificarea targetului de creare a executabilului
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vor modifica regula existentă astfel încât executabilul final să fie 
+Vor modifica targetul existent astfel încât executabilul final să fie 
 obținut din module obiect.
 
-6) Modificarea regulii clean
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6) Modificarea targetului clean
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vor adăuga fișierele obiect la regula clean.
+Vor adăuga fișierele obiect la targetul clean.
 
 7) Testarea fișierului Makefile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Vor testa toate regulile și vor observa încă de aici că fișierele se recompilează
-la fiecare rulare a regulii indiferent dacă fișierul obținut a fost modificat sau nu. 
+Vor testa toate targeturile și vor observa încă de aici că fișierele se recompilează
+la fiecare rulare a targetului indiferent dacă fișierul obținut a fost modificat sau nu. 
 
 8) Crearea unui nou commit cu modificărilor făcute
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

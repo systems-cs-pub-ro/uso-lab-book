@@ -26,10 +26,10 @@ d. Crearea unui nou commit cu schimbările făcute
 2) Regula .PHONY
 ----------------
 
-a. Necesitatea folosirii regulii .PHONY
+a. Necesitatea folosirii targetului .PHONY
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-b. Adăugarea target-ului .PHONY
+b. Adăugarea targetului .PHONY
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 c. Comiterea schimbărilor făcute

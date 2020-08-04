@@ -14,7 +14,7 @@ b. Modificarea fișierului README
 
 modificat folosit nano un fișier
 
-c. Revenirea la un alt branch fără crearea unui nou commit cu schimbărilor curente
+c. Revenirea la alt branch fără crearea unui nou commit cu schimbărilor curente
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``git stash`` + ``git checkout master``

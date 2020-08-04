@@ -19,8 +19,8 @@ a. Verificarea stării clonei
 
 ``git status`` + explicații pe output
 
-b. Adăugarea (stage) fișierelor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+b. Adăugarea fișierelor (în staging)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ``git add`` + ``git status`` + explicații pe output
 
