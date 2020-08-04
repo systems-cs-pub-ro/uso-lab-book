@@ -34,8 +34,8 @@ Vor comite modificările făcute anterior.
 Aici vor redenumi fișierul Makefile creat anterior și îl vor folosi folosind `make -f`.
 De asemenea vor comite această schimbare.
 
-4) Adăugarea targeturilor de creare a fișierelor obiect
--------------------------------------------------------
+4) Adăugarea de targeturi pentru crearea fișierelor obiect
+----------------------------------------------------------
 
 Vor adăuga câte un target pentru fiecare fișier cod sursă pentru a-l compila până la modul obiect.
 
