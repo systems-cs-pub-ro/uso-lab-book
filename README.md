@@ -1,5 +1,7 @@
 # uso-lab-book
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Sergiu121/uso-lab-book/Build-docs)
+
 ## Prerequisites
 
 There are two ways of building the documentation for the labs:
