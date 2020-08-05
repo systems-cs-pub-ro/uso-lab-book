@@ -26,7 +26,7 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
-   :caption: Networking:
+   :caption: Conectarea la Internet:
 
    chapters/net/browser.rst
    chapters/net/troubleshoot.rst
