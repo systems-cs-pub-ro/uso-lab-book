@@ -1,6 +1,7 @@
 # uso-lab-book
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Sergiu121/uso-lab-book/Build-docs)
+![GitHub](https://img.shields.io/github/license/Sergiu121/uso-lab-book)
 
 ## Prerequisites
 
