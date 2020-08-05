@@ -55,4 +55,4 @@ jobs:
             -u $GITHUB_TOKEN \
             $URL \
             -H "Content-Type: application/json" \
-            --data '{ "body": "Publised at http://sergiu121.github.io/${{ github.ref }}" }'
+            --data '{ "body": "Published at http://sergiu121.github.io/${{ github.ref }}" }'
