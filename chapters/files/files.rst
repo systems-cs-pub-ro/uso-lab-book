@@ -80,6 +80,8 @@ Lucrul cu fișiere și directoare
 * legături (linkuri);
 * execuția programelor.
 
+.. _files_long_listing:
+
 Afișarea conținutului unui director
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
