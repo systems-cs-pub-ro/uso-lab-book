@@ -54,7 +54,7 @@ USO lab book
    :caption: Conectarea la Internet
 
    chapters/net/browser.rst
-   chapters/net/troubleshoot.rst
+   chapters/net/connection.rst
    chapters/net/services.rst
    chapters/net/extra.rst
 
