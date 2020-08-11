@@ -8,6 +8,17 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
+   :caption: Lucrul cu fișiere
+
+   chapters/files/paths.rst
+   chapters/files/files.rst
+   chapters/files/file_editor.rst
+   chapters/files/io_redirection.rst
+   chapters/files/archive.rst
+   chapters/files/file_system.rst
+
+.. toctree::
+   :maxdepth: 3
    :caption: Dezvoltarea aplicațiilor
 
    chapters/app-dev/git-intro.rst
@@ -26,7 +37,7 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
-   :caption: Conectarea la Internet:
+   :caption: Conectarea la Internet
 
    chapters/net/browser.rst
    chapters/net/troubleshoot.rst
@@ -35,7 +46,7 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
-   :caption: Instalarea și utilizarea aplicațiilor:
+   :caption: Instalarea și utilizarea aplicațiilor
 
    chapters/app-install/start.rst
    chapters/app-install/run.rst
@@ -50,7 +61,7 @@ USO lab book
 
 .. toctree::
    :maxdepth: 3
-   :caption: Becoming a CLI ninja apprentice:
+   :caption: Îmbunătățirea lucrului în linia de comandă
 
    chapters/improve-cli/improve-terminal.rst
    chapters/improve-cli/inspect-fs.rst
@@ -59,17 +70,6 @@ USO lab book
    chapters/improve-cli/process-files.rst
    chapters/improve-cli/improve-shell.rst
    chapters/improve-cli/term-multiplexing.rst
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Fișiere
-
-   chapters/files/paths.rst
-   chapters/files/files.rst
-   chapters/files/file_editor.rst
-   chapters/files/io_redirection.rst
-   chapters/files/archive.rst
-   chapters/files/file_system.rst
 
 
 Indices and tables
