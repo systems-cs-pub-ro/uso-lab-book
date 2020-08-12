@@ -10,6 +10,7 @@ Acesta nu scalează pentru situațiile când avem multe fișiere și dorim un r�
 
 Folosirea utilitarului **find**
 """""""""""""""""""""""""""""""
+
 Căutați în sistem fișierul **passwd**.
 
 
@@ -18,6 +19,7 @@ Căutați în sistem fișierul **passwd**.
 
 Utilitarul **locate** se folosește astfel: ``locate nume_fisier``.
 Utilitarul funcționează în 2 pași:
+
  * Crearea și actualizarea unei baze de date folosind comanda **updatedb**;
  * Căutarea folosind **locate**.
 
@@ -26,26 +28,25 @@ Partea negativă este că la fiecare căutare trebuie folosit utilitarul **updat
 
 Folosirea utilitarului **locate**
 """""""""""""""""""""""""""""""""
+
 Căutați fișierul **pwd** în sistemul de fișiere folosind **locate**.
 
 
 3) PATH
 -------
 
-După cum am menționat într-un capitol anterior, PATH este
-o variabilă de mediu ce se află în contextul executării 
-în linia de comandă. De fiecare dată când apelăm un program
-prima oară se verifică dacă în căile din **PATH** se află
-acest program.
+După cum am menționat într-un capitol anterior, PATH este o variabilă de mediu ce se află în contextul executării în linia de comandă.
+De fiecare dată când apelăm un program, prima oară se verifică dacă acesta se află în căile din **PATH**.
 
 .. code-block::
 
     $ echo $PATH
     /usr/local/bin:/usr/bin:/bin:/usr/games
 
+Afișarea variabilei PATH din sistem
+"""""""""""""""""""""""""""""""""""
 
-
-**Exercițiu:** Afișează valoarea PATH a sistemului tău.
+Afișează valoarea **PATH** a sistemului tău.
 
 4) Which
 --------
