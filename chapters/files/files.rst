@@ -60,7 +60,10 @@ câte o linie. Semnificația coloanelor este:
 
 * **Tipul fișierului:** Primul caracter specifică dacă este un director (**d**), fișier (**-**) sau legătură (**l**).
   Vom discuta despre legături într-un capitol ulterior.
-* **Permisiuni:** avem 2 tipuri de informații:
+* **Permisiuni:** Se specifică cine și cum poate interacționa cu fișierul.
+  Există 3 tipuri de permisiuni (r)ead, (w)rite și e(x)ecute și 3 categorii de utilizatori: user (utilizator specificat mai jos), group (utilizatorii ce fac parte din grupul specificat mai jos) și others (ceilalți utilizatori).
+  Astfel, prima grupă de 3 caractere se referă la **USER**, a doua grupă se referă la **GROUP** și cea de a treia se referă la ceilalți utilizatori ce nu fac parte din primele două categorii.
+  Putem observa că **Applications** de mai sus este un director și utilizatorul **root** are dreptul de citire(r), scriere(w) și execuție(x); utilizatorii din grupul **admin** au drepturi de citire(r), scriere(w) și execuție(x); toți ceilalți utilizatori au drepturi de citire(r) și execuție(x) (în dreptul lui **w** este **-**, deci nu există această permisiune).
 * **Legături:** Numărul de legături către acest fișier/director. Vom detalia într-un capitol ulterior.
 * **USER:** Utilizatorul care deține acest fișier/director.
 * **GROUP:** Grupul ce deține acest fisier/director.
@@ -222,22 +225,22 @@ mai multe detalii despre comandă uitându-ne în manual: ``man tree``.
 
     student@uso:~$ tree
     .
-    ├── prime video
+    ├── prime_video
     ├── Hulu
     │   └── Favorite
     ├── Netflix
     │   ├── Filme
-    │   │   ├── filme 2020.txt
-    │   │   ├── filme 2019.txt
-    │   │   ├── filme vechi
+    │   │   ├── filme_2020.txt
+    │   │   ├── filme_2019.txt
+    │   │   ├── filme_vechi
     │   └── Seriale
-    │       ├── seriale 2020
-    │       ├── seriale 2019.txt
-    │       └── seriale vechi
-    ├── HBO GO
-    │   ├── Modern Family.txt
-    │   └── Harry Potter
-    └── YouTube TV
+    │       ├── seriale_2020
+    │       ├── seriale_2019.txt
+    │       └── seriale_vechi
+    ├── HBO_GO
+    │   ├── Modern_Family.txt
+    │   └── Harry_Potter
+    └── YouTubeTV
 
 **Exercițiu:** Copiați întreaga ierarhie în calea **/tmp**. Folosiți comanda ``cp``.
 Confirmați copierea prim afișarea directorului părinte.
