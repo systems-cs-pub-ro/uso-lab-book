@@ -3,5 +3,9 @@
 }
 
 .sidebar-group ul {
-	display: none;
+    display: none;
+}
+
+.sidebar-group ul ul {
+    display: block;
 }
