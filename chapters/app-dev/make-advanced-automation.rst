@@ -1,36 +1,26 @@
+.. _app_dev_advanced_makefile:
+
 Aprofundarea folosirii fișierelor Makefile
 ==========================================
 
-1) Adăugarea dependențelor pentru fiecare regulă existentă
-----------------------------------------------------------
+.. _app_dev_dependency_makefile:
 
-Adăugarea dependențelor pentru regulile deja existente. 
+Adăugarea dependențelor pentru fiecare regulă existentă
+-------------------------------------------------------
 
-2) Folosirea de variabile în fișiere Makefile
----------------------------------------------
+Adăugarea dependențelor pentru regulile deja existente.
 
-Introducerea variabilelor. De adăugat și ceva despre variabile de debug și specificarea arhitecturii la bonus/best practice
+.. _app_dev_phony_makefile:
 
-a. Variabile pentru compilator
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Targetul `.PHONY`
+-----------------
 
-b. Variabile pentru linker
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _app_dev_understand_using_phony_makefile:
 
-c. Modificarea fișierului Makefile folosind variabile
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Necesitatea folosirii targetului `.PHONY`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-d. Crearea unui nou commit cu schimbările făcute
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _app_dev_add_phony_makefile:
 
-2) Regula .PHONY
-----------------
-
-a. Necesitatea folosirii targetului .PHONY
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-b. Adăugarea targetului .PHONY
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-c. Comiterea schimbărilor făcute
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adăugarea targetului `.PHONY`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
