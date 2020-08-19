@@ -8,11 +8,11 @@ Această viteză este dată de posibilitatea de a combina utilitare în linia de
 De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
 Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.
 
-1. Scurtături în cadrul sistemului de operare
----------------------------------------------
+Scurtături în cadrul sistemului de operare
+------------------------------------------
 
-a. Pornirea unei instanțe noi de terminal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Pornirea unei instanțe noi de terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În capitolul anterior am văzut diferite moduri prin care putem porni aplicația **GNOME Terminal**.
 Unele distribuții pun la dispoziție scurtătura dată de combinația de taste ``Ctrl+Alt+t`` pentru a deschide o nouă instanță de terminal.
@@ -59,8 +59,8 @@ Puteți folosi exercițiile de la dezvoltarea aplicațiilor ca suport pentru spa
 
     Putem folosi combinația de taste ``Ctrl+d`` pentru a executa comanda ``exit`` într-un terminal.
 
-b. Navigarea între ferestre și taburi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Navigarea între ferestre și taburi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru a naviga între ferestrele aplicațiilor deschise în sistem putem folosi combinația de taste ``Alt+Tab``.
 
@@ -78,8 +78,8 @@ Puteți naviga la al 11-lea tab?
     Putem folosi și combinațiile de taste ``Ctrl+PgDn`` și ``Ctrl+PgUp`` pentru a naviga între taburile pe care le avem deschise.
     Putem folosi aceste scurtături în cazul în care avem mai mult de 10 taburi deschise.
 
-c. Redimensionarea ferestrelor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Redimensionarea ferestrelor
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru redimensionarea ferestrelor avem două opțiuni:
 
@@ -92,8 +92,8 @@ Observați cum fereastra s-a redimensionat și s-a aliniat în jumătatea din st
 Acum, având browserul în prim-plan, apăsați combinația de taste ``Win Key+Arrow Right``.
 Explorați și celelalte combinații de taste.
 
-d. Sumar: Scurtături în cadrul sistemului de operare
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sumar: Scurtături în cadrul sistemului de operare
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Deschidem o instanță nouă de terminal într-o fereastră nouă folosind combinația de taste ``Ctrl+Alt+t``.
   Deschidem o instanță nouă de terminal într-un tab nou în cadrul aceleiași ferestre folosind combinația de taste ``Ctrl+Shift+t``.
@@ -104,11 +104,11 @@ d. Sumar: Scurtături în cadrul sistemului de operare
 
 * Combinațiile de taste ``Win Key+Arrow Keys`` redimensionează și realiniază automat ferestrele.
 
-2. Scurtături în terminal
--------------------------
+Scurtături în terminal
+----------------------
 
-a. Tab completion
-^^^^^^^^^^^^^^^^^
+Tab completion
+^^^^^^^^^^^^^^
 
 Funcția de **tab completion** este probabil una dintre cele mai utile funcții expuse de către terminal.
 Prin simpla apăsare a tastei ``Tab`` în timp ce scriem numele unei comenzi, al unei opțiuni a unei comenzi sau calea către un director sau fișier, terminalul va completa în mod automat textul sau va sugera opțiuni de auto-complete.
@@ -136,8 +136,8 @@ Folosiți funcția de ``Tab`` completion cât mai des cu putință.
     O alternativă mai rapidă este să folosim combinația de taste ``Ctrl+l``.
     Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.
 
-b. Navigarea în istoricul unei comenzi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Navigarea în istoricul unei comenzi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Terminalul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
 Pentru a vedea istoricul curent putem rula comanda ``history``.
@@ -251,8 +251,8 @@ Executați următoarele comenzi:
 
 Ce semnificație are argumentul ``!^``?
 
-c. Navigarea în interiorul unei comenzi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Navigarea în interiorul unei comenzi
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de reverse search, modificăm un argument al comenzii și apoi o executăm.
 Pentru navigarea în cadrul textului comenzii putem folosi ``Arrow Keys``, iar pentru ștergeri putem folosi tasta ``Backspace`` sau ``Del``.
@@ -280,8 +280,8 @@ Pentru a efectua ștergeri în corpul textului putem folosi combinațiile de tas
     Textul șters este salvat într-un registru și poate fi folosit folosind combinația de taste ``Ctrl+y``.
     Funcționalitatea este similară cu procesul de **Cut** (``Ctrl+k``, ``Ctrl+u`` sau ``Alt+d``) și **Paste** (``Ctrl+y``).
 
-d. Sumar: Scurtături în terminal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Sumar: Scurtături în terminal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Funcția de auto-complete este extrem de utilă și îmbunătățește în mod dramatic viteza cu care realizăm acțiuni în terminal.
     * Funcția de auto-complete nu ne face doar mai rapizi, dar putem folosi tasta ``Tab`` și pt a confirma că comanda este validă.
