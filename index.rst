@@ -7,6 +7,7 @@ USO lab book
 ========================================
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :caption: Lucrul cu fișiere
 
@@ -18,6 +19,7 @@ USO lab book
    chapters/files/file_system.rst
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :caption: Dezvoltarea aplicațiilor
 
@@ -36,6 +38,7 @@ USO lab book
    chapters/app-dev/extra.rst
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :caption: Conectarea la Internet
 
@@ -45,6 +48,7 @@ USO lab book
    chapters/net/extra.rst
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :caption: Instalarea și utilizarea aplicațiilor
 
@@ -60,6 +64,7 @@ USO lab book
    chapters/app-install/summary2.rst
 
 .. toctree::
+   :numbered:
    :maxdepth: 3
    :caption: Îmbunătățirea lucrului în linia de comandă
 
