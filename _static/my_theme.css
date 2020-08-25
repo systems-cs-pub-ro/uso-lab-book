@@ -9,3 +9,8 @@
 .sidebar-group ul ul {
     display: block;
 }
+
+.admonition {
+    background-color: #aadfa7;
+    border-color: #336a1f;
+}
