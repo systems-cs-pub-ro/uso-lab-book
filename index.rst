@@ -9,6 +9,17 @@ USO lab book
 .. toctree::
    :numbered:
    :maxdepth: 3
+   :caption: Acomodarea în Linux
+
+   chapters/basic/apps.rst
+   chapters/basic/browser.rst
+   chapters/basic/terminal.rst
+   chapters/basic/workspace.rst
+   chapters/basic/cheatsheet.rst
+
+.. toctree::
+   :numbered:
+   :maxdepth: 3
    :caption: Lucrul cu fișiere
 
    chapters/files/paths.rst
