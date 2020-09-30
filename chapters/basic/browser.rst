@@ -10,7 +10,7 @@ Așadar **browserul web** este o aplicație pe care o folosim în mod constant �
 Astfel petrecem cât mai puțin timp manevrând aplicația și cat mai mult timp folosind aplicația la capacitate maximă.
 
 Vom folosi `Firefox <https://www.mozilla.org/en-US/firefox/new/>`_ în această carte, însă conceptele prezentate sunt similare și în alte browsere (`Google Chrome <https://www.google.com/chrome/>`_, `Chromium <https://www.chromium.org>`_, `Safari <https://www.apple.com/safari/>`_, `Opera <https://www.opera.com>`_, `Edge <https://www.microsoft.com/en-us/edge>`_, etc).
-Acesta este browserul default instalat în Ubuntu 18.04. 
+Acesta este browserul default instalat în Ubuntu 20.04. 
 
 .. _basic_start_stop_browser:
 
