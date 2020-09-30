@@ -1,3 +1,5 @@
+.. _basic_start_stop_apps:
+
 Pornirea și oprirea aplicațiilor
 ================================
 
@@ -12,6 +14,7 @@ Utilizatorul poate porni aplicațiile folosind interfața grafică (*Graphical U
 În cazul interfeței în linia de comandă pornirea se face introducând și rulând comenzi.
 Vorbim despre pornirea aplicațiilor din terminal la secțiunea TODO.
 
+.. _basic_start_gui_app_icons:
 
 Pornirea unei aplicații grafice folosind iconuri
 ------------------------------------------------
@@ -32,6 +35,7 @@ Rularea înseamnă că aplicația folosește resursele sistemului pentru a înde
 În mod similar pornim alte aplicații care au iconuri.
 Aceste iconuri pot fi prezente pe bare de iconuri sau în diferite meniuri, depinzând de mediul grafic și distribuția folosită.
 
+.. _basic_stop_gui_app_icons:
 
 Oprirea unei aplicații grafice
 ------------------------------
@@ -60,6 +64,7 @@ TODO: Oprirea TODO folosind intrarea din meniul grafic al aplicației
 
 **Exercițiu:** Porniți aplicația TODO și opriți-o în toate modurile de mai sus.
 
+.. _basic_start_gui_using_alt_f2:
 
 Pornirea unei aplicații grafice folosind Alt+F2
 -----------------------------------------------
@@ -96,6 +101,8 @@ TODO: SS cu Pornirea TODO folosind Alt+F2
 Numim un astfel de șir o **comandă**; comenzile sunt șiruri introduse de utilizator pentru a porni o anumită aplicație.
 
 **Exercițiu:** Porniți aplicația **LibreOffice**, identificată de șirul (comanda) ``libreoffice``, folosind ``Alt+F2``.
+
+.. _basic_start_stop_apps_ex:
 
 Exerciții de aprofundare
 ------------------------
