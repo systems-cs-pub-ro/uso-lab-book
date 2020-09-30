@@ -13,7 +13,6 @@ USO lab book
 
    chapters/basic/apps.rst
    chapters/basic/browser.rst
-   chapters/basic/install-apps.rst
    chapters/basic/terminal.rst
    chapters/basic/workspace.rst
    chapters/basic/cheatsheet.rst
