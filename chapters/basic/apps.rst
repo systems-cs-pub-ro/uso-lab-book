@@ -104,8 +104,8 @@ Numim un astfel de șir o **comandă**; comenzile sunt șiruri introduse de util
 
 .. _basic_start_stop_apps_ex:
 
-Exerciții de aprofundare
-------------------------
+Exerciții
+---------
 
 Porniți aplicațiile:
 
@@ -114,7 +114,7 @@ Porniți aplicațiile:
 * Mines (identificată de șirul ``gnome-mines``), joc de tip Minesweeper
 * ToDo (identificată de șirul ``gnome-todo``), aplicație de gestiune de taskuri / todo-uri
 
-Porniți fiecare aplicație în trei moduri:
+Porniți fiecare aplicație în două moduri:
 
 #. Folosind iconuri în interfața grafică.
    Localizați iconul în meniurile interfeței grafice.
