@@ -20,9 +20,6 @@ Deschiderea și închiderea terminalului
 
 Fiind o aplicație ca oricare alta, avem mai multe moduri prin care putem să **deschidem** aplicația *GNOME Terminal* (la fel cum am menționat în secțiunea :ref:`basic_start_stop_apps`):
 
-* Folosind iconuri.
-
-* Folosind combinația de taste ``Alt+F2``.
 * Apăsând *click dreapta* și apoi butonul *Open Terminal* ca în imaginea de mai jos:
 
   .. figure:: ./gifs/open-terminal-right-click.gif
@@ -33,12 +30,10 @@ Fiind o aplicație ca oricare alta, avem mai multe moduri prin care putem să **
 Pentru **închiderea** terminalului avem următoarele variante:
 
 * Folosind butonul ``x`` din partea dreaptă-sus a aplicației.
-* Folosind combinația de taste ``Ctrl+Shift+q``.
-* Folosind combinația de taste ``Alt+F4``.
 * Folosind combinația de taste ``Ctrl+d``. 
 
-Exerciții practice
-^^^^^^^^^^^^^^^^^^
+Exerciții
+^^^^^^^^^
 
 #. Deschideți de patru ori aplicația *GNOME Terminal* folosind combinația de taste ``Ctrl+Alt+t``.
 #. Închideți toate aplicațiile *GNOME Terminal* deschise folosind combinația de taste ``Ctrl+d``.
@@ -67,13 +62,6 @@ Deschidem un nou tab atunci când avem nevoie să facem o altă operație fără
 
 Putem **deschide** un nou tab în terminal în mai multe moduri:
 
-* Folosind meniul aplicației ca în imaginea de mai jos:
-
-  .. figure:: ./gifs/terminal-open-tabs-menu.gif
-    :alt: Deschiderea taburilor în terminal folosind meniul aplicației
-
-  Apăsăm pe opțiunea *File* din meniu după care pe butonul *New Tab*.
-
 * Apăsând *click dreapta* în interiorul terminalului după care pe butonul *New Tab* ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-open-tabs-right-click.gif
@@ -88,17 +76,12 @@ Putem **închide** un tab în terminal în mai multe moduri:
   .. figure:: ./gifs/terminal-close-tabs-x.gif
     :alt: Închiderea taburilor în terminal folosind butonul ``x``
 
-* Folosind butonul (*simbolul*) ``x`` din dreptul tabului ca în imaginea de mai jos:
-
-  .. figure:: ./gifs/terminal-close-tabs-menu.gif
-    :alt: Închiderea taburilor în terminal folosind meniul aplicației
-
 * Folosind combinația de taste ``Ctrl+Shift+w``.
 
 .. _basic_open_close_tabs_cli_ex:
 
-Exerciții practice
-""""""""""""""""""
+Exerciții 
+"""""""""
 
 #. Deschideți un nou terminal folosind combinația de taste ``Ctrl+Alt+t``.
 #. Deschideți două taburi de terminal noi folosind combinația de taste ``Ctrl+Shift+t``,
@@ -121,12 +104,10 @@ Avem mai multe variante să facem acest lucru:
 * Folosind combinația de taste ``Alt+<număr>`` unde *număr* este numărul (*indexul*) tabului la care vrem să ajungem.
   Primul tab are numărul 1, al nouălea tab are numărul 9, iar al zecelea are numărul 0.
 
-* Folosind combinațiile de taste (*shortcuturile*) ``Ctrl+PageUp`` pentru a merge la următorul tab și ``Ctrl+PageDown`` pentru a trece la tabul anterior.
-
 .. _basic_navigate_tabs_cli_ex:
 
-Exerciții practice
-""""""""""""""""""
+Exerciții
+"""""""""
 
 #. Deschdideți un nou terminal folosind combinația de taste ``Ctrl+Alt+t``.
 #. Deschideți patru taburi folosind combinația de taste ``Ctrl+Shift+t``.
@@ -135,8 +116,6 @@ Exerciții practice
 #. Mergeți pe al doilea tab folosind combinația de taste ``Alt+2``.
 #. Mergeți pe primul tab folosind combinația de taste ``Alt+1``.
 #. Închideți aplicația *GNOME Terminal* în orice mod vreți.
-
-.. _basic_start_apps_cli:
 
 .. _basic_shortcuts_cli:
 
@@ -157,15 +136,6 @@ Pentru a da scroll în terminal avem mai multe moduri:
 * Folosind mouse-ul sau touchpad-ul.
 * Folosind combinațiile de taste ``Shift+PageUp`` și ``Shift+PageDown``.
 
-.. _basic_copy_paste_cli:
-
-Copierea și lipirea textului
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Copierea și lipirea de text sunt operații *foarte* importante.
-Vrem să evităm greșile de tastare pe cât posibil.
-Folosirea acestor feature-uri este un mod de a preveni greșeli de tastare.
-
 .. _basic_clear_screen_cli:
 
 Golirea ecranului de terminal
@@ -180,6 +150,15 @@ Pentru golire ecranului de termninal avem mai multe variante:
 
 * Folosind combinația de taste ``Ctrl+l`` în terminal.
 
+.. _basic_copy_paste_cli:
+
+Copierea și lipirea textului
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Copierea și lipirea de text sunt operații *foarte* importante.
+Vrem să evităm greșile de tastare pe cât posibil.
+Folosirea acestor feature-uri este un mod de a preveni greșeli de tastare.
+
 .. _basic_copy_cli:
 
 Copierea textului
@@ -193,8 +172,6 @@ Copierea textului
     :alt: Copierea textului în terminal
 
 * Selectăm textul și apăsăm combinația de taste ``Ctrl+Shift+c``.
-
-* Selectăm textul și apăsăm combinația de taste ``Ctrl+Insert``.
 
 .. warning::
 

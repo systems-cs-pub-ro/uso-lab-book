@@ -14,6 +14,9 @@ Utilizatorul poate porni aplicațiile folosind interfața grafică (*Graphical U
 În cazul interfeței în linia de comandă pornirea se face introducând și rulând comenzi.
 Vorbim despre pornirea aplicațiilor din terminal la secțiunea TODO.
 
+În această secțiune vorbim despre pornirea și oprirea aplicațiilor.
+Instalrea aplicațiilor noi este acoperită în secțiunea :ref:`app_install_install_uninstall`.
+
 .. _basic_start_gui_app_icons:
 
 Pornirea unei aplicații grafice folosind iconuri
@@ -21,13 +24,12 @@ Pornirea unei aplicații grafice folosind iconuri
 
 Cel mai simplu mod de a porni o aplicație grafică este folosind iconuri.
 Folosim mouse-ul și facem click pe icon și pornim aplicația.
-De exemplu, în Ubuntu 18.04, pentru a porni aplicația TODO folosim iconul din bara de jos în stânga, la fel ca în imaginea de mai jos:
+De exemplu, în Ubuntu 18.04, pentru a porni aplicația Rhythmbox folosim iconul din bara de jos în stânga, la fel ca în imaginea de mai jos:
 
-TODO: SS cu iconuri aplicații din bară
+.. figure:: ./gifs/open-rhythmbox-icon.gif
+    :alt: Pornirea aplicației Rhythmbox folosind iconul
 
-După un click pe icon aplicația va porni și o putem folosi, ca în imaginea de mai jos:
-
-TODO: SS aplicația TODO pornită
+După un click pe icon aplicația va porni și o putem folosi.
 
 Spunem că acum aplicația **rulează**.
 Rularea înseamnă că aplicația folosește resursele sistemului pentru a îndeplini nevoile utilizatorului sau sistemului.
@@ -45,24 +47,24 @@ Utilizatorul poate opri o aplicație grafică în mai multe moduri:
 
 * Folosind butonul de închidere a ferestrei grafice, în general în forma unui simbol **x**, ca în imaginea de mai jos:
 
-  .. image:: img/exit-gui.png
-      :align: center
-      :alt: Butoane ale ferestrei grafice
+  .. figure:: ./gifs/close-rhythmbox-x.gif
+    :alt: Oprirea aplicației Rhythmbox folosind butonul ``x``
 
 * Folosind combinația de taste ``Alt+F4`` care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.
-* Folosind intrarea de tip *Quit* / *Close* / *Exit* din meniul grafic al aplicației, ca în imaginea de mai jos, specifică aplicației TODO:
+* Folosind intrarea de tip *Quit* / *Close* / *Exit* din meniul grafic al aplicației, ca în imaginea de mai jos, specifică aplicației LibreOffice:
 
-TODO: Oprirea TODO folosind intrarea din meniul grafic al aplicației
+  .. figure:: ./gifs/close-libreoffice-menu.gif
+    :alt: Oprirea aplicației LibreOffice folosind meniul grafic al aplicației
 
 * Folosind o combinație de taste care este asociată intrării din meniul grafic al aplicației.
-  În imaginea de mai sus, specifică TODO, combinația de taste este ``Ctrl+q``.
+  În imaginea de mai sus, specifică LibreOffice, combinația de taste este ``Ctrl+q``.
   Această combinație de taste depinde de aplicație, spre deosebire combinației de taste ``Alt+F4`` care se aplică tuturor aplicațiilor grafice.
 
 * Folosind utilitarul ``xkill``.
   După ce pornim utilitarul ``xkill``, cursorul mouse-ului capătă o formă de ``x``.
   Un click pe o aplicație grafică duce la omorârea acelei aplicații.
 
-**Exercițiu:** Porniți aplicația TODO și opriți-o în toate modurile de mai sus.
+**Exercițiu:** Porniți aplicația *Thunderbird Mail* și opriți-o în toate modurile de mai sus.
 
 .. _basic_start_gui_using_alt_f2:
 
@@ -76,11 +78,12 @@ Soluția este folosirea unui mod generic de a lansa o aplicație în interfața 
 
 În mediile grafice Linux pornim un prompt de tip *application launcher* folosind combinația de taste ``Alt+F2``.
 Când apăsăm ``Alt+F2`` mediul grafic prezintă un prompt în care introducem șirul care identifică aplicația.
-De exemplu, pentru a porni aplicația TODO introducem șirul ``TODO`` în prompt, ca în figura de mai jos:
+De exemplu, pentru a porni aplicația Rhythmbox introducem șirul ``rhythmbox`` în prompt, ca în figura de mai jos:
 
-TODO: SS cu Pornirea TODO folosind Alt+F2
+.. figure:: ./gifs/open-rhythmbox-alt-f2.gif
+    :alt: Pornirea aplicației Rhythmbox folosind ``Alt+F2``
 
-În urma introducerii șirului ``TODO`` în prompt, urmat de apăsarea tastei ``Enter``, aplicația TODO va porni.
+În urma introducerii șirului ``rhythmbox`` în prompt, urmat de apăsarea tastei ``Enter``, aplicația Rhythmbox va porni.
 
 .. note::
 
@@ -97,7 +100,7 @@ TODO: SS cu Pornirea TODO folosind Alt+F2
     De exemplu, aplicația de tip terminal pe mediul KDE este Konsole.
     Sau utilizatorul poate decide instalarea unei alte aplicații de tip terminal, precum Terminator.
 
-Șirurile ``TODO`` și ``gnome-terminal`` sunt șiruri identifică aplicațiile TODO, respectiv GNOME Terminal.
+Șirurile ``rhythmbox`` și ``gnome-terminal`` sunt șiruri identifică aplicațiile Rhythmbox, respectiv GNOME Terminal.
 Numim un astfel de șir o **comandă**; comenzile sunt șiruri introduse de utilizator pentru a porni o anumită aplicație.
 
 **Exercițiu:** Porniți aplicația **LibreOffice**, identificată de șirul (comanda) ``libreoffice``, folosind ``Alt+F2``.

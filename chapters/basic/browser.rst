@@ -31,8 +31,6 @@ Putem opri browserul Firefox în mai multe moduri (așa cum am menționat în se
 
 * Folosind iconuri.
 
-* Folosind combinația de taste (*scurtătura*, *shortcutul*) ``Alt+F2`` și introducând șirul ``firefox``.
-
 * Folosind linia de comandă ca în imaginea de mai jos:
 
   .. figure:: ./gifs/start-firefox-terminal.gif
@@ -47,15 +45,7 @@ Putem opri browserul Firefox în mai multe moduri:
 
 * Folosind butonul de închidere a ferestrei grafice, în forma unui simbol ``x``.
 
-* Folosind intrarea de tip *Quit* din meniul grafic al aplicației, ca în imaginea de mai jos, specifică aplicației Firefox:
-
-  .. figure:: ./img/close-firefox-menu.png
-    :scale: 25%
-    :alt: Oprirea aplicației Firfox intrarea *Quit* din meniul grafic al aplicației
-
 * Folosind combinația de taste ``Alt+F4`` care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.
-
-* Folosind combinația de taste ``Ctrl+q``, specifică aplicației Firefox.
 
 După folosirea unei dintre metodele de mai sus, aplicația Firefox este oprită.
 Adică nu mai putem interacționa cu ea, nu mai folosește resursele sistemului.
@@ -94,13 +84,8 @@ Odată accesată bara de adrese putem introduce șirul www.google.com
 
 .. _basic_address_bar_browser_ex:
 
-Exerciții
-"""""""""
+**Exercițiu:** Accesați paginile **www.curs.upb.ro**, **www.studenti.pub.ro**, **www.hotnews.ro**, **www.facebook.com** folosind ambele metode prezentate mai sus.
 
-#. Accesați pagina **www.curs.upb.ro** folosind clickuri.
-#. Accesați pagina **www.studenti.pub.ro**  folosind clickuri.
-#. Accesați pagina **www.hotnews.ro** folosind ``Ctrl+l``.
-#. Accesați pagina **www.facebook.com** folosind ``Ctrl+l``.
 
 .. _basic_navigation_buttons_browser:
 
@@ -118,11 +103,12 @@ Putem naviga la pagini navigate anterior în două moduri:
   .. figure:: ./gifs/back-forward-web-pages.gif
     :alt: Navigarea către pagini vizitate anterior folosind butoane
 
-Am trecut prin paginile **www.facebook.com**, **www.hotnews.ro**, **www.hotnews.ro** și înapoi la **www.hotnews.ro**, **www.facebook.com**.
+  Am trecut prin paginile **www.facebook.com**, **www.hotnews.ro**, **www.hotnews.ro** și înapoi la **www.hotnews.ro**, **www.facebook.com**.
 
 * Folosind combinațiile de taste echivalente cu clickurile pe săgețile stânga/dreapta din browser:
-  * Navigare înapoi: ``Alt+săgeată stânga`` sau ``Ctrl+[``.
-  * Navigare înainte: ``Alt+săgeată dreapta`` sau ``Ctrl+]``.
+  
+  * Navigare înapoi: ``Alt+săgeată stânga``.
+  * Navigare înainte: ``Alt+săgeată dreapta```.
 
 .. _basic_navigation_buttons_browser_ex:
 
@@ -146,15 +132,7 @@ Navigarea sus/jos în cadrul unei pagini web se numește **scroll**.
 Accesăm pagina **www.hotnews.ro**.
 Putem da scroll în pagină în mai multe moduri:
 
-* Folosind mouse-ul prin rotiță.
-
-* Folosind touchpadul.
-
-* Folosind tastele *săgeată sus*/*săgeată* jos.
-  Așa ne deplasăm în sus/jos cu câte o linie.
-
-* Folosind combinația de taste ``Alt+scroll up`` și ``Alt+scroll down``.
-  Așa ne deplasăm în sus/jos cu câte o linie.
+* Folosind mouse-ul prin rotiță / touchpadul.
 
 * Folosind butoanele ``PageUp`` și ``PageDown`` de pe tastatură.
   Așa ne deplasăm câte un "ecran" în jos sau în sus.
@@ -162,7 +140,7 @@ Putem da scroll în pagină în mai multe moduri:
 În imaginea de mai jos se vede cum dăm scroll sus și jos pe pagina **www.hotnews.ro**:
 
 .. figure:: ./gifs/firefox-scroll.gif
-:alt: Navigarea către pagini vizitate anterior folosind butoane
+    :alt: Scroll în browser
 
 .. _basic_refresh_browser_page:
 
@@ -183,8 +161,6 @@ Putem reîmprospăta pagina web în mai multe moduri:
     :alt: Reîmprospătarea paginii web
 
 * Folosind tasta ``F5``.
-
-* Folosind combinația de taste ``Ctrl+r``.
 
 .. _basic_tabs_browser:
 
@@ -265,8 +241,6 @@ Putem închide un tab în browser în mai multe moduri:
     :alt: Închiderea taburilor folosind butonul ``x``
 
 * Folosind combinația de taste ``Ctrl+w``.
-
-* Folosind combinația de taste ``Ctrl+F4``.
 
 **Exerciții**
 
