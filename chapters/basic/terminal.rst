@@ -4,14 +4,14 @@ Lucrul în terminal
 ==================
 
 **GNOME Terminal** (uzual folosit *terminalul*) este o aplicație software, la fel ca *LibreOffice* și *Firefox*.
-Terminalul este folosi, în general, pentru rularea **aplicațiilor software** (*programe*, *utilitare*) care nu au **interfață grafică** (*GUI*).
+Terminalul este folosit, în general, pentru rularea **aplicațiilor software** (*programe*, *utilitare*) care nu au **interfață grafică** (*GUI*).
 Exemple de astfel de aplicații / programe / utilitare sunt: **ls**, **tree**, **ps** și **echo**.
 Toate acestea (și altele) vor fi prezentate ulterior în această carte.
 Pentru moment este suficient să știm că ele există.
 
-Folosim linia de comandă prin intermediul aplicației *GNOME Terminal* care are identificatorul **gnome-terminal**.
+Folosim linia de comandă prin intermediul aplicației *GNOME Terminal*, care are identificatorul **gnome-terminal**.
 Avem nevoie de linia de comandă ca să rezolvăm mai rapid unele taskuri.
-Vom aprofunda aceste lucruri în capitolul TODO.
+Vom aprofunda aceste lucruri în capitolul ``Îmbunătățirea lucrului în linia de comandă``.
 
 .. _basic_start_cli:
 
@@ -20,7 +20,7 @@ Deschiderea și închiderea terminalului
 
 Fiind o aplicație ca oricare alta, avem mai multe moduri prin care putem să **deschidem** aplicația *GNOME Terminal* (la fel cum am menționat în secțiunea :ref:`basic_start_stop_apps`):
 
-* Apăsând *click dreapta* și apoi butonul *Open Terminal* ca în imaginea de mai jos:
+* Apăsând *click dreapta* și apoi butonul *Open Terminal*, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/open-terminal-right-click.gif
     :alt: Deschiderea aplicației *GNOME Terminal* folosind click dreapta
@@ -44,25 +44,26 @@ Folosirea taburilor în terminal
 -------------------------------
 
 Avem următoarea situație: deschidem o aplicație din terminal și vrem să monitorizăm câte resurse folosește, totul din linia de comandă.
-Ca să facem acest lucru putem să deschidem două terminale: unul cu aplicația pe care vrem să o monitorizăm și unul în care pornim aplicația de monitorizare.
-Pe lângă aceste 2 acțiuni putem să avem nevoie să facem și altele, iar lucrul cu mai multe terminale deschise devine dificil.
+Ca să facem acest lucru, putem să deschidem două terminale: unul cu aplicația pe care vrem să o monitorizăm și unul în care pornim aplicația de monitorizare.
+Pe lângă aceste două acțiuni, putem să avem nevoie să facem și altele, iar lucrul cu mai multe terminale deschise devine dificil.
 
 La fel ca atunci când folosim un browser web, avem nevoie de taburi și în terminal.
 
-În următoarele sub-subsecțiuni vom vorbi despre cum să deschidem, să închidem și să navigăm printre taburile din terminal.
-Deschideți din nou aplicația *GNOME Terminal*.
+În următoarele sub-subsecțiuni vom vorbi despre cum să deschidem, să închidem și să navigăm între taburile din terminal.
 
 .. _basic_open_close_tabs_cli:
 
 Deschiderea și închiderea taburilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Deschidem un nou tab atunci când avem nevoie să facem o altă operație fără a o întrerupe pe cea de acum.
+Deschideți din nou aplicația *GNOME Terminal*.
+
+Deschidem un nou tab atunci când avem nevoie să facem o altă operație, fără a o întrerupe pe cea de acum.
 Închidem taburile în momentul în care am terminat o operație pentru a nu încărca sistemul.
 
 Putem **deschide** un nou tab în terminal în mai multe moduri:
 
-* Apăsând *click dreapta* în interiorul terminalului după care pe butonul *New Tab* ca în imaginea de mai jos:
+* Apăsând *click dreapta* în interiorul terminalului, după care pe butonul *New Tab*, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-open-tabs-right-click.gif
     :alt: Deschiderea taburilor în terminal folosind click dreapta
@@ -71,12 +72,12 @@ Putem **deschide** un nou tab în terminal în mai multe moduri:
 
 Putem **închide** un tab în terminal în mai multe moduri:
 
-* Folosind meniul aplicației ca în imaginea de mai jos:
+* Folosind meniul aplicației, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-close-tabs-x.gif
     :alt: Închiderea taburilor în terminal folosind butonul ``x``
 
-* Folosind combinația de taste ``Ctrl+Shift+w``.
+* Folosind combinația de taste ``Ctrl+d``.
 
 .. _basic_open_close_tabs_cli_ex:
 
@@ -85,24 +86,25 @@ Exerciții
 
 #. Deschideți un nou terminal folosind combinația de taste ``Ctrl+Alt+t``.
 #. Deschideți două taburi de terminal noi folosind combinația de taste ``Ctrl+Shift+t``,
-#. Închideți taburile folosind combinația de taste ``Ctrl+Shift+w``.
+#. Închideți taburile folosind combinația de taste ``Ctrl+d``.
 
 .. _basic_navigate_tabs_cli:
 
-Navigarea printe taburi
-^^^^^^^^^^^^^^^^^^^^^^^
+Navigarea între taburi
+^^^^^^^^^^^^^^^^^^^^^^
 
-Vrem să navigăm printre taburile din terminal la fel ca în cazul browserului web pentru a putea trece de la o operație începută la alta rapid.
+Vrem să navigăm între taburile din terminal, la fel ca în cazul browserului web, pentru a putea trece de la o operație începută la alta rapid.
 
 Avem mai multe variante să facem acest lucru:
 
-* Folosind clickuri ca în imaginea de mai jos:
+* Folosind clickuri, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-navigate-tabs.gif
-    :alt: Navigarea printre taburi în terminal folodind clickuri
+    :alt: Navigarea între taburi în terminal folodind clickuri
 
-* Folosind combinația de taste ``Alt+<număr>`` unde *număr* este numărul (*indexul*) tabului la care vrem să ajungem.
+* Folosind combinația de taste ``Alt+<număr>``, unde *număr* este numărul (*indexul*) tabului la care vrem să ajungem.
   Primul tab are numărul 1, al nouălea tab are numărul 9, iar al zecelea are numărul 0.
+  Combinațiile de taste folosite în terminal sunt similare cu cele din browser, prezentate în secțiunea :ref:`basic_navigate_tabs_browser`.
 
 .. _basic_navigate_tabs_cli_ex:
 
@@ -122,9 +124,9 @@ Exerciții
 Alte shortcuturi utile în terminal
 ----------------------------------
 
-Pe lângă shortcuturile de pornire/oprire a terminalului, de lucru cu taburi în terminal, mai există și alte shortcuturi pe care dacă le reținem vom putea lucra în terminal foarte rapid.
+Pe lângă shortcuturile de pornire/oprire a terminalului, de lucru cu taburi în terminal, mai există și alte shortcuturi cu care, dacă le reținem, vom putea lucra în terminal foarte rapid.
 
-În sub-subsecțiunile următoare vom vorbi despre scrollul, copierea și lipirea textului în terminal și despre golirea ecranului de terminal.
+În subsecțiunile următoare vom vorbi despre scrollul, copierea și lipirea textului în terminal și despre golirea ecranului de terminal.
 
 .. _basic_scroll_cli:
 
@@ -141,9 +143,9 @@ Pentru a da scroll în terminal avem mai multe moduri:
 Golirea ecranului de terminal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru golire ecranului de termninal avem mai multe variante:
+Pentru golirea ecranului de termninal avem mai multe variante:
 
-* Folosind comanda ``clear`` în terminal ca în imaginea de mai jos:
+* Folosind comanda ``clear`` în terminal, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-clear.gif
     :alt: Curățarea ecranului de terminal folosind ``clear``
@@ -166,17 +168,12 @@ Copierea textului
 
 În cadrul aplicației *GNOME Terminal* copierea textului se face diferit față de alte aplicații, în mai multe moduri:
 
-* Selectăm textul, apăsăm *click dreapta* și apăsăm butonul *Copy* ca în imaginea de mai jos:
+* Selectăm textul, apăsăm *click dreapta* și apăsăm butonul *Copy*, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-copy.gif
     :alt: Copierea textului în terminal
 
-* Selectăm textul și apăsăm combinația de taste ``Ctrl+Shift+c``.
-
-.. warning::
-
-    Pentru copierea textului din terminal folosim combinația de taste ``Ctrl+Shift+c`` și **NU** ``Ctrl+c``.
-    În terminal, combinația de taste ``Ctrl+c`` are rolul de a opri o aplicație / un utilitar pornit [#ctrlc]_.
+* Selectăm textul și apăsăm combinația de taste ``Ctrl+Insert``.
 
 .. _basic_paste_cli:
 
@@ -185,23 +182,9 @@ Lipirea textului
 
 În cadrul aplicației *GNOME Terminal* lipirea textului se face diferit față de alte aplicații, în mai multe moduri:
 
-* Apăsăm *click dreapta* și apăsăm butonul *Paste* ca în imaginea de mai jos:
+* Apăsăm *click dreapta* și apăsăm butonul *Paste*, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-paste.gif
     :alt: Lipirea textului în terminal
 
-* Apăsăm combinația de taste ``Ctrl+Shift+v``.
-
-.. warning::
-
-    Pentru lipirea textului în terminal folosim combinația de taste ``Ctrl+Shift+v`` și **NU** ``Ctrl+v``.
-
-
-.. rubric:: Note de subsol
-
-.. [#ctrlc]
-
-    Pentru anumite aplicații combinația de taste ``Ctrl+c`` poate să nu funcționeze.
-    În acest caz putem folosi combinația de taste ``Ctrl+\``, mai puternică.
-    Dacă nici ``Ctrl+\`` nu funcționează, va trebui să trimitem aplicației un semnal mai puternic care să o oprească.
-    Vom discuta despre semnale în TODO.
+* Apăsăm combinația de taste ``Shift+Insert``.
