@@ -757,24 +757,228 @@ Operația prin care eliminăm semnificația specială a unui caracter poartă nu
 Termenul vine de la cuvântul **escape** (a scăpa), și exprimă că scăpăm de semnificația specială a unui caracter / set de caractere.
 
 
-``find`` și ``locate``
-----------------------
+Căutarea unui fișier în sistem
+------------------------------
 
-``find``
+De multe ori ne aflăm în situația în care căutăm un fișier pe disk: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul **Makefile** pentru a vedea cum compilăm și rulăm proiectul.
+Un alt exemplu poate fi că vrem să vedem cum arată fișierele de test existente în proiect; de multe ori, ințelegem mai bine proiectul doar prin simpla inspectare a testelor.
 
-* La ce este util și cum îl folosim
-* Exerciții folosind ``find``: toate fișierele de tip **regular file** (trebuie să folosească ``man find``)
-* Follow-up la exercițiul anterior: rulat comenzi pe fișierele respective
-	* În cazul ăsta vom da un ``ls -l``
-	* Exercițiul ăsta pune o bază. O să folosesc asta pentru a da search&replace recursiv folosind ``find`` și ``sed``
+Există două utilitare care ne permit să căutăm în cadrul sistemului de fișiere: ``locate`` și ``find``.
 
-``locate``
+Utilitarul ``locate``
+^^^^^^^^^^^^^^^^^^^^^
 
-* Ce este?
-* Q: De ce îl folosim? A: Mai semnificativ mai rapid decât find
-* Q: Ce dezavantaj are? A: Trebuie reconstruită baza de date periodic
+Utilitarul ``locate`` folosește o bază de date pentru a căuta în fișierele de pe sistem.
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.
 
-* Takeaway: ``locate`` este probabil sufient pentru majoritatea cazurilor; folosim ``find`` atunci când vrem să căutăm după criterii mai complexe (ex. tipul fișierelor, data creării/ultimei modificări, etc.) sau dacă vrem să rulăm o comandă pe fișierele găsite
+.. code-block:: bash
+
+    student@uso:~$ man locate
+
+    SYNOPSIS
+           locate [OPTION]... PATTERN...
+
+Observăm că ``locate`` primește ca argument un șir de caractere, **PATTERN**, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact
+
+.. code-block:: bash
+
+    student@uso:~$ locate todos.txt
+    /home/student/Desktop/todos.txt
+    student@uso:~$ locate todos
+    /home/student/Desktop/todos.txt
+
+Putem să folosim și sintaxa globbing pentru a descrie numele fișierului căutat:
+
+.. code-block:: bash
+
+    student@uso:~$ locate "*.txt"
+    /home/student/vm-actions-log.txt
+    /home/student/.local/lib/python2.7/site-packages/Keras_Applications-1.0.8.dist-info/top_level.txt
+    /home/student/.local/lib/python2.7/site-packages/Keras_Preprocessing-1.1.2.dist-info/top_level.txt
+    /home/student/.local/lib/python2.7/site-packages/Markdown-3.1.1.dist-info/entry_points.txt
+    /home/student/.local/lib/python2.7/site-packages/Markdown-3.1.1.dist-info/top_level.txt
+    /home/student/.local/lib/python2.7/site-packages/Werkzeug-1.0.1.dist-info/top_level.txt
+
+Căutările cu ``locate`` sunt foarte rapide.
+Acest lucru se datorează utilizării bazei de date pentru a indexa fișierele din sistem.
+Baza de date se reconstruiește periodic, o dată la 24h.
+Asta înseamnă că locate nu va găsi fișiere care au fost create după reconstrucția bazei de date.
+Dacă vrem să reconstruim baza de date, folosim comanda ``updatedb``.
+
+Hai să clonăm repository-ul **TheAlgorithms/C**.
+Acesta conține implementările diferitor algoritmi folosind limbajul de programare C.
+
+.. code-block:: bash
+
+    student@uso:~$ cd workspace
+    student@uso:~/workspace$ git clone https://github.com/TheAlgorithms/C.git
+    student@uso:~/workspace$ cd C
+
+Fiind vorba despre un repository care implementează algoritmi clasici, ne așteptăm să găsim și algoritmi de căutare, cum ar fi binary-search.
+Hai să căutăm după cuvântul cheie **search**.
+
+.. code-block:: bash
+
+    student@uso:~/workspace/$ locate search | grep workspace/C
+    student@uso:~/workspace/$ 
+
+Observăm că nu am găsit nici un rezultat.
+Cum spuneam mai devreme, trebuie să reconstruim baza de date pentru a căuta în fișierele nou create.
+
+.. code-block:: bash
+
+    student@uso:~/workspace/C$ sudo updatedb
+    [sudo] password for student: 
+
+Comanda ``updatedb`` trebuie executată în mod privilegiat, așa că folosim ``sudo``.
+Parola utilizatorului **student**, pe mașina noastră virtuală, este **student**.
+
+.. code-block:: bash
+
+    student@uso:~/workspace/C$ locate search | grep workspace/C
+    /home/student/workspace/C/searching
+    /home/student/workspace/C/data_structures/binary_trees/binary_search_tree.c
+    /home/student/workspace/C/searching/CMakeLists.txt
+    /home/student/workspace/C/searching/binary_search.c
+    /home/student/workspace/C/searching/fibonacci_search.c
+    /home/student/workspace/C/searching/interpolation_search.c
+    /home/student/workspace/C/searching/jump_search.c
+    /home/student/workspace/C/searching/linear_search.c
+    /home/student/workspace/C/searching/modified_binary_search.c
+    /home/student/workspace/C/searching/other_binary_search.c
+    /home/student/workspace/C/searching/pattern_search
+    /home/student/workspace/C/searching/ternary_search.c
+    /home/student/workspace/C/searching/pattern_search/CMakeLists.txt
+    /home/student/workspace/C/searching/pattern_search/boyer_moore_search.c
+    /home/student/workspace/C/searching/pattern_search/naive_search.c
+    /home/student/workspace/C/searching/pattern_search/rabin_karp_search.c
+
+Sumar: ``locate``
+"""""""""""""""""
+
+Folosim utilitarul ``locate`` pentru a căuta un fișier în întreg sistemul de fișiere.
+
+Are avantajul că este foarte rapid, deoarece folosește o bază de date pentru a indexa fișierele.
+
+Are două dezavantaje:
+    #. Baza de date trebuie reconstruită periodic.
+       Dacă vrem să reconstruim manual baza de date, avem nevoie de drepturi privilegiate pentru a rula comanda ``updatedb``.
+    #. Utilitarul caută în tot sistemul de fișiere: nu putem să specificăm un punct de start pentru căutare.
+       Este necesar să filtrăm rezultatul căutării cu punctul de start dorit, așa cum am făcut în exemplul de mai sus: ``| grep workspace/C``.
+
+
+Utilitarul ``find``
+^^^^^^^^^^^^^^^^^^^
+
+Utilitarul ``find`` îndeplinește același scop: căuta în fișierele de pe sistem.
+``find`` este un utilitar mai complex decât ``locate``.
+Acesta ne permite să căutăm fișiere după nume, permisiuni, tipul fișierelor, data ultimei modificări și multe altele.
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.
+
+.. code-block:: bash
+
+    student@uso:~$ man find
+
+    SYNOPSIS
+           find  [-H]  [-L]  [-P]  [-D  debugopts]  [-Olevel]  [starting-point...]
+           [expression]
+
+
+La o primă vedere, ``find`` poate părea complex și intimidant, dar lucrurile stau foarte simplu.
+Folosim ``find`` cu sintaxa ``find [starting-point] [expression]``, ca în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ find . -name "*search*"
+    ./C/searching
+    ./C/searching/linear_search.c
+    ./C/searching/other_binary_search.c
+    ./C/searching/binary_search.c
+    ./C/searching/modified_binary_search.c
+    ./C/searching/jump_search.c
+    ./C/searching/interpolation_search.c
+    ./C/searching/fibonacci_search.c
+    ./C/searching/ternary_search.c
+    ./C/searching/pattern_searc h
+    ./C/searching/pattern_search/naive_search.c
+    ./C/searching/pattern_search/boyer_moore_search.c
+    ./C/searching/pattern_search/rabin_karp_search.c
+    ./C/data_structures/binary_trees/binary_search_tree.c
+
+În exemplul de mai sus observă că am folosit ca **starting-point** ``.`` (directorul curent), iar ca **expression** ``-name "*search*"``.
+
+Utilitarul ``find`` folosește o expresie compusă pentru căutare.
+În exemplul anterior am folosit opțiunea ``-name PATTERN``.
+Exact ca în cazul utilitarului ``locate``, **PATTERN** poate folosi sintaxa globbing, așa cum am făcut în exemplul de mai sus ``"*search*"``.
+
+.. note::
+    Atunci când folosim sintaxa globbing, trebuie să fim atenți să încadrăm **PATTERN** între ``"`` (ghilimele), așa cum am făcut în exemplul de mai sus.
+    Trebuie să facem asta pentru ca sintaxa globbing să fie interpretată de către utilitarul ``find`` și nu de către terminalul (``bash``) din care lansăm utilitarul.
+
+Scenarii complexe de căutare
+""""""""""""""""""""""""""""
+
+Utilitarul ``find`` are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
+Una din opțiunile mai populare este ``-type`` care ne oferă posibilitatea de a căuta după tipul unui fișier:
+
+.. code-block:: bash
+
+    student@uso:~$ find workspace/C -type f
+    workspace/C/leetcode/src/226.c
+    workspace/C/leetcode/src/700.c
+    workspace/C/leetcode/src/278.c
+    [...]
+
+În exemplul de mai sus i-am spus utilitarului ``find`` că vrem să căutăm în directorul ``~/workspace/C`` toate fișierele text (regular file) ``-type f``.
+
+**Exercițiu:** Accesați pagina de manual a utilitarului find (``man find``) și căutați opțiunea ``-type``.
+Căutați în directorul ``workspace/C`` după fiecare tip de fișier suportat de opțiunea ``-type``.
+
+.. note::
+    Reminder: pentru a căuta în man folosim ``/`` pentru a intra în search mode și apoi introducem textul pe care îl căutam ``-type`` urmat de tasta ``Enter``; pentru a ne duce la următorul rezultat al căutării folosim tasta ``n`` (next).
+
+În cadrul unei căutări putem să combinăm opțiunile de căutare:
+
+.. code-block:: bash
+
+    student@uso:~$ find workspace/C -type f -name "*search*"
+    workspace/C/searching/modified_binary_search.c
+    workspace/C/searching/ternary_search.c
+    workspace/C/searching/jump_search.c
+    workspace/C/searching/binary_search.c
+
+În exemplul de mai sus căutăm toate fișierele text care conțin șirul **search** în nume.
+
+Utilitarul ``find`` ne permite să executăm comenzi asupra rezultatelor căutării.
+Facem acest cu opțiunea ``-exec command {} ;``.
+Atunci când folosim ``-exec``, rezultatul căutării va înlocui șirul **'{}'** în textul comenzii; comanda de executat trebuie să se termine în caracterul ``;``.
+
+Observăm exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ find workspace/C -type f -name "*search*" -exec ls -l {} \;
+    -rw-r--r-- 1 student student 3312 sep 17 19:20 workspace/C/searching/modified_binary_search.c
+    -rw-r--r-- 1 student student 1782 sep 17 19:20 workspace/C/searching/ternary_search.c
+    -rw-r--r-- 1 student student 1624 sep 17 19:20 workspace/C/searching/jump_search.c
+    -rw-r--r-- 1 student student 2799 sep 17 19:20 workspace/C/searching/binary_search.c
+    -rw-r--r-- 1 student student 867 sep 17 19:20 workspace/C/searching/other_binary_search.c
+
+În exemplul de mai sus, argumetul opțiunii ``exec`` este ``ls -l {} \;``.
+În cuvinte, pentru fiecare fișier text care conține șirul **search** vom afișa informații în format lung (``ls -l {}``).
+Observăm că ``-exec`` se încheie cu ``\;``: este nevoie să escapăm caracterul ``;`` pentru ca acesta să fie interpretat de către utilitarul ``find`` și nu de către terminalul în care rulăm, exact ca în cazul ``-name PATTERN``.
+
+În secțiunile ce urmează vom vedea cum ne folosim de opțiunea ``exec`` pentru a face recursiv search & replace în fișiere.
+
+Sumar: ``find``
+"""""""""""""""
+
+Folosim ``find`` pentru a căuta după criterii mai complexe decât numele fișierului, cum ar fi tipul fișierului, data ultimei modificări, etc.
+
+De cele mai multe ori vom folosi ``find`` în conjuncție cu opțiunea ``-exec`` pentru a rula o comandă asupra fișierelor găsite.
+
+Utilitarul ``find`` este mai lent decât ``locate``, dar nu necesită o bază de date care trebuie actualizată periodic.
+``locate`` este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.
 
 
 ``file`` și ``touch``
