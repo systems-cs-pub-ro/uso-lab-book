@@ -72,7 +72,7 @@ Putem **deschide** un nou tab în terminal în mai multe moduri:
 
 Putem **închide** un tab în terminal în mai multe moduri:
 
-* Folosind meniul aplicației, ca în imaginea de mai jos:
+* Folosind butonul (*simbolul*) ``x`` din dreptul tabului, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/terminal-close-tabs-x.gif
     :alt: Închiderea taburilor în terminal folosind butonul ``x``
