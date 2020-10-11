@@ -185,13 +185,13 @@ Deschiderea taburilor
 
 * Folosind meniul aplicației, ca în imaginea de mai jos:
 
-  .. figure:: ./gifs/terminal-close-tabs-x.gif
-    :alt: Închiderea taburilor în terminal folosind butonul ``x``
+  .. figure:: ./gifs/terminal-close-tabs-menu.gif
+    :alt: Închiderea taburilor în terminal folosind meniul aplicației
 
 * Folosind butonul (*simbolul*) ``x`` din dreptul tabului, ca în imaginea de mai jos:
 
-  .. figure:: ./gifs/terminal-close-tabs-menu.gif
-    :alt: Închiderea taburilor în terminal folosind meniul aplicației
+  .. figure:: ./gifs/terminal-close-tabs-x.gif
+    :alt: Închiderea taburilor în terminal folosind butonul ``x``
 
 * Folosind combinația de taste ``Ctrl+Shift+w``.
 
