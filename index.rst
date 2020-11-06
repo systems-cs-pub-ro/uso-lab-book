@@ -82,9 +82,7 @@ USO lab book
    chapters/improve-cli/inspect-fs.rst
    chapters/improve-cli/inspect-sys.rst
    chapters/improve-cli/inspect-files.rst
-   chapters/improve-cli/process-files.rst
    chapters/improve-cli/improve-shell.rst
-   chapters/improve-cli/term-multiplexing.rst
 
 
 Indices and tables
