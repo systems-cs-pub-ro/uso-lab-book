@@ -337,12 +337,222 @@ Pentru a rezolva această problemă folosim opțiunea ``-I str``, ca mai jos:
 Opțiunea ``-I`` va înlocui șirul de caractere ``str`` cu numele arhivelor primite din pipe, așa cum observăm mai sus.
 Șirul de caractere placeholder poate să fie orice, nu neapărat ``str``; comanda ``ls *.tar | xargs -I {} -p mv {} archives`` produce aceelași rezultat.
 
-Redirectări - TODO
-^^^^^^^^^^^^^^^^^^
+Redirectări
+^^^^^^^^^^^
 
-* În fișiere și în void (``/dev/null``)
-* Din generatoare ``/dev/zero``, ``/dev/urandom``
-* Selecția stream-urilor de ieșire (``out`` și ``err``), și combinarea lor (``&>``)
+Majoritatea utilitarelor pe care le folosim afișează rezultatele operațiilor pe care le aplică la ieșirea standard, adică pe ecran.
+Anterior am mai menționat și termenul de intrare standard; în această secțiune ne vom clarifica ce înseamnă, ce rol îndeplinesc și cum ne folosim de aceste cunoștințe.
+
+Orice proces folosește implicit trei fluxuri (streams) de date:
+
+* **STDIN** - fluxul de intrare standard, referit și ca "citit de la tastatură".
+  Spunem că un program care citește date de intrare din linie de comandă, deci așteaptă de la utilizator, citește de la intrarea standard; de aici și denumirea "citit de la tastatură".
+  Complementul citirii de la tastatură este citirea datelor dintr-un fișier.
+
+* **STDOUT** - fluxul de ieșire standard, referit și ca "afișare pe ecran".
+  Spunem că un program afișează datele de ieșire pe ecran, adică scrie rezultatele procesărilor efectuate la ieșirea standard.
+  Complementul afișării pe ecran este scrierea rezultatelor într-un fișier.
+
+* **STDERR** - fluxul de ieșire standard al erorilor.
+  Un program corect scris o să scrie erorile în fluxul de ieșire al erorilor.
+  Acest lucru permite filtrarea erorilor.
+
+În linie de comandă, atât STDOUT cât și STDERR vor apărea pe ecran.
+Datorită faptului că informațiile sunt scrise în două fluxuri distincte, utilizatorul are posibilitatea de a separa rezultatele de erori.
+Utilizatorul face aceasta folosind redirectări.
+
+Redirectarea ieșirilor standard
+"""""""""""""""""""""""""""""""
+
+Cum spuneam mai sus, majoritatea programelor pe care le folosim vor afișa rezultatele pe ecran.
+Acest comportament este bun atunci când ne scriem onelinerul care ne extrage informațiile căutate, dar cel mai probabil o să vrem să salvăm rezultatul procesării într-un fișier.
+
+Folosim operatorul ``>`` pentru a redirecta **STDOUT** sau **STDERR** într-un fișier.
+Pentru fiecare flux de date avem un număr, numit descriptor de fișier, asociat:
+
+* **STDIN** are asociat descriptorul de fișier 0
+* **STDOUT** are asociat descriptorul de fișier 1
+* **STDERR** are asociat descriptorul de fișier 2
+
+Pentru a redirecta ieșirea standard folosim sintaxa ``cmd 1> nume-fișier``.
+Pentru a redirecta ieșirea standard a erorilor folosim sintaxa ``cmd 2> nume-fișier``.
+
+.. warning::
+
+    **Atenție!**
+    În cazul în care fișierul destinație nu există, operatorul ``>`` în va crea.
+    Dacă fișierul destinație există, operatorul ``>`` va șterge conținutul acestuia.
+
+Urmăm exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ ps -aux --sort=-%mem | head -11
+    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+    student   8378  0.9 14.2 3490116 289980 tty1   Sl+  14:55   0:09 /usr/bin/gnome-shell
+    student   8839  0.4  9.0 1210772 184492 tty1   SLl+ 14:56   0:04 /usr/bin/gnome-software --gapplication-service
+    root      1244  0.2  4.0 1049660 82704 ?       Ssl  14:53   0:02 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   8223  0.1  3.6 726348 74876 tty1     Sl+  14:55   0:01 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    student   8710  0.0  3.3 886656 67540 ?        Ssl  14:55   0:00 /usr/lib/evolution/evolution-calendar-factory
+    student   8740  0.0  3.0 1204196 62236 ?       Sl   14:55   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8710x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8710/2
+    root      3516  0.7  2.9 516496 60988 ?        Ssl  14:54   0:07 /usr/lib/packagekit/packagekitd
+    student   8672  0.1  2.5 1033364 51296 tty1    Sl+  14:55   0:01 nautilus-desktop
+    root       311  0.0  2.2 136104 45800 ?        S<s  14:53   0:00 /lib/systemd/systemd-journald
+    root       999  0.0  2.2 912140 45628 ?        Ssl  14:53   0:01 /usr/bin/containerd
+    student@uso:~$ ps -aux --sort=-%mem | head -11 1> top10-consumers
+    student@uso:~$ less top10-consumers
+
+Am scris, prin încercări succesive, onelinerul care ne afișează primele zece procese care consumă cea mai multă memorie.
+Apoi am folosit sintaxa ``1> top10-consumers`` pentru a redirecta rezultatul în fișierul **top10-consumers**.
+
+Urmăm exemplul de mai jos pentru a redirecta erorile:
+
+.. code-block:: bash
+
+    student@uso:~$ ls D* F* > out 2> errs
+    student@uso:~$ cat out
+    Desktop:
+    todos.txt
+
+    Documents:
+    snippets.git
+    uni
+    uso.tar
+
+    Downloads:
+    courses.tar
+    uso.tar
+    student@uso:~$ cat errs
+    ls: cannot access 'F*': No such file or directory
+
+Observăm că am folosit sintaxa ``2> errs`` pentru a redirecta erorile în fișierul **errs**.
+Observăm că pentru a redirecta ieșirea standard putem omite descriptorul de fișier, așa cum am făcut cu ``> out``.
+
+Atunci când rulăm o comandă, redirectăm erorile într-un fișier pentru că vrem să verificăm că totul s-a executat cu succes.
+De cele mai multe ori suntem în rumătorul scenariu:
+
+#. Urmează să executăm o comandă care durează mai mult timp și pentru care nu putem să ținem pasul, cu ochiul liber, cu fluxul de afișare a datelor pe ecran.
+   Un exemplu este compilarea unui proiect mai mare.
+#. O să pornim procesul și o să redirectăm STDOUT și STDERR în două fișiere, de ex. ``out`` și ``err``.
+#. În timpul cât rulează noi putem să facem altceva: ne ocupăm de altă sarcină, ne facem o cafea, etc.
+#. La finalul execuției inspectăm fișierele ``out`` și ``err`` pentru a vedea dacă au existat erori și le rezolvăm.
+
+.. note::
+
+    Acum înțelegem cum funcționează operatorul ``|`` (pipe).
+    Acesta conectează fluxul de ieșire (STDOUT) al comenzii din stânga sa cu fluxul de intrare (STDIN) al comenzii din dreapta.
+
+Redirectarea în mod *append*
+""""""""""""""""""""""""""""
+
+Implicit, operatoru ``>`` șterge (trunchează) conținutul fișierului destinație.
+Dacă vrem să păstrăm conținutul fișierului și să adăugăm rezultatul redirectării în continuarea acestuia, folosim operatorul ``>>``.
+
+Rulați din nou exemplele de mai sus folosind operatorul ``>>`` în locul operatorului ``>``.
+Folosiți less pentru a inspecta fișierele de ieșire și de erori.
+
+Redirectarea erorilor la ieșirea standard
+"""""""""""""""""""""""""""""""""""""""""
+
+Motivul pentru care redirectăm erorile într-un fișier este pentru că vrem să analizăm mesajele de eroare.
+Avem și scenarii în care rulăm un program care afișează mesaje, la STDOUT și STDERR, de care nu suntem interesați.
+
+Un astfel de scenariu întâlnim atunci când pornim browserul ``firefox`` în linia de comandă: acesta afișează din când în când mesaje de care nu suntem interesați.
+Ne dorim să pornim procesul ``firefox`` în background și să redirectăm STDOUT și STDERR a.î. să nu ne polueze inutil consola.
+Urmăm exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ firefox &> firefox-ignore &
+    [1] 10349
+    student@uso:~$ firefox > firefox-ignore 2>&1 &
+    [2] 10595
+
+Cele două comenzi de mai sus produc aceelași efect: redirectează atât STDOUT, cât și STDERR în fișierul **firefox-ignore**.
+Efectul este produs prin două metode diferite:
+
+* Sintaxa ``&> cale/către/nume-fișier`` - operatorul ``&>`` va unifica fluxul STDERR cu STDOUT și va redirecta către fișierul primit ca argument.
+* Sintaxa `` > cale/către/nume-fișier 2>&1`` - operatorul ``2>&1`` folosește descriptori de fișier și redirectează STDERR (descriptorul 2) în STDOUT (descriptorul 1).
+  Această sintaxă trebuie precedată de ``> cale/către/nume-fișier``, pe care o citim: ceea ce se găsește pe fluxul de ieșire STDOUT va fi scris în fișierul **cale/către/nume-fișier**.
+
+Fișiere speciale
+""""""""""""""""
+
+Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosim în diferite scopuri:
+
+* Fișierul ``/dev/null`` este un fișier care ignoră orice este scris în el.
+  Este echivalentul unei găuri negre în sistemul nostru.
+  Cu ajutorul său, putem rescrie exemplul de mai sus în modul următor:
+
+  .. code-block:: bash
+
+      student@uso:~$ firefox &> /dev/null &
+      [1] 10349
+      student@uso:~$ firefox > /dev/null 2>&1 &
+      [2] 10595
+
+  Acum orice va genera ``firefox`` va fi scris în ``/dev/null``, care va consuma textul primit fără a ocupa spațiu pe disc.
+
+* Fișierul ``/dev/zero`` este un generator de octeți.
+  Acesta generează atâția octeți cu valoarea zero (**0**) cât îi sunt ceruți.
+  Urmăm exemplul:
+
+  .. code-block:: bash
+
+      student@uso:~$ cat /dev/zero | xxd
+      00000000: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000010: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000020: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000030: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000040: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000050: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000060: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000070: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      00000080: 0000 0000 0000 0000 0000 0000 0000 0000  ................
+      [...]
+      ^C
+
+  Deoarece citim din generator, comanda ``cat`` va afișa o infinitate de octeți cu valoarea zero.
+  Utilitarul ``xxd`` afișează în hexazecimal textul primit la STDIN.
+  Trecem rezultatul lui ``cat`` prin ``xxd`` deoarece valoarea **0** nu este un caracter print-abil.
+  Folosim ``Ctrl+c`` pentru a opri execția.
+
+  **Exercițiu**: Rulați comanda ``cat /dev/zero`` pentru a înțelege nevoia utilitarului ``xxd`` din exemplul de mai sus.
+
+* Fișierul ``/dev/urandom`` este un alt generator de octeți.
+  Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.
+
+  **Exercițiu**: Rulați comenzile din exemplul anterior, dar acum citiți din ``/dev/urandom``.
+
+Generatoarele de octeți sunt utile pentru a testa aplicațiile pe care le dezvoltăm pe inputuri random.
+Folosim utilitarul ``dd`` pentru a genera un fișier de 100 MB cu octeți random, ca în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ dd if=/dev/urandom of=rand-100mb count=100 bs=1M
+    100+0 records in
+    100+0 records out
+    104857600 bytes (105 MB, 100 MiB) copied, 1,11416 s, 94,1 MB/s
+    student@uso:~$ ls -lh rand-100mb
+    -rw-rw-r-- 1 student student 100M nov  8 17:49 rand-100mb
+
+Am folosit următoarele opțiuni ale utilitarului ``dd``:
+
+* ``if`` - input file - calea către fișierul de unde citim
+* ``of`` - output file - calea către fișierul unde scriem
+* ``bs`` - block size - dimensiunea unui block citit din **if**
+* ``count`` - block count - numărul de block-uri citite
+
+** Exercițiu**: Folosiți fișierul generat și utilitarul ``tar`` pentru a testa diferite metode de compresie a arhivelor.
+Creați câte o arhivă pentru fiecare din următoarele opțiuni de compresie: **Z** (compress), **z** (gzip) și **j** (bzip2).
+Comparați dimensiunile arhivelor opținute.
+
+.. note::
+
+    Un caz uzual de utilizare a ``dd`` este suprascrierea unui disc cu informații aleatoare.
+    Această metodă este utilizată ca o formă de securitate atunci când vrem să ștergem informații de pe un disc.
+    Astfel suprascriem datele șterse pentru a preveni posibilitatea recuperării datelor de pe disc.
+    Mai multe informații găsiți `aici <https://uwnthesis.wordpress.com/2014/07/26/kali-how-to-use-dd-to-wipe-your-usb-pen-the-visual-guide/>`_.
 
 
 Exerciții - TODO
