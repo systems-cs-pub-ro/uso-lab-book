@@ -1,3 +1,5 @@
+.. _improve_cli_improve_shell:
+
 O înțelegere mai bună a shellului
 =================================
 
@@ -7,7 +9,7 @@ Configurarea shellului bash
 
 Așa cum am menționat în secțiunea Configurarea rulării aplicațiilor, modul în care o aplicație rulează este configurabil.
 Fișierul de configurare al shellului **BASH** este ``~/.bashrc``.
-Fiecare în directorul home al fiecărui utilizator se găsește un fișier ``.bashrc``.
+În directorul home al fiecărui utilizator se găsește un fișier ``.bashrc``.
 Există câte un fișier ``.bashrc`` în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor bash, fără a intra în conflict cu configurările bash ale altor utilizatori din sistem.
 Atunci când un utilizator pornește un shell bash, conținutul fișierului ``~/.bashrc`` este citit și sunt aplicate configurările specifice utilizatorului.
 
@@ -50,14 +52,14 @@ Salvați modificările făcute.
 Vizualizarea aliasurilor predefinite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a înțelege ce este un ``alias``, rulăm comanda de mai jos:
+Pentru a înțelege ce este un **alias**, rulăm comanda de mai jos:
 
 .. code-block:: bash
 
     student@uso:~$ alias ls
     alias ls='ls --color=auto'
 
-Observăm că un alias este un nume (placeholder) care înlocuiește un șir de caractere.
+Un alias este un nume (*placeholder*) care înlocuiește un șir de caractere.
 Atunci când scriem în terminal numele unei comenzi, dacă numele scris este un alias, numele comenzii va fi înlocuit cu șirul de caractere definit în alias.
 Cu alte cuvinte, atunci când executăm comanda ``ls`` în terminalul bash, defapt executăm comanda ``ls --color=auto``.
 Opțiunea ``--color=auto`` este cea care ne colorează rezultatul comenzii ``ls``.
@@ -88,6 +90,9 @@ Observăm că atât ``grep`` cât și ``egrep`` au câte un alias pentru opțiun
 Putem defini un alias și pentru un typo pe care îl facem des, așa cum este cazul pentru ``gti``, un alias pentru comanda ``git``.
 
 O parte din aceste aliasuri sunt definite în fișierul ``~/.bashrc``, iar altele în fișierul ``~/.bash_aliases``.
+Conținutul fișierului ``~/.bash_aliases`` este inclus de către fișierul ``~/.bashrc`` la pornirea shellului bash.
+Astfel, pentru o organizare mai bună, este recomandat ca utilizatorul să-și definească aliasurile în fișierul ``~/.bash_aliases``.
+
 Putem observa asta folosind comanda următoare:
 
 .. code-block:: bash
@@ -108,9 +113,6 @@ Putem observa asta folosind comanda următoare:
     alias gpre='grep'
     alias gti='git'
     [...]
-
-Conținutul fișierului ``~/.bash_aliases`` este inclus de către fișierul ``~/.bashrc`` la pornirea shellului bash.
-Astfel, pentru o organizare mai bună, este recomandat ca utilizatorul să-și definească aliasurile în fișierul ``~/.bash_aliases``.
 
 Definirea unui alias
 ^^^^^^^^^^^^^^^^^^^^
@@ -154,7 +156,7 @@ Execuția comenzilor
 Încheierea execuției unei comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu succes sau cu eșec.
+Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu **succes** sau cu **eșec**.
 Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr:
 
 * Dacă numărul întors are valoarea ``0``, procesul și-a încheiat execuția cu succes.
@@ -186,6 +188,8 @@ Urmărim exemplul de mai jos:
 
 Observăm că în cazul fișierului inexistet, comanda ``ls non-existent`` a întors valoarea ``2``, așa cum era specificat și în pagina de manual.
 
+.. _improve_cli_improve_shell_oneliners:
+
 Înlănțuirea comenzilor în funcție de succes sau eșec
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -200,8 +204,19 @@ Preferăm să înlănțuim cele trei comenzi într-una singură pentru că astfe
 
 Pentru a înlănțui comenzi în terminalul bash avem trei operatori disponibili:
 
-* Operatorul ``;`` - este folosit pentru separarea comenzilor, dar nu ține cont dacă comenzile anterioare au fost executate cu succes sau nu.
-  Urmărim exemplul de mai jos:
+* Operatorul ``;`` - este folosit pentru separarea comenzilor
+  Urmăm exemplul de mai jos:
+
+  .. code-block:: bash
+
+     student@uso:~$ mkdir demo; cd demo; touch Hello; ls
+     Hello
+
+  În exemplul de mai sus am creat directorul ``demo``, am navigat în interiorul său, am creat fișierul ``Hello`` și am afișat conținutul directorului.
+  Am făcut toate acestea înlănțuind comenzile ``mkdir``, ``cd``, ``touch`` și ``ls`` cu ajutorul operatorului ``;``.
+
+  Operatorul ``;`` este folosit pentru separarea comenzilor, dar nu ține cont dacă comenzile anterioare au fost executate cu succes sau nu.
+  Urmăm exemplul de mai jos:
 
   .. code-block:: bash
 
@@ -245,7 +260,7 @@ Pentru a rezolva scenariul de la care am plecat inițial, putem rula:
     sudo apt update && sudo apt install -y cowsay && cowsay "Howdy"
 
 Comanda de mai sus va actualiza indexul pachetelor sursă, va instala pachetul ``cowsay`` și va rula comanda ``cowsay`` pentru a valida instalarea.
-O astfel de înlănțuire de comenzi este numită oneliner.
+O astfel de înlănțuire de comenzi este numită **oneliner**.
 
 Exerciții
 """""""""
@@ -380,7 +395,7 @@ Pentru a redirecta ieșirea standard a erorilor folosim sintaxa ``cmd 2> nume-fi
 .. warning::
 
     **Atenție!**
-    În cazul în care fișierul destinație nu există, operatorul ``>`` în va crea.
+    În cazul în care fișierul destinație nu există, operatorul ``>`` îl va crea.
     Dacă fișierul destinație există, operatorul ``>`` va șterge conținutul acestuia.
 
 Urmăm exemplul de mai jos:
@@ -494,7 +509,7 @@ Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosi
   Acum orice va genera ``firefox`` va fi scris în ``/dev/null``, care va consuma textul primit fără a ocupa spațiu pe disc.
 
 * Fișierul ``/dev/zero`` este un generator de octeți.
-  Acesta generează atâția octeți cu valoarea zero (**0**) cât îi sunt ceruți.
+  Acesta generează atâția octeți cu valoarea zero (**0**) [#dev-zero]_ cât îi sunt ceruți.
   Urmăm exemplul:
 
   .. code-block:: bash
@@ -514,7 +529,8 @@ Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosi
 
   Deoarece citim din generator, comanda ``cat`` va afișa o infinitate de octeți cu valoarea zero.
   Utilitarul ``xxd`` afișează în hexazecimal textul primit la STDIN.
-  Trecem rezultatul lui ``cat`` prin ``xxd`` deoarece valoarea **0** nu este un caracter print-abil.
+  Trecem rezultatul lui ``cat`` prin ``xxd`` deoarece valoarea **0** nu este un caracter printabil.
+  Cu alte cuvinte nu este un caracter obișnuit, ca cele de pe tastatură, deoarece nu are un echivalent grafic.
   Folosim ``Ctrl+c`` pentru a opri execția.
 
   **Exercițiu**: Rulați comanda ``cat /dev/zero`` pentru a înțelege nevoia utilitarului ``xxd`` din exemplul de mai sus.
@@ -543,9 +559,9 @@ Am folosit următoarele opțiuni ale utilitarului ``dd``:
 * ``bs`` - block size - dimensiunea unui block citit din **if**
 * ``count`` - block count - numărul de block-uri citite
 
-** Exercițiu**: Folosiți fișierul generat și utilitarul ``tar`` pentru a testa diferite metode de compresie a arhivelor.
+**Exercițiu**: Folosiți fișierul generat și utilitarul ``tar`` pentru a testa diferite metode de compresie a arhivelor.
 Creați câte o arhivă pentru fiecare din următoarele opțiuni de compresie: **Z** (compress), **z** (gzip) și **j** (bzip2).
-Comparați dimensiunile arhivelor opținute.
+Comparați dimensiunile arhivelor obținute.
 
 .. note::
 
@@ -606,3 +622,12 @@ a. Exerciții
 #. Mount în modul read-only al unei partiții (util pt cei care au dualboot și vor să-și monteze discul de Windows, D:\filme, etc).
     * Utilizare sshfs (mount la o partiție prin ssh) - util pt lucrat pe cluster pt cei care folosesc IDE-uri
     * Nu are ce căuta aici, dar nu știam unde să-l pun și nu voiam să uit de el
+
+
+.. rubric:: Note de subsol
+
+.. [#dev-zero]
+
+    Valoarea **0** nu înseamnă cifra **0**.
+    Valoarea **0** înseamnă caracterul **(null)** din tabelul `ASCII <http://www.asciitable.com/>`_.
+    Caracterul **0** are valoarea **48** în tabelul ASCII.

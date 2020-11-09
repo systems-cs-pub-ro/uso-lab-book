@@ -4,15 +4,15 @@ Inspectarea sistemului
 ======================
 
 În cariera noastră o să ajungem des în situația în care o să folosim un sistem de operare pe care nu l-am instalat noi.
-Trebuie să știm cum putem să inspectăm sistemul astfel încât să avem un minim de informații despre mașina și sistemul pe care rulăm.
+Trebuie să știm cum putem să inspectăm sistemul astfel încât să avem un minim de informații despre mașina și sistemul pe care lucrăm.
 
-De regulă suntem interesați de două categorii de informații:
+De regulă, suntem interesați de două categorii de informații:
 
-#. Din punct de vedere al sistemului de operare, suntem interesați să aflăm distribuția pe care rulăm (Ubuntu), versiunea distribuției (18.04) și versiunea de kernel a sistemului (4.15.0-118-generic).
-   Suntem interesați de acestea pentru a știi dacă sistemul nostru are aplicate ultimele patch-uri de securitate sau nu.
+#. Din punct de vedere al sistemului de operare, vrem să aflăm distribuția pe care rulăm (Ubuntu), versiunea distribuției (18.04) și versiunea de kernel a sistemului (4.15.0-118-generic).
+   Vrem să știm dacă sistemul nostru are aplicate ultimele patch-uri de securitate sau nu.
 
 #. Din punctul de vedere al specificațiilor hardware ale mașinii pe care rulăm suntem interasați să aflăm modelul și arhitectura procesorului pe care rulăm și cantitatea memoriei RAM de pe sistem.
-   Suntem interesați de acestea pentru a știi dacă putem să rulăm o anumită aplicație pe sistemul nostru sau nu.
+   Vrem să știm dacă putem rula o anumită aplicație pe sistemul nostru sau nu.
 
 Inspectarea sistemului de operare
 ---------------------------------
@@ -22,7 +22,7 @@ Afișarea informațiilor despre distribuție
 
 Pentru a afișa informații despre numele și versiunea distribuției avem două opțiuni:
 
-#. Utilitarul ``lsb_realease``
+#. Folosind utilitarul ``lsb_realease``:
 
    .. code-block:: bash
 
@@ -33,7 +33,7 @@ Pentru a afișa informații despre numele și versiunea distribuției avem două
        Release:        18.04
        Codename:       bionic
 
-#. Afișarea conținutului fișierului ``/etc/os-release``
+#. Afișând conținutul fișierului ``/etc/os-release``, folosind comanda ``cat``:
 
    .. code-block:: bash
 
@@ -53,19 +53,19 @@ Pentru a afișa informații despre numele și versiunea distribuției avem două
 
 Observăm că ambele metode produc rezultatul dorit: rulăm o distribuție Ubuntu, versiunea 18.04.
 
-**Exercițiu:** Căutați pe internet distribuția voastră și versiunea de kernel și vedeți dacă există patch-uri de securitate ce pot fi aplicate.
+**Exercițiu:** Căutați pe Internet distribuția voastră și versiunea de kernel și vedeți dacă există patch-uri de securitate ce pot fi aplicate.
 
 Afișarea informațiilor despre kernel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Kernelul (sau core-ul) unui sistem de operare intermediază interacțiunea dintre aplicațiile utilizatorului și componetele fizice (hardware) ale mașinii pe care rulează sistemul de oprerare.
-Un sistem de operare este format din kernel peste care se adaugă aplicații și servicii: mediu grafic (GUI), file explorer, serviciu de ssh, etc.
+**Kernelul** (sau *core-ul*) unui sistem de operare intermediază interacțiunea dintre aplicațiile utilizatorului și componetele fizice (hardware) ale mașinii pe care rulează sistemul de operare.
+Un sistem de operare este format din kernel peste care se adaugă aplicații și servicii: *mediu grafic (GUI)*, *file explorer*, *serviciu de ssh*, etc.
 
 Aproape orice acțiune efectuată de utilizator va trece la un moment dat prin kernel.
-Să luăm următorul scenariu: un utilizator vrea să deschidă un fișier de pe disc.
-Utilizatorul va deschide aplicația de tip file explorer și va da open pe un fișier.
+Să luăm următorul scenariu: vrem să deschidem un fișier de pe disc.
+O să deschidem aplicația de tip file explorer și o să dăm open pe un fișier.
 Conținutul fișierului se află stocată fizic pe discul din calculator.
-Aplicația din mediul grafic îi va cere kernelului să îi ofere conținutul fișierului de pe discul fizic.
+Aplicația din mediul grafic va face o cerere kernelului să îi ofere conținutul fișierului de pe discul fizic.
 
 Aceelași lucru se întâmplă când navigăm pe o pagină pe internet: biții de date ajung pe placa de rețea din calculatorul nostru, apoi trec prin kernel și apoi ajung în aplicația de tip browser web pentru a ne afișa conținutul paginii.
 

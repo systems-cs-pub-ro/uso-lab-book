@@ -61,17 +61,19 @@ Observăm că ultima linie din terminal, **Manual page man(1) line 1 (press h fo
 Navigarea prin paginile manualului
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a naviga prin pagina de manual putem folosi tastele ``Arrow Down`` și ``Arrow Up`` pentru a naviga, cu câte o linie, în jos, respectiv în sus, în pagină.
+Navigăm câte un ecran de terminal în joș și în sus folosind folosind tastele ``Arrow Down`` și ``Arrow Up``.
 Putem folosi tastele ``Pg Dn`` și ``Pg Up`` pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
-Pentru a naviga la începutul paginii putem folosi tasta ``g``, iar pentru a naviga la sfârșitul paginii folosim tasta ``G``.
+Navigăm la începutul paginii folosind tasta ``g``.
+Navigăm la sfârșit paginii folosind tasta ``G``.
 
 .. note::
 
     Putem folosi tastele ``j`` și ``k`` ca alternative pentru ``Arrow Down`` și ``Arrow Up``.
     Astfel suntem mai rapizi pentru că nu ne mai mutăm mâna de pe tastele caractere.
 
-De cele mai multe ori, atunci când consultăm pagina de manual a unui utilitar suntem interesați să aflăm dacă acesta expune o anumită funcționalitate și cum o putem folosim.
-Decât să citim linie cu linie în căutarea funcționalității dorite, putem să folosim funcția de căutare a manualului:
+Folosim ``man`` ca să vedem dacă un utilitar oferă o anumită funcționaltiate.
+Citim întreaga pagină de manual ca să vedem toate funcționalitățile sau căutăm o funcționalitate folosind cuvinte cheie.
+Pașii pentru căutarea unui cuvânt cheie sunt următorii:
 
 #. Pentru a porni funcția de căutare apăsăm tasta ``/`` în sesiunea interactivă din ``man``.
 #. În continuare vom introduce textul pe care dorim să-l căutăm: poate să fie un cuvântul cheie pe care îl știm deja sau orice text care sperăm că ne duce la rezultatul dorit.
@@ -80,12 +82,10 @@ Decât să citim linie cu linie în căutarea funcționalității dorite, putem 
 #. Dacă vrem să navigăm la următorul rezultat apăsăm tasta ``n``.
    Dacă vrem să navigăm la un rezultat anterior apăsăm tasta ``N``.
 
-.. note::
-
-    Căutarea are loc de la poziția curentă în pagină către sfârșitul paginii.
-    Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă.
-    Putem folosi tasta ``?`` pentru a porni o căutare de la poziția curentă către începutul paginii.
-    Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (``g``) și apoi pornim căutarea ``/`` de acolo.
+Căutarea are loc de la poziția curentă în pagină către sfârșitul paginii.
+Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă.
+Putem folosi tasta ``?`` pentru a porni o căutare de la poziția curentă către începutul paginii.
+Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (``g``) și apoi pornim căutarea ``/`` de acolo.
 
 .. note::
 
@@ -97,7 +97,7 @@ Interpretarea paginii de manual
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 La o primă vedere, textul paginii de manual poate fi intimidant; unele utilitare au mai multe opțiuni și argumente, unele opționale, altele nu.
-O să trecem prin syntaxă și o să vedem că lucrurile sunt mult mai simple decât par.
+O să trecem prin sintaxă și o să vedem că lucrurile sunt mult mai simple decât par.
 Să analizăm pagina de manual a utilitarului ``ls``; ``man ls``:
 
 .. code-block:: bash
@@ -130,7 +130,6 @@ Să analizăm pagina de manual a utilitarului ``ls``; ``man ls``:
 #. Prima secțiune care ne interesează este "DESCRIPTION".
    Citim descrierea și ne dăm seama dacă utilitarul ne va ajuta în rezolvarea sarcinii pe care o avem.
    În cazul utilitarului ``ls``, descrierea ne informează că acesta afișează informații despre fișierele din calea indicată, sau din directorul curent atunci când nu specificăm o cale.
-   Informațiile sunt sortate alfabetic, dacă utilizatorul nu specifică altceva prin opțiunile disponibile.
 
 #. Cea de-a doua secțiune care ne interesează este "SYNOPSIS".
    Aceasta ne spune cum putem să rulăm utilitarul, ce opțiuni și argumente sunt opționale (pot lipsi) și ce opțiuni și argumente sunt obligatorii.
@@ -144,19 +143,18 @@ Să analizăm pagina de manual a utilitarului ``ls``; ``man ls``:
    Astfel, pentru ``ls``, deducem că atât opțiunile (``[OPTION]...``) cât și argumentele (``[FILE]...``, calea către fișiere sau directoare) sunt opționale.
    Cele trei puncte ``...`` înseamnă mai multe din categoria precedentă: deci ``[OPTION]...`` înseamnă că nu suntem limitați la o singură opțiune, dar opțiunile pot să și lipsească în totalitate datorită **[ ]**.
 
-   .. note::
 
-       Am menționat că o comandă poate avea atât opțiuni, cât și argumente.
-       Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de ``-`` (ex. ``-l``, ``--verbose``, etc.).
-       Argumentele îi spun unei comenzi pe ce să acționeze.
+    O comandă poate avea atât opțiuni, cât și argumente.
+    Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de ``-`` (ex. ``-l``, ``--verbose``, etc.).
+    Argumentele îi spun unei comenzi pe ce să acționeze.
 
-       În exemplul de mai jos:
+    În exemplul de mai jos:
 
-       .. code-block:: bash
+    .. code-block:: bash
 
-           student@uso:~$ ls -l Desktop/
+        student@uso:~$ ls -l Desktop/
 
-       Avem utilitarul ``ls`` care primește opțiunea ``-l`` și argumentul ``Desktop/``.
+    Avem utilitarul ``ls`` care primește opțiunea ``-l`` și argumentul ``Desktop/``.
 
 #. Ultima observație pe care o facem este că opțiunile unei comenzi pot avea o formă prescurtată, ``-a``, sau o formă lungă, ``--all``.
    Nu este obligatoriu ca o opțiune să expună ambele forme, deși majoritatea o fac.
@@ -166,8 +164,28 @@ Să analizăm pagina de manual a utilitarului ``ls``; ``man ls``:
 
        student@uso:~$ ls -la Desktop/
 
-Utilizarea secțiunilor din manual
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Exerciții
+"""""""""
+
+Deschideți pagina de manual a utilitarului ``ls``.
+
+#. Căutați opțiunea ``-a``.
+   Rulați comanda ``ls -a``.
+
+#. Căutați opțiunea ``-d``.
+   Rulați comanda ``ls -d``.
+
+#. Căutați opțiunea ``-F``.
+   Rulați comanda ``ls -F``.
+
+#. Căutați cuvântul cheie ``list``.
+   Treceți la următoarea apariție a cuvântului cheie până ajungeți la opțiunea ``-l``.
+
+#. Mergeți la finalul paginii folosind tasta ``G``.
+   Căutați cuvântul cheie ``color`` până ajungeți la opțiunea ``--color``.
+
+Extra: Utilizarea secțiunilor din manual
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În descrierea manualului (``man man``) este specificat faptul că manualul este împărțit în diferite secțiuni:
 
@@ -303,8 +321,8 @@ Acesta ne va arăta un rezumat al utilizării unei comenzi cu opțiunile cele ma
     Feriți-vă să rulați comenzi orbește, pentru că așa ați găsit pe StackOverflow, tldr, etc.
     Întotdeauna asigurați-vă că ați înțeles cum și de ce rulați comanda și abia apoi treceți la fapte.
 
-Utilizarea pachetului ``tldr``
-""""""""""""""""""""""""""""""
+Exerciții: Utilizarea pachetului ``tldr``
+"""""""""""""""""""""""""""""""""""""""""
 
 Instalați pachetul ``tldr`` pe mașina voastră.
 
@@ -317,13 +335,6 @@ Instalați pachetul ``tldr`` pe mașina voastră.
 #. Accesați pagina ``tldr`` a utilitarului ``git``.
 
 #. Accesați pagina ``tldr`` a utilitarului ``man``.
-
-Sumar: Inspectarea paginilor de manual
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-* Navigarea prin paginile manualului: search (/, ?, n, N), go up (g), go down (G), help (h) în timp ce folosim comanda man pt a afla mai multe despre cum o putem folosi mai bine; bonus: j/k pt navigare jos/sus
-* Prezentarea secțiunilor din manual: ``man printf`` vs ``man 3 printf``.
-* Prezentarea pachetului ``tldr`` - poate fi util pentru cazurile uzuale, dar nu trebuie să ne fie frică să căutăm în ``man`` pentru detalii
 
 
 Navigarea sistemului de fișiere: comanda ``cd``
@@ -410,8 +421,8 @@ Observăm că sintaxa ``cd ~/Pictures/Sinaia`` este mult mai scurtă și simplă
 În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda ``cd``, anume ``cd -``.
 Comanda ``cd -`` are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul ``/home/student/workspace/uni/programming/labs/lab01``.
 
-Exersarea navigării în cardul sistemului de fișiere
-"""""""""""""""""""""""""""""""""""""""""""""""""""
+Exerciții: Exersarea navigării în cadrul sistemului de fișiere
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Prin exercițiile care urmează o să ne exersăm mâna astfel încât să devenim cât mai comfortabili cu navigarea prin sistemul de fișiere.
 Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una relativă și să devenim din ce în ce mai rapizi.
@@ -608,13 +619,13 @@ Selectarea multiplor fișiere folosind globbing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
-Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (pattern) comun.
+Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (*pattern*) comun.
 
 Să revenim la scenariul prezentat anterior: vrem să selectăm pozele din excursia din Sinaia.
 În directorul în care avem pozele din excursie avem și alte poze de la alte evenimente.
 Știm că pozele din excursie încep toate cu numele **DCIM** și apoi sunt urmate de un număr.
 Ceea ce vrem să facem este să selectăm toate pozele al căror nume corespunde acestui tipar și să le mutăm într-un director separat.
-Pentru asta folosim globbing, ca în exemplul de mai jos:
+Pentru a face acest lucru, folosim **globbing**, ca în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -622,13 +633,13 @@ Pentru asta folosim globbing, ca în exemplul de mai jos:
 
 Observăm argumentul pe care l-am dat comenzii ``mv``, și anume ``DCIM*``.
 Expresia ``DCIM*`` este un exemplu de globbing: adică o expresie care descrie un tipar prin folosirea unor caractere speciale, așa cum este caracterul ``*``.
-În cazul de față, expresia ``DCIM*`` înseamnă orice fișier care începe cu șirul de caractere ``DCIM``.
+În cazul de față, expresia ``DCIM*`` înseamnă orice fișier al cărui nume începe cu șirul de caractere ``DCIM``.
 
 Caracterul special ``*``
 """"""""""""""""""""""""
 
 În sintaxa globbing, caracterul ``*`` poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
-În directorul vostru home (``~``), executați următoarele comenzi:
+În directorul nostru home (``~``), executăm următoarele comenzi:
 
 .. code-block:: bash
 
@@ -650,7 +661,7 @@ Caracterul special ``?``
 """"""""""""""""""""""""
 
 În sintaxa globbing, caracterul ``?`` înlocuiește exact un caracter, oricare ar fi acela.
-În directorul vostru home (``~``), executați următoarele comenzi:
+În directorul nostru home (``~``), executăm următoarele comenzi:
 
 .. code-block:: bash
 
@@ -666,12 +677,12 @@ Caracterul special ``?``
 Observăm că expresiile ``Musi?`` și ``Mus??`` s-au înlocuit cu succes cu numele directorului ``Music``, dar expresia ``Music?`` a generat o eroare deoarece nu există nici un fișier **Music** urmat de un caracter.
 
 
-Sintaxa specială ``[]``
-"""""""""""""""""""""""
+Extra: Sintaxa specială ``[]``
+""""""""""""""""""""""""""""""
 
 În sintaxa globbing, folosim sintaxa ``[]`` pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
-În directorul vostru home (``~``), executați următoarele comenzi:
+În directorul nostru home (``~``), executăm următoarele comenzi:
 
 .. code-block:: bash
 
@@ -694,14 +705,7 @@ Sintaxa accepta și intervale, cum observăm în exemplul de mai jos:
     student@uso:~$ ls -d Mus[A-Za-z0-9]c
     Music
 
-Citim expresia ``[A-Za-z0-9]`` în următorul mod: această expresie înlocuiește un caracter din intervalul ``A-Z`` sau din intervalul ``a-z`` sau din intervalul ``0-9``; cu alte cuvinte înlocuiește un caracter alfa-numeric.
-
-.. note::
-
-    Folosim forma ``A-Za-z`` pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
-    Nu putem folosi forma ``A-z`` datorită reprezentării caracterelor în tabelul ascii.
-    Caracterele **A-Z** sunt reprezentate în intervalul **65-90**, iar caracterele **a-z** în intervalul **97-122** în tabelul ascii.
-    Dacă am folosi forma **A-z**, i-am spune expresiei globbing să includă și caracterele din intervalul **91-96** din tabelul ascii în expresia noastră.
+Citim expresia ``[A-Za-z0-9]`` în următorul mod: această expresie înlocuiește un caracter din intervalul ``A-Z`` sau din intervalul ``a-z`` sau din intervalul ``0-9``; cu alte cuvinte înlocuiește un caracter *alfa-numeric* [#glob-list]_.
 
 .. tip::
 
@@ -714,8 +718,8 @@ Citim expresia ``[A-Za-z0-9]`` în următorul mod: această expresie înlocuieș
     Cu expresia de mai sus vom muta toate pozele din intervalul **DCIM0000** - **DCIM9999**.
 
 
-Sintaxa specială ``{}``
-"""""""""""""""""""""""
+Extra: Sintaxa specială ``{}``
+""""""""""""""""""""""""""""""
 
 În sintaxa globbing, folosim sintaxa ``{}`` pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
@@ -732,8 +736,8 @@ Această sintaxă înlocuiește exact un caracter din lista oferită.
 Citim expresia ``{Downloads,Music}``: în locul acestei expresii poate să existe cuvântul **Downloads** sau cuvântul **Music**.
 Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia ``{Down,Mus}*``.
 
-Folosirea ad-litteram a caracterelor speciale
-"""""""""""""""""""""""""""""""""""""""""""""
+Extra: Folosirea ad-litteram a caracterelor speciale
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Există cazuri când numele fișierelor conțin caractere speciale.
 Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:
@@ -769,7 +773,7 @@ Utilitarul ``locate``
 ^^^^^^^^^^^^^^^^^^^^^
 
 Utilitarul ``locate`` folosește o bază de date pentru a căuta în fișierele de pe sistem.
-Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.
+Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi, folosind comanda ``man``:
 
 .. code-block:: bash
 
@@ -778,7 +782,7 @@ Inspectăm pagina de manual a utilitarului pentru a vedea cum îl putem folosi.
     SYNOPSIS
            locate [OPTION]... PATTERN...
 
-Observăm că ``locate`` primește ca argument un șir de caractere, **PATTERN**, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact
+Observăm că ``locate`` primește ca argument un șir de caractere, **PATTERN**, care fac parte din numele fișierului pe care în căutăm, dar nu trebuie să-i dăm numele exact:
 
 .. code-block:: bash
 
@@ -853,19 +857,16 @@ Parola utilizatorului **student**, pe mașina noastră virtuală, este **student
     /home/student/workspace/C/searching/pattern_search/naive_search.c
     /home/student/workspace/C/searching/pattern_search/rabin_karp_search.c
 
-Sumar: ``locate``
-"""""""""""""""""
+Exerciții
+"""""""""
 
-Folosim utilitarul ``locate`` pentru a căuta un fișier în întreg sistemul de fișiere.
+#. Folosind ``locate`` căutați fișierele care conțin șirul ``bubble_sort`` în nume.
 
-Are avantajul că este foarte rapid, deoarece folosește o bază de date pentru a indexa fișierele.
+#. Folosind ``locate`` căutați fișierele care conțin șirul ``quick_sort`` în nume.
 
-Are două dezavantaje:
-    #. Baza de date trebuie reconstruită periodic.
-       Dacă vrem să reconstruim manual baza de date, avem nevoie de drepturi privilegiate pentru a rula comanda ``updatedb``.
-    #. Utilitarul caută în tot sistemul de fișiere: nu putem să specificăm un punct de start pentru căutare.
-       Este necesar să filtrăm rezultatul căutării cu punctul de start dorit, așa cum am făcut în exemplul de mai sus: ``| grep workspace/C``.
+#. Folosind ``locate`` căutați fișierele care conțin șirul ``merge_sort`` în nume.
 
+#. Folosind ``locate`` căutați fișierele care conțin șirul ``sort`` în nume.
 
 Utilitarul ``find``
 ^^^^^^^^^^^^^^^^^^^
@@ -905,7 +906,7 @@ Folosim ``find`` cu sintaxa ``find [starting-point] [expression]``, ca în exemp
     ./C/searching/pattern_search/rabin_karp_search.c
     ./C/data_structures/binary_trees/binary_search_tree.c
 
-În exemplul de mai sus observă că am folosit ca **starting-point** ``.`` (directorul curent), iar ca **expression** ``-name "*search*"``.
+În exemplul de mai sus observă că am folosit ca **starting-point** ``.`` (căutarea pleacă din directorul curent), iar ca **expression** ``-name "*search*"``.
 
 Utilitarul ``find`` folosește o expresie compusă pentru căutare.
 În exemplul anterior am folosit opțiunea ``-name PATTERN``.
@@ -915,8 +916,8 @@ Exact ca în cazul utilitarului ``locate``, **PATTERN** poate folosi sintaxa glo
     Atunci când folosim sintaxa globbing, trebuie să fim atenți să încadrăm **PATTERN** între ``"`` (ghilimele), așa cum am făcut în exemplul de mai sus.
     Trebuie să facem asta pentru ca sintaxa globbing să fie interpretată de către utilitarul ``find`` și nu de către terminalul (``bash``) din care lansăm utilitarul.
 
-Scenarii complexe de căutare
-""""""""""""""""""""""""""""
+Extra: Scenarii complexe de căutare
+"""""""""""""""""""""""""""""""""""
 
 Utilitarul ``find`` are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
 Una din opțiunile mai populare este ``-type`` care ne oferă posibilitatea de a căuta după tipul unui fișier:
@@ -970,22 +971,11 @@ Observăm că ``-exec`` se încheie cu ``\;``: este nevoie să escapăm caracter
 
 În secțiunile ce urmează vom vedea cum ne folosim de opțiunea ``exec`` pentru a face recursiv search & replace în fișiere.
 
-Sumar: ``find``
-"""""""""""""""
+.. rubric:: Note de subsol
 
-Folosim ``find`` pentru a căuta după criterii mai complexe decât numele fișierului, cum ar fi tipul fișierului, data ultimei modificări, etc.
+.. [#glob-list]
 
-De cele mai multe ori vom folosi ``find`` în conjuncție cu opțiunea ``-exec`` pentru a rula o comandă asupra fișierelor găsite.
-
-Utilitarul ``find`` este mai lent decât ``locate``, dar nu necesită o bază de date care trebuie actualizată periodic.
-``locate`` este probabil suficient pentru majoritatea cazurilor când suntem interesați de căutarea unui fișier.
-
-
-``file`` și ``touch``
----------------------
-
-În contextul ăsta arătăm că touch actualizează data ultimei modificări pentru un fișier existent
-
-
-Bonus: procfs
--------------
+    Folosim forma ``A-Za-z`` pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
+    Nu putem folosi forma ``A-z`` datorită reprezentării caracterelor în tabelul ascii.
+    Caracterele **A-Z** sunt reprezentate în intervalul **65-90**, iar caracterele **a-z** în intervalul **97-122** în tabelul ascii.
+    Dacă am folosi forma **A-z**, i-am spune expresiei globbing să includă și caracterele din intervalul **91-96** din tabelul ascii în expresia noastră.

@@ -1,3 +1,5 @@
+.. _improve_cli_inspect_files:
+
 Inspectarea fișierelor
 ======================
 
@@ -5,31 +7,22 @@ Inspectarea fișierelor
 Inspectarea rapida a conținutului fișierelor
 --------------------------------------------
 
-În secțiunea anterioară am văzut cum căutăm fișiere în sistem cu ajutorul utilitarelor ``locate`` și ``find``.
+În secțiunea anterioară, :ref:`improve_cli_inspect_fs`, am văzut cum căutăm fișiere în sistem cu ajutorul utilitarelor ``locate`` și ``find``.
 Căutăm un fișier cu un scop: vrem să găsim fișierul ``README`` pentru informații despre compilarea proiectului, vrem să ne amintim un detaliu de implementare din cod, etc.
 
 De cele mai multe ori acțiunea noastră se poate grupa în una din următoarele două categorii:
 
-#. Ne dorim să inspectăm rapid conținutul fișierelor pentru a ne da seama dacă am găsit informația căutată
-#. Ne dorim să afișăm pe ecran conținutul fișierelor pentru a extrage și prelucra informații din el
+* Ne dorim să inspectăm rapid conținutul fișierelor pentru a ne da seama dacă am găsit informația căutată.
+* Ne dorim să afișăm pe ecran conținutul fișierelor pentru a extrage și prelucra informații din acestea.
 
 Căutarea informației într-un fișier
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Pentru a vedea rapid conținutul unui fișier folosim utlitarul ``less``.
 
-Revenim la exemplul în care am căutat algoritmii de căutare folosind utilitarul ``find``:
-
-.. code-block:: bash
-
-    student@uso:~$ find workspace/C -type f -name "*search*"
-    workspace/C/searching/modified_binary_search.c
-    workspace/C/searching/ternary_search.c
-    workspace/C/searching/jump_search.c
-    workspace/C/searching/binary_search.c
-
+Avem fișierul ``workspace/C/searching/binary_search.c``.
 Vrem să ne facem rapid o idee despre cum arată implementarea algoritmului **binary_search**.
-Inspectăm conținutul fișierului ``workspace/C/searching/binary_search.c`` ca în exemplul de mai jos:
+Inspectăm conținutul fișierului ``workspace/C/searching/binary_search.c``, folosind utilitarul ``less`, ca în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -76,12 +69,11 @@ Observăm că acum avem o sesiune interactivă în interiorul căreia putem expl
     * Search (``/``, ``?``, ``n``, ``N``)
     * Go up (``g``), go down (``G``)
     * Help (``h``) pentru a afla mai multe despre cum putem folosi mai bine sesiunea interactivă
+    * Quit (``q``) pentru a ieși din sesiunea interactivă
 
 În sesiunea interactivă căutăm după cuvântul cheie **search**.
 Pentru a porni căutarea apăsăm tasta ``/``, introducem textul căutat (**search**) și apăsăm tasta ``Enter``.
 Apăsăm tasta ``n`` pentru a merge la următoarea apariție a textului căutat; apăsăm ``n`` până când ajungem la implementarea funcției ``binarysearch2``.
-
-* TODO: bonus: reload (:Examine non_existing_file, ex. :e ee) - îl mai trec sau este prea mult / prea exoteric?
 
 Exerciții
 """""""""
@@ -117,24 +109,6 @@ Rulăm comanda de mai jos, pentru a exemplifica:
     #include <assert.h>
     #include <stdio.h>
 
-    /** Recursive implementation
-     * \param[in] arr array to search
-     * \param l left index of search range
-     * \param r right index of search range
-     * \param x target value to search for
-     * \returns location of x assuming array arr[l..r] is present
-     * \returns -1 otherwise
-     */
-    int binarysearch1(const int *arr, int l, int r, int x)
-    {
-        if (r >= l)
-        {
-            int mid = l + (r - l) / 2;
-
-            // If element is present at middle
-            if (arr[mid] == x)
-                return mid;
-
     [...]
 
 Observăm că pentru un fișier cu un număr mare de linii, așa cum este **binary_search.c**, afișarea întregului conținut pe ecran devine un impediment în a putea înțelege și urmării conținutul.
@@ -155,6 +129,7 @@ Pentru aceasta rulăm comanda de mai jos:
     MemAvailable:     874420 kB
 
 În exemplul de mai sus folosim ``cat`` pentru a oferi ca intrare conținutul fișierului ``/proc/meminfo`` utilitarului ``grep``; cu utilitarul ``grep`` filtrăm conținutul după textul ``"Mem"``.
+Cu alte cuvinte, outputul comenzii ``cat /proc/meminfo``, adică conținutul fișierului ``/proc/meminfo`` este textul pe care utilitarul ``grep`` îl prelucrează.
 
 **Exercițiu**: Plecând de la exemplul de mai sus, extrageți din fișierul ``/proc/cpuinfo`` dimensiunea memoriei cache a procesorului vostru; filtrați conținutul după textul ``"cache"``.
 
@@ -173,7 +148,7 @@ Pentru aceste cazuri putem folosi utilitarele:
     Valoarea **10** este valoarea implicită a ambelor utilitare, dar putem specifica un alt număr de linii.
 
 Așa cum am observat în capitolul despre procese, putem folosi utilitarul ``ps`` pentru a vedea care sunt procesele din sistem și ce resurse consumă acestea.
-Memoria sistemului este una dintre cele mai importante resurse; dacă sistemul nostru rămâne fără memorie disponibilă, tot sistemul este impactat: sistemul se va "mișca" mai greu, procesele se vor "mișca" mai greu sau pot chiar să își întrerupă activitatea.
+Memoria sistemului este una dintre cele mai importante resurse; dacă sistemul nostru rămâne fără memorie disponibilă, tot sistemul este afectat: sistemul se va "mișca" mai greu, procesele se vor "mișca" mai greu sau pot chiar să își întrerupă activitatea.
 Știind acest lucru, suntem interesați să vedem care sunt primele zece procese care consumă cea mai multă memorie.
 
 Folosim utilitarul ``ps`` pentru a afișa toate procesele din sistem:
@@ -220,7 +195,7 @@ Folosim utilitarul ``tail`` pentru a extrage din rezultatul ``ps`` cele mai cons
 În acest moment am găsit răspunsul căutat, dar avem două mici neajunsuri:
 
 * Ne lipsește antetul, așa că nu știm ce informații avem pe coloane
-* Procesele sunt sortate crescător, a.î. cel mai consumator este utlimult; vrem să fie sortate descrescător
+* Procesele sunt sortate crescător, a.î. cel mai consumator este ultimul; vrem să fie sortate descrescător
 
 Rezolvăm cele două probleme prin intermediul opțiunii ``--sort``: dacă punem un ``-`` (minus) în fața argumentului după care sortăm, o să sortăm descrescător.
 Rulăm comanda:
@@ -240,7 +215,7 @@ Observăm că acum avem formatul dorit.
 Ne mai rămâne să extragem primele **11** linii din rezultatul comenzii de mai sus; **11** deoarece prima este linia antetului iar următoarele zece sunt procesele de interes.
 Pentru aceasta utilizăm comanda ``head`` cu opțiunea ``-11`` ca în exemplul de mai jos:
 
-.. code-block::
+.. code-block:: bash
 
     student@uso:~$ ps -aux --sort=-%mem | head -11
     USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
@@ -258,73 +233,10 @@ Pentru aceasta utilizăm comanda ``head`` cu opțiunea ``-11`` ca în exemplul d
 Exerciții
 """""""""
 
-#. Afișați primele zece procese sortate după coloana ``RSS``. Nu uitați să includeți antetul.
-#. Afișați ultimele zece procese sortate după coloana ``%CPU``. Nu uitați să includeți antetul.
-
-
-Compararea fișierelor
----------------------
-
-Atunci când lucrăm cu fișiere o să ne întâlnim sporadic cu nevoia de a compara două fișiere între ele.
-
-Compararea octet cu octet
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Compararea octet cu octet este utilă atunci când vrem aflăm dacă două fișiere sunt diferite sau nu, dar nu ne interesează cu ce diferă.
-Un exemplu ar fi: avem o arhivă cu aceelași nume în două locații diferite și nu mai ținem minte dacă am copiat-o noi sau este o coincidență de nume.
-Verificăm, fără să fie nevoie să le dezarhivăm, printr-o comparare la nivel de octet folosind comanda ``cmp``:
-
-.. code-block:: bash
-
-    student@uso:~$ cmp Documents/uso.tar Downloads/uso.tar
-    student@uso:~$ cmp Downloads/courses.tar Downloads/uso.tar
-    Downloads/courses.tar Downloads/uso.tar differ: byte 1, line 1
-
-În exemplul de mai sus, observăm că arhiva din calea ``Documents/uso.tar`` și cea din calea ``Downloads/uso.tar`` sunt identice, pe când arhivele ``Downloads/courses.tar`` și ``Downloads/uso.tar`` diferă de la primul octet.
-În cazul în care fișierele sunt identice, ``cmp`` nu afișează nimic pe ecran.
-
-Compararea text
-^^^^^^^^^^^^^^^
-
-Putem folosi ``cmp`` pentru a compara orice tip de fișier, inclusiv fișiere text, ca în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ cmp workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c
-    workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c differ: byte 1, line 1
-
-Rezultatul de mai sus nu este ideal: știm că cele două fișiere sunt diferite, dar nu știm și cu ce anume diferă.
-Pentru comparații text folosim utilitarul ``diff``.
-
-Pentru a exemplifica, navigăm în directorul ``~/workspace/C/sorting/``, facem o copie fișierului ``quick_sort.c`` cu numele ``quick_sort_old.c`` și adăugăm comentariul ``// It's so simple to diff``:
-
-.. code-block:: bash
-
-    student@uso:~$ cd workspace/C/sorting/
-    student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
-    student@uso:~/workspace/C/sorting$ echo "// It's so simple to diff" >> quick_sort.c
-
-Folosim comanda ``diff` pentru a vedea diferențele dintre ``quick_sort.c`` și ``quick_sort_old.c``:
-
-.. code-block:: bash
-
-    student@uso:~/workspace/C/sorting$ diff quick_sort.c quick_sort_old.c
-    98d97
-    < // It's so simple to diff
-    student@uso:~/workspace/C/sorting$ diff quick_sort_old.c quick_sort.c
-    97a98
-    > // It's so simple to diff
-
-Observăm următorul lucru: linia care diferă este precedată de caracterul ``<`` atunci când provine din primul fișier, și este precedată de caracterul ``>`` atunci când provine din al doilea fișier.
-
-Exerciții
-"""""""""
-
-#. Bonus: Dacă avem pachetul ``vim`` instalat pe sistem putem folosi utilitarul ``vimdiff`` pentru a vizualiza diferențele.
-   Instalați pachetul ``vim`` și rulați comanda ``vimdiff quick_sort.c quick_sort_old.c``.
-#. Deoarece directorul ``~/workspace/C`` este un repository de git putem folosi utilitarul ``git`` pentru a vedea diferentețe.
-   Utilizați comanda ``git diff`` pentru a vedea diferențele din proiect.
-   Aduceți fișierul ``quick_sort.c`` la starea inițială și folosiți ``git diff`` pentru a valida aceasta.
+#. Afișați primele zece procese sortate în funcție de memoria ocupată (Hint: RSS).
+   Nu uitați să includeți antetul.
+#. Afișați ultimele zece procese sortate în funcție de utilizarea procesorului (Hint: CPU).
+   Nu uitați să includeți antetul.
 
 
 Căutarea în fișiere
@@ -359,7 +271,7 @@ Până acum noi am utilizat ``grep`` după modelul de mai jos:
     [...]
 
 În exemplul de mai sus, operatorul ``|`` trimite textul afișat de comanda ``cat`` către intrarea standard a comenzii ``grep``.
-Vom discuta mai multe despre acesta în secțiunea Înlănțuirea comenzilor.
+Vom discuta mai multe despre acesta în secțiunea :ref:`improve_cli_improve_shell_oneliners`.
 
 Comanda următoare este echivalentă cu cea de mai sus:
 
@@ -375,6 +287,19 @@ Comanda următoare este echivalentă cu cea de mai sus:
     [...]
 
 Observăm modul de folosire: ``grep PATTERN cale/către/fișier``.
+
+Exerciții
+^^^^^^^^^
+
+#. Căutați *patternul* "l" în fișierul ``binary_search.c``, pentru a vedea unde este folosit parametrul **left**.
+   Observați cât de multe rezultate irelevante ați găsit datorită faptului că am căutat doar caracterul **l**.
+   Aici există o lecție de învățat.
+   Numele variabilelor sunt foarte improtante: nu fac doar codul mai ușor de înțeles, dar ajută și căutarea.
+   Folosiți *patternul* "param l" în încercarea de a restrânge căutarea.
+
+#. Căutați *patternul* "arr" în fișierul ``binary_search.c``.
+
+#. Căutați *patternul* "binarysearch1" în fișierul ``binary_search.c`` pentru a vedea cum este apelată funcția de căutare.
 
 Opțiuni uzuale ale ``grep``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -510,7 +435,7 @@ Bonus: Căutarea unui cuvânt
 """""""""""""""""""""""""""
 
 Din rezultatele căutărilor de mai sus observăm că ``grep`` caută patternul dat ca un subșir.
-Acest lucuru se vede foarte ușor în rezultatul anterior:
+Acest lucru se vede foarte ușor în rezultatul anterior:
 
 .. code-block:: bash
 
@@ -537,7 +462,7 @@ Căutarea unei expresii regulate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În exemplele de până acum, patternul folosit era un cuvânt sau șir de caractere.
-Folosind o expresie regulată putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.
+Folosind o expresie regulată, putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.
 
 Ca și în cazul globbing, avem un set de caractere speciale în cazul expresiilor regulate.
 
@@ -545,6 +470,7 @@ Ca și în cazul globbing, avem un set de caractere speciale în cazul expresiil
 
     Expresiile regulate sunt diferite de globbing.
     Mare atenție să nu faceți confuzie între cele două.
+    Vom vedea diferențele în continuare.
 
 Pentru a căuta folosind o expresie regulată putem să folosim opțiunea ``-E`` a utilitarului ``grep``, sau forma prescurtată ``egrep``.
 
@@ -564,9 +490,16 @@ Scrieți într-un fișier numit ``demo-regex.txt`` textul de mai jos:
     USO RUL3Z
 
 Vom folosi fișierul ``demo-regex.txt`` în exemplele următoare.
+Textul din fișier este un exemplu didactic.
+Este scris în așa fel încât să putem exemplifica mai multe lucruri într-un mod ușor de urmărit.
 
 Caracterul special ``.``
 """"""""""""""""""""""""
+
+.. note::
+
+    Caracterul ``.`` reprezintă un caracter special în cadrul unei expresii regulate.
+    Nu îl confundați cu directorul curent (reprezentat tot de caracterul ``.``) în contextul navigării sistemului de fișiere.
 
 În cadrul unei expresii regulate, caracterul ``.`` poate fi înlocuit cu orice caracter.
 
@@ -697,3 +630,71 @@ Ca și pentru globbing, sintaxa ``[]`` nu ne limitează la a oferi enumarații d
 
 Citim expresia regulată de mai sus în următorul mod: șirul ``A``, urmat de un caracter din intervalul ``a-z``, urmat de caracterul a.
 Astfel, observăm cum expresia a înlocuit șirurile ``Ana`` și ``Ama``.
+
+Exerciții
+"""""""""
+
+TODO
+
+
+Compararea fișierelor
+---------------------
+
+Atunci când lucrăm cu fișiere o să ne întâlnim sporadic cu nevoia de a compara două fișiere între ele.
+
+Compararea octet cu octet
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Compararea octet cu octet este utilă atunci când vrem aflăm dacă două fișiere sunt diferite sau nu, dar nu ne interesează cu ce diferă.
+Un exemplu ar fi: avem o arhivă cu aceelași nume în două locații diferite și nu mai ținem minte dacă am copiat-o noi sau este o coincidență de nume.
+Verificăm, fără să fie nevoie să le dezarhivăm, printr-o comparare la nivel de octet folosind comanda ``cmp``:
+
+.. code-block:: bash
+
+    student@uso:~$ cmp Documents/uso.tar Downloads/uso.tar
+    student@uso:~$ cmp Downloads/courses.tar Downloads/uso.tar
+    Downloads/courses.tar Downloads/uso.tar differ: byte 1, line 1
+
+În exemplul de mai sus, observăm că arhiva din calea ``Documents/uso.tar`` și cea din calea ``Downloads/uso.tar`` sunt identice, pe când arhivele ``Downloads/courses.tar`` și ``Downloads/uso.tar`` diferă de la primul octet *(byte 1, line 1)*.
+Observăm că în cazul în care fișierele sunt identice, ``cmp`` nu afișează nimic pe ecran.
+
+Compararea text
+^^^^^^^^^^^^^^^
+
+Putem folosi ``cmp`` pentru a compara orice tip de fișier, inclusiv fișiere text, ca în exemplul de mai jos:
+
+.. code-block:: bash
+
+    student@uso:~$ cmp workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c
+    workspace/C/sorting/merge_sort.c workspace/C/sorting/quick_sort.c differ: byte 1, line 1
+
+Rezultatul de mai sus nu este ideal: știm că cele două fișiere sunt diferite, dar nu știm și cu ce anume diferă.
+Pentru comparații text folosim utilitarul ``diff``.
+
+Pentru a exemplifica, navigăm în directorul ``~/workspace/C/sorting/``, facem o copie fișierului ``quick_sort.c`` cu numele ``quick_sort_old.c`` și adăugăm comentariul ``// It's so simple to diff``:
+
+.. code-block:: bash
+
+    student@uso:~$ cd workspace/C/sorting/
+    student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
+    student@uso:~/workspace/C/sorting$ echo "// It's so simple to diff" >> quick_sort.c
+
+Folosim comanda ``diff` pentru a vedea diferențele dintre ``quick_sort.c`` și ``quick_sort_old.c``:
+
+.. code-block:: bash
+
+    student@uso:~/workspace/C/sorting$ diff quick_sort.c quick_sort_old.c
+    98d97
+    < // It's so simple to diff
+    student@uso:~/workspace/C/sorting$ diff quick_sort_old.c quick_sort.c
+    97a98
+    > // It's so simple to diff
+
+Observăm următorul lucru: linia care diferă este precedată de caracterul ``<`` atunci când provine din primul fișier, și este precedată de caracterul ``>`` atunci când provine din al doilea fișier.
+
+Exerciții
+"""""""""
+
+#. TODO
+
+
