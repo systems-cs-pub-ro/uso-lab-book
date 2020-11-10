@@ -5,95 +5,10 @@
 
 Principalul atu al utilizării aplicațiilor în linie de comandă, și nu în mediul grafic, este viteza cu care rezolvăm anumite sarcini.
 Această viteză este dată de posibilitatea de a combina utilitare în linia de comandă pentru a automatiza procese manuale, repetitive.
-Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.
+Întotdeauna ne dorim să fim mai rapizi și să automatizăm cât mai mult din sarcinile noastre, deoarece cu cât ne terminăm treaba mai repede, cu atât avem mai mult timp liber la dispoziție.
 
 De regulă, cu cât petrecem mai mult timp cu mâna pe tastatură și mai puțin pe mouse, cu atât suntem mai rapizi.
 Aliniate la această idee, aplicațiile ne pun la dispoziție scurtături pe care suntem încurajați să le folosim pentru a ne utiliza timpul mai eficient.
-
-Scurtături în cadrul sistemului de operare
-------------------------------------------
-
-Pornirea unei instanțe noi de terminal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-În capitolul **Instalarea și utilizarea aplicațiilor** am văzut diferite moduri prin care putem porni aplicația **GNOME Terminal**.
-Unele distribuții pun la dispoziție scurtătura dată de combinația de taste ``Ctrl+Alt+t`` pentru a deschide o nouă instanță de terminal.
-
-Pentru a vedea scurtăturile disponibile la nivel de sistem, și pentru a defini noi scurtături, pe distribuțiile **Ubuntu** accesați *Settings* -> *Devices* -> *Keyboards* -> *Keyboard Shortcuts* din mediul grafic al sistemului de operare, și veți ajunge la un meniu similar cu cel din imaginea de mai jos:
-
-.. image:: img/settings-keyboard-shortcuts.png
-    :align: center
-    :alt: Vizualizarea și definirea scurtăturilor din sistem
-
-Există scenarii în care folosirea unei singure instanțe de terminal nu este cel mai productiv mod de lucru.
-Un astfel de scenariu este dat de dezvoltarea aplicațiilor, scenariu pe care îl putem sparge în trei componente (sub-task-uri): scrierea aplicației, compilarea aplicației și testarea aplicației.
-Am putea să folosim un singur terminal pentru cele trei sub-task-uri, dar este de preferat să folosim câte un terminal pentru fiecare sub-task; astfel avem o separare logică mai clară.
-Astfel, ferestrele din sistem vor arăta similar cu imaginea de mai jos:
-
-.. image:: img/hello-multi-terms.png
-    :align: center
-    :alt: Separarea unui task în sub-task-uri per terminal
-
-Am făcut un pas în direcția corectă, însă această abordare poate să ducă la o complexitate sporită a managementului ferestrelor: dacă am dezvolta în paralel două aplicații?
-Am avea șase ferestre de terminal deschise, prin care trebuie să ciclăm.
-Putem găsi o abordare mai bună.
-
-În loc să pornim noi instanțe de terminal în ferestre diferite, le vom porni în taburi diferite ale aceleiași ferestre.
-Folosind scurtătura ``Ctrl+Shift+t`` vom deschide o instanță nouă de terminal în cadrul aceleiași ferestre.
-Putem observa acest lucru în imaginea de mai jos:
-
-.. image:: img/hello-multi-tabs.png
-    :align: center
-    :alt: Separarea unui task în sub-task-uri per taskb
-
-Acum structura este mai ordonată și am păstrat separarea logică: în primul tab vom scrie aplicația, în cel de-al doilea tab o vom compila și în ultimul tab (al treilea) o vom executa.
-
-Separarea logică în fereastră per task și tab per sub-task este benefică atunci când vă ocupați concomitent de mai multe lucruri.
-
-Pornirea unor instanțe noi de terminal folosind scurtături
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-**Exercițiu**: Deschideți două terminale în ferestre separate.
-În fiecare fereastră deschideți un terminal într-un tab nou.
-Puteți folosi exercițiile din capitolul **Dezvoltarea Aplicațiilor** ca suport pentru spargerea în task-uri și sub-task-uri.
-
-.. note::
-
-    Folosim combinația de taste ``Ctrl+d`` pentru a executa comanda ``exit`` într-un terminal.
-    Aceasta va închide tabul în care a fost rulată.
-
-Navigarea între ferestre și taburi
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Pentru a naviga între ferestrele aplicațiilor deschise în sistem folosim combinația de taste ``Alt+Tab``.
-
-Pentru a naviga între instanțe ale aceleiași aplicații (ex. două terminale deschise în două ferestre diferite) folosim combinația de taste ``Alt+~`` (apăsăm tastele ``Alt`` și ``~`` simultan).
-
-Pentru a naviga între taburi folosim combinația de taste ``Alt+#num`` unde **#num** reprezintă numărul tabului; taburile sunt numerotate de la unu (1) la nouă (9), de la stânga la dreapta.
-Astfel, dacă vrem să navigăm la al doilea tab, într-o fereastră cu mai multe taburi, vom folosi combinația de taste ``Alt+2``.
-Un caz particular este reprezentat de tabul cu numărul **10** care poate fi accesat folosind combinația de taste ``Alt+0``.
-
-**Exercițiu**: Deschideți mai mult de 10 taburi într-o fereastră și navigați între ele folosind combinația de taste ``Alt+#num``.
-Puteți naviga la al 11-lea tab?
-
-.. note::
-
-    Putem folosi și combinațiile de taste ``Ctrl+PgDn`` și ``Ctrl+PgUp`` pentru a naviga între taburile pe care le avem deschise.
-    Putem folosi aceste scurtături în cazul în care avem mai mult de 10 taburi deschise.
-
-Redimensionarea ferestrelor
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Pentru redimensionarea ferestrelor avem două opțiuni:
-
-* Manual, folosind mouse-ul
-* Automat, la niște valori predefinite folosind combinația de taste ``Win Key+Arrow Keys``
-
-**Exercițiu**: Deschideți două aplicații: un terminal și un browser web (Firefox).
-Având terminalul în prim-plan, apăsați combinația de taste ``Win Key+Arrow Left``.
-Observați cum fereastra s-a redimensionat și s-a aliniat în jumătatea din stânga a ecranului, în mod automat.
-Acum, având browserul în prim-plan, apăsați combinația de taste ``Win Key+Arrow Right``.
-Explorați și celelalte combinații de taste.
 
 Scurtături în terminal
 ----------------------
@@ -108,48 +23,57 @@ Prin simpla apăsare a tastei ``Tab`` în timp ce scriem numele unei comenzi, al
 În imaginea de mai jos putem observa că pentru comanda ``cd D`` funcția de ``Tab`` completion a găsit mai multe opțiuni valide pentru auto-complete.
 În astfel de scenarii, cu mai multe opțiuni valide, apăsarea tastei ``Tab`` o singură dată nu produce niciun rezultat; trebuie să apăsăm tasta ``Tab`` de două ori consecutiv pentru a genera afișarea opțiunilor de auto-complete.
 
-.. image:: img/tab-completion.png
-    :align: center
-    :alt: Demo tab completion
+.. code-block:: bash
+
+    student@uso:~$ cd D
+    Desktop/   Documents/ Downloads/
+    student@uso:~$ cd D
 
 Funcția de auto-complete este extrem de utilă și îmbunătățește semnificativ viteza cu care realizăm acțiuni în terminal.
 
 Funcția este extrem de utilă atunci când lucrăm cu nume de fișiere, directoare și căi din sistem.
-În loc să scriem manual o cale către un nume foarte lung lăsăm tasta ``Tab`` să facă asta pentru noi.
+În loc să scriem manual o cale către un nume foarte lung, lăsăm tasta ``Tab`` să facă asta pentru noi.
 
-Un alt avantaj al folosirii tastei ``Tab`` este că atunci când aceasta nu produce nici un rezultat, este un indicator foarte bun că avem o eroare în comandă: am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.
+Atunci când avem o eroare în comandă (am scris greșit o anumită parte din numele comenzii sau al fișierului, fișierul nu există, etc.), tasta ``Tab`` nu produce nici un rezultat.
+Acesta este un alt motiv pentru care să folosim tasta ``Tab``.
 
-Folosiți funcția de ``Tab`` completion cât mai des cu putință.
-
-.. note::
-
-    Putem să ne găsim în situația în care ecranul terminalului nostru este plin cu rezultatele comenzilor rulate anterior sau cu opțiuni afișate de către auto-complete.
-    Putem să curățăm ecranul folosind comanda ``clear``.
-    O alternativă mai rapidă este să folosim combinația de taste ``Ctrl+l``.
-    Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.
+Folosiți funcția de ``Tab`` completion cât mai des cu putință [#clear]_.
 
 .. _improve_cli_history_nav:
 
 Navigarea în istoricul unei comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Terminalul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
+Shellul implementează funcția de a reține istoricul comenzilor pe care le-am executat.
 Pentru a vedea istoricul curent putem rula comanda ``history``.
 Vom obține un rezultat asemănător cu cel de mai jos:
 
-.. image:: img/bash-history.png
-    :align: center
-    :alt: Output of running the `history` command
+.. code-block:: bash
 
-Ciclăm prin comenzile date anterior folosind combinația de taste ``Arrow Up``, respectiv ``Arrow Down``.
+    student@uso:~$ history
+    [...]
+    21  ls
+    22  cd sorting/
+    23  ls -l
+    24  ls
+    25  cd
+    26  ls ~/Desktop ~/Documents ~/Downloads
+    27  ls ~/Desktop
+    28  ls Desktop/todos.txt
+    29  cp Desktop/todos.txt cp
+    30  ls
+    31  rm cp
+    [...]
 
-**Exercițiu**: Ciclați prin istoricul de comenzi folosind combinația de taste ``Arrow Up``, respectiv ``Arrow Down``.
+Ciclăm prin comenzile date anterior folosind combinația de taste ``Arrow Up`` sau ``Ctrl+p``, respectiv ``Arrow Down`` sau ``Ctrl+n``.
 
-Căutarea inversă în istoricul comenzilor
-""""""""""""""""""""""""""""""""""""""""
+**Exercițiu**: Ciclați prin istoricul de comenzi folosind combinația de taste ``Ctrl+p``, respectiv ``Ctrl+n``.
+
+Căutarea în istoricul comenzilor
+""""""""""""""""""""""""""""""""
 
 Terminalul ne pune la dispoziție un mod mai inteligent de a căuta în istoricul comenzilor prin combinația de taste ``Ctrl+r``, ordinea căutării fiind de la cea mai recentă comandă la cea mai veche.
-Funcția este cunoscută sub numele de **reverse search**.
+Funcția este cunoscută sub numele de **history search**.
 
 Pentru a porni căutarea, apăsați combinația de taste ``Ctrl+r`` și începeți să scrieți o parte din textul comenzii pe care o căutați, de exemplu ``cd``.
 
@@ -162,6 +86,10 @@ De aici, avem următoarele opțiuni:
 * Căutăm în continuare o comandă care conține șirul ``cd``, folosind combinația de taste ``Ctrl+r``
 * Rulăm comanda pe care am găsit-o, folosind combinația de taste ``Ctrl+o``
 * Anulăm căutarea comenzii și revenim la starea inițială, folosind combinația de taste ``Ctrl+g``
+
+Căutarea este incrementală.
+Adică se rafinează pe măsură ce tastăm un caracter.
+Orice caracter apăsat rafinează căutarea.
 
 .. note::
 
@@ -218,6 +146,7 @@ Un caz particular, foarte des folosit, este ``!!``, care se va înlocui textual 
     drwxr-xr-x 2 student student 4096 aug 11 21:32 hello
 
 În exemplul de mai sus observăm că ``!!`` a fost înlocuit cu ``ls`` în textul comenzii, pentru ca apoi să se execute comanda ``ls -l workspace``.
+Sintaxa ``!!`` este echivalentă cu ``!-1``.
 
 **Exercițiu**: Rulați trei comenzi din istoricul vostru folosind atât înlocuirea numerică (``!2``), cât și înlocuirea ultimei comenzi (``!!``).
 Folosiți-vă de faptul că această înlocuire are loc înaintea executării comenzii pentru a adăuga argumente comenzilor, similar exemplului de mai sus.
@@ -264,11 +193,16 @@ Exerciții
 Navigarea în interiorul unei comenzi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de reverse search, modificăm un argument al comenzii și apoi o executăm.
+Ne găsim des în situația în care căutăm o comandă în istoric folosind funcția de history search, modificăm un argument al comenzii și apoi o executăm.
 Pentru navigarea în cadrul textului comenzii putem folosi ``Arrow Keys``, iar pentru ștergeri putem folosi tasta ``Backspace`` sau ``Del``.
 
 Terminalul ne pune la dispoziție și o serie de scurtături cu ajutorul cărora putem face realiza aceeași acțiune mai rapid.
 Dacă vreți să vă impresionați prietenii, acesta este un mod simplu, dar eficient, de a o face.
+
+Pentru a naviga în istoricul de comenzi putem folosi combinațiile de taste:
+
+* ``Ctrl+p`` - accesăm ultima comandă dată; prin apăsări succesive ciclăm prin istoricul de comenzi, de la ultima la prima comandă dată
+* ``Ctrl+n`` - accesăm comenzile în sens invers față de ``Ctrl+p``, de la comanda actuală până la ultima comandă dată
 
 Pentru a naviga în corpul textului putem folosi combinațiile de taste:
 
@@ -295,11 +229,11 @@ Exerciții
 
 Rulați comanda ``ls Documents/ Downloads/ Desktop/ Pictures/ Music/`` înainte de a vă apuca de exerciții.
 
-#. Apăsați tasta ``Arrow Up`` pentru a accesa comanda rulată anterior.
+#. Apăsați tasta ``Ctrl+p`` pentru a accesa comanda rulată anterior.
 
-#. Săriți la începutul comenzii folosind combinația de taste ``Ctrl+a``.
+#. Plasați-vă la începutul comenzii folosind combinația de taste ``Ctrl+a``.
 
-#. Săriți la sfârșitul comenzii folosind combinația de taste ``Ctrl+e``.
+#. Plasați-vă la sfârșitul comenzii folosind combinația de taste ``Ctrl+e``.
 
 #. Mergeți, cuvânt cu cuvânt, la începutul comenzii folosind combinația de taste ``Alt+b``.
 
@@ -307,11 +241,11 @@ Rulați comanda ``ls Documents/ Downloads/ Desktop/ Pictures/ Music/`` înainte 
 
 #. Rulați comanda ``ls Docuents/ Downlads/ Dektop/ Pitures/ Muic/``.
 
-#. Apăsați tasta ``Arrow Up`` pentru a accesa comanda rulată anterior.
+#. Apăsați tasta ``Ctrl+p`` pentru a accesa comanda rulată anterior.
    Corectați typourile (greșelile de scriere) din comanda anterioară.
    Folosiți combinațiile de taste ``Ctrl+f``, ``Ctrl+b`` pentru a deplasa cursorul în cadrul comenzii.
 
-#. Apăsați tasta ``Arrow Up`` pentru a accesa comanda rulată anterior (comanda corectată).
+#. Apăsați tasta ``Ctrl+p`` pentru a accesa comanda rulată anterior (comanda corectată).
    Avansați până la începutul cuvântului ``Desktop/``.
    Ștergeți tot până la final folosind combinația de taste ``Ctrl+k``.
    Acum anulați comanda curentă apăsând combinația de taste ``Ctrl+c``.
@@ -321,7 +255,7 @@ Rulați comanda ``ls Documents/ Downloads/ Desktop/ Pictures/ Music/`` înainte 
    Textul a fost scris din buffer în continuarea comenzii ``ls`` (scrisă de voi).
 
 #. Rulați comanda ``ls Documents/ Downloads/ Desktop/ Pictures/ Music/``.
-   Apăsați tasta ``Arrow Up`` pentru a accesa comanda rulată anterior (comanda corectată).
+   Apăsați tasta ``Ctrl+p`` pentru a accesa comanda rulată anterior (comanda corectată).
    Avansați până la începutul cuvântului ``Pictures/``.
    Ștergeți cuvântul folosind combinația de taste ``Alt+d``.
    Acum anulați comanda curentă apăsând combinația de taste ``Ctrl+c``.
@@ -329,3 +263,13 @@ Rulați comanda ``ls Documents/ Downloads/ Desktop/ Pictures/ Music/`` înainte 
    O să rulați comanda ``ls`` pe textul din buffer.
    Scrieți comanda ``ls`` și apoi apăsați combinația de taste ``Ctrl+y``.
    Textul a fost scris din buffer în continuarea comenzii ``ls`` (scrisă de voi).
+
+.. rubric:: Note de subsol
+
+.. [#clear]
+
+    Putem să ne găsim în situația în care ecranul terminalului nostru este plin cu rezultatele comenzilor rulate anterior sau cu opțiuni afișate de către auto-complete.
+    Putem să curățăm ecranul folosind comanda ``clear``.
+    O alternativă mai rapidă este să folosim combinația de taste ``Ctrl+l``.
+    Aceasta va produce același rezultat (va curăța ecranul) și are avantajul că poate fi folosită în timp ce scriem deja o comandă.
+

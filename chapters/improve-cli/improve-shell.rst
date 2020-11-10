@@ -287,31 +287,25 @@ Am folosit de mai multe ori operatorul ``|`` până acum:
 
   .. code-block:: bash
 
-      student@uso:~$ ps -aux | grep firefox
-      student  15211  0.5 17.6 3090808 359960 pts/1  Sl   00:14   0:40 /usr/lib/firefox/firefox https://www.google.com
-      student  15557  0.0  5.3 2591440 108220 pts/1  Sl   00:14   0:05 /usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 6264 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15623  0.0  7.1 2625192 145232 pts/1  Sl   00:14   0:02 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 7129 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15647  0.0  5.9 2629464 120896 pts/1  Sl   00:14   0:02 /usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 7129 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15699  0.0  6.5 2613656 133844 pts/1  Sl   00:14   0:01 /usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 9473 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15726  0.0  3.7 2567444 77320 pts/1   Sl   00:14   0:00 /usr/lib/firefox/firefox -contentproc -childID 7 -isForBrowser -prefsLen 9473 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  16922  0.0  0.0  15972  1040 pts/0    S+   02:18   0:00 grep --color=auto firefox
+      student@uso:~$ ps -e | grep firefox
+      14912 pts/0    00:00:19 firefox
 
 * Am extras primele zece procese care consumă cel mai mare procent de memorie:
 
   .. code-block:: bash
 
-      student@uso:~$ ps -aux --sort=-%mem | head -11
-      USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-      student  15211  0.5 17.7 3090808 362316 pts/1  Sl   00:14   0:40 /usr/lib/firefox/firefox https://www.google.com
-      student   8263  0.1 13.8 3515972 283712 tty1   Sl+  nov06   0:43 /usr/bin/gnome-shell
-      student   8763  0.0  8.2 1405448 168436 tty1   SLl+ nov06   0:10 /usr/bin/gnome-software --gapplication-service
-      student  15623  0.0  7.1 2625192 145452 pts/1  Sl   00:14   0:03 /usr/lib/firefox/firefox -contentproc -childID 4 -isForBrowser -prefsLen 7129 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15699  0.0  6.5 2613656 133844 pts/1  Sl   00:14   0:01 /usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 9473 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15647  0.0  5.9 2629464 120896 pts/1  Sl   00:14   0:02 /usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 7129 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15557  0.0  5.3 2591440 108220 pts/1  Sl   00:14   0:05 /usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 6264 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student  15726  0.0  3.7 2567444 77320 pts/1   Sl   00:14   0:00 /usr/lib/firefox/firefox -contentproc -childID 7 -isForBrowser -prefsLen 9473 -prefMapSize 228098 -parentBuildID 20201027185343 -appdir /usr/lib/firefox/browser 15211 true tab
-      student   8106  0.0  3.6 756452 73800 tty1     Sl+  nov06   0:04 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
-      student   8631  0.0  2.5 886656 52380 ?        Ssl  nov06   0:00 /usr/lib/evolution/evolution-calendar-factory
+      student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=-%mem | head -11
+      USER       UID   PID %MEM %CPU   RSS CMD
+      student   1000  7938 18.0  0.1 367952 /usr/bin/gnome-shell
+      student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+      student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+      root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+      student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
+      student   1000  8338  3.0  0.0 61860 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+      root         0   336  2.6  0.0 53612 /lib/systemd/systemd-journald
+      student   1000  8274  2.3  0.0 48296 nautilus-desktop
+      root         0  1074  2.2  0.0 45460 /usr/bin/containerd
+      student   1000 12966  1.8  0.0 38216 /usr/lib/gnome-terminal/gnome-terminal-server
 
 Până acum am efectuat procesări text pe rezultatul unor comenzi.
 Folosind operatorul ``|`` și utilitarul ``xargs`` putem să folosim rezultatul pe post de argument pentru altă comandă, ca în exemplul de mai jos:
@@ -406,19 +400,19 @@ Urmăm exemplul de mai jos:
 
 .. code-block:: bash
 
-    student@uso:~$ ps -aux --sort=-%mem | head -11
-    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-    student   8378  0.9 14.2 3490116 289980 tty1   Sl+  14:55   0:09 /usr/bin/gnome-shell
-    student   8839  0.4  9.0 1210772 184492 tty1   SLl+ 14:56   0:04 /usr/bin/gnome-software --gapplication-service
-    root      1244  0.2  4.0 1049660 82704 ?       Ssl  14:53   0:02 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-    student   8223  0.1  3.6 726348 74876 tty1     Sl+  14:55   0:01 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
-    student   8710  0.0  3.3 886656 67540 ?        Ssl  14:55   0:00 /usr/lib/evolution/evolution-calendar-factory
-    student   8740  0.0  3.0 1204196 62236 ?       Sl   14:55   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8710x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8710/2
-    root      3516  0.7  2.9 516496 60988 ?        Ssl  14:54   0:07 /usr/lib/packagekit/packagekitd
-    student   8672  0.1  2.5 1033364 51296 tty1    Sl+  14:55   0:01 nautilus-desktop
-    root       311  0.0  2.2 136104 45800 ?        S<s  14:53   0:00 /lib/systemd/systemd-journald
-    root       999  0.0  2.2 912140 45628 ?        Ssl  14:53   0:01 /usr/bin/containerd
-    student@uso:~$ ps -aux --sort=-%mem | head -11 1> top10-consumers
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=-%mem | head -11
+    USER       UID   PID %MEM %CPU   RSS CMD
+    student   1000  7938 18.0  0.1 367952 /usr/bin/gnome-shell
+    student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+    student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
+    student   1000  8338  3.0  0.0 61860 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+    root         0   336  2.6  0.0 53612 /lib/systemd/systemd-journald
+    student   1000  8274  2.3  0.0 48296 nautilus-desktop
+    root         0  1074  2.2  0.0 45460 /usr/bin/containerd
+    student   1000 12966  1.8  0.0 38216 /usr/lib/gnome-terminal/gnome-terminal-server
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=-%mem | head -11 1> top10-consumers
     student@uso:~$ less top10-consumers
 
 Am scris, prin încercări succesive, onelinerul care ne afișează primele zece procese care consumă cea mai multă memorie.
@@ -539,7 +533,7 @@ Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosi
 
   **Exercițiu**: Rulați comanda ``cat /dev/zero`` pentru a înțelege nevoia utilitarului ``xxd`` din exemplul de mai sus.
 
-* Fișierul ``/dev/urandom`` este un alt generator de octeți.
+    * Fișierul ``/dev/urandom`` este un alt generator de octeți.
   Acesta generează atâția octeți cu valoare random cât îi sunt ceruți.
 
   **Exercițiu**: Rulați comenzile din exemplul anterior, dar acum citiți din ``/dev/urandom``.
@@ -577,9 +571,18 @@ Comparați dimensiunile arhivelor obținute.
     Astfel suprascriem datele șterse pentru a preveni posibilitatea recuperării datelor de pe disc.
     Mai multe informații găsiți `aici <https://uwnthesis.wordpress.com/2014/07/26/kali-how-to-use-dd-to-wipe-your-usb-pen-the-visual-guide/>`_.
 
+Exerciții
+"""""""""
 
-Exerciții - TODO
-^^^^^^^^^^^^^^^^
+#. Afișați primele zece procese sortate în funcție de memoria ocupată (Hint: RSS).
+   Nu uitați să includeți antetul.
+   Redirectați rezultatul în fișierul **top10-rss-consumers**.
+   Modificați comanda astfel încât rezultatul redirectării să nu șteargă conținutul existent.
+
+#. Afișați ultimele zece procese sortate în funcție de utilizarea procesorului (Hint: CPU).
+   Nu uitați să includeți antetul.
+   Redirectați rezultatul în fișierul **top10-cpu-consumers**.
+   Modificați comanda astfel încât rezultatul redirectării să nu șteargă conținutul existent.
 
 .. rubric:: Note de subsol
 

@@ -20,6 +20,11 @@ Căutarea informației într-un fișier
 
 Pentru a vedea rapid conținutul unui fișier folosim utlitarul ``less``.
 
+.. note::
+
+    De fapt, comanda ``man`` folosește utilitarul ``less`` pentru a afișa paginile de manual.
+    ``less`` este pagerul implicit în majoritatea distribuțiilor Linux.
+
 Avem fișierul ``workspace/C/searching/binary_search.c``.
 Vrem să ne facem rapid o idee despre cum arată implementarea algoritmului **binary_search**.
 Inspectăm conținutul fișierului ``workspace/C/searching/binary_search.c``, folosind utilitarul ``less`, ca în exemplul de mai jos:
@@ -65,11 +70,14 @@ Observăm că acum avem o sesiune interactivă în interiorul căreia putem expl
 
     În cadrul unei sesiuni ``less`` putem folosi aceeleași taste ca în cadrul sesiunii interactive ``man`` pentru navigarea în pagină:
 
-    * ``Arrow Down``/``Arrow Up`` sau ``j``/``k`` pentru a naviga, cu câte o linie, în jos, respectiv în sus; recomandăm utlizarea tastelor ``j``/``k`` pentru a fi mai eficienți
+    * ``Ctrl+n``/``Ctrl+p`` sau ``j``/``k`` pentru a naviga, cu câte o linie, în jos, respectiv în sus; recomandăm utlizarea tastelor ``j``/``k`` pentru a fi mai eficienți
+    * ``Ctrl+f``/``Ctrl+b`` pentru a naviga, cu câte o pagină de terminal, în jos, respectiv în sus
     * Search (``/``, ``?``, ``n``, ``N``)
     * Go up (``g``), go down (``G``)
     * Help (``h``) pentru a afla mai multe despre cum putem folosi mai bine sesiunea interactivă
     * Quit (``q``) pentru a ieși din sesiunea interactivă
+
+    Toate aceste informații se găsesc în pagina de manual a utilitarului ``less``: ``man less``.
 
 În sesiunea interactivă căutăm după cuvântul cheie **search**.
 Pentru a porni căutarea apăsăm tasta ``/``, introducem textul căutat (**search**) și apăsăm tasta ``Enter``.
@@ -111,7 +119,7 @@ Rulăm comanda de mai jos, pentru a exemplifica:
 
     [...]
 
-Observăm că pentru un fișier cu un număr mare de linii, așa cum este **binary_search.c**, afișarea întregului conținut pe ecran devine un impediment în a putea înțelege și urmării conținutul.
+Observăm că pentru un fișier cu un număr mare de linii, așa cum este **binary_search.c**, afișarea întregului conținut pe ecran devine un impediment în a putea înțelege și urmări conținutul.
 De aceea vă încurajăm să folosiți ``less`` în loc de ``cat`` pentru a inspecta un fișier: vă este mult mai ușor să vă plimbați în interiorul fișierului și puteți folosi funcția search pentru a căuta în fișier.
 De asemeni, folosind ``less`` vă păstrați consola curată și puteți urmări mai ușor ce comenzi ați dat anterior și care au fost rezultatele acestora.
 
@@ -155,42 +163,44 @@ Folosim utilitarul ``ps`` pentru a afișa toate procesele din sistem:
 
 .. code-block:: bash
 
-    student@uso:~$ ps -aux --sort=%mem
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=%mem
 
-    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-    root         2  0.0  0.0      0     0 ?        S    14:54   0:00 [kthreadd]
+    USER       UID   PID %MEM %CPU   RSS CMD
+    root         0     2  0.0  0.0     0 [kthreadd]
 
     [...]
 
-    student   8661  0.0  2.4 1064796 49160 ?       Sl   14:56   0:00 /usr/lib/evolution/evolution-calendar-factory-subproces
-    root      1261  0.0  2.4 1049660 50992 ?       Ssl  14:54   0:05 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/
-    student   8631  0.0  2.5 886656 52796 ?        Ssl  14:56   0:00 /usr/lib/evolution/evolution-calendar-factory
-    student   9985  0.0  8.0 988180 163784 tty1    SNl+ 15:03   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --
-    student   8763  0.0  8.3 1405448 169956 tty1   SLl+ 14:57   0:09 /usr/bin/gnome-software --gapplication-service
-    student   8263  0.1 12.0 3495576 245636 tty1   Sl+  14:56   0:16 /usr/bin/gnome-shell
+    student   1000  8338  3.0  0.0 61860 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+    student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
+    root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+    student   1000  7938 18.0  0.1 368304 /usr/bin/gnome-shell
+
+Am folosit opțiunea ``-ouser,uid,pid,%mem,%cpu,rss,cmd`` pentru a selecta coloanele pe care să le afișeze ``ps``.
 
 Am folosit opțiunea ``--sort`` cu argumentul ``%mem`` pentru a sorta procesele după procentul de memorie folosită.
 
 .. note::
 
-    Folosiți comanda ``ps -aux --sort=%mem | less`` pentru a vizualiza rezultatul comenzii ``ps`` într-o sesiune interactivă ``less``.
+    Folosiți comanda ``ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=%mem | less`` pentru a vizualiza rezultatul comenzii ``ps`` într-o sesiune interactivă ``less``.
 
 Observăm că avem procesele sortate crescător după coloana ``%MEM``.
 Folosim utilitarul ``tail`` pentru a extrage din rezultatul ``ps`` cele mai consumatoare zece procese:
 
 .. code-block:: bash
 
-    student@uso:~$ ps -aux --sort=%mem | tail
-    root       308  0.0  1.5 127576 31956 ?        S<s  14:54   0:01 /lib/systemd/systemd-journald
-    student   8590  0.0  1.6 1033348 34148 tty1    Sl+  14:56   0:01 nautilus-desktop
-    student   8106  0.0  2.1 729116 43776 tty1     Sl+  14:56   0:01 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
-    root      8427  0.1  2.2 516492 45436 ?        Ssl  14:56   0:14 /usr/lib/packagekit/packagekitd
-    student   8661  0.0  2.4 1064796 49160 ?       Sl   14:56   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8631x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8631/2
-    root      1261  0.0  2.4 1049660 50992 ?       Ssl  14:54   0:05 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-    student   8631  0.0  2.5 886656 52796 ?        Ssl  14:56   0:00 /usr/lib/evolution/evolution-calendar-factory
-    student   9985  0.0  8.0 988180 163784 tty1    SNl+ 15:03   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
-    student   8763  0.0  8.3 1405448 169956 tty1   SLl+ 14:57   0:09 /usr/bin/gnome-software --gapplication-service
-    student   8263  0.1 12.0 3495576 245636 tty1   Sl+  14:56   0:16 /usr/bin/gnome-shell
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=%mem | tail
+    student   1000 12966  1.8  0.0 38216 /usr/lib/gnome-terminal/gnome-terminal-server
+    root         0  1074  2.2  0.0 45460 /usr/bin/containerd
+    student   1000  8274  2.3  0.0 48296 nautilus-desktop
+    root         0   336  2.6  0.0 53612 /lib/systemd/systemd-journald
+    student   1000  8338  3.0  0.0 61860 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+    student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
+    root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+    student   1000  7938 18.0  0.1 368248 /usr/bin/gnome-shell
 
 În acest moment am găsit răspunsul căutat, dar avem două mici neajunsuri:
 
@@ -202,12 +212,13 @@ Rulăm comanda:
 
 .. code-block:: bash
 
-    student@uso:~$ ps -aux --sort=-%mem | less
-    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-    student   8263  0.1 12.0 3495576 245636 tty1   Sl+  14:56   0:17 /usr/bin/gnome-shell
-    student   8763  0.0  8.3 1405448 169956 tty1   SLl+ 14:57   0:09 /usr/bin/gnome-software --gapplication-service
-    student   9985  0.0  8.0 988180 163784 tty1    SNl+ 15:03   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
-    student   8631  0.0  2.5 886656 52796 ?        Ssl  14:56   0:00 /usr/lib/evolution/evolution-calendar-factory
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=-%mem | less
+    USER       UID   PID %MEM %CPU   RSS CMD
+    student   1000  7938 18.0  0.1 368248 /usr/bin/gnome-shell
+    student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+    student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
 
     [...]
 
@@ -217,18 +228,18 @@ Pentru aceasta utilizăm comanda ``head`` cu opțiunea ``-11`` ca în exemplul d
 
 .. code-block:: bash
 
-    student@uso:~$ ps -aux --sort=-%mem | head -11
-    USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-    student   8263  0.1 12.0 3495576 245636 tty1   Sl+  14:56   0:17 /usr/bin/gnome-shell
-    student   8763  0.0  8.3 1405448 169956 tty1   SLl+ 14:57   0:09 /usr/bin/gnome-software --gapplication-service
-    student   9985  0.0  8.0 988180 163784 tty1    SNl+ 15:03   0:06 /usr/bin/python3 /usr/bin/update-manager --no-update --no-focus-on-map
-    student   8631  0.0  2.5 886656 52796 ?        Ssl  14:56   0:00 /usr/lib/evolution/evolution-calendar-factory
-    root      1261  0.0  2.4 1049660 50992 ?       Ssl  14:54   0:05 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
-    student   8661  0.0  2.4 1064796 49160 ?       Sl   14:56   0:00 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8631x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8631/2
-    root      8427  0.1  2.2 516492 45436 ?        Ssl  14:56   0:14 /usr/lib/packagekit/packagekitd
-    student   8106  0.0  2.1 729116 43776 tty1     Sl+  14:56   0:01 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
-    student   8590  0.0  1.6 1033348 34148 tty1    Sl+  14:56   0:01 nautilus-desktop
-    root       308  0.0  1.5 127576 32032 ?        S<s  14:54   0:01 /lib/systemd/systemd-journald
+    student@uso:~$ ps -e -ouser,uid,pid,%mem,%cpu,rss,cmd --sort=-%mem | head -11
+    USER       UID   PID %MEM %CPU   RSS CMD
+    student   1000  7938 18.0  0.1 367952 /usr/bin/gnome-shell
+    student   1000  8437  8.4  0.0 171916 /usr/bin/gnome-software --gapplication-service
+    student   1000  7782  3.9  0.0 81312 /usr/lib/xorg/Xorg vt1 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+    root         0  1338  3.8  0.0 78880 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+    student   1000  8307  3.1  0.0 64628 /usr/lib/evolution/evolution-calendar-factory
+    student   1000  8338  3.0  0.0 61860 /usr/lib/evolution/evolution-calendar-factory-subprocess --factory all --bus-name org.gnome.evolution.dataserver.Subprocess.Backend.Calendarx8307x2 --own-path /org/gnome/evolution/dataserver/Subprocess/Backend/Calendar/8307/2
+    root         0   336  2.6  0.0 53612 /lib/systemd/systemd-journald
+    student   1000  8274  2.3  0.0 48296 nautilus-desktop
+    root         0  1074  2.2  0.0 45460 /usr/bin/containerd
+    student   1000 12966  1.8  0.0 38216 /usr/lib/gnome-terminal/gnome-terminal-server
 
 Exerciții
 """""""""
@@ -242,7 +253,7 @@ Exerciții
 Căutarea în fișiere
 -------------------
 
-Așa cum am văzut până în acest punct din carte, majoritatea comenzilor linux afișează o gamă largă de informații pe care apoi utilizatorul (adică noi) le filtrează pentru a extrage ceea ce îl intresează.
+Așa cum am văzut până în acest punct din carte, majoritatea comenzilor Linux afișează o gamă largă de informații pe care apoi utilizatorul (adică noi) le filtrează pentru a extrage ceea ce îl intresează.
 La începutul acestei secțiuni, dar și de-a lungul cărții, am folosit utilitarul ``grep`` ca să filtrăm rezultatul unei comenzi.
 
 Comanda ``grep`` este una dintre cele mai folosite în linie de comandă.
@@ -444,11 +455,11 @@ Acest lucru se vede foarte ușor în rezultatul anterior:
     workspace/C/leetcode/src/700.c:10:struct TreeNode *searchBST(struct TreeNode *root, int val)
 
 Observăm că patternul **search** se regăsește în șirul **\*searchBST**.
-Dacă dorim să căutăm cuvântul **search** folosim sintaxa ``\b`` (boundary) pentru a delimita patternul, ca în exemplul de mai jos:
+Dacă dorim să căutăm cuvântul **search** folosim opțiunea ``-w`` (word) pentru a-i transmite utilitarului că patternul trebuie tratat ca un cuvânt, ca în exemplul de mai jos:
 
 .. code-block:: bash
 
-    student@uso:~$ grep -nri "\bsearch\b" workspace/C/ | less
+    student@uso:~$ grep -nri -w "search" workspace/C/ | less
 
     workspace/C/leetcode/src/704.c:1:int search(int *nums, int numsSize, int target)
     workspace/C/leetcode/src/704.c:26:int search(int *nums, int numsSize, int target)
@@ -457,184 +468,14 @@ Dacă dorim să căutăm cuvântul **search** folosim sintaxa ``\b`` (boundary) 
 
 Observăm că acum rezultatele conțin doar cuvântul **search**.
 
-
-Căutarea unei expresii regulate
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-În exemplele de până acum, patternul folosit era un cuvânt sau șir de caractere.
-Folosind o expresie regulată, putem să căutăm după șiruri de caractere care se potrivesc cu descrierea dată în expresia regulată.
-
-Ca și în cazul globbing, avem un set de caractere speciale în cazul expresiilor regulate.
-
-.. warning::
-
-    Expresiile regulate sunt diferite de globbing.
-    Mare atenție să nu faceți confuzie între cele două.
-    Vom vedea diferențele în continuare.
-
-Pentru a căuta folosind o expresie regulată putem să folosim opțiunea ``-E`` a utilitarului ``grep``, sau forma prescurtată ``egrep``.
-
-Scrieți într-un fișier numit ``demo-regex.txt`` textul de mai jos:
-
-.. code-block:: bash
-
-    Ana
-    Ama
-    Ioana
-    a
-    aa
-    aaa
-    aaabbb
-    Ana are mere
-    Ana mere are
-    USO RUL3Z
-
-Vom folosi fișierul ``demo-regex.txt`` în exemplele următoare.
-Textul din fișier este un exemplu didactic.
-Este scris în așa fel încât să putem exemplifica mai multe lucruri într-un mod ușor de urmărit.
-
-Caracterul special ``.``
-""""""""""""""""""""""""
-
-.. note::
-
-    Caracterul ``.`` reprezintă un caracter special în cadrul unei expresii regulate.
-    Nu îl confundați cu directorul curent (reprezentat tot de caracterul ``.``) în contextul navigării sistemului de fișiere.
-
-În cadrul unei expresii regulate, caracterul ``.`` poate fi înlocuit cu orice caracter.
-
-Rulăm comanda din exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "a.a" demo-regex.txt
-    Ioana
-    aaa
-    aaabbb
-    Ana are mere
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``a``, urmat de orice caracter, urmat de șirul ``a``.
-Astfel, observăm cum caracterul ``.`` a înlocuit, pe rând, caracterele ``n``, ``a``, ``a`` și `` `` (space).
-
-Caracterul special ``+``
-""""""""""""""""""""""""
-
-În cadrul unei expresii regulate, caracterul ``+`` urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel puțin o dată în patternul căutat.
-
-Rulăm comanda din exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "aa+" demo-regex.txt
-    aa
-    aaa
-    aaabbb
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``a``, urmat de caracterul ``a`` cel puțin o dată.
-Astfel, observăm cum expresia a înlocuit orice șir care conținea cel puțin două apariții ale caracterului ``a``.
-
-Pentru a specifica numărul de apariții pentru o expresie, aceasta trebuie încadrată între paranteze rotunde ``(EXP)+``, ca în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "(ab)+" demo-regex.txt
-    aaabbb
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``ab`` trebuie să apară cel puțin o dată.
-
-Caracterul special ``*``
-""""""""""""""""""""""""
-
-În cadrul unei expresii regulate, caracterul ``*`` urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare de oricâte ori, sau poate lipsi cu totul.
-
-Rulăm comanda din exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "ab*" demo-regex.txt
-    Ana
-    Ama
-    Ioana
-    a
-    aa
-    aaa
-    aaabbb
-    Ana are mere
-    Ana mere are
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``a``, urmat de caracterul ``b`` de oricâte ori.
-Astfel, observăm cum expresia a înlocuit orice șir care conținea cel puțin o apariție a caracterului ``a``.
-
-Caracterul special ``?``
-""""""""""""""""""""""""
-
-În cadrul unei expresii regulate, caracterul ``?`` urmează întotdeauna un caracter sau o expresie și spune că expresia sau caracterul din stânga lui apare cel mult o dată.
-
-Rulăm comanda din exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "a?" demo-regex.txt
-    Ana
-    Ama
-    Ioana
-    a
-    aa
-    aaa
-    aaabbb
-    Ana are mere
-    Ana mere are
-    USO RUL3Z
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``a`` apare cel mult o dată.
-Astfel, observăm cum expresia a înlocuit orice șir care conținea cel mult o apariție a caracterului ``a``; textul "USO RUL3Z" respectă regula întrucât nu conține niciun caracter ``a``.
-
-Caracterul special ``|``
-""""""""""""""""""""""""
-
-În cadrul unei expresii regulate, caracterul ``|`` separă două expresii și spune că poate să se potrivească expresia din stânga sau din dreapta lui.
-
-Rulăm comenzile din exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "Ana|Ama" demo-regex.txt
-    Ana
-    Ama
-    Ana are mere
-    Ana mere are
-    student@uso:~$ egrep "(Ana)|(Ama)" demo-regex.txt
-    Ana
-    Ama
-    Ana are mere
-    Ana mere are
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``Ana`` **sau** șirul ``Ama``.
-Astfel, observăm cum expresia a înlocuit orice șir care conținea fie ``Ana``, fie ``Ama``.
-Mai observăm că cele două comenzi sunt echivalente.
-
-Sintaxa specială ``[]``
-"""""""""""""""""""""""
-
-În cadrul unei expresii regulate, folosim sintaxa ``[]`` pentru a defini o listă de caractere care pot fi folosite în înlocuire.
-Această sintaxă înlocuiește exact un caracter din lista oferită.
-Ca și pentru globbing, sintaxa ``[]`` nu ne limitează la a oferi enumarații de caractere, și accepta și intervale, cum observăm în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ egrep "A[a-z]a" demo-regex.txt
-    Ana
-    Ama
-    Ana are mere
-    Ana mere are
-
-Citim expresia regulată de mai sus în următorul mod: șirul ``A``, urmat de un caracter din intervalul ``a-z``, urmat de caracterul a.
-Astfel, observăm cum expresia a înlocuit șirurile ``Ana`` și ``Ama``.
-
 Exerciții
 """""""""
 
-TODO
+#. Găsiți toate fișierele care includ headerul ``stdio.h``.
+
+#. Găsiți toate aparițiile patternului ``binarySearch``.
+
+#. Găsiți toate aparițiile patternului ``quickSort``.
 
 
 Compararea fișierelor
@@ -679,7 +520,7 @@ Pentru a exemplifica, navigăm în directorul ``~/workspace/C/sorting/``, facem 
     student@uso:~/workspace/C/sorting$ cp quick_sort.c quick_sort_old.c
     student@uso:~/workspace/C/sorting$ echo "// It's so simple to diff" >> quick_sort.c
 
-Folosim comanda ``diff` pentru a vedea diferențele dintre ``quick_sort.c`` și ``quick_sort_old.c``:
+Folosim comanda ``diff`` pentru a vedea diferențele dintre ``quick_sort.c`` și ``quick_sort_old.c``:
 
 .. code-block:: bash
 

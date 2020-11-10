@@ -79,13 +79,10 @@ USO lab book
    :caption: Îmbunătățirea lucrului în linia de comandă
 
    chapters/improve-cli/improve-terminal.rst
-   chapters/improve-cli/improve-terminal-summary.rst
    chapters/improve-cli/inspect-fs.rst
-   chapters/improve-cli/inspect-fs-summary.rst
    chapters/improve-cli/inspect-files.rst
-   chapters/improve-cli/inspect-files-summary.rst
    chapters/improve-cli/improve-shell.rst
-   chapters/improve-cli/improve-shell-summary.rst
+   chapters/improve-cli/improve-cli-summary.rst
 
 
 Indices and tables

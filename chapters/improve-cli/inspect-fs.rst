@@ -61,8 +61,9 @@ Observăm că ultima linie din terminal, **Manual page man(1) line 1 (press h fo
 Navigarea prin paginile manualului
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigăm câte un ecran de terminal în joș și în sus folosind folosind tastele ``Arrow Down`` și ``Arrow Up``.
-Putem folosi tastele ``Pg Dn`` și ``Pg Up`` pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
+Navigăm cu câte o linie de terminal în joș și în sus folosind folosind tastele ``Ctrl+n`` și ``Ctrl+p``.
+Putem folosi tastele ``Ctrl+f`` și ``Ctrl+b`` pentru a naviga, cu câte un ecran de terminal, în jos și în sus în pagină.
+Mai simplu, putem folosi tasta ``Enter`` pentru a naviga cu câte o linie în jos și tasta ``Space`` pentru a naviga cu câte un ecran în jos.
 Navigăm la începutul paginii folosind tasta ``g``.
 Navigăm la sfârșit paginii folosind tasta ``G``.
 
@@ -82,16 +83,8 @@ Pașii pentru căutarea unui cuvânt cheie sunt următorii:
 #. Dacă vrem să navigăm la următorul rezultat apăsăm tasta ``n``.
    Dacă vrem să navigăm la un rezultat anterior apăsăm tasta ``N``.
 
-Căutarea are loc de la poziția curentă în pagină către sfârșitul paginii.
-Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă.
-Putem folosi tasta ``?`` pentru a porni o căutare de la poziția curentă către începutul paginii.
-Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (``g``) și apoi pornim căutarea ``/`` de acolo.
-
-.. note::
-
-    Căutarea este case-sensitive.
-    Putem să schimbăm acest comportament prin introducerea opțiunii ``-I`` în sesiunea interactivă, înainte de a porni căutarea.
-    Dacă doriți să aflați mai multe despre opțiunile pe care le putem introduce apăsați tasta ``h`` într-o sesiune interactivă și căutați textul "OPTIONS".
+Căutarea [#search-case]_ are loc de la poziția curentă în pagină către sfârșitul paginii.
+Dacă am navigat deja în interiorul paginii, trebuie să avem în vedere că rezultatul de interes al căutării noastre se poate alfa undeva între începutul paginii și poziția noastră curentă [#rev-search]_.
 
 Interpretarea paginii de manual
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,17 +137,17 @@ Să analizăm pagina de manual a utilitarului ``ls``; ``man ls``:
    Cele trei puncte ``...`` înseamnă mai multe din categoria precedentă: deci ``[OPTION]...`` înseamnă că nu suntem limitați la o singură opțiune, dar opțiunile pot să și lipsească în totalitate datorită **[ ]**.
 
 
-    O comandă poate avea atât opțiuni, cât și argumente.
-    Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de ``-`` (ex. ``-l``, ``--verbose``, etc.).
-    Argumentele îi spun unei comenzi pe ce să acționeze.
+   O comandă poate avea atât opțiuni, cât și argumente.
+   Opțiunile îi spun unei comenzi cum să își modifice comportamentul, și de obicei sunt precedate de ``-`` (ex. ``-l``, ``--verbose``, etc.).
+   Argumentele îi spun unei comenzi pe ce să acționeze.
 
-    În exemplul de mai jos:
+   În exemplul de mai jos:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        student@uso:~$ ls -l Desktop/
+       student@uso:~$ ls -l Desktop/
 
-    Avem utilitarul ``ls`` care primește opțiunea ``-l`` și argumentul ``Desktop/``.
+   Avem utilitarul ``ls`` care primește opțiunea ``-l`` și argumentul ``Desktop/``.
 
 #. Ultima observație pe care o facem este că opțiunile unei comenzi pot avea o formă prescurtată, ``-a``, sau o formă lungă, ``--all``.
    Nu este obligatoriu ca o opțiune să expună ambele forme, deși majoritatea o fac.
@@ -203,7 +196,7 @@ Extra: Utilizarea secțiunilor din manual
     8   System administration commands (usually only for root)
     9   Kernel routines [Non standard]
 
-Ce este important de reținut aici este că folosind ``man`` putem afla informații despre funcții de bibliotecă și de sistem, și multe altele, nu doar despre utilitare și comenzi shell.
+Ce este important de reținut aici este că, folosind ``man``, putem afla informații despre funcții de bibliotecă și de sistem, și multe altele, nu doar despre utilitare și comenzi shell.
 Totul este mai clar cu un exemplu.
 Dacă rulăm comanda ``man printf`` se va deschide pagina următoare din manual:
 
@@ -581,7 +574,7 @@ Extra: Sintaxa specială ``{}``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În sintaxa globbing, folosim sintaxa ``{}`` pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
-Această sintaxă înlocuiește exact un caracter din lista oferită.
+Această sintaxă înlocuiește exact un cuvânt din lista oferită.
 În directorul vostru home (``~``), executați următoarele comenzi:
 
 .. code-block:: bash
@@ -608,7 +601,7 @@ Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exempl
 
 În exemplul de mai sus, fișierele pdf de curs sunt prefixate cu numele materiei: [PC], [USO].
 Vrem să îi spunem sintaxei de globbing că în acest caz, șirul **[USO]** nu trebuie tratat ca o expresie, ci ca un șir de caracter normale.
-Pentru a face asta, încadrăm șirul între **"**:
+Pentru a face acest lucru, încadrăm șirul între **"**:
 
 .. code-block:: bash
 
@@ -638,7 +631,7 @@ Pentru exercițiile următoare vom folosi fișierele din directorul de suport ``
 Căutarea unui fișier în sistem
 ------------------------------
 
-De multe ori ne aflăm în situația în care căutăm un fișier pe disk: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul **Makefile** pentru a vedea cum compilăm și rulăm proiectul.
+De multe ori ne aflăm în situația în care căutăm un fișier pe disc: ex. doar ce am clonat un proiect de pe GitHub și vrem să inspectăm fișierul **Makefile** pentru a vedea cum compilăm și rulăm proiectul.
 Un alt exemplu poate fi că vrem să vedem cum arată fișierele de test existente în proiect; de multe ori, ințelegem mai bine proiectul doar prin simpla inspectare a testelor.
 
 Există două utilitare care ne permit să căutăm în cadrul sistemului de fișiere: ``locate`` și ``find``.
@@ -679,8 +672,8 @@ Putem să folosim și sintaxa globbing pentru a descrie numele fișierului căut
 
 Căutările cu ``locate`` sunt foarte rapide.
 Acest lucru se datorează utilizării bazei de date pentru a indexa fișierele din sistem.
-Baza de date se reconstruiește periodic, o dată la 24h.
-Asta înseamnă că locate nu va găsi fișiere care au fost create după reconstrucția bazei de date.
+Într-o configurație implicită (*default*), baza de date se reconstruiește periodic, o dată la 24h.
+Asta înseamnă că ``locate`` nu va găsi fișiere care au fost create după reconstrucția bazei de date.
 Dacă vrem să reconstruim baza de date, folosim comanda ``updatedb``.
 
 Hai să clonăm repository-ul **TheAlgorithms/C**.
@@ -697,8 +690,8 @@ Hai să căutăm după cuvântul cheie **search**.
 
 .. code-block:: bash
 
-    student@uso:~/workspace/$ locate search | grep workspace/C
-    student@uso:~/workspace/$ 
+    student@uso:~/workspace$ locate search | grep workspace/C
+    student@uso:~/workspace$ 
 
 Observăm că nu am găsit nici un rezultat.
 Cum spuneam mai devreme, trebuie să reconstruim baza de date pentru a căuta în fișierele nou create.
@@ -794,7 +787,7 @@ Extra: Scenarii complexe de căutare
 """""""""""""""""""""""""""""""""""
 
 Utilitarul ``find`` are o lungă listă de opțiuni pe care le putem folosi în expresii de căutare.
-Una din opțiunile mai populare este ``-type`` care ne oferă posibilitatea de a căuta după tipul unui fișier:
+Una din opțiunile mai cunoscute este ``-type`` care ne oferă posibilitatea de a căuta după tipul unui fișier:
 
 .. code-block:: bash
 
@@ -804,10 +797,10 @@ Una din opțiunile mai populare este ``-type`` care ne oferă posibilitatea de a
     workspace/C/leetcode/src/278.c
     [...]
 
-În exemplul de mai sus i-am spus utilitarului ``find`` că vrem să căutăm în directorul ``~/workspace/C`` toate fișierele text (regular file) ``-type f``.
+În exemplul de mai sus i-am transmis utilitarului ``find`` că vrem să căutăm în directorul ``~/workspace/C`` toate fișierele text (regular file) ``-type f``.
 
 **Exercițiu:** Accesați pagina de manual a utilitarului find (``man find``) și căutați opțiunea ``-type``.
-Căutați în directorul ``workspace/C`` după fiecare tip de fișier suportat de opțiunea ``-type``.
+Căutați în directorul ``workspace/C`` după fiecare tip de fișier pentru care oferă suport opțiunea ``-type``.
 
 .. note::
     Reminder: pentru a căuta în man folosim ``/`` pentru a intra în search mode și apoi introducem textul pe care îl căutam ``-type`` urmat de tasta ``Enter``; pentru a ne duce la următorul rezultat al căutării folosim tasta ``n`` (next).
@@ -845,11 +838,34 @@ Observăm că ``-exec`` se încheie cu ``\;``: este nevoie să escapăm caracter
 
 În secțiunile ce urmează vom vedea cum ne folosim de opțiunea ``exec`` pentru a face recursiv search & replace în fișiere.
 
+Exerciții
+"""""""""
+
+#. Folosind ``find`` căutați fișierele care conțin șirul ``bubble_sort`` în nume.
+
+#. Folosind ``find`` căutați fișierele care conțin șirul ``quick_sort`` în nume.
+
+#. Folosind ``find`` căutați fișierele care conțin șirul ``merge_sort`` în nume.
+
+#. Folosind ``find`` căutați fișierele care conțin șirul ``sort`` în nume.
+
 .. rubric:: Note de subsol
 
 .. [#glob-list]
 
-    Folosim forma ``A-Za-z`` pentru a spune orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
-    Nu putem folosi forma ``A-z`` datorită reprezentării caracterelor în tabelul ascii.
+    Folosim forma ``A-Za-z`` pentru a preciza orice caracter din alfabetul englez, indiferent dacă este majusculă sau nu.
+    Nu putem folosi forma ``A-z`` datorită reprezentării caracterelor în tabelul ASCII.
     Caracterele **A-Z** sunt reprezentate în intervalul **65-90**, iar caracterele **a-z** în intervalul **97-122** în tabelul ascii.
-    Dacă am folosi forma **A-z**, i-am spune expresiei globbing să includă și caracterele din intervalul **91-96** din tabelul ascii în expresia noastră.
+    Dacă am folosi forma **A-z**, i-am indica expresiei globbing să includă și caracterele din intervalul **91-96** din tabelul ascii în expresia noastră.
+
+.. [#search-case]
+
+    Căutarea este case-sensitive.
+    Putem să schimbăm acest comportament prin introducerea opțiunii ``-I`` în sesiunea interactivă, înainte de a porni căutarea.
+    Dacă doriți să aflați mai multe despre opțiunile pe care le putem introduce apăsați tasta ``h`` într-o sesiune interactivă și căutați textul "OPTIONS".
+
+
+.. [#rev-search]
+
+    Putem folosi tasta ``?`` pentru a porni o căutare de la poziția curentă către începutul paginii.
+    Alternativ, putem naviga la începutul paginii prin apăsarea unei singure taste (``g``) și apoi pornim căutarea ``/`` de acolo.
