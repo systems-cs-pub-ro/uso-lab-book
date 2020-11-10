@@ -83,7 +83,9 @@ USO lab book
    chapters/improve-cli/inspect-fs.rst
    chapters/improve-cli/inspect-fs-summary.rst
    chapters/improve-cli/inspect-files.rst
+   chapters/improve-cli/inspect-files-summary.rst
    chapters/improve-cli/improve-shell.rst
+   chapters/improve-cli/improve-shell-summary.rst
 
 
 Indices and tables

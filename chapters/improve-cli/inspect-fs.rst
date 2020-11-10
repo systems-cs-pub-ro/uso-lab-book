@@ -182,7 +182,7 @@ Deschideți pagina de manual a utilitarului ``ls``.
    Treceți la următoarea apariție a cuvântului cheie până ajungeți la opțiunea ``-l``.
 
 #. Mergeți la finalul paginii folosind tasta ``G``.
-   Căutați cuvântul cheie ``color`` până ajungeți la opțiunea ``--color``.
+   Căutați cuvântul cheie ``color`` până ajungeți la opțiunea ``--color`` (Hint: ``?``).
 
 Extra: Utilizarea secțiunilor din manual
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -337,154 +337,11 @@ Instalați pachetul ``tldr`` pe mașina voastră.
 #. Accesați pagina ``tldr`` a utilitarului ``man``.
 
 
-Navigarea sistemului de fișiere: comanda ``cd``
------------------------------------------------
-
-Comanda ``cd`` este una dintre cele mai folosite comenzi.
-Funcționalitatea este în numele ei, **cd** fiind o abreviere pentru **change directory**.
-Este esențial să ne simțim foarte comfortabili atunci când navigăm prin sistemul de fișiere.
-
-Navigarea eficientă folosind ``cd``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul **DCIM1001** la ceva util **Excursie Sinaia, Ian 2020, 1001**, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.
-
-Pentru a ne realiza sarcina, vrem să navigăm în directorul în directorul în care ne-am salvat pozele.
-Primul pas este să aflăm directorul curent în care ne aflăm.
-Facem asta folosind comanda ``pwd``, acronim pentru print working directory.
-
-.. code-block:: bash
-
-    student@uso:~$ pwd
-    /home/student
-
-Observăm că ne aflăm în directorul **home** al utilizatorului **student**.
-Ne vom muta în directorul în care avem pozele
-
-.. code-block:: bash
-
-    student@uso:~$ cd Pictures/Sinaia/
-    student@uso:~/Pictures/Sinaia$
-
-.. note::
-
-    Observați că rezultatul comenzii ``pwd`` este o cale absolută ``/home/student``.
-    O cale absolută este o cale care începe cu ``/``, adică cu directorul **root** care este rădăcina sistemului nostru de fișiere.
-
-    Observați calea oferită comenzii ``cd``: ``Pictures/Sinaia/``.
-    Aceasta nu începe cu directorul rădăcină ``/``, deci este o cale relativă la directorul în care ne aflam, adică relativă la ``/home/student``.
-
-Acum ne aflăm în directorul pozelor.
-Verificăm folosind ``pwd``
-
-.. code-block:: bash
-
-    student@uso:~/Pictures/Sinaia$ pwd
-    /home/student/Pictures/Sinaia
-
-În cazul de față, această verificare este redundantă deoarece avem această informație afișată în prompt: ``student@uso:~/Pictures/Sinaia``.
-Remarcați faptul că în prompt, calea este afișată ``~/Pictures/Sinaia``.
-Este afișată așa deoarece caracterul ``~`` (tilda) este o scurtătură pentru directorul home al utilizatorului curent, în cazul nostru ``/home/student``.
-
-.. tip::
-
-    Scurtătura ``~`` este disponibilă pentru orice comandă, nu doar pentru ``cd``.
-    De înlocuirea ei se ocupă terminalul înainte de a executa comanda.
-
-Putem să revenim în directorul nostru home folosindu-ne de scurtătura ``~``
-
-.. code-block:: bash
-
-    student@uso:~/Pictures/Sinaia$ cd ~
-    student@uso:~$
-
-Un mijloc și mai scurt prin care putem să revenim în directorul nostru home este să executăm comanda ``cd`` fără nici un argument.
-
-.. note::
-
-    Comenzile ``cd`` și ``cd ~`` sunt echivalente.
-    În practică, folosim comanda ``cd`` simplă pentru a naviga în directorul home al utilizatorului curent.
-
-Folosim ``~`` pentru a construi o cale absolută, care are ca punct de plecare directorul home al utilizatorului curent, așa cum putem vedea în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~/workspace/uni/programming/labs/lab01$ pwd
-    /home/student/workspace/uni/programming/labs/lab01
-    student@uso:~/workspace/uni/programming/labs/lab01$ cd ~/Pictures/Sinaia
-    student@uso:~/Pictures/Sinaia$ cd -
-    student@uso:~/workspace/uni/programming/labs/lab01$ cd ../../../../../Pictures/Sinaia
-    student@uso:~/Pictures/Sinaia$
-
-Observăm că sintaxa ``cd ~/Pictures/Sinaia`` este mult mai scurtă și simplă de urmărit față de alternativa ``cd ../../../../../Pictures/Sinaia``.
-
-În exemplul de mai sus am folosit o altă scurtătură pusă la dispoziție de comanda ``cd``, anume ``cd -``.
-Comanda ``cd -`` are ca efect navigarea în directorul anterior, așa cum am văzut în exemplul anterior când am folosit-o pentru a reveni în directorul ``/home/student/workspace/uni/programming/labs/lab01``.
-
-Exerciții: Exersarea navigării în cadrul sistemului de fișiere
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Prin exercițiile care urmează o să ne exersăm mâna astfel încât să devenim cât mai comfortabili cu navigarea prin sistemul de fișiere.
-Trebuie să ne fie foarte clar când folosim o cale absolută, când folosim una relativă și să devenim din ce în ce mai rapizi.
-
-.. tip::
-
-    O să folosim tasta ``Tab`` de fiecare dată când navigăm prin sistemul de fișiere.
-    Nu doar că ne ajută să scriem mai rapid calea, dar în cazul în care nu se execută funcția de auto-complete înseamnă că cel mai probabil avem o greșeală undeva în calea introdusă manual.
-
-.. note::
-
-    Dacă nu aveți pe sistem una din căile folosite în exerciții, creați-o.
-
-#. Navigați în directorul rădăcină (``/``) al sistemului vostru.
-   De aici, navigați în directorul ``/home/student/Pictures`` (folosiți tasta ``Tab`` pentru auto-completion).
-   Reveniți în directorul rădăcină folosind ``-``.
-   Reveniți în directorul ``Pictures/`` folosind ``-``.
-   Navigați în directorul home folosind doar comanda ``cd``.
-
-#. Navigați în directorul ``~/workspace/uni/programming/labs/lab01``.
-   De aici, navigați în directorul ``~/workspace/uni/programming/`` folosind o cale relativă (Obs: calea voastră **NU** trebuie să înceapă cu directorul rădăcină, ``/``).
-   Navigați în directorul ``~/Downloads`` folosind o cale relativă.
-   Reveniți în directorul ``~/workspace/uni/programming/labs/lab01``.
-
-#. Navigați în directorul ``~/Documents`` folosind o cale absolută (Obs: calea voastră **trebuie** să înceapă cu directorul rădăcină, ``/``).
-   Navigați în directorul ``~/Desktop`` folosind o cale absolută.
-   Navigați în directorul ``~/Music`` folosind o cale relativă.
-
-
 Explorarea sistemului de fișiere: comanda ``ls``
 ------------------------------------------------
 
-Comanda ``ls`` este și ea una dintre cele mai folosite comenzi.
-Funcționalitatea este în numele ei, **ls** fiind o abreviere pentru **list**.
-Folosim ``ls`` pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.
-
-Comanda poate fi folosită fără nici un argument, ca în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ ls
-    Desktop    Downloads  Pictures  Templates  examples.desktop  vm-actions-log.txt
-    Documents  Music      Public    Videos     uso.git           workspace
-
-Observă că ``ls`` ne-a afișat conținutul directorului în care ne aflăm, în exemplul de mai sus este directorul home (``~``).
-``ls`` poate să primească ca argument calea către unul sau mai multe fișiere și directoare, așa vedem în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ ls workspace/ Downloads/ examples.desktop nonexistent
-    ls: cannot access 'nonexistent': No such file or directory
-    examples.desktop
-
-    Downloads/:
-
-    workspace/:
-    hello  uso-lab-book
-
-Atunci când argumentul este un director, ne este afișat conținutul acestuia, așa cum se întâmplă pentru directoarele ``workspace/`` și ``Downloads``.
-Atunci când argumentul este un fișier, acesta este afișat, așa cum este cazul pentru ``examples.desktop``.
-Observăm că în cazul folosim ca argument o cale către un fișier sau director care nu există (``nonexistent`` în exemplul de mai sus) utilitarul ``ls`` nu își oprește execuția.
-Acesta afișează un mesaj de eroare pentru argumentul în cauză și apoi își continuă execuția cu restul argumentelor.
+În capitolul **Lucrul cu fișiere** am văzut cum folosim comanda ``ls`` pentru a afișa conținutul unui director și pentru a explora sistemul de fișiere.
+În continuare vom vedea cum folosim ``ls`` pentru a afișa mai multe informații despre conținutul unui director sau despre fișiere.
 
 Afișarea fișierelor ascunse
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -616,7 +473,9 @@ Pentru a-i specifica lui ``ls`` că suntem interesați de informații despre fi�
 #. Aflați care sunt permisiunile pe care le are orice utilizator asupra directoarelor ``/home``, ``/home/student`` și ``/tmp``.
 
 Selectarea multiplor fișiere folosind globbing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------
+
+Întotdeauna când deschidem un terminal o facem pentru că vrem să realizăm o sarcină: vrem să redenumim rapid ultimele poze făcute cu telefonul de la genericul **DCIM1001** la ceva util **Excursie Sinaia, Ian 2020, 1001**, vrem să ne testăm proiectul și să urcăm modificările pe GitHub, etc.
 
 Până acum am aplicat diferite comenzi fie pe fișiere individuale, fie pe întreg directorul.
 Foarte des vom avea nevoie de un mijloc prin care să putem selecta un număr variabil de fișiere care au un nume care corespunde unui tipar (*pattern*) comun.
@@ -636,7 +495,7 @@ Expresia ``DCIM*`` este un exemplu de globbing: adică o expresie care descrie u
 În cazul de față, expresia ``DCIM*`` înseamnă orice fișier al cărui nume începe cu șirul de caractere ``DCIM``.
 
 Caracterul special ``*``
-""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 În sintaxa globbing, caracterul ``*`` poate fi înlocuit cu orice caracter de oricâte ori, sau poate lipsi cu totul.
 În directorul nostru home (``~``), executăm următoarele comenzi:
@@ -658,7 +517,7 @@ Observăm că în cazul expresie ``Music*``, ``*`` nu ține locul nici unui cara
 
 
 Caracterul special ``?``
-""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 În sintaxa globbing, caracterul ``?`` înlocuiește exact un caracter, oricare ar fi acela.
 În directorul nostru home (``~``), executăm următoarele comenzi:
@@ -678,7 +537,7 @@ Observăm că expresiile ``Musi?`` și ``Mus??`` s-au înlocuit cu succes cu num
 
 
 Extra: Sintaxa specială ``[]``
-""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În sintaxa globbing, folosim sintaxa ``[]`` pentru a defini o listă de caractere care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
@@ -719,7 +578,7 @@ Citim expresia ``[A-Za-z0-9]`` în următorul mod: această expresie înlocuieș
 
 
 Extra: Sintaxa specială ``{}``
-""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 În sintaxa globbing, folosim sintaxa ``{}`` pentru a defini o listă de cuvinte (grupuri de caractere) care pot fi folosite în înlocuire.
 Această sintaxă înlocuiește exact un caracter din lista oferită.
@@ -737,7 +596,7 @@ Citim expresia ``{Downloads,Music}``: în locul acestei expresii poate să exist
 Observăm că putem să combinăm orice elemente de globbing, așa cum am făcut în expresia ``{Down,Mus}*``.
 
 Extra: Folosirea ad-litteram a caracterelor speciale
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Există cazuri când numele fișierelor conțin caractere speciale.
 Unele fișiere pot fi prefixate cu o categorie din care fac parte, ca în exemplul de mai jos:
@@ -759,6 +618,21 @@ Pentru a face asta, încadrăm șirul între **"**:
 Citim expresia ``"[USO]"*``: orice fișier al cărui nume începe cu șirul de caractere **[USO]** și este urmat de orice caracter.
 Operația prin care eliminăm semnificația specială a unui caracter poartă numele de **escaping**; cu alte cuvinte, informal, spunem că am făcut escaping semnificației speciale a sintaxei ``[]``.
 Termenul vine de la cuvântul **escape** (a scăpa), și exprimă că scăpăm de semnificația specială a unui caracter / set de caractere.
+
+Exerciții
+^^^^^^^^^
+
+Pentru exercițiile următoare vom folosi fișierele din directorul de suport ``support-globbing``.
+
+#. Creați un director numit ``pdfs``.
+   Mutați toate fișierele cu extensia ``.pdf`` din directorul ``support-globbing`` în directorul ``pdfs``.
+
+#. Creați un director numit ``Excursie Brasov, 2020-2021``.
+   Mutați fișierele **DCIM** din intervalul 1400 - 1700 în directorul creat.
+
+#. Creați un director numit ``cursuri/anul-I``.
+   Mutați toate fișierele care conțin cuvintele **curs** sau **slide** în directorul creat.
+   Extra: Folosiți sintaxa ``*{curs,slide}*``.
 
 
 Căutarea unui fișier în sistem

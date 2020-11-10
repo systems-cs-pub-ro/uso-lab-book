@@ -13,6 +13,9 @@ Fișierul de configurare al shellului **BASH** este ``~/.bashrc``.
 Există câte un fișier ``.bashrc`` în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor bash, fără a intra în conflict cu configurările bash ale altor utilizatori din sistem.
 Atunci când un utilizator pornește un shell bash, conținutul fișierului ``~/.bashrc`` este citit și sunt aplicate configurările specifice utilizatorului.
 
+Shellul *bash*, ca majoritatea programelor, vine cu un set de configurări default care poate nu sunt pe placul tuturor utilizatorilor.
+Prin fișierul ``.bashrc`` utilizatorul poate modifica setul default a.î. să se potrivească cu stilul său: un exemplu des întâlnit este modificarea dimensiunii isoricului de comenzi.
+
 Modificarea dimensiunii istoricului
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -356,6 +359,7 @@ Redirectări
 ^^^^^^^^^^^
 
 Majoritatea utilitarelor pe care le folosim afișează rezultatele operațiilor pe care le aplică la ieșirea standard, adică pe ecran.
+În continuare vom aprofunda ceea ce am discutat despre redirectări în capitolul **Lucrul cu Fișiere**.
 Anterior am mai menționat și termenul de intrare standard; în această secțiune ne vom clarifica ce înseamnă, ce rol îndeplinesc și cum ne folosim de aceste cunoștințe.
 
 Orice proces folosește implicit trei fluxuri (streams) de date:
@@ -540,7 +544,10 @@ Pe sistemele Linux găsim un număr de fișiere speciale pe care le putem folosi
 
   **Exercițiu**: Rulați comenzile din exemplul anterior, dar acum citiți din ``/dev/urandom``.
 
-Generatoarele de octeți sunt utile pentru a testa aplicațiile pe care le dezvoltăm pe inputuri random.
+Generatoarele de octeți sunt utile pentru a testa aplicațiile pe care le dezvoltăm.
+Majoritatea aplicațiilor pe care le vom scrie, ca și cele pe care le utilizăm, citesc și prelucrează informații.
+Testăm o aplicație pentru că vrem să verificăm că nu avem buguri.
+Pentru aceasta putem să folosim seturi de date de intrare cât mai variate și mai aleatoare, adică inputuri random.
 Folosim utilitarul ``dd`` pentru a genera un fișier de 100 MB cu octeți random, ca în exemplul de mai jos:
 
 .. code-block:: bash
@@ -573,56 +580,6 @@ Comparați dimensiunile arhivelor obținute.
 
 Exerciții - TODO
 ^^^^^^^^^^^^^^^^
-
-#. Clonați repo folosind ``git``. Rulează o anumită comandă, sau un șir de comenzi doar dacă s-a modificat ceva în repo git log pt a vedea dacă s-au făcut modificări în repo build și pus binare generate în ``~/bin``
-
-#. Căutat în repo/cod sursă după un simbol (`grep -nr <simbol>`). Deschis vim la locația unde a fost găsit simbolul.
-
-#. Implementarea unui alias pt `rm` care muta fișierele în `~/Trash`
-    * Adăugare intrare în crontab care șterge periodic (1/zi) fișierele mai vechi de T (ex. 30 zile)
-    * Utilizare ``find | xargs`` sau ``find --exec`` pentru rezolvare
-
-#. Lansarea în execuție a unui proces care supraviețuiește închiderii terminalului părinte. Inspectarea acestui proces (``lsof``, ``ps``). Trimiterea unor semnale. Oprirea lui. Un mod de a notifica utilizatorul de terminarea cu succes a procesului (mail?)
-
-
-3) Shell scripting
-------------------
-
-Cred că secțiunea asta intră la capitolul de automatizare. N-aș mai băga-o aici că și așa mi se pare că am vorbit de foarte multe.
-
-* Variabile de mediu: ce sunt, la ce le folosim și care sunt variabilele uzuale (``$HOST``, ``$USER``)
-    * ``$PATH`` - la ce este folosit; cum adăugăm ceva la ``$PATH``, ce face export și de ce este util, cum facem ca modificarea ``$PATH`` să fie persistentă (edităm în ``.bashrc``)
-
-* Pornirea mai multor instanțe de shell în aceelași terminal.
-
-* Definirea de variabile cu valori statice (x=42) sau dinamice (x=`ls -l`)
-
-* Oneliners
-
-* Control flow în bash: ``if``, ``for``, ``while read``, ``test``
-
-* Bouns: Definirea de funcții în ``.bashrc``
-
-
-a. Exerciții
-^^^^^^^^^^^^
-
-1. Snippeturi pentru a crea fișiere: sursa main, fișiere header care au ``#ifndef/define/endif __PLACEHOLDER__``, ``Makefile`` etc. Modificarea placeholder-elor cu nume date de utilizator.
-
-#. Creat un director template pentru a fi folosit în inițializarea structurii unor noi proiecte (boilerplate).
-    * Generează directoare pt ``src/, build/, gen/, res/`` și fișier ``Readme`` etc.
-    * Search and replace după anumite cuvinte placeholder: ex. Numele proiectului în fișierul ``Readme``.
-    * Mutat totul într-un script.
-    * Script-ul trebuie să primească ca argumente: numele proiectului, repo către github, autor, etc.
-
-#. Scrie un script care generează un fișier Makefile pentru fișierele sursă din directorul curent. Script-ul trebuie să primească tipul fișierelor sursă (`c, cpp, d, java`, etc.) și compilatorul pe care să-l folosească.
-    * Pune script-ul în ``~/bin`` și actualizează variabila ``$PATH``.
-    * Fă alias-uri pentru cazurile cele mai uzuale: ``c_make_init`` (pt C) și ``cpp_make_init`` pt (C++)
-
-#. Mount în modul read-only al unei partiții (util pt cei care au dualboot și vor să-și monteze discul de Windows, D:\filme, etc).
-    * Utilizare sshfs (mount la o partiție prin ssh) - util pt lucrat pe cluster pt cei care folosesc IDE-uri
-    * Nu are ce căuta aici, dar nu știam unde să-l pun și nu voiam să uit de el
-
 
 .. rubric:: Note de subsol
 
