@@ -99,6 +99,19 @@ USO lab book
    chapters/task-admin/monitor.rst
    chapters/task-admin/cron.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Prelucrarea datelor
+
+   chapters/data-proc/data.rst
+   chapters/data-proc/view.rst
+   chapters/data-proc/select.rst
+   chapters/data-proc/python.rst
+   chapters/data-proc/process.rst
+   chapters/data-proc/summary.rst
+   chapters/data-proc/tasks.rst
+
 
 Indices and tables
 ==================
