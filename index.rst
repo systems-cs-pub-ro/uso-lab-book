@@ -133,6 +133,16 @@ USO lab book
    chapters/cli-automation/regex.rst
    chapters/cli-automation/scripting-intro.rst
    chapters/cli-automation/scripting-advanced.rst
+   :caption: Investigarea securității sistemului
+
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   chapters/security/data.rst
+   chapters/security/auth.rst
+   chapters/security/transfer.rst
+   chapters/security/process.rst
+
 
 Indices and tables
 ==================
