@@ -112,6 +112,17 @@ USO lab book
    chapters/data-proc/summary.rst
    chapters/data-proc/tasks.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Utilizatori și permisiuni
+
+   chapters/users-permissions/privileged-access.rst
+   chapters/users-permissions/processes.rst
+   chapters/users-permissions/permissions.rst
+   chapters/users-permissions/groups.rst
+   chapters/users-permissions/advanced.rst
+
 
 Indices and tables
 ==================
