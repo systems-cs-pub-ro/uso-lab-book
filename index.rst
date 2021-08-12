@@ -86,6 +86,17 @@ USO lab book
    chapters/improve-cli/improve-shell.rst
    chapters/improve-cli/term-multiplexing.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Utilizatori și permisiuni
+
+   chapters/users-permissions/privileged-access.rst
+   chapters/users-permissions/processes.rst
+   chapters/users-permissions/permissions.rst
+   chapters/users-permissions/groups.rst
+   chapters/users-permissions/advanced.rst
+
 
 Indices and tables
 ==================
