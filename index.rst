@@ -123,6 +123,15 @@ USO lab book
    chapters/users-permissions/groups.rst
    chapters/users-permissions/advanced.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Automatizarea în linia de comandă
+
+   chapters/cli-automation/intro.rst
+   chapters/cli-automation/regex.rst
+   chapters/cli-automation/scripting-intro.rst
+   chapters/cli-automation/scripting-advanced.rst
 
 Indices and tables
 ==================
