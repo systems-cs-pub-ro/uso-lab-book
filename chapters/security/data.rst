@@ -196,4 +196,3 @@ Exerciții - integritatea datelor
 #. Descărcați de pe platforma `VirtualBox`_ o versiune de utilitar. Faceți suma de control și comparați cu ce oferă cei de la VirtualBox.
 
 .. _VirtualBox: https://www.virtualbox.org/wiki/Linux_Downloads
-
