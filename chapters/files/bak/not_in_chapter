@@ -1,0 +1,50 @@
+Afișarea informațiilor de tip metadata pentru un fișier
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Atunci când vrem să aflăm informații suplimentare despre existența unui fișier/director, putem să-i citim informațiile de tip *metadata*.
+
+Informațiile de tip metadata pentru un fișier/director includ informații legate de dimensiune, data de creare/accesare, permisiuni, tipul de fișier.
+
+Pentru a afla informații suplimentare despre fișiere/directoare, putem folosi comanda ``stat``:
+
+.. code-block:: bash
+
+    student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya\ Stark
+      File: 'Arya'
+      Size: 19        	Blocks: 8          IO Block: 4096   regular file
+    Device: 801h/2049d	Inode: 152526      Links: 1
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/ student)   Gid: ( 1000/ student)
+    Access: 2020-10-06 16:50:01.692000000 +0300
+    Modify: 2020-10-06 16:50:01.692000000 +0300
+    Change: 2020-10-06 16:50:01.692000000 +0300
+     Birth: -
+
+Observăm că fișierul **Arya** are 19 octeți.
+Acesta a fost modificat pe *6 Octombrie 2020* la ora *16.50*.
+
+Citim fișierul ``Arya`` să vedem ce schimbări se produc:
+
+.. code-block:: bash
+
+    student@uso:~/comenzi/mkdir/GameOfThrones$ cat Arya\ Stark
+    A girl has no name
+    student@uso:~/comenzi/mkdir/GameOfThrones$ stat Arya\ Stark
+      File: 'Arya'
+      Size: 19        	Blocks: 8          IO Block: 4096   regular file
+    Device: 801h/2049d	Inode: 152526      Links: 1
+    Access: (0644/-rw-r--r--)  Uid: ( 1000/ student)   Gid: ( 1000/ student)
+    Access: 2020-10-06 16:50:15.696000000 +0300
+    Modify: 2020-10-06 16:50:01.692000000 +0300
+    Change: 2020-10-06 16:50:01.692000000 +0300
+     Birth: -
+
+Observăm o actualizare la nivelul câmpului *Access*.
+
+Exerciții - afișare metadate
+""""""""""""""""""""""""""""
+
+* Afișați metadatele directoarelor **GameOfThrons** și **LordOfTheRings**.
+* Afișați metadatele fișierelor **Arya** și **Hulk**.
+
+
+
