@@ -99,14 +99,16 @@ Exerciții - editor grafic
 """""""""""""""""""""""""
 
 #. * Folosind editorul de text `Sublime`, disponibil de VM, deschideți fișierul ``Romanian Presidents`` și completați fișierul cu cel puțin 3 președinți ai României.
-   * Salvati fișierul în directorul vostru ``home``.
+   * Salvați fișierul în directorul vostru ``home``.
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Indentați fiecare linie o dată;
-   * Comentați liniile 2-8.
 
-#. * Scrieti cod C (similar exemplului de mai sus) pentru a afișa textul ``Make USO Great Again!``;
-   * Folositi scurtăturile pentru indentare;
+#. * Folosind editorul de text `Sublime`, deschideți fișierul ``program.c``.
+   * Salvați fișierul în directorul vostru ``home``.
+   * Scrieti cod C (similar exemplului de mai sus) pentru a afișa textul ``Make USO Great Again!``;
+   * Folosiți scurtăturile pentru indentare;
    * Compilați folosind scurtătura ``Ctrl+b``.
+   * Comentați liniile 2-8.
 
 Editor în linie de comandă
 --------------------------
