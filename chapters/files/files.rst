@@ -39,30 +39,30 @@ Pentru a vedea fișierele sub formă arborescentă, folosim comanda ``tree``:
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ tree -L 1 /
+    student@uso:~/comenzi/mkdir$ tree -F -L 1 /
     /
-    |-- bin
-    |-- boot
-    |-- dev
-    |-- etc
-    |-- home
+    |-- bin/
+    |-- boot/
+    |-- dev/
+    |-- etc/
+    |-- home/
     |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
-    |-- lib
-    |-- lib64
-    |-- libx32
-    |-- lost+found
-    |-- media
-    |-- mnt
-    |-- opt
-    |-- proc
-    |-- root
-    |-- run
-    |-- sbin
-    |-- srv
-    |-- sys
-    |-- tmp
-    |-- usr
-    |-- var
+    |-- lib/
+    |-- lib64/
+    |-- libx32/
+    |-- lost+found/
+    |-- media/
+    |-- mnt/
+    |-- opt/
+    |-- proc/
+    |-- root/
+    |-- run/
+    |-- sbin/
+    |-- srv/
+    |-- sys/
+    |-- tmp/
+    |-- usr/
+    |-- var/
     ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
 
 
@@ -594,28 +594,28 @@ Exerciții - ierarhii de fișiere și directoare
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. * Afișați ierarhia de fișiere pornind de la directorul vostru home (``~``).
-   * Creați următoarea ierarhie pornind de la directorul ``/home/student/``:
+   * Creați următoarea ierarhie pornind de la directorul ``/home/student/`` (directoarele se termina cu ``/``):
 
    .. code-block:: bash
 
-       student@uso:~$ tree
+       student@uso:~$ tree -F
        .
-       ├── prime_video
-       ├── Hulu
-       │   └── Favorite
-       ├── Netflix
-       │   ├── Filme
+       ├── prime_video/
+       ├── Hulu/
+       │   └── Favorite/
+       ├── Netflix/
+       │   ├── Filme/
        │   │   ├── filme_2020.txt
        │   │   ├── filme_2019.txt
        │   │   ├── filme_vechi
-       │   └── Seriale
-       │       ├── seriale_2020
+       │   └── Seriale/
+       │       ├── seriale_2020/
        │       ├── seriale_2019.txt
-       │       └── seriale_vechi
-       ├── HBO_GO
+       │       └── seriale_vechi/
+       ├── HBO_GO/
        │   ├── Modern_Family.txt
-       │   └── Harry_Potter
-       └── YouTubeTV
+       │   └── Harry_Potter/
+       └── YouTubeTV/
 
    * Copiați întreaga ierarhie în calea ``/tmp``. Folosiți comanda ``cp``. (Hint: recursivitate).
    * Confirmați copierea prin afișarea directorului părinte.
@@ -633,12 +633,12 @@ Exerciții - ierarhii de fișiere și directoare
 
    .. code-block:: bash
 
-       student@uso:~$ tree
+       student@uso:~$ tree -F
        .
-       └─── Cale
-           └─── Lungă
-                └─── De
-                     └─── Directoare
+       └─── Cale/
+           └─── Lungă/
+                └─── De/
+                     └─── Directoare/
 
 
    * Mutați ierarhia copiată anterior în ``/tmp`` în directorul ``Directoare``.

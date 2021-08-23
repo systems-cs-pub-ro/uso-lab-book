@@ -25,30 +25,30 @@ Putem vedea mai jos începutul ierarhiei din Linux:
 
 .. code-block:: bash
 
-    student@uso:/$ tree -L 1 /
+    student@uso:/$ tree -F -L 1 /
     /
-    |-- bin
-    |-- boot
-    |-- dev
-    |-- etc
-    |-- home
+    |-- bin/
+    |-- boot/
+    |-- dev/
+    |-- etc/
+    |-- home/
     |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
-    |-- lib
-    |-- lib64
-    |-- libx32
-    |-- lost+found
-    |-- media
-    |-- mnt
-    |-- opt
-    |-- proc
-    |-- root
-    |-- run
-    |-- sbin
-    |-- srv
-    |-- sys
-    |-- tmp
-    |-- usr
-    |-- var
+    |-- lib/
+    |-- lib64/
+    |-- libx32/
+    |-- lost+found/
+    |-- media/
+    |-- mnt/
+    |-- opt/
+    |-- proc/
+    |-- root/
+    |-- run/
+    |-- sbin/
+    |-- srv/
+    |-- sys/
+    |-- tmp/
+    |-- usr/
+    |-- var/
     ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
 
 Observăm ``/`` (directorul rădăcină) la începutul ierarhiei.
@@ -58,18 +58,18 @@ Observăm conținutul directorul ``home``:
 
 .. code-block:: bash
 
-    student@uso:/home$ tree -L 1 /home
+    student@uso:/home$ tree -F -L 1 /home
     .
-    |-- student
-    ``-- test
+    |-- student/
+    ``-- test/
 
 Există două directoare ``student`` și ``test``.
 
 .. note::
     Observăm cum se schimbă promptul de terminal:
 
-    * în primul exemplu ``student@uso:/$ tree -L 1 /`` eram în directorul ``/``.
-    * în al doilea exemplu ``student@uso:/home$ tree -L 1`` eram în directorul ``/home``.
+    * în primul exemplu ``student@uso:/$ tree -F -L 1 /`` eram în directorul ``/``.
+    * în al doilea exemplu ``student@uso:/home$ tree -F -L 1`` eram în directorul ``/home``.
 
 Avansăm în ierarhia de directoare către ``student``, folosind comanda ``cd``:
 
@@ -78,36 +78,36 @@ Avansăm în ierarhia de directoare către ``student``, folosind comanda ``cd``:
     student@uso:/home$ cd student
     student@uso:~$ pwd
     /home/student
-    student@uso:~$ tree
+    student@uso:~$ tree -F
     .
-    |-- comenzi
-    |   |-- executie
-    |   |-- ls
+    |-- comenzi/
+    |   |-- executie/
+    |   |-- ls/
     |   |   ``-- mkdir -> /home/student/comenzi/mkdir/
-    |   |-- mkdir
-    |   |   |-- Avengers
+    |   |-- mkdir/
+    |   |   |-- Avengers/
     |   |   |   |-- Captain\ America
     |   |   |   |-- Iron\ Man
     |   |   |   ``-- Thor
-    |   |   ``-- GameOfThrones
+    |   |   ``-- GameOfThrones/
     |   |       |-- Arya\ Stark
     |   |       |-- Daenerys\ Targaryen
     |   |       |-- Jon\ Snow
     |   |       ``-- Tyrion\ Lannister
     |   |-- my_ls
-    |   ``-- touch
+    |   ``-- touch/
     |       |-- orase
     |       |-- orase\ romania
     |       ``-- romania
     |-- comenzi_redirectare
     |-- continut_materii
-    |-- dezarhivare
-    |   |-- tar
-    |   ``-- zip
+    |-- dezarhivare/
+    |   |-- tar/
+    |   ``-- zip/
     |       |-- fisier1
     |       |-- fisier2
     |       ``-- fisier3
-    |-- ELTH
+    |-- ELTH/
     |-- erori_comenzi
     |-- fisier
     |-- fisier1
@@ -121,7 +121,7 @@ Avansăm în ierarhia de directoare către ``student``, folosind comanda ``cd``:
     |-- orase
     |-- scurtaturi.save
     |-- test.zip
-    |-- USO
+    |-- USO/
     |-- usr_bin.tar
     ``-- usr_bin.zip
 
