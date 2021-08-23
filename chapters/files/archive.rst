@@ -175,10 +175,10 @@ Creăm un director ``dezarhivare/tar`` și extragem arhiva acolo folosind ``tar`
     -rw-r--r-- 1 student student 1048576 Aug 19 11:55 înregistrare_lab03.mov
     -rw-r--r-- 1 student student 9439088 Aug 19 12:04 înregistrări.tar
     student@uso:~$ mkdir -p dezarhivare/tar
-    student@uso:~$ tree
+    student@uso:~$ tree -F
     .
-    |-- dezarhivare
-    |   ``-- tar
+    |-- dezarhivare/
+    |   ``-- tar/
     |-- înregistrare_lab01.mov
     |-- înregistrare_lab02.mov
     |-- înregistrare_lab03.mov
@@ -189,10 +189,10 @@ Creăm un director ``dezarhivare/tar`` și extragem arhiva acolo folosind ``tar`
     înregistrare_lab01.mov
     înregistrare_lab02.mov
     înregistrare_lab03.mov
-    student@uso:~$ tree
+    student@uso:~$ tree -F
     .
-    |-- dezarhivare
-    |   ``-- tar
+    |-- dezarhivare/
+    |   ``-- tar/
     |       |-- înregistrare_lab01.mov
     |       |-- înregistrare_lab02.mov
     |       ``-- înregistrare_lab03.mov
@@ -483,11 +483,11 @@ Putem extrage fișierele către o anumită cale:
       inflating: dezarhivare/zip/înregistrare_lab01.mov
       inflating: dezarhivare/zip/înregistrare_lab02.mov
       inflating: dezarhivare/zip/înregistrare_lab03.mov
-    student@uso:~$ tree
+    student@uso:~$ tree -F
     .
-    |-- dezarhivare
-    |   |-- tar
-    |   ``-- zip
+    |-- dezarhivare/
+    |   |-- tar/
+    |   ``-- zip/
     |       |-- înregistrare_lab01.mov
     |       |-- înregistrare_lab02.mov
     |       ``-- înregistrare_lab03.mov
