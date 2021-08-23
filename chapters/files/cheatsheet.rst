@@ -95,30 +95,30 @@ Ierarhie de fișiere
 
 .. code-block:: bash
 
-    student@uso:~/comenzi/mkdir$ tree -L 1 /
+    student@uso:~/comenzi/mkdir$ tree -F -L 1 /
     /
-    |-- bin
-    |-- boot
-    |-- dev
-    |-- etc
-    |-- home
+    |-- bin/
+    |-- boot/
+    |-- dev/
+    |-- etc/
+    |-- home/
     |-- initrd.img -> /boot/initrd.img-3.16.0-4-586
-    |-- lib
-    |-- lib64
-    |-- libx32
-    |-- lost+found
-    |-- media
-    |-- mnt
-    |-- opt
-    |-- proc
-    |-- root
-    |-- run
-    |-- sbin
-    |-- srv
-    |-- sys
-    |-- tmp
-    |-- usr
-    |-- var
+    |-- lib/
+    |-- lib64/
+    |-- libx32/
+    |-- lost+found/
+    |-- media/
+    |-- mnt/
+    |-- opt/
+    |-- proc/
+    |-- root/
+    |-- run/
+    |-- sbin/
+    |-- srv/
+    |-- sys/
+    |-- tmp/
+    |-- usr/
+    |-- var/
     ``-- vmlinuz -> boot/vmlinuz-3.16.0-4-586
 
 Afișarea conținutului unui director
