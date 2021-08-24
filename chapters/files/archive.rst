@@ -431,6 +431,7 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `
 În continuare, recreăm arhiva ``înregistrări.zip`` și ștergem fișierele ``înregistrare_lab01.mov``, ``înregistrare_lab02.mov``, ``înregistrare_lab03.mov``:
 
 .. code-block:: bash
+
     student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
       adding: înregistrare_lab01.mov (deflated 0%)
       adding: înregistrare_lab02.mov (deflated 0%)
@@ -449,6 +450,7 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `
 În momentul de față avem doar arhiva *zip* și urmează să obținem fișierele cu înregistrari,  folosind utilitarul ``zip``:
 
 .. code-block:: bash
+
     student@uso:~$ unzip înregistrări.zip
     Archive:  înregistrări.zip
       inflating: înregistrare_lab01.mov
