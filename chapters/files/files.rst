@@ -258,7 +258,7 @@ Afișăm rapid conținutul fișierului ``Arya`` din directorul ``GameOfThrones``
 
 
 O altă metodă este de a folosi un editor de text: `vim`_, `gedit`_, `emacs`_, `nano`_, `Sublime`_, etc.
-Vom detalia utilizarea unui editor de text în subsectiunea *Editor de text*.
+Vom detalia utilizarea unui editor de text în subsecțiunea *Editor de text*.
 
 .. _gedit: https://wiki.gnome.org/Apps/Gedit
 .. _Sublime: https://www.sublimetext.com/3
@@ -336,7 +336,7 @@ Aceasta permite parcurgerea în adâncime a întregii ierarhii de fișiere.
 .. important::
     După executarea comenzii, verificăm corectitudinea operației.
     Trebuie să verificăm și să nu presupunem că o comandă s-a executat.
-    Lipsa unei verifică poate duce la erori și mult timp pierdut din partea noastră.
+    Lipsa unei verificări poate duce la erori și mult timp pierdut din partea noastră.
 
 
 Redenumirea și mutarea fișierelor și directoarelor
@@ -344,7 +344,7 @@ Redenumirea și mutarea fișierelor și directoarelor
 
 Fișierele și directoarele se redenumesc în mod similar, folosind comanda ``mv`` astfel: ``mv nume_actual nume_nou``.
 
-Redenumim fișierele si directoarele folosind comanda ``mv``:
+Redenumim fișierele și directoarele folosind comanda ``mv``:
 
 .. code-block:: bash
 
@@ -390,7 +390,7 @@ Am verificat că directorul ``GameOfThrones`` se află la calea indicată (calea
 
 .. note::
 
-    Observăm că putem folosi atât căi relative cât și căi absolute ca argumente pentru comanda ``mv`` de mutare / redenumire de fișiere și directoare.
+    Observăm că putem folosi atât căi relative, cât și căi absolute ca argumente pentru comanda ``mv`` de mutare / redenumire de fișiere și directoare.
 
 Exerciții - redenumire și mutare
 """"""""""""""""""""""""""""""""
@@ -398,7 +398,7 @@ Exerciții - redenumire și mutare
 #. * Creați un director ``Vikings`` în directorul home al vostru;
    * Creați fișierele ``Ragnar``, ``Rollo``, ``Lagertha`` în directorul ``Vikings``;
    * Verificați că directorul și fișierele au fost mutate;
-   * Mutati directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
+   * Mutați directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
    * Verificați că directorul și ierarhia de fișiere au fost mutate; 
 
 #. * Creați un director ``NBA`` în directorul home al vostru;
@@ -410,7 +410,7 @@ Exerciții - redenumire și mutare
 #. * Redenumiți directorul ``GameOfThrones`` în ``ThronesInTheGame``;
    * Mutați fișierele din interiorul directorului ``ThronesInTheGame`` în ``/tmp``;
    * Verificați operațiile;
-   * Mutați directorul înapoi la locatia inițială folosind atât căi relative cât și căi absolute.
+   * Mutați directorul înapoi la locatia inițială folosind atât căi relative, cât și căi absolute.
 
 Copierea fișierelor și directoarelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -582,7 +582,7 @@ Pentru a afla tipul fișierului folosim comanda ``file``:
     student@uso:~$ file index.rst
     index.rst: ASCII text
     student@uso:~$ file archive.tar
-    archive.tar: POSIX tar archive (GNU) 
+    archive.tar: POSIX tar archive (GNU)
 
 Observăm că fișierul ``Picture.abc`` este un fișier de tipul *PNG* în ciuda extensiei, iar ``archive.tar`` este o arhivă de tipul *tar*.
 
@@ -602,7 +602,7 @@ Exerciții - ierarhii de fișiere și directoare
        .
        ├── prime_video/
        ├── Hulu/
-       │   └── Favorite/
+       │   └── Favorite
        ├── Netflix/
        │   ├── Filme/
        │   │   ├── filme_2020.txt
@@ -744,4 +744,4 @@ Putem folosi atât calea relativă cât și absolută:
     student@uso:~/comenzi$ /home/student/comenzi/my_ls
     executie  mkdir  my_ls	touch
 
-Observăm cum se rulează un executabil atât cu cale relativă (în primul caz) cât și cu cale absolută (în al doilea caz).
+Observăm cum se rulează un executabil atât cu cale relativă (în primul caz), cât și cu cale absolută (în al doilea caz).

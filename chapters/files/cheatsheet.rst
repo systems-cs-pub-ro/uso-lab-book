@@ -25,7 +25,7 @@ Cale relativă:
     drwxr-xr-x 2 student student 4096 Sep 29 18:20 Avengers
     drwxr-xr-x 2 student student 4096 Sep 29 19:21 GameOfThrones
 
-Cale absolută: 
+Cale absolută:
 
 .. code-block:: bash
 
@@ -262,7 +262,7 @@ Afișarea tipului de fișier
     student@uso:~$ file index.rst
     index.rst: ASCII text
     student@uso:~$ file archive.tar
-    archive.tar: POSIX tar archive (GNU) 
+    archive.tar: POSIX tar archive (GNU)
 
 
 Legături (Links)
