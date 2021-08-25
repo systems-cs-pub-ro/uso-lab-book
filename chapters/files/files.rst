@@ -395,13 +395,13 @@ Am verificat că directorul ``GameOfThrones`` se află la calea indicată (calea
 Exerciții - redenumire și mutare
 """"""""""""""""""""""""""""""""
 
-#. * Creați un director ``Vikings`` în directorul home al vostru;
+#. * Creați un director ``Vikings`` în directorul home al vostru (``~``);
    * Creați fișierele ``Ragnar``, ``Rollo``, ``Lagertha`` în directorul ``Vikings``;
    * Verificați că directorul și fișierele au fost mutate;
    * Mutați directorul (împreună cu întreaga ierarhie de fișiere) la locația ``/tmp/``;
    * Verificați că directorul și ierarhia de fișiere au fost mutate; 
 
-#. * Creați un director ``NBA`` în directorul home al vostru;
+#. * Creați un director ``NBA`` în directorul home al vostru (``~``);
    * Creați fișierele ``MichaelJordan``, ``LeBronJames``, ``DwayneWade`` și ``KobeBryant`` în directorul ``NBA``;
    * Verificați că directorul și fișierele au fost mutate;
    * Mutați directorul ``NBA`` (împreună cu întreaga ierarhie de fișiere) în directorul ``Vikings``;
@@ -547,18 +547,18 @@ Am creat directorul ascuns ``.LordOfTheRings``.
 Exerciții - creare fișiere/directoare ascunse
 """""""""""""""""""""""""""""""""""""""""""""
 
-#. * Creați un director cu numele ``.LordOfTheRings`` în directorul vostru home;
+#. * Creați un director cu numele ``.LordOfTheRings`` în directorul vostru home (``~``);
    * Intrați în directorul creat;
    * Creați 3 fișiere ascunse cu numele ``Aragorn``, ``Legolas``, ``Frodo Baggins``;
    * Verificați operațiile de creare (director și fișiere).
 
-#. * Creați un director cu numele ``stiri`` în directorul vostru home;
+#. * Creați un director cu numele ``stiri`` în directorul vostru home (``~``);
    * Creați fișierele ``hotnews``, ``biziday``, ``digi24``;
    * Creați fișierul ascuns ``.cancan``;
    * Afișați **toate** fișierele din director;
    * Afișați fișierele din director care **nu** sunt ascunse.
 
-#. * Creați un director ``tv`` în directorul vostru home;
+#. * Creați un director ``tv`` în directorul vostru home (``~``);
    * Creați fișierele ``ProTV``, ``Digi24``, ``Eurosport``;
    * Creați fișierele ascunse ``Antena3``, ``Romania24``;
    * Afișați **toate** fișierele din director;
@@ -710,7 +710,7 @@ Observăm că dacă am șters un fișier accesându-l prin legătura, s-a șters
 Exerciții - legături (linkuri)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Creați o legătură simbolică în directorul vostru ``home`` către directorul ``Netflix``.
+* Creați o legătură simbolică în directorul vostru ``home`` (``~``) către directorul ``Netflix``.
 * Verificați crearea legăturii prin afișarea conținutului directorului părinte.
 * Afișați conținutul legăturii.
 * Ștergeți directorul ``Netflix``.
