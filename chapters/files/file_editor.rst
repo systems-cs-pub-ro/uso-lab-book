@@ -99,12 +99,12 @@ Exerciții - editor grafic
 """""""""""""""""""""""""
 
 #. * Folosind editorul de text `Sublime`, disponibil de VM, deschideți fișierul ``Romanian Presidents`` și completați fișierul cu cel puțin 3 președinți ai României.
-   * Salvați fișierul în directorul vostru ``home``.
+   * Salvați fișierul în directorul vostru ``home`` (``~``).
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Indentați fiecare linie o dată;
 
 #. * Folosind editorul de text `Sublime`, deschideți fișierul ``program.c``.
-   * Salvați fișierul în directorul vostru ``home``.
+   * Salvați fișierul în directorul vostru ``home`` (``~``).
    * Scrieti cod C (similar exemplului de mai sus) pentru a afișa textul ``Make USO Great Again!``;
    * Folosiți scurtăturile pentru indentare;
    * Compilați folosind scurtătura ``Ctrl+b``.
@@ -159,13 +159,13 @@ Exerciții - editor în linie de comandă
 """"""""""""""""""""""""""""""""""""""
 
 #. * Folosind editorul în linie de comandă disponibil pe VM (`nano`), deschideți fișierul ``US Presidents`` și completați fișierul cu cel puțin 3 președinți ai Statelor Unite are Americii.
-   * Salvati fișierul în directorul vostru ``home``.
+   * Salvati fișierul în directorul vostru ``home`` (``~``).
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Indentați fiecare linie de două ori;
    * Comentați liniile 2-8.
 
 
-   * Salvați fișierul în directorul vostru ``home``.
+   * Salvați fișierul în directorul vostru ``home`` (``~``).
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Adăugați 4 spații la început de fiecare rând;
    * Adăugați caracterul **#** la început de rând pentru liniile 2-8.
