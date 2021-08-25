@@ -75,9 +75,13 @@ Folosirea caracterului ``>`` suprascrie conținutul fișierului:
     drwxr-xr-x   2 root root   4096 Sep  9 14:07 sbin
     drwxr-xr-x 137 root root   4096 Sep  9 14:07 share
     drwxr-xr-x   2 root root   4096 Aug 31  2015 src
+    student@uso:~$ echo "cats" > lista_materii
+    student@uso:~$ cat lista_materii
+    cats
 
 Fișierul ``lista_materii`` nu era creat inițial.
 În urma comenzii ``ls -l /usr/ > lista_materii``, fișierul ``lista_materii`` a fost creat și populat cu ieșirea comenzii ``ls -l /usr/``.
+Comanda ``echo "cats" > lista_materii`` suprascrie conținutul inițial al fișierului, înlocuindu-l cu rezultatul comenzii ``echo "cats"``.
 
 Exerciții - redirectări simple
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
