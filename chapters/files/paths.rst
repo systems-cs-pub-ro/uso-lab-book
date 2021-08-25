@@ -3,7 +3,7 @@
 Căi în ierarhia de fișiere
 ==========================
 
-Atunci când folosim un terminal este important să știm unde ne aflăm în ierarhie.
+Atunci când folosim un terminal, este important să știm unde ne aflăm în ierarhie.
 Dacă vrem să jucăm un joc, știm că vrem să ajungem în directorul ``Games``, unde avem jocul preferat, ``Warcraft3``.
 Pentru a ajunge în directorul ``Games``, trebuie să știm unde suntem și apoi să navigăm în sistemul de fișiere până acolo.
 
@@ -143,7 +143,7 @@ Pornim de la următoarea analogie: Avem patru puncte pe o dreaptă: A, B, C și 
 Pentru a ajunge de la A la D, **trebuie** să trecem prin B și C.
 Astfel, avem următoarele segmente: AB, BC, CD.
 
-Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (``/``) și să coborâm în jos pe arbore.
+Similar, pentru sistemul de fișiere, pornim de la directorul rădăcină (``/``) și coborâm pe arbore.
 
 
 Lista de directoare intermediare de la rădăcina ierarhiei de fișiere (``/``) până la un anumit fișier sau director se numeste **cale**.
@@ -233,7 +233,7 @@ Prin calea relativă ne referim la un fișier în funcție de calea curentă.
     drwxr-xr-x 2 student student 4096 Sep 29 18:20 Avengers
     drwxr-xr-x 2 student student 4096 Sep 29 19:21 GameOfThrones
 
-În exemplul de mai sus, ne aflăm la calea ``/home/student`` și am coborât în jos în ierarhia de fișiere către directorul ``comenzi``, apoi directorul ``mkdir``.
+În exemplul de mai sus, ne aflăm la calea ``/home/student`` și am coborât în ierarhia de fișiere către directorul ``comenzi``, apoi directorul ``mkdir``.
 
 Același rezultat îl obținem folosind calea absolută:
 
@@ -305,7 +305,7 @@ Această comandă poate fi folosită oriunde ne-am afla deoarece este o *cale ab
     * în cazul ``student@uso:/usr$ pwd`` ne aflăm în ``usr``
 
 .. note::
-    La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda ``cd`` primește ca parametru o cale. Aceasta poate fi atât *relativă* cât și *absolută*.
+    La fel ca toate comenzile de lucru cu sistemul de fișiere, comanda ``cd`` primește ca parametru o cale. Aceasta poate fi atât *relativă*, cât și *absolută*.
 
 Schimbăm calea curentă în ``/home/student``, folosind ``cd``:
 
@@ -347,7 +347,7 @@ Schimbăm calea curentă la ``/usr/bin`` folosind cale relativă:
     Știm unde ne aflăm folosind comanda ``pwd``; ne deplasăm în altă parte folosind comanda ``cd``.
 
 
-Observăm cum am urcat în ierarhie folosind ``..`` până la ``/`` (*directorul rădăcină*) iar apoi am coborât spre ``usr`` și apoi ``bin``.
+Observăm cum am urcat în ierarhie folosind ``..`` până la ``/`` (*directorul rădăcină*), apoi am coborât spre ``usr`` și apoi ``bin``.
 
 În exemplul de mai jos, comanda de mai sus nu este valabilă:
 

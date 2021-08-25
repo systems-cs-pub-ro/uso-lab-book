@@ -61,7 +61,7 @@ Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul ``tar`` î
 
 
 Arhiva nou creată ocupă 9.1 MB.
-Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.
+Fișierele ce compun arhiva ocupă 5MB, 3MB respectiv 1MB.
 
 Fișierul de tipul *tar* nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor [#]_ fișierului.
 
@@ -72,7 +72,7 @@ Verificăm tipul fișierului folosind utilitarul ``file``.
     student@uso:~$ file înregistrări.tar
     înregistrări.tar: POSIX tar archive (GNU)
 
-Fișierul ``înregistrări.tar`` este o arhivă de tip *tar*. 
+Fișierul ``înregistrări.tar`` este o arhivă de tip *tar*.
 
 Exerciții - creare arhive
 """""""""""""""""""""""""
@@ -108,7 +108,7 @@ Facem acest lucru folosind utilitarul ``tar``:
 
 
 Pentru a vizualiza arhiva **fără** dezarhivare am folosit opțiunea ``t``.
-Folosim opțiunea ``f`` pentru a specifica ce arhivă vrem să afișăm.
+Folosim opțiunea ``f`` pentru a specifica arhiva pe care vrem să o afișăm.
 
 Exercițiu - afișarea conținutului unei arhive
 """""""""""""""""""""""""""""""""""""""""""""
@@ -273,7 +273,7 @@ Exerciții - adăugare de noi fișiere
 
 * Creați un fișier ``UPB``; verificați operația afișând conținutul directorului părinte;
 * Adăugați textul *Make UPB Great Again!* în interiorul fișierului; verificați operația afișând conținutul fișierului;
-* Adăugați-l la arhiva ``personal_data.tar``, ca în exemplul de mai sus; verificați operația afișând conținutul arhivei. 
+* Adăugați-l la arhiva ``personal_data.tar``, ca în exemplul de mai sus; verificați operația afișând conținutul arhivei.
 
 
 Comprimare ``tar.gz``
@@ -382,7 +382,7 @@ Exerciții - creare arhive
    * Afișați dimensiunea arhivei.
 
 #. * Creați o arhivă de tipul ``zip`` a fișierelor din interiorul directorului ``/usr/include/net/`` cu numele ``net.zip``.
-   * Comparați dimensiunea arhivei ``zip`` cu cea ``tar`` de la exercițiu precendent.
+   * Comparați dimensiunea arhivei ``zip`` cu cea ``tar`` de la exercițiul precendent.
 
 Afișarea conținutului arhivelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -446,7 +446,7 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `
     -rw-r--r-- 1 student student 9439072 Aug 19 18:02 înregistrări.zip
     student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
 
-În momentul de față avem doar arhiva *zip* și urmează să obținem fișierele cu înregistrari,  folosind utilitarul ``zip``:
+În momentul de față avem doar arhiva *zip* și urmează să obținem fișierele cu înregistrari,  folosind utilitarul ``unzip``:
 
 .. code-block:: bash
     student@uso:~$ unzip înregistrări.zip
