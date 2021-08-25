@@ -27,7 +27,7 @@ Am căutat în calea ``/`` (*root*) orice fișier ce conține ``ssh`` și se ter
 
 Utilitarul ``find`` caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la ``/`` (root) în jos, adică în tot sistemul de fișiere.
 
-Mai multe informații și exemple de utilizări vom vedea în capitolul #TODOref_capitol_edi 
+Mai multe informații și exemple de utilizări vom vedea în capitolul ``Îmbunătățirea lucrului în linia de comandă``.
 
 
 Folosirea utilitarului ``locate``
@@ -40,7 +40,7 @@ Utilitarul ``locate`` ne poate ajuta în astfel de situații.
 Acesta funcționează în 2 pași:
 
 * Crearea și actualizarea unei baze de date folosind comanda ``updatedb``.
-  Aceasta conține intrări cu toate fișierele din sistem și locatia acestora.
+  Aceasta conține intrări cu toate fișierele din sistem și locația acestora.
 * Căutarea folosind ``locate``.
   Această căutare se reduce la interogarea bazei de date create anterior cu ``updatedb``.
 
@@ -71,7 +71,7 @@ Răspunsul comenzii este instant.
 
 Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu ``.tar``.
 
-Găsim mai multe informații și exemple în capitolul todo_ref_edi 
+Găsim mai multe informații și exemple în capitolul ``Îmbunătățirea lucrului în linia de comandă``.
 
 Variabila de mediu PATH
 -----------------------
@@ -80,8 +80,8 @@ Până acum am învățat câteva comenzi utile: ``ls``, ``cd``, ``find``, ``loc
 
 Utilitarele sunt de fapt **programe** (*executabile*) care se află undeva în sistemul de fișiere.
 
-Shell-ul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
-Se întâmplă acest lucru pentru că shell-ul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
+Shellul știe să ruleze utilitarele din orice loc în care ne aflăm (din ierarhia de fișiere).
+Se întâmplă acest lucru pentru că shellul are o listă de câteva directoare în care se uită după utilitarele pe care le folosim.
 Spre exemplu, atunci când rulăm utilitarul ``ls``, el caută programul ``ls`` în lista pe care o are, îl găsește și îl rulează.
 
 Această listă se găsește în *variabila de mediu* [#]_ ``PATH``.
@@ -98,7 +98,7 @@ Afișăm valoarea variabilei de mediu ``PATH`` a sistemului folosind utilitarul 
     /usr/local/bin:/usr/bin:/bin:/usr/games
 
 Variabila ``PATH`` are patru căi din sistem, despărțite de caracterul ``:``.
-Astfel, sistemul verifică dacă utilitarul este prezent în calea ``/usr/local/bin``; dacă nu-l găsește, merge la următoarea calea ``/usr/bin``; dacă nu-l găsește, merge la următoarea cale ``/bin``; dacă nu-l găsește, merge la ultima cale ``/usr/games``.
+Astfel, sistemul verifică dacă utilitarul este prezent în calea ``/usr/local/bin``; dacă nu-l găsește, merge la următoarea cale: ``/usr/bin``; dacă nu-l găsește, merge la următoarea cale: ``/bin``; dacă nu-l găsește, merge la ultima cale: ``/usr/games``.
 
 .. note::
     Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a doua, etc.).
@@ -122,12 +122,12 @@ Căutăm calea la care se află utilitarul ``ls`` folosind comanda ``which``:
     student@uso:~$ which pwd
     /bin/pwd
     student@uso:~$ which man
-    /usr/bin/man 
+    /usr/bin/man
 
 
 ``which`` folosește variabila de mediu ``PATH`` pentru a găsi utilitarul cerut și va afișa rezultatele în ordinea directoarelor din ``PATH``.
 
-Aflăm mai multe detalii despre utilitarul ``which`` în capitolul #TODOtodo_edi_which.
+Aflăm mai multe detalii despre utilitarul ``which`` în capitolul ``Îmbunătățirea lucrului în linia de comandă``.
 
 
 Exerciții
@@ -138,7 +138,7 @@ Exerciții
   Dar ``pwd_backup``?
 
 
-.. [#] Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele. 
+.. [#] Variabilele de mediu sunt variabile care descriu mediul în care sunt executate programele.
     Ele sunt folosite de aplicații pentru a răspunde la întrebări cum ar fi: Care este numele calculatorului pe care sunt instalată?
     Care este numele contului de utilizator care mă execută?
     Care este folderul meu de lucru?

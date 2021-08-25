@@ -165,7 +165,7 @@ Exerciții - editor în linie de comandă
    * Comentați liniile 2-8.
 
 
-   * Salvati fișierul în directorul vostru **home**.
+   * Salvați fișierul în directorul vostru ``home``.
    * Duplicați textul scris anterior (copiat/lipit) de 5 ori;
    * Adăugați 4 spații la început de fiecare rând;
    * Adăugați caracterul **#** la început de rând pentru liniile 2-8.

@@ -40,7 +40,7 @@ Caracterul ``>`` așteaptă un șir de caractere după el care este numele fiși
 Șirul este, de fapt, calea către un fișier.
 Șirul ``lista_materii`` este calea relativă până la fișierul ``lista_materii`` care se află în directorul curent ``/home/student``.
 
-Fișierul ``lista_materii`` nu exista. Prin direcționarea outputului am creat fișierul ``lista_materii``.
+Fișierul ``lista_materii`` nu exista. Prin direcționarea outputului, am creat fișierul ``lista_materii``.
 
 Vizualizăm conținutul fișierului ``lista_materii`` folosind comanda ``cat``:
 
@@ -51,8 +51,6 @@ Vizualizăm conținutul fișierului ``lista_materii`` folosind comanda ``cat``:
     -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
     -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
 
-Momentan fișierul ``lista_materii`` nu există pe sistemul vostru.
-Îl vom crea în continuare.
 
 .. note::
     Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.
@@ -116,9 +114,9 @@ Exerciții - direcționări prin anexare
 
 
 #. * Folosiți ``tree`` pentru a afișa ierarhia de fișiere pornind de la ``/usr``;
-   * Repetați comanda anterioara, dar de data asta direcționați-o *fără* anexare la fișierul ``ierarhie_student`` folosit anterior;
+   * Repetați comanda anterioară, dar de data aceasta direcționați-o *fără* anexare la fișierul ``ierarhie_student`` folosit anterior;
    * Afisați conținutul fișierului ``ierarhie_student`` folosind comanda ``cat``.
-     Mai exista conținutul inițial al fișierului?
+     Mai există conținutul inițial al fișierului?
 
 
 Redirectări de eroare
@@ -192,7 +190,7 @@ Ca să redirectăm și outputul și erorile de la o comandă folosim și ``>`` �
     student@uso:~$ cat erori_comenzi
     cat: SO2: No such file or directory
 
-Observăm cum după executarea primei comenzi, la ecran nu mai apare nimic; atât ieșirea standard cât și erorile au fost direcționate în fișiere.
+Observăm cum după executarea primei comenzi, la ecran nu mai apare nimic; atât ieșirea standard, cât și erorile au fost direcționate în fișiere.
 În continuare am verificat conținutul acestor fișiere pentru a demonstra corectitudinea operației.
 
 
@@ -200,7 +198,7 @@ Exerciții
 """""""""
 
 * Redirectați (simplu) conținutul fișierului de la calea ``/etc/passwd`` într-un fișier cu numele ``utilizatori_si_grupuri``.
-* Redirectare (simplu) fișierul de la calea ``/etc/group`` în același fișier.
+* Redirectați (simplu) conținutul fișierului de la calea ``/etc/group`` în același fișier.
 * Repetați cele două operații de redirectare de mai sus folosind redirectare cu anexare.
 * Redirectați conținutul fișierului de la calea ``/etc/shadow`` în fișierul ``parole`` și afișați conținutul fișierului
 
