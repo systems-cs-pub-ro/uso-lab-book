@@ -10,6 +10,7 @@ Forma uzuală este *two-factor authentication* (2FA).
 În Linux informațiile despre utilizatori sunt reținute în fișierul ``/etc/passwd`` care este citibil de către toți utilizatorii.
 
 .. code-block:: bash
+
     student@uso-demo:~/securitate/stocks$ cat /etc/passwd
     root:x:0:0:root:/root:/bin/bash
     daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
