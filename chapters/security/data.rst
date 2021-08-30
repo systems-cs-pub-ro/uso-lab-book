@@ -5,9 +5,9 @@ Securitatea datelor
 Securitatea în sistemul de fișiere
 ----------------------------------
 
-Pentru accesul corect al fișierelor, sistemele de operare permit configurarea de **permisiuni de acces** (*access permissions* sau *access rights*).
+Pentru accesul corect la fișiere, sistemele de operare moderne permit configurarea de **permisiuni de acces** (*access permissions* sau *access rights*).
 Așa cum am precizat mai sus, în cazul acestor permisiuni, utilizatorii și procesele lor sunt subiecții, iar fișierele sunt obiectele.
-În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am văzut în Secțiunea **TODO Secțiune**.
+În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am indicat în Secțiunea **TODO Secțiune**.
 
 Pentru a afișa permisiunile fișierelor folosim utilitarul *ls* cu opțiunea *-l*:
 
@@ -25,7 +25,7 @@ Pentru a afișa permisiunile fișierelor folosim utilitarul *ls* cu opțiunea *-
 
 Pentru fiecare linie asociată unui fișier observăm primul caracter (*d* - director sau *-* fișier simplu) după care nouă caractere de tipul *r (read)*, *w (write)*, *x (execute)*.
 Pentru lipsa permisiunii respective avem caracterul *-*.
-Ne amintim din capitolul **TODO Sectiune** că primele trei caractere se referă la permisiunile care se aplică utilizatorului (*user*), următoarele trei se aplică grupului (*group*), iar ultimele trei se aplică restului utilizatorilor din sistem (*others*).
+Ne aducem aminte din capitolul **TODO Sectiune** că primele trei caractere se referă la utilizator, următoarele trei la grup, iar ultimele trei la restul utilizatorilor din sistem.
 
 Coloanele trei și patru de mai sus reprezintă utilizatorul și grupul ce dețin fișierul.
 Acestea pot fi schimbate cu ajutorul utilitarului *chown*:
@@ -44,11 +44,11 @@ Acestea pot fi schimbate cu ajutorul utilitarului *chown*:
     -rw-r--r-- 1 student student   37 Aug 26 14:30 NASDAQ
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
-Observăm din eroarea primită din partea sistemului că pentru a schimba deținătorul unui fișier este nevoie de drepturi privilegiate.
-Pentru aceasta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
+Observăm că pentru a schimba deținătorul unui fișier este nevoie de permisiuni de *root* (am primit eroare din partea sistemului).
+Pentru asta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
 Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
 
-Pentru a modifica permisiunile, folosim utilitarul *chmod*:
+    Pentru a modifica permisiunile, folosim utilitarul *chmod*:
 
 .. code-block:: bash
 
@@ -62,19 +62,15 @@ Pentru a modifica permisiunile, folosim utilitarul *chmod*:
     -rw-r--r-- 1 student student   37 Aug 26 14:30 NASDAQ
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
-Observăm că pentru a scoate permisiunile de citire, pentru toate cele trei categorii (user, group, others), folosim opțiunea (flagul)  *-r*, după care fișierul/directorul țintă.
-
-.. note::
-    A nu se confunda *-r* folosit anterior cu *-R* ce aplică modificările recursiv pe toate fișierele și directoarele din cadrul directorului dat ca parametru.
-
-Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul **TODO PERMISIUNI**.
+Observăm că pentru a scoate permisiunile de citire folosim parametrul  *-r*, după care fisierul/directorul țintă.
+Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul.
 
 Exerciții - sistemul de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Modificați permisiunile fișierului ``Google`` astfel încât doar utilizatorul care deține fișierul (*user*) să aibă drepturi de citire (*read*).
-#. Modificați permisiunile fișierului ``Netflix`` astfel încât doar grupul care deține fișierul (*group*) să aibă drepturi de execuție (*execute*).
-#. Modificați permisiunile fișierului ``Amazon`` astfel încât toți utilizatorii (*others*) să aibă drepturi de scriere (*write*) asupra acestuia.
+#. Modificați permisiunile fișierului ``Google`` astfel încât doar utilizatorul ce deține fișierul (*owner*) să aibă drepturi de citire (*read*).
+#. Modificați permisiunile fișierului ``Netflix`` astfel încât doar grupul ce deține fișierul (*owner*) să aibă drepturi de execuție (*execute*).
+#. Modificați permisiunile fișierului ``Amazon`` astfel încât toți utilizatorii să aibă drepturi de scriere (*write*).
 
 
 Confidențialitatea datelor
@@ -141,7 +137,7 @@ Un fișier oricât de mare va avea un rezumat de doar câteva zeci de octeți, n
 
 Procedura uzuală de verificare a integrității datelor este urmatoarea:
 
-.. figure:: ../files/res/hash.png
+.. figure:: res/hash.png
 
 
 Exemple de algoritmi de hashing: md5 (utilitar ``md5sum``), SHA-1 (utilitar ``sha1sum``), SHA-256 (utilitarul ``sha256sum``).
