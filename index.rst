@@ -92,6 +92,10 @@ USO lab book
    :caption: Investigarea securității sistemului
 
    chapters/security/data.rst
+   chapters/security/auth.rst
+   chapters/security/transfer.rst
+   chapters/security/process.rst
+
 
 
 
