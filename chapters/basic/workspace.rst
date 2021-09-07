@@ -30,6 +30,7 @@ Navigarea printre aplicații se poate face în 2 moduri:
 * Spotify (*aplicație pentru redarea muzicii*)
 * Gedit (*editor de text*)
 
+Pentru gestionarea facilă a acestor aplicații putem lucra cu workspace-uri.
 În subsecțiunile de mai jos vom vorbi despre cum creăm un nou workspace, cum ne mutăm dintr-un workspace în altul și cum ștergem un workspace.
 
 .. _basic_create_workspace:

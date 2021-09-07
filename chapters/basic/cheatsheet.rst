@@ -1,9 +1,9 @@
 .. _basic_cheatsheet:
 
-Cheatsheet
-==========
+Sumar - Cheatsheet
+==================
 
-Shortcuturi pentru folosirea browserului web
+Scurtături pentru folosirea browserului web
 --------------------------------------------
 
 Pornirea browserului web
@@ -39,6 +39,8 @@ Oprirea browserului web
 
 * Folosind combinația de taste ``Ctrl+q``, specifică aplicației Firefox.
 
+* Închizând ultimul tab prin folosirea combinației de taste ``Ctrl+w``.
+
 Folosirea barei de adresă
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -71,13 +73,16 @@ Scroll în browser
 * Folosind tastele *săgeată sus*/*săgeată* jos.
   Așa ne deplasăm în sus/jos câte o linie.
 
-* Folosind butoanele ``PageUp`` și ``PageDown`` de pe tastatură.
+* Folosind butoanele ``PageDown`` și ``PageUp`` de pe tastatură.
+  Așa ne deplasăm câte un "ecran" în jos sau în sus.
+
+* Folosind butoanele ``Space`` și ``Shift+Space`` de pe tastatură.
   Așa ne deplasăm câte un "ecran" în jos sau în sus.
 
 Reîmprospătarea paginii
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-* Folosind butonul de remîprospătare (*refresh*) din browser, ca în imaginea de mai jos:
+* Folosind butonul de reîmprospătare (*refresh*) din browser, ca în imaginea de mai jos:
 
   .. figure:: ./gifs/firefox-refresh.gif
     :alt: Reîmprospătarea paginii web
@@ -128,7 +133,9 @@ Deschiderea unui link în alt tab
 
 * Apăsând tasta ``Ctrl`` și click pe link.
 
-Shortcuturi pentru folosirea terminalului
+* Apăsând rotița mouse-ului când cursorul este deasupra linkului.
+
+Scurtături pentru folosirea terminalului
 -----------------------------------------
 
 Deschiderea terminalului
@@ -237,12 +244,6 @@ Copierea textului
 
 * Selectăm textul și apăsăm combinația de taste ``Ctrl+Shift+c``.
 
-.. warning::
-
-    Pentru copierea textului din terminal folosim combinația de taste ``Ctrl+Shift+c`` și **NU** ``Ctrl+c``.
-    În terminal, combinația de taste ``Ctrl+c`` are rolul de a opri o aplicație / un utilitar pornit.
-
-
 Lipirea textului
 ^^^^^^^^^^^^^^^^
 
@@ -254,7 +255,3 @@ Lipirea textului
 * Apăsăm combinația de taste ``Shift+Insert``.
 
 * Apăsăm combinația de taste ``Ctrl+Shift+v``.
-
-.. warning::
-
-    Pentru lipirea textului în terminal folosim combinația de taste ``Ctrl+Shift+v`` și **NU** ``Ctrl+v``.

@@ -10,7 +10,7 @@ Acesta rulează pe smartphone-uri, laptopuri, tablete și este folosit pentru ru
 Adică să petrecem cât mai puțin timp manevrând aplicația și cat mai mult timp folosind aplicația la capacitate maximă.
 
 Vom folosi `Firefox <https://www.mozilla.org/en-US/firefox/new/>`_ în această carte, însă conceptele prezentate sunt similare și în alte browsere (`Google Chrome <https://www.google.com/chrome/>`_, `Chromium <https://www.chromium.org>`_, `Safari <https://www.apple.com/safari/>`_, `Opera <https://www.opera.com>`_, `Edge <https://www.microsoft.com/en-us/edge>`_, etc).
-Acesta este browserul default instalat în Ubuntu 18.04. 
+Firefox este browserul default instalat în Ubuntu 18.04. 
 
 .. _basic_start_stop_browser:
 
@@ -27,11 +27,13 @@ Atunci când browserul este pornit, spunem că acesta *rulează*.
 Pornirea browserului web
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Putem opri browserul Firefox în mai multe moduri (așa cum am menționat în secțiunea :ref:`basic_start_stop_apps`):
+Putem porni browserul Firefox în mai multe moduri (așa cum am menționat în secțiunea :ref:`basic_start_stop_apps`):
 
 * Folosind iconuri.
 
-* Deschizând un terminal și tastând în terminal comanda de pornire (aici ``firefox``), similar cu folosirea ``Alt+F2``, ca în imaginea de mai jos:
+* Folosind un prompt de tip *application launcher* lansat prin combinația de taste ``Alt+F2``.
+
+* Deschizând un terminal și tastând în el comanda de pornire (în cazul browserului Firefox este ``firefox``), ca în imaginea de mai jos:
 
   .. figure:: ./gifs/start-firefox-terminal.gif
     :alt: Pornirea aplicației Firefox din linia de comandă
@@ -41,9 +43,9 @@ Putem opri browserul Firefox în mai multe moduri (așa cum am menționat în se
 Oprirea browserului web
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Putem opri browserul Firefox în mai multe moduri, la fel cum am văzut că închidem aplicații în secțiunea :ref:`basic_stop_gui_app_icons`:
+Putem opri browserul Firefox în mai multe moduri, așa cum am menționat în secțiunea :ref:`basic_stop_gui_app_icons`:
 
-* Folosind butonul de închidere a ferestrei grafice, în forma unui simbol ``x``.
+* Folosind butonul de închidere al ferestrei grafice, în forma unui simbol ``x``.
 
 * Folosind combinația de taste ``Alt+F4``, care închide fereastra grafică, o scurtătură pentru folosirea butonului de închidere.
 
@@ -87,7 +89,9 @@ Odată accesată bara de adrese putem introduce șirul ``google.com``.
 
 .. _basic_address_bar_browser_ex:
 
-**Exercițiu:** Accesați paginile **curs.upb.ro**, **studenti.pub.ro**, **hotnews.ro**, **facebook.com** folosind ambele metode prezentate mai sus.
+**Exerciții**
+
+#. Accesați paginile **curs.upb.ro**, **studenti.pub.ro**, **hotnews.ro**, **facebook.com** folosind ambele metode prezentate mai sus.
 
 
 .. _basic_navigation_buttons_browser:
@@ -106,7 +110,7 @@ Putem naviga la pagini navigate anterior în două moduri:
   .. figure:: ./gifs/back-forward-web-pages.gif
     :alt: Navigarea către pagini vizitate anterior folosind butoane
 
-  Am trecut prin paginile **facebook.com**, **hotnews.ro**, **hotnews.ro** și înapoi la **hotnews.ro**, **facebook.com**.
+  Am trecut prin paginile **facebook.com**, **hotnews.ro**, **studenti.pub.ro** și înapoi la **hotnews.ro**, **facebook.com**.
 
 * Folosind combinațiile de taste echivalente cu clickurile pe săgețile stânga/dreapta din browser:
   
@@ -115,8 +119,7 @@ Putem naviga la pagini navigate anterior în două moduri:
 
 .. _basic_navigation_buttons_browser_ex:
 
-Exerciții
-"""""""""
+**Exerciții**
 
 #. Folosind combinația de taste ``Ctlr+l``, accesați bara de adrese a browserului și deschideți pagina **youtube.com**.
 #. Navigați **înapoi** folosind butonul *Go back one page* până ajungeți la pagina **hotnews.com**.
@@ -136,7 +139,10 @@ Putem da scroll în pagină în mai multe moduri:
 
 * Folosind mouse-ul prin rotiță / touchpadul.
 
-* Folosind butoanele ``PageUp`` și ``PageDown`` de pe tastatură.
+* Folosind butoanele ``PageDown`` și ``PageUp`` de pe tastatură.
+  Așa ne deplasăm câte un "ecran" în jos sau în sus.
+
+* Folosind butoanele ``Space`` și ``Shift+Space`` de pe tastatură.
   Așa ne deplasăm câte un "ecran" în jos sau în sus.
 
 În imaginea de mai jos se vede cum dăm scroll sus și jos pe pagina **hotnews.ro**:
@@ -151,7 +157,7 @@ Reîmprospătarea paginii
 
 Avem situații în care trebuie să reîmprospătăm (*refresh*) conținutul unei pagini web.
 Spre exemplu, am deschis o pagină și imaginile nu au fost încărcate corect (am avut probleme cu conexiunea la Internet în acel moment).
-Alt caz ar putea fi atunci când așteptăm ca pe o pagină să fie publicate notele noastre la un examen, așa că vrem să reîmpropătăm pagina web să vedem dacă aceasta a fost actualizată.
+Alt caz ar putea fi atunci când așteptăm ca pe o pagină să fie publicate notele noastre la un examen, așa că vrem să reîmprospătăm pagina web să vedem dacă aceasta a fost actualizată.
 
 Intrăm pe pagina **bbc.com**.
 
@@ -176,7 +182,7 @@ Există multe rețete pe Internet, vrem să citim mai multe până să ne hotăr
 Cel mai eficient mod pentru a face acest lucru este să folosim **taburi în browser**.
 Aplicația Firefox aflată în rulare poate avea unul sau mai multe taburi pornite.
 
-În subsecțiunile următoare vom vorbi despre cum să deschidem taburi, sa navigăm între taburi și să închidem taburi eficient.
+În subsecțiunile următoare vom vorbi despre cum să deschidem taburi, să navigăm între taburi și să închidem taburi eficient.
 
 .. _basic_open_tabs_browser:
 
@@ -279,6 +285,8 @@ Putem deschide rețete găsite în alte taburi în mai multe moduri:
     :alt: Deschiderea unui link în tab nou
 
 * Apăsând tasta ``Ctrl`` și click pe link.
+
+* Apăsând rotița mouse-ului când cursorul este deasupra linkului.
 
 **Exerciții**
 
