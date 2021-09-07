@@ -3,7 +3,7 @@
 Lucrul în terminal
 ==================
 
-**GNOME Terminal** (uzual folosit *terminalul*) este o aplicație software, la fel ca *LibreOffice* și *Firefox*.
+**GNOME Terminal** (uzual numit *terminalul*) este o aplicație software, la fel ca *LibreOffice* și *Firefox*.
 Terminalul este folosit, în general, pentru rularea **aplicațiilor software** (*programe*, *utilitare*) care nu au **interfață grafică** (*GUI*).
 Exemple de astfel de aplicații / programe / utilitare sunt: **ls**, **tree**, **ps** și **echo**.
 Toate acestea (și altele) vor fi prezentate ulterior în această carte.
@@ -32,8 +32,7 @@ Pentru **închiderea** terminalului avem următoarele variante:
 * Folosind butonul ``x`` din partea dreaptă-sus a aplicației.
 * Folosind combinația de taste ``Ctrl+d``. 
 
-Exerciții
-^^^^^^^^^
+**Exerciții**
 
 #. Deschideți de patru ori aplicația *GNOME Terminal* folosind combinația de taste ``Ctrl+Alt+t``.
 #. Închideți toate aplicațiile *GNOME Terminal* deschise folosind combinația de taste ``Ctrl+d``.
@@ -81,8 +80,7 @@ Putem **închide** un tab în terminal în mai multe moduri:
 
 .. _basic_open_close_tabs_cli_ex:
 
-Exerciții 
-"""""""""
+**Exerciții**
 
 #. Deschideți un nou terminal folosind combinația de taste ``Ctrl+Alt+t``.
 #. Deschideți două taburi de terminal noi folosind combinația de taste ``Ctrl+Shift+t``,
@@ -108,8 +106,7 @@ Avem mai multe variante să facem acest lucru:
 
 .. _basic_navigate_tabs_cli_ex:
 
-Exerciții
-"""""""""
+**Exerciții**
 
 #. Deschdideți un nou terminal folosind combinația de taste ``Ctrl+Alt+t``.
 #. Deschideți patru taburi folosind combinația de taste ``Ctrl+Shift+t``.
@@ -121,10 +118,10 @@ Exerciții
 
 .. _basic_shortcuts_cli:
 
-Alte shortcuturi utile în terminal
+Alte scurtături utile în terminal
 ----------------------------------
 
-Pe lângă shortcuturile de pornire/oprire a terminalului, de lucru cu taburi în terminal, mai există și alte shortcuturi cu care, dacă le reținem, vom putea lucra în terminal foarte rapid.
+Pe lângă scurtăturile de pornire/oprire a terminalului, de lucru cu taburi în terminal, mai există și alte scurtături cu care putem lucra în terminal mai rapid.
 
 În subsecțiunile următoare vom vorbi despre scrollul, copierea și lipirea textului în terminal și despre golirea ecranului de terminal.
 
@@ -175,6 +172,13 @@ Copierea textului
 
 * Selectăm textul și apăsăm combinația de taste ``Ctrl+Insert``.
 
+* Selectăm textul și apăsăm combinația de taste ``Ctrl+Shift+c``.
+
+.. warning::
+
+    Pentru copierea textului din terminal folosim combinația de taste ``Ctrl+Shift+c`` și **NU** ``Ctrl+c``.
+    În terminal, combinația de taste ``Ctrl+c`` are rolul de a opri o aplicație / un utilitar pornit.
+
 .. _basic_paste_cli:
 
 Lipirea textului
@@ -188,3 +192,9 @@ Lipirea textului
     :alt: Lipirea textului în terminal
 
 * Apăsăm combinația de taste ``Shift+Insert``.
+
+* Apăsăm combinația de taste ``Ctrl+Shift+v``.
+
+.. warning::
+
+    Pentru lipirea textului în terminal folosim combinația de taste ``Ctrl+Shift+v`` și **NU** ``Ctrl+v``.

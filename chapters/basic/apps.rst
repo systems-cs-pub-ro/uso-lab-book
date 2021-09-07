@@ -3,10 +3,10 @@
 Pornirea și oprirea aplicațiilor
 ================================
 
-Aplicațiile sunt pornite de utilizator sau de sistem.
+Aplicațiile sunt pornite de utilizator sau de sistemul de operare.
 Utilizatorul pornește aplicațiile pentru că are o nevoie pe care aplicația o rezolvă.
 De exemplu, pornește un browser web pentru a accesa Wikipedia, sau pornește aplicația Spotify pentru a asculta muzică.
-Sistemul pornește aplicații (fără intervenția utilizatorului) pentru a asigura buna funcționare a sistemului.
+Sistemul de operare pornește aplicații (fără intervenția utilizatorului) pentru a asigura buna funcționare a sistemului.
 De exemplu, sistemul pornește un client DHCP pentru a obține automat parametrii de rețea care asigură conexiunea la Internet; sau pornește o aplicație care sincronizează data sistemului cu data indicată de un server din Internet.
 
 Utilizatorul poate porni aplicațiile folosind interfața grafică (*Graphical User Interface*, GUI) sau interfața în linia de comandă (*Command Line Interface*, CLI).
@@ -15,7 +15,7 @@ Utilizatorul poate porni aplicațiile folosind interfața grafică (*Graphical U
 Vorbim despre pornirea aplicațiilor din terminal în capitolul ``Instalarea și utilizarea aplicațiilor``.
 
 În această secțiune vorbim despre pornirea și oprirea aplicațiilor.
-Instalarea aplicațiilor noi este acoperită în capitolul ``Instalarea și utilizarea aplicațiilor``.
+Instalarea aplicațiilor este acoperită în capitolul ``Instalarea și utilizarea aplicațiilor``.
 
 .. _basic_start_gui_app_icons:
 
@@ -23,7 +23,7 @@ Pornirea unei aplicații grafice folosind iconuri
 ------------------------------------------------
 
 Cel mai simplu mod de a porni o aplicație grafică este folosind iconuri.
-Folosim mouse-ul și facem click pe icon și pornim aplicația.
+Folosim mouse-ul și facem click pe icon pentru a porni aplicația.
 De exemplu, în Ubuntu 18.04, pentru a porni aplicația Rhythmbox, folosim iconul din bara de jos în stânga, la fel ca în imaginea de mai jos:
 
 .. figure:: ./gifs/open-rhythmbox-icon.gif
@@ -34,7 +34,7 @@ După un click pe icon, aplicația va porni și o putem folosi.
 Spunem că acum aplicația **rulează**.
 Rularea înseamnă că aplicația folosește resursele sistemului pentru a îndeplini nevoile utilizatorului sau sistemului.
 
-În mod similar pornim alte aplicații care au iconuri.
+În mod similar putem porni alte aplicații care au iconuri.
 Aceste iconuri pot fi prezente pe bare de iconuri sau în diferite meniuri, depinzând de mediul grafic și distribuția folosită.
 
 .. _basic_stop_gui_app_icons:
@@ -57,20 +57,21 @@ Utilizatorul poate opri o aplicație grafică în mai multe moduri:
     :alt: Oprirea aplicației LibreOffice folosind meniul grafic al aplicației
 
 * Folosind o combinație de taste care este asociată intrării din meniul grafic al aplicației.
-  În imaginea de mai sus, specifică LibreOffice, combinația de taste este ``Ctrl+q``.
+  În imaginea de mai sus, specifică aplicației LibreOffice, combinația de taste este ``Ctrl+q``.
   Această combinație de taste depinde de aplicație, spre deosebire combinației de taste ``Alt+F4``, care se aplică tuturor aplicațiilor grafice.
 
 * Folosind utilitarul ``xkill``.
   După ce pornim utilitarul ``xkill``, cursorul mouse-ului capătă o formă de ``x``.
-  Un click pe o aplicație grafică duce la omorârea acelei aplicații.
+  Un click pe o aplicație grafică duce la oprirea acesteia.
 
-**Exercițiu:** Porniți aplicația *Thunderbird Mail* și opriți-o în toate modurile de mai sus.
+**Exerciții**
+
+#. Porniți aplicația *Thunderbird Mail* și opriți-o în toate modurile de mai sus.
 
 .. _basic_start_gui_using_alt_f2:
 
 Pornirea unei aplicații grafice folosind Alt+F2
 -----------------------------------------------
-
 
 Pentru a porni o aplicație grafică folosind iconuri trebuie să existe acele iconuri.
 Dacă iconul nu este prezent, sau dacă este greu accesibil (trebuie să căutăm prin meniuri), preferăm o altă soluție.
@@ -90,21 +91,23 @@ De exemplu, pentru a porni aplicația Rhythmbox, introducem șirul ``rhythmbox``
 Șirurile ``rhythmbox`` și ``gnome-terminal`` sunt șiruri identifică aplicațiile Rhythmbox, respectiv GNOME Terminal.
 Numim un astfel de șir o **comandă**; comenzile sunt șiruri introduse de utilizator pentru a porni o anumită aplicație.
 
-**Exercițiu:** Porniți aplicația **LibreOffice**, identificată de șirul (comanda) ``libreoffice``, folosind ``Alt+F2``.
+**Exerciții**
+
+#. Porniți aplicația **LibreOffice**, identificată de șirul (comanda) ``libreoffice``, folosind ``Alt+F2``.
 
 .. _basic_start_stop_apps_ex:
 
 Exerciții
 ---------
 
-Porniți aplicațiile:
+Porniți fiecare dintre aplicațiile de mai jos in două moduri:
 
 * Shutter (identificată de șirul ``shutter``), aplicație de creare de screenshoturi
 * Gedit (identificată de șirul ``gedit``), editor
 * Mines (identificată de șirul ``gnome-mines``), joc de tip Minesweeper
 * ToDo (identificată de șirul ``gnome-todo``), aplicație de gestiune de taskuri / todo-uri
 
-Porniți fiecare aplicație în două moduri:
+Porniți fiecare aplicație în cele două moduri:
 
 * Folosind iconuri în interfața grafică.
   Localizați iconul în meniurile interfeței grafice.
@@ -112,7 +115,7 @@ Porniți fiecare aplicație în două moduri:
   .. hint::
     Aplicațiile cu icon de pornire pot fi localizate cu iconul cu 9 puncte în formă de pătrat din stânga jos a ecranului.
 
-* Folosind ``Alt+F2``.
+* Folosind combinația de taste ``Alt+F2``.
 
 .. rubric:: Note de subsol
 
