@@ -5,7 +5,11 @@ Compilarea unui fișier cod sursă C
 
 În această secțiune urmărim să învățăm pașii pentru a compila un program, adică a-l aduce de la cod sursă la executabil.
 Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
-Vom scrie într-un nou fișier programul care implementează algoritmul, vom compila codul sursă folosind `compilatorul GCC <https://gcc.gnu.org>`_ și vom testa că programul funcționează.
+
+Pașii pe care îi vom face sunt:
+* vom scrie într-un nou fișier cu extensia .c programul care implementează algoritmul
+* vom compila codul sursă folosind `compilatorul GCC <https://gcc.gnu.org>`_ 
+* vom testa că programul funcționează.
 
 .. _app_dev_create_source_file:
 
@@ -23,7 +27,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
     {
         int i;
 
-        for (i = 2; i < n / 2; i++) {
+        for (i = 2; i * i <= n; i++) {
             if (n % i == 0) {
                 return 0;
             }
@@ -60,10 +64,10 @@ Compilarea codului sursă în executabilul ``a.out``
 
 Avem fișierul cod sursă ``is-prime.c`` și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
 Pentru aceasta, trebuie să compilăm fișierul ``is-prime.c``.
-Acest program este de fapt un **executabil** (*binar*).
+Acest program este de fapt un **executabil** (*fișier binar*).
 Executabilele sunt fișiere care conțin instrucțiuni pe care sistemul de calcul le poate interpreta și rula.
 
-Creăm un executabil din fișierul ``is-prime.c`` folosind comanda ``gcc``:
+Creăm un executabil din fișierul ``is-prime.c`` folosind comanda ``gcc``: Astfel invocăm compilatorul GCC(GNU Compiler Collection) instalat anterior și îi dăm ca argument numele fișierului dorit.
 
 .. code-block:: bash
 
@@ -74,7 +78,7 @@ Creăm un executabil din fișierul ``is-prime.c`` folosind comanda ``gcc``:
     -rw-r--r-- 1 student student  406 Oct 26 06:17 is-prime.c
 
 Așa cum vedem în rezultatul rulări comenzii ``ls -l`` de mai sus, executabilul se numește ``a.out``.
-Acesta este numele implicit dat de GCC.
+Acesta este numele **implicit** dat de GCC.
 Adică ``a.out`` va fi numele tuturor fișierelor executabile generate cu GCC, indiferent de fișierul cod sursă.
 Verificăm că fișierul ``a.out`` este într-adevăr un fișier executabil:
 
@@ -174,3 +178,4 @@ Exerciții
    Verificați funcționalitatea programului.
 #. Compilați fișierul ``is-palindrome.c`` într-un executabil cu numele ``is-palindrome`` folosind ``gcc``.
    Verificați funcționalitatea programului.
+   

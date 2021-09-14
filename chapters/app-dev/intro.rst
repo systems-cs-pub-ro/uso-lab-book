@@ -3,8 +3,8 @@
 Introducere
 ===========
 
-Toate dispozitivele electronice pe care le folosim în viața de zi cu zi, de la latopuri sau calculatoare personale, până la telefoane mobile sau smart watch-uri, au în comun un lucru: rulează software.
-Având în vedere cât de variate sunt sistemele pe care rulează aplicațiile, trebuie să avem mereu în minte sistemul pentru care creăm o aplicație.
+Toate dispozitivele electronice pe care le folosim în viața de zi cu zi, de la laptopuri sau calculatoare personale, până la telefoane mobile, frigidere smart sau dispozitive inteligente, au în comun un lucru: *rulează software*.
+Având în vedere cât de variate sunt sistemele pe care rulează aplicațiile, trebuie să avem mereu în minte sistemul pentru care dorim să creăm o aplicație.
 De exemplu, dacă aplicația noastră este gândită pentru un ceas inteligent, atunci trebuie să ținem în minte că resursele vor fi limitate; apare astfel o constrângere din punctul de vedere al memoriei disponibile.
 
 Astfel, trebuie să ținem cont de următoarele:
@@ -42,7 +42,7 @@ Exemple de limbaje compilate sunt **C**, **C++**, **Fortran**, **Rust**, **Go**,
 Limbaje de programare interpretate
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Atunci când scriem un program într-un limbaj **interpretat**, programul este trecut printr-un alt program, numit *interpretor* care analizează și rulează fiecare linie de cod scrisă, pe rând.
+Atunci când scriem un program într-un limbaj **interpretat**, programul este trecut printr-un alt program, numit *interpretor* care analizează și rulează fiecare linie de cod scrisă, *pe rând*. Acest lucru înseamnă că programul poate să ruleze 999 de linii de cod, să afișeze ce trebuie, și să se oprească la un 'print' scris greșit pe linia 1000.
 Dacă alegem să scriem un program într-un limbaj de programare interpretat, atunci programul nostru este **portabil**, adică putem să îl rulăm pe orice sistem pe care avem interpretorul instalat.
 Din cauza faptului că programele sunt analizate și rulate linie cu linie, execuția lor poate fi mai lentă.
 
@@ -62,17 +62,16 @@ Exemple de limbare hibride sunt **Python**, **Java** și **C#**.
 Scrierea codului sursă
 ----------------------
 
-Atunci când spunem că *dezvoltăm o aplicație*, spunem, de fapt, că scriem codul sursă, îl compilăm, îl verificăm de erori.
+Atunci când spunem că *dezvoltăm o aplicație*, spunem, de fapt, că scriem codul sursă, îl verificăm de erori, îl compilăm și reiterăm procesul până când obținem rezultatul dorit.
 Pentru scrierea codului sursă putem să alegem **editoare de text** sau `medii de dezvoltare integrate <https://www.redhat.com/en/topics/middleware/what-is-ide>`_ (*Integrated Development Environment*, *IDE*).
 
 *Editoarele de text* sunt programe mai simple în care putem edita fișiere text, deci putem dezvolta programe.
-Ele pot permite instalarea de extensii care aduc funcționalități în plus, specifice pentru un anumit limbaj.
 Printre cele mai cunoscute editoare de text se numără `GNU Nano <https://www.nano-editor.org>`_, `Vim <https://www.vim.org>`_, `Sublime <http://sublimetext.com>`_, `Atom <https://atom.io>`_, `Visual Studio Code <https://code.visualstudio.com>`_.
 
 *IDE-urile* au anumite funcționalități avansate, multe dintre ele fiind adaptate unui singur limbaj de programare.
-În plus, ele au integrat un compilator/interpretor pentru limbajul suportat.
-Astfel, la o simplă apăsare de buton programul este rulat.
-Printre IDE-uri se număra: `Microsoft Visual Studio <https://visualstudio.microsoft.com>`_, `Eclipse <https://www.eclipse.org/ide/>`_, `IntelliJ <https://www.jetbrains.com/idea/>`_, `XCode <https://developer.apple.com/xcode/>`_.
+În plus, ele au integrat un **compilator/interpretor** pentru limbajul/limbajele suportat/e.
+Astfel, la o simplă apăsare de buton, programul este rulat.
+Printre IDE-uri se număra: `Microsoft Visual Studio <https://visualstudio.microsoft.com>`_, `Eclipse <https://www.eclipse.org/ide/>`_, `IntelliJ <https://www.jetbrains.com/idea/>`_, `Pycharm <https://www.jetbrains.com/pycharm/>`_.
 
 În această carte vom folosi *GNU Nano* ca editor de text principal.
 Este un editor CLI și se pornește folosind comanda ``nano``, așa cum a fost prezentat în capitolul *Lucrul cu fișiere*.

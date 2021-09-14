@@ -180,9 +180,9 @@ scurtătura ``remote-stud``.
 Configurarea accesului prin chei SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-După cum am observat în secțiunea <TODO>, ca să propagăm cheia publică pe o
-stație este necesar să cunoaștem parola utilizatorului drept care vrem să ne
-autentificăm.
+După cum am observat în secțiunea :ref:`network_services_remotecli_key`, ca să
+propagăm cheia publică pe o stație este necesar să cunoaștem parola utilizatorului
+drept care vrem să ne autentificăm.
 
 Însă există situații în care nu cunoaștem parola utilizatorului, dar avem acces
 fizic sau printr-un protocol de comunicare la stație.
@@ -212,7 +212,7 @@ Gestiunea avansată a conexiunilor la rețea
 ------------------------------------------
 
 Pentru a ușura configurarea conexiunii la Internet pentru utilizatorii Linux, a
-fost adoptat ca serviciu standard pentru gestionarea conexiunilor la Internet:
+fost adoptat ca serviciu standard pentru gestionarea conexiunilor la Internet
 serviciul ``NetworkManager``. Acesta permite utilizatorilor să configureze din
 mediul grafic parametrii de funcționare a rețelei, cum ar fi serviciul DNS
 folosit.
@@ -223,7 +223,7 @@ folosi se numește ``nmcli``, iar acesta ne oferă funcționalități pentru
 gestionarea configurărilor.
 
 Din punctul de vedere al serviciului ``NetworkManager``, există interfețe pe care
-acesta le configurează și există conexiuni, care rețin configurările.
+acesta le configurează și există conexiuni care rețin configurările.
 
 .. _network_extra_nmcli_connecition:
 
