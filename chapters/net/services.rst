@@ -7,7 +7,7 @@ Dispozitivele pe care le folosim noi devin din ce în ce mai mici, mai eficiente
 și ieftine. Asta se întâmplă deoarece multe dintre aplicațiile care până nu de
 curând rulau pe calculatorul propriu s-au mutat în spațiu online. De exemplu, în
 loc să descărcăm filme și să le urmărim de pe calculator, folosim o aplicație
-cum ar fi Netflix pentru a transmite prin Internet filmul pe care vrem să îl
+cum ar fi Netflix pentru a ne transmite prin Internet filmul pe care vrem să îl
 urmărim. Un alt exemplu relevant este Google Drive, care ne permite să stocăm,
 să replicăm și să edităm documente într-o interfață web, în loc să le păstrăm
 local pe calculatorul pe care îl folosim. Toată puterea de procesare și tot
@@ -256,9 +256,10 @@ folosind utilizatorul ``root`` și parola ``root``.
 Transferul fișierelor la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru a transfera fișiere la distanță folosim ``scp``. Comanda ``scp``
-se folosește de protocolul SSH pentru transferul de date între stații, astfel
-ne putem folosi de modelul de autentificare de la SSH, ca în comanda de mai jos:
+Pentru a transfera fișiere la distanță folosim ``scp`` (secure copy). Comanda
+``scp`` se folosește de protocolul SSH pentru transferul de date între stații,
+astfel ne putem folosi de modelul de autentificare de la SSH, ca în comanda de
+mai jos:
 
 .. code-block::
 
@@ -351,7 +352,7 @@ cu chei. Autentificarea cu chei presupune existență a două chei pereche:
   serverul SSH. Cheia este folosită pentru identificarea clienților SSH care se
   conectează la server.
 
-Cele două chei sunt legate matematic, iar posesorul cheii private să se poată
+Cele două chei sunt legate matematic, iar posesorul cheii private se poate
 autentifica pe orice sistem unde este disponibilă cheia publică. Câtă vreme
 posesorul cheii private este singurul care are acces la cheie, nimeni nu se va
 mai putea autentifica în locul său.
@@ -503,9 +504,10 @@ Conectați-vă la mașina virtuală USO de pe stația voastră fizică.
 Controlul unei ferestre la distanţă
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Pentru controlul unei ferestre în Linux putem să folosim protocolul SSH pentru
-transferul datelor care ar fi afișate pe stația pe care funcționează aplicația
-grafică pe stația pe care este lansat clientul SSH.
+Pentru controlul unei ferestre de pe stația server putem să folosim protocolul
+SSH în modul *X Forwarding* (se referă la *X Window System*, care este un
+protocol de afișare al ferestrelor întâlnit în Linux). În acest fel se afișează
+pe stația client datele aplicației grafice care ar fi afișate pe stația server.
 
 Acest mod de transfer nu este rapid, deoarece transferul se face printr-un
 protocol care nu este menit pentru aplicații care au nevoie să fie responsive,
@@ -540,15 +542,6 @@ stația ``10.10.10.3``.
 Securizarea conexiunii la Internet folosind un VPN
 --------------------------------------------------
 
-.. note::
-
-    Pentru rularea acestui demo rulați în directorul
-    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
-    Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
-    comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
-    ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
-    conecta la stația ``openvpn-client2``.
-
 O aplicație de tip VPN (*Virtual Private Network*) este o aplicație care permite
 crearea rețelelor de calculatoare în Internet fără ca acestea să fie neapărat în
 aceeași rețea fizică.
@@ -557,20 +550,30 @@ Funcționalitatea unui VPN este încapsularea datelor trimise de către un
 calculator, criptarea și trimiterea lor către un server care le va trimite
 mai departe către destinație.
 
-Primul avantaj al folosirii unui VPN este "ascunderea" traficului între client,
-adică stația de pe care se trimit datele și serverul VPN-ului. Astfel, acestea nu
-mai pot fi văzute de alte entități până când ajung la serverul VPN.
+Primul avantaj al folosirii unui VPN este "ascunderea" traficului între client și
+serverul VPN-ului. Astfel, acesta nu mai pot fi văzute de alte entități până când
+ajung la serverul VPN. Mai mult, datele care se vor îndrepta spre o destinație pot
+să depășească anumite filtre bazate pe locație, deoarece locația de unde provin va
+fi înlocuită de serverul VPN.
 
 Al doilea avantaj al VPN-urilor este interconectarea facilă între calculatoare
-care se află în rețele private diferite. De exemplu, pentru a juca un joc în
-LAN, putem folosi un VPN, cum ar fi Hamachi [#Hamachi]_ , la care se conectează doi
-utilizatori. Serverul de VPN va primi datele de la clienți și le va trimite
-mai departe dintr-o rețea privată în alta.
+care se află în rețele locale diferite. De exemplu, pentru a juca un joc în
+LAN (Minecraft pe rețea), putem folosi un VPN, cum ar fi Hamachi [#Hamachi]_ ,
+la care se conectează doi utilizatori. Serverul de VPN va primi datele de la
+clienți și le va trimite mai departe dintr-o rețea locală în alta.
 
-<insert diagramă>
+<insert diagramă>TODO
 
 Recapitulare - Identificarea adreselor IP ale interfețelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+
+    Pentru rularea acestui demo rulați în directorul
+    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
+    Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
+    comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
+    ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
+    conecta la stația ``openvpn-client2``.
 
 Identificați adresele IP configurate pe interfețele stațiilor
 ``openvpn-client1`` și ``openvpn-client2``.
@@ -584,7 +587,7 @@ identificate mai sus.
 .. admonition:: Observație:
 
     Nu există conectivitate între cele două stații, deoarece acestea se află în
-    rețele private diferite.
+    rețele locale diferite.
 
 Pentru a porni VPN-ul, vom folosi comanda ``openvpn``. Rulați următoarea comandă
 pe ambele stații pentru a porni clientul de VPN:
@@ -626,7 +629,7 @@ Observăm că a apărut o nouă interfață de rețea în sistem care nu are o c
 fizică. Adresa IP setată pe această interfață este adresa care identifică
 stațiile în rețeaua VPN-ului. Observați că ambele adrese de pe interfețele
 ``tun0`` sunt foarte similare. Asta înseamnă că cele două stații sunt acum în
-aceeași rețea virtuală
+aceeași rețea virtuală.
 
 Recapitulare - Verificarea conexiunii între două stații
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -641,7 +644,7 @@ Modificarea drumului prin care trec datele
 Pentru a valida că datele chiar trec prin VPN, rulăm comanda
 ``traceroute 8.8.8.8`` și observăm că mesajele spre Internet nu trec prin
 interfața ``eth0``. Mesajele trec prin interfața ``tun0``, ajung la serverul VPN
-identifiat prin adresa ``192.168.255.1`` în pasul 1, iar abia apoi sunt lansate
+identificat prin adresa ``192.168.255.1`` în pasul 1, iar abia apoi sunt lansate
 mai departe spre Internet.
 
 .. code-block::
@@ -665,14 +668,10 @@ mai departe spre Internet.
     15  dns.google (8.8.8.8)  29.710 ms  34.122 ms  30.538 ms
 
 
-Astfel, datele care se vor îndrepta spre o destinație pot să depășească
-anumite filtre bazate pe locație, deoarece locația de unde provin va
-fi înlocuită de serverul VPN.
-
 Aceasta a fost o demonstrație a modului de lucru folosind ``openvpn`` în linie
 de comandă pentru configurarea unui VPN folosind fișiere de configurare. Aceasta
 nu este singura metodă de conectare la VPN, există implementări diferite, cum ar
-fi WireGuard [#WireGuard]_ sau Cisco AnyConnect[#AnyConnect]_ care oferă același
+fi WireGuard [#WireGuard]_ sau Cisco AnyConnect [#AnyConnect]_ care oferă același
 serviciu dar implementat în mod diferit, oferind interfață grafică sau un mod
 facil de configurare.
 
