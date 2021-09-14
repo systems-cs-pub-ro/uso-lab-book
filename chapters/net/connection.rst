@@ -10,7 +10,7 @@ Conectarea la rețea și la Internet
     ``~/uso-lab/labs/03-user/lab-containers/``.
 
     Infrastructura laboratorului este bazată pe containere docker ale căror
-    imagini vor fi generate pe propriul calculator. Dacă nu veți deja instalat
+    imagini vor fi generate pe propriul calculator. Dacă nu aveți deja instalat
     Docker Engine pe sistem, scriptul
     ``~/uso-lab/labs/03-user/lab-containers/lab_prepare.sh`` vă va instala aplicația.
 
@@ -18,38 +18,48 @@ Conectarea la rețea și la Internet
     comanda ``./lab-prepare.sh delete`` în directorul
     ``~/uso-lab/labs/03-user/lab-containers/``.
 
-În cadrul acestei secțiuni vom învăța cum să reparăm problemele de conectivitate
-la rețea (sau, informal, rezolvarea problemei "nu-mi merge Internetul").  Pentru
-a face asta este necesar să parcurgem toate nivelurile de rețea prin care trec
-datele pentru a fi trimise în Internet. În continuare vom prezenta pașii pe care
-îi urmăm ca să verificăm funcționalitatea nivelului de rețea și cum putem să îl
-configurăm sumar.
+În cadrul acestei secțiuni vom învăța cum să reparăm problemele de
+conectivitate la rețea sau în alte cuvinte, problema "nu-mi merge
+Internetul". Pentru a face asta este necesar să parcurgem toate nivelurile de
+rețea prin care trec datele pentru a fi trimise în Internet, niveluri care
+alcătuiesc așa-numitul model TCP/IP (nume care vine de la cele mai folosite
+protocoale din Internet, TCP, respectiv IP). Fiecare nivel din acest model are
+un rol în stabilirea conectivității în Internet.
+
+.. image:: img/tcpip.png
+    :align: center
+
+În continuare vom inspecta pas cu pas fiecare nivel pentru a localiza unde
+anume s-ar putea întrerupe transmiterea datelor și cum putem să îl configurăm
+sumar.
 
 .. _network_connection_phys:
 
 Interacţiunea cu nivelul fizic
 ------------------------------
 
-Primul nivel cu care noi interacționăm este nivelul fizic. Nivelul fizic este
-reprezentat de cablul UTP pentru o rețea cu fir, sau de undele
-radio ale unei rețele wireless. Acestea sunt mediul prin care informația este
-transferată.
+Primul nivel cu care interacționăm este nivelul fizic, care are rolul de a
+trimite date sub formă de semnale prin mediul de transmisie. De exemplu,
+semnalele electrice sunt transmise prin fir de cupru, pulsurile luminoase prin
+fibră optică și undele radio prin wireless.
+
+Așa arată un cablu de cupru de tip UTP (Unshielded Twisted Pair):
 
 .. image:: img/utp.png
     :align: center
     :alt: Cablu UTP
 
-O altă componentă a nivelului fizic este placa de rețea a sistemului. Aceasta
-va trimite mesaje prin mediu de transmisie, fie acesta cablu de cupru, fibră sau
-unde radio.
+O altă componentă a nivelului fizic este placa de rețea a sistemului (in
+engleză, NIC - *Network Interface Card*). Aceasta va trimite datele prin mediul
+de transmisie, conectând dispozitivul la rețeaua locală.
 
 Majoritatea timpului problemele de conexiune la Internet vin de la faptul că nu
-este cablul de Internet conectat la placa de rețea, sau de la faptul că avem
+este conectat cablul de Internet la placa de rețea sau de la faptul că avem
 conexiune slabă la rețeaua wireless.
 
 La nivel fizic, putem verifica conexiunea și funcționalitatea unei plăci de
-rețea uitându-ne la ledurile care reprezintă conexiunea la mediul fizic.
-Observăm în GIF-ul de mai jos cum arată ledurile unei plăci de rețea funcționale.
+rețea uitându-ne la led-urile care reprezintă conexiunea la mediul fizic.
+Observăm în GIF-ul de mai jos cum arată led-urile unei plăci de rețea funcționale.
 Dacă acestea nu sunt aprinse, atunci nu vom avea conectivitate la rețea.
 
 .. figure:: ./gifs/nic.gif
@@ -62,18 +72,22 @@ Investigarea nivelului fizic al rețelei
 
 .. note::
 
-    În general, în Linux fiecare placă de rețea are asociată câte o interfață de
-    rețea.
-
-La nivelul sistemului de operare putem verifica dacă o placă de rețea este
-activă folosind comanda următoare:
-
-.. note::
-
     Pentru rularea acestui demo rulați în directorul
     ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install fizic``.
     Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
     comanda ``./lab_prepare.sh connect fizic``
+
+O interfață de rețea este un mijloc de realizare a configurărilor de rețea
+asociată de obicei unei plăci de rețea și identificată printr-un nume.
+
+.. note::
+
+    Există interfețe care nu corespund niciunei plăci de rețea fizice. De
+    exemplu ``loopback`` este o interfață virtuală, de auto-adresare, care se
+    adresează sistemului însuși. Este numită ``lo`` in Linux. 
+
+La nivelul sistemului de operare putem verifica dacă o placă de rețea este
+activă folosind comanda următoare:
 
 .. code-block::
 
@@ -88,11 +102,11 @@ activă folosind comanda următoare:
         link/ether 02:42:0c:0c:0c:01 brd ff:ff:ff:ff:ff:ff link-netnsid 0
 
 
-Starea fiecărei interfețe de rețea este reprezentată pe câte o linie împreună cu
-parametrii săi de rulare. Majoritatea informațiilor afișate de comanda de mai
-sus nu sunt relevante pentru noi. O opțiune relevantă este valoarea
-``state``, urmată de starea interfeței de rețea, care poate să fie ``UP``,
-``DOWN`` sau ``UNKNOWN``.
+Starea fiecărei interfețe de rețea este reprezentată de numărul interfeței și
+numele ei, împreună cu parametrii săi de rulare. Majoritatea informațiilor
+afișate de comanda de mai sus nu sunt relevante pentru noi. O opțiune relevantă
+este valoarea ``state``, urmată de starea interfeței de rețea, care poate să
+fie ``UP``, ``DOWN`` sau ``UNKNOWN``.
 
 .. note::
 
@@ -111,9 +125,9 @@ Pentru a porni interfața ``eth1`` vom folosi următoarea comandă:
 
 .. code-block::
 
-    root@uso:~# ip link set up dev eth1
+    root@uso:~# ip link set dev eth1 up
 
-Mereu, după ce rulăm o comandă, trebuie să verificăm că s-a efectuat cu succes,
+Mereu, după ce rulăm o comandă, trebuie să verificăm dacă s-a efectuat cu succes,
 folosind o metodă de verificare. În cazul de față vom folosi tot comanda ``ip
 link show``:
 
@@ -153,15 +167,25 @@ Identificarea adresei de Internet
     Pentru a ne conecta la infrastructura pentru această secțiune vom folosi
     comanda ``./lab_prepare.sh connect internet``
 
-Pentru comunicare între două stații din Internet, trebuie ca cele două stații să
-fie conectate la Internet. Și apoi cele două stații să se poată adresa una
-alteia. Adică fiecare stație are nevoie de un identificator, o adresă. Cum
-fiecare casă din lume are o adresă cu care poate fi identificată unic, similar
-este necesar pentru un calculator.
+Internetul este o interconectare de dispozitive, numite stații și organizate în
+rețele, care se extinde pe toată Planeta. Există echipamente numite rutere,
+care se ocupă cu redirecționarea datelor de la un ruter la un alt ruter pentru găsirea
+unui drum rapid de la o stație la alta. 
 
-Pentru identificarea stațiilor folosim o adresă numită adresa IP (*Internet
-Protocol*). Fiecare interfață de rețea are nevoie de o adresă IP să fie
-configurată.
+.. image:: img/LAN.png
+    :align: center
+    :alt: LAN
+
+Deci, pentru ca un calculator să comunice cu o altă stație, trebuie să aibă
+acces la un ruter care este conectat la restul rețelelor din Internet. De
+asemenea, dispozitivul trebuie să aibă un identificator, o adresă. Așa cum orice
+casă are o adresă unică, așa și fiecare stație are o adresă numită adresa IP
+(*Internet Protocol*).
+
+.. note::
+
+    Fiecare interfață de rețea este o cale diferită către Internet, deci
+    fiecare are nevoie de a avea configurată câte o adresă IP.
 
 Pentru a vedea adresele IP configurate pe interfețele de rețea folosim
 următoarea comandă:
@@ -188,6 +212,33 @@ vom lucra numai cu adrese de tip IPv4. Adresele IP ale interfețelor sunt scrise
 pe liniile care conțin ``inet``.  Adresele IPv4 sunt de forma ``A.B.C.D``, unde
 A, B, C și D sunt numere cu valori între 1 si 255.
 
+În plus, putem observa că după fiecare adresă există un ``/X``, unde X este un
+număr. Acesta este un prefix prin care prescurtăm masca de rețea. Masca de
+rețea este tot un număr de forma IP, dar are primii X biți 1 si următorii 0.
+De exemplu /24 codifică masca 255.255.255.0.
+
+.. note::
+
+    Pentru a calcula adresa de rețea se face operația de ȘI logic (&)
+    între adresa IP și mască. De exemplu, 10.10.10.2/24 are adresa de rețea
+    10.10.10.0 și adresa stației 10.10.10.2.
+
+In funcție de masca de rețea, într-o rețea locală pot fi alocate un anumit număr
+de adrese IP, iar ultimul IP este rezervat unui tip special de adresă numită broadcast.
+Adresa de broadcast este o modalitate de a trimite date simultan tuturor celorlalte
+stații din rețeaua locală. 
+
+.. note::
+
+    Pentru exemplul anterior, calculăm adresa de broadcast prin operația de SAU logic (|)
+    cu negatul măștii de rețea. Obținem adresa de broadcast 10.10.10.255.
+
+Acest sistem de organizare a IP-urilor este o soluție scalabilă pentru problema
+numărului limitat de adrese IPv4, care permite  distribuirea adreselor în funcție
+de nevoile fiecărei rețele. Totuși, utilizatorul normal nu iși pune problema de
+a afla adresa de rețea sau de a face calcule, pentru că are opțiunea de a-și
+configura automat adresa IP, cum prezentăm in secțiunea următoare.
+
 Pentru detalii despre adresele de tip IPv6 folosiți urmăriți această [#ipv6]_
 explicație.
 
@@ -206,9 +257,7 @@ Există două metode pentru configurarea unei adrese IP pe o interfață:
   informațiilor despre rețea, deoarece acestea vor fi primite automat de pe
   rețea.
 
-Vom insista pe configurarea dinamică, deoarece este mai simplă. În plus, nu avem
-cum să aflăm informațiile despre rețea înainte de a configura interfața de
-rețea.
+Vom insista pe configurarea dinamică, deoarece este mai simplă.
 
 Recapitulare - Pornirea interfețelor de rețea
 """""""""""""""""""""""""""""""""""""""""""""
@@ -350,11 +399,10 @@ Pentru a identifica gateway-ul, folosim comanda ``ip route show`` în felul urm�
 .. code-block::
 
     student@uso:~$ ip route show
+    default via 10.0.2.2 dev ens33 proto dhcp metric 100
     10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100
     169.254.0.0/16 dev enp0s3 scope link metric 1000
-    172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
     192.168.56.0/24 dev enp0s8 proto kernel scope link src 192.168.56.4 metric 101
-
 
 Observăm că adresa IP a default gateway-ului este ``10.0.2.2``, deoarece
 acesta se află pe linia care conține șirul de caractere ``default``.
@@ -376,7 +424,7 @@ Exercițiu - Verificarea conectivității cu gateway-ul
 Verificați conexiunea cu gateway-ul folosind comanda ``ping``.
 
 Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
-consacrată, care avem încredere că nu va avea probleme tehnice. Un astfel de
+consacrată, în care avem încredere că nu va avea probleme tehnice. Un astfel de
 exemplu este serverul oferit de Google de la adresa IP ``1.1.1.1``.
 
 Exercițiu - Verificarea conectivității la Internet
@@ -394,10 +442,10 @@ După cum ați observat, până acum am lucrat numai cu adrese IP, dar noi lucr�
 în viața de zi cu zi cu numele site-urilor, deoarece ne este mai ușor să
 reținem nume decât adrese IP.
 
-Pentru a rezolva această necesitate folosim serviciul DNS. Acesta este oferit de
-un server către care noi trimitem cereri de *lookup* pentru o adresa
-*hostname* cum ar fi ``www.google.com``. Serverul DNS va răspunde cu adresa IP
-asociată cu adresa cerută.
+Pentru a rezolva această necesitate folosim serviciul DNS (Domain Name Server).
+Acesta este oferit de un server către care noi trimitem cereri de *lookup*
+pentru o adresa *hostname* cum ar fi ``www.google.com``. Serverul DNS va
+răspunde cu adresa IP asociată cu adresa cerută.
 
 Ne dorim să avem un serviciu DNS funcțional în permanență pe sistemul pe care lucrăm.
 
