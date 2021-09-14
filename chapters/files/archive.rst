@@ -61,7 +61,7 @@ Având trei fișiere pe care vrem să le arhivăm, folosim utilitarul ``tar`` î
 
 
 Arhiva nou creată ocupă 9.1 MB.
-Fișierele ce compun arhiva ocupă 5M, 3M respectiv 1M.
+Fișierele ce compun arhiva ocupă 5MB, 3MB respectiv 1MB.
 
 Fișierul de tipul *tar* nou creat nu ocupă mai puțin spațiu; din contră, ocupă mai mult spațiu din cauza metadatelor [#]_ fișierului.
 
@@ -77,14 +77,14 @@ Fișierul ``înregistrări.tar`` este o arhivă de tip *tar*.
 Exerciții - creare arhive
 """""""""""""""""""""""""
 
-#. * Creați 3 fișiere noi care să conțină pe rând numele, prenumele și anul vostru de naștere.
-   * Creați o arhivă de tipul *tar* care să conțină cele trei fișiere și care să aibă  numele ``personal_data.tar``.
+#. * Creați 3 fișiere noi care să aibă pe rând numele, prenumele și anul vostru de naștere.
+   * Creați o arhivă de tipul *tar* care să conțină cele trei fișiere și care să aibă numele ``personal_data.tar``.
    * Verificați corectitudinea operațiilor.
    * Afișați dimensiunea arhivei.
    * Verificați că fișierul nou creat este o arhivă *tar*.
 
 
-#. * Creați o arhivă a fișierelor din interiorul directorului ``/usr/include/net/`` cu numele ``net.tar``.
+#. * Creați o arhivă a fișierelor din interiorul directorului ``/usr/include/net/`` cu numele ``net.tar``. HINT: Folosiți sudo!
    * Verificați corectitudinea operației.
    * Afișați dimensiunea arhivei.
    * Verificați că fișierul nou creat este o arhivă *tar*.
@@ -116,8 +116,8 @@ Exercițiu - afișarea conținutului unei arhive
 * Afișați conținutul arhivelor create la exercițiul anterior ``personal_data.tar`` și ``net.tar`` **fără** dezarhivare.
 
 
-Extragerea arhivelor
-^^^^^^^^^^^^^^^^^^^^^^
+Extragerea fișierelor din arhive
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Dezarhivarea este procesul opus al arhivării.
 Avem deja o arhivă de tip *tar* și vrem să extragem ierarhia din ea.
@@ -262,7 +262,7 @@ Adăugăm un nou fișier la arhivă folosind comanda ``tar``, astfel:
     înregistrare_lab04.mov
 
 În primă fază am verificat că ``înregistrare_lab04.mov`` nu există în arhivă.
-În continuare am adăugat ``înregistrare_lab04.mov`` la arhivă folosind optiunea ``r``.
+În continuare am adăugat ``înregistrare_lab04.mov`` la arhivă folosind opțiunea ``r``.
 
 .. note::
     Observăm cum după comanda de adăugare de fișier la arhivă, am verificat corectitudinea operației.
@@ -271,9 +271,9 @@ Adăugăm un nou fișier la arhivă folosind comanda ``tar``, astfel:
 Exerciții - adăugare de noi fișiere
 """""""""""""""""""""""""""""""""""
 
-* Creați un fișier ``UPB``; verificați operația afișând conținutul directorului părinte;
-* Adăugați textul *Make UPB Great Again!* în interiorul fișierului; verificați operația afișând conținutul fișierului;
-* Adăugați-l la arhiva ``personal_data.tar``, ca în exemplul de mai sus; verificați operația afișând conținutul arhivei. 
+* Creați un fișier ``UPB``. Verificați operația afișând conținutul directorului părinte.
+* Adăugați textul *Make UPB Great Again!* în interiorul fișierului. Verificați operația afișând conținutul fișierului.
+* Adăugați-l la arhiva ``personal_data.tar``, ca în exemplul de mai sus. Verificați operația afișând conținutul arhivei. 
 
 
 Comprimare ``tar.gz``
@@ -344,8 +344,8 @@ Exemplu de informații stocate: dimensiune, data creare, permisiuni, utilizatoru
 Observăm că dimensiunea arhivei ``tar`` este aceeași cu aceea a arhivei ``zip``.
 De fapt, dacă ne uităm în detaliu, vom vedea că nu este așa.
 
-Mai sus vedeam afișarea dimensiuni în format *human-readable* adică în *MegaBytes* (MegaOcteți).
-Afișăm dimesniunea în octeți:
+Mai sus afișarea dimensiunii este în format *human-readable* adică în *MegaBytes* (MegaOcteți).
+Afișăm dimensiunea în octeți:
 
 .. code-block:: bash
 
@@ -357,7 +357,7 @@ Arhiva ``tar`` are 9441280 octeți, iar arhiva ``zip`` are 9439072.
 Observăm o mică diferență între cele două, varianta ``zip`` fiind mai mică.
 
 Mergem mai departe cu un experiment.
-Facem arhivare și comprimare a ierarhiei de directoare ``/usr/bin`` și comparăm dimensiunea:
+Dacă facem o arhivare și comprimare a ierarhiei de directoare ``/usr/bin`` și comparăm dimensiunea:
 
 .. code-block:: bash
 
@@ -368,7 +368,7 @@ Facem arhivare și comprimare a ierarhiei de directoare ``/usr/bin`` și compar�
     -rw-r--r-- 1 student student 97M Sep 29 04:46 usr_bin.tar
     -rw-r--r-- 1 student student 84M Sep 29 04:46 usr_bin.zip
 
-Observăm deja o diferență mai mare de dimensiune între cele două.
+Putem observa deja o diferență mai mare de dimensiune între cele două.
 
 .. note::
     Pentru o mai bună înțelegere a comenzii de creare a arhivelor, inspectați manualul: ``man zip``.
@@ -377,8 +377,8 @@ Observăm deja o diferență mai mare de dimensiune între cele două.
 Exerciții - creare arhive
 """""""""""""""""""""""""
 
-#. * Creați 3 fișiere noi care să conțină pe rând orașul natal, țara natală și liceul absolvit; verificați crearea fișierelor afișând conținutul directorului părinte.
-   * Creați o arhivă de tipul ``zip`` care să conțină cele trei fișiere și care să aibă  numele ``personal_data.zip``; verificați conținutul arhivei.
+#. * Creați 3 fișiere noi care să aibă pe rând numele orașulului natal, țării natale și liceului absolvit. Verificați crearea fișierelor afișând conținutul directorului părinte.
+   * Creați o arhivă de tipul ``zip`` care să conțină cele trei fișiere și care să aibă  numele ``personal_data.zip``. Verificați conținutul arhivei.
    * Afișați dimensiunea arhivei.
 
 #. * Creați o arhivă de tipul ``zip`` a fișierelor din interiorul directorului ``/usr/include/net/`` cu numele ``net.zip``.
@@ -427,10 +427,11 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `
     -rw-r--r-- 1 student student 4195250 Aug 19 18:00 înregistrări.zip
     student@uso:~$ rm înregistrări.zip
 
-În primă instanță, ștergem arhiva ``înregistrări.zip``.
+În prima instanță, ștergem arhiva ``înregistrări.zip``.
 În continuare, recreăm arhiva ``înregistrări.zip`` și ștergem fișierele ``înregistrare_lab01.mov``, ``înregistrare_lab02.mov``, ``înregistrare_lab03.mov``:
 
 .. code-block:: bash
+
     student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
       adding: înregistrare_lab01.mov (deflated 0%)
       adding: înregistrare_lab02.mov (deflated 0%)
@@ -469,7 +470,7 @@ Pentru a vedea mai clar efectul operației de dezarhivare, ștergem fișierele `
 
 
 Pentru a dezarhiva o arhivă folosim utilitarul ``unzip``.
-Observați că am șters fișierele existente înainte de extragere.
+Puteți observa că am șters fișierele existente înainte de extragere.
 
 Putem extrage fișierele către o anumită cale:
 
@@ -538,12 +539,12 @@ Puteți observa că am extras un singur fișier punând ca ultim parametru numel
 Exerciții - dezarhivarea unei arhive
 """"""""""""""""""""""""""""""""""""
 
-#. * Creați un director cu numele ``zip`` în directorului ``dezarhivare`` ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului ``dezarhivare``.
-   * Dezarhivați arhiva ``personal_data.zip`` în directorul ``dezarhivare/zip/``; verificați operația de dezarhivare afișând conținutul directorului.
-   * Dezarhivați **doar** fișierul oraș natal în directorul curent; verificați operația afișând conținutul directorului curent.
+#. * Creați un director cu numele ``zip`` în directorul ``dezarhivare`` ca în ierarhia de mai sus. Verificați crearea afișând conținutul directorului ``dezarhivare``.
+   * Dezarhivați arhiva ``personal_data.zip`` în directorul ``dezarhivare/zip/``. Verificați operația de dezarhivare afișând conținutul directorului.
+   * Dezarhivați **doar** fișierul ``oraș natal`` în directorul curent. Verificați operația afișând conținutul directorului curent.
 
-#. * Creați directorul ``my_net`` în directorul ``dezarhivare`` ca în ierarhia de mai sus; verificați crearea afișând conținutul directorului ``dezarhivare``.
-   * Dezarhivați arhiva ``net.zip`` în directorul creat anterior ``my_net``; verificați operația de dezarhivare afișând conținutul directorului.
+#. * Creați directorul ``my_net`` în directorul ``dezarhivare`` ca în ierarhia de mai sus. Verificați crearea afișând conținutul directorului ``dezarhivare``.
+   * Dezarhivați arhiva ``net.zip`` în directorul creat anterior ``my_net``. Verificați operația de dezarhivare afișând conținutul directorului.
 
 Adăugarea de noi fișiere la arhive
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -570,13 +571,15 @@ Putem adăuga un nou fișier la arhivă folosind comanda ``zip -u``:
 Exerciții - adăugarea unui fișier în arhivă
 """""""""""""""""""""""""""""""""""""""""""
 
-* Creați un fișier ``UPB`` cu conținutul "Make UPB Great Again!";
-* Verificați conținutul arhivei ``personal_data.zip``;
-* Adăugați fișierul ``UPB`` în arhivă;
-* Verificați adăugarea fișierului la arhivă fără dezarhivare;
+* Creați un fișier ``UPB`` cu conținutul "Make UPB Great Again!".
+* Verificați conținutul arhivei ``personal_data.zip``.
+* Adăugați fișierul ``UPB`` în arhivă.
+* Verificați adăugarea fișierului la arhivă fără dezarhivare.
 * Dezarhivați arhiva în directorul ``personal_data_zip``.
 
 
+.. note::
+    Este bine de știut că în urma realizării unei operații trebuie verificată executarea acesteia.
 
 .. [#] Metadatele sunt modalitatea sistemului de fișiere de a reține informații despre acesta: data creării, dimensiunea, utilizatorul ce deține fișierul, etc.
 

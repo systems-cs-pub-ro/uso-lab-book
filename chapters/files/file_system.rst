@@ -18,12 +18,13 @@ Găsim toate fișierele de configurare ale serviciului ``ssh`` de pe sistem folo
 
 .. code-block:: bash
 
-    student@uso:~/comenzi$ find / -iname "*ssh*conf"
+    student@uso:~/comenzi$ sudo find / -iname "*ssh*conf"
     /usr/share/upstart/sessions/ssh-agent.conf
     /usr/lib/tmpfiles.d/sshd.conf
     /etc/init/ssh.conf
 
 Am căutat în calea ``/`` (*root*) orice fișier ce conține ``ssh`` și se termină cu ``conf``.
+Am folosit comanda ``sudo`` pentru că suntem un utilizator neprivilegiat și nu putem căuta în directorul (*root*).
 
 Utilitarul ``find`` caută în ierarhia de fișiere care începe de la calea dată ca parametru în jos. În cazul nostru, de la ``/`` (root) în jos, adică în tot sistemul de fișiere.
 
@@ -62,6 +63,8 @@ Actualizăm baza de date folosind ``updatedb`` și apoi căutăm fișierul de co
 Răspunsul comenzii este instant.
 
 
+Acum ne dorim să găsim toate arhivele de tip ``tar`` de pe stația noastră. Vom folosi iar utilitarul ``locate`` alături
+de șirul de caractere ``*.tar``.
 
 .. code-block:: bash
 
@@ -69,7 +72,8 @@ Răspunsul comenzii este instant.
     /home/student/inregistrari.tar
     /home/student/usr_bin.tar
 
-Am folosit utilitarul ``locate`` să căutăm în tot sistemul orice fișier se termină cu ``.tar``.
+Acesta este un presupus output al utilitarului ``locate``. Au fost găsite arhivele ``înregistrări.tar`` și ``usr_bin.tar``
+pe care le aveam în sistemul de fișiere de la secțiunea anterioară.
 
 Găsim mai multe informații și exemple în capitolul todo_ref_edi 
 
@@ -98,7 +102,8 @@ Afișăm valoarea variabilei de mediu ``PATH`` a sistemului folosind utilitarul 
     /usr/local/bin:/usr/bin:/bin:/usr/games
 
 Variabila ``PATH`` are patru căi din sistem, despărțite de caracterul ``:``.
-Astfel, sistemul verifică dacă utilitarul este prezent în calea ``/usr/local/bin``; dacă nu-l găsește, merge la următoarea calea ``/usr/bin``; dacă nu-l găsește, merge la următoarea cale ``/bin``; dacă nu-l găsește, merge la ultima cale ``/usr/games``.
+Astfel, sistemul verifică dacă utilitarul este prezent în calea ``/usr/local/bin``. Dacă nu-l găsește, merge la următoarea calea ``/usr/bin``.
+Se caută utilitarul la toate căile disponibile. Dacă nu-l găsește va apărea în shell-ul curent un mesaj de eroare.
 
 .. note::
     Un utilitar poate fi la mai multe căi din PATH, dar va fi executat utilitarul din cea mai din stânga cale (prima, dacă nu a doua, etc.).

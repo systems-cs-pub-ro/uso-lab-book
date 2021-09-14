@@ -284,4 +284,223 @@ Execuția programelor
     executie  mkdir  my_ls	touch
 
 
+Redirectări simple
+------------------
 
+.. code-block:: bash
+
+    student@uso:~$ ls -lh
+    total 9.0M
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 USO
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
+    student@uso:~$ ls -lh > lista_materii
+    student@uso:~$ ls
+    EGC lista_materii RL USO
+
+
+Redirectări prin anexare
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ ls >> lista_materii
+    student@uso:~$ ls
+    USO RL EGC lista_materii
+    student@uso:~$ cat lista_materii
+    total 9.2M
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
+    -rw-r--r-- 1 student student 209K Aug 19 12:00 lista_materii
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 USO
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
+    EGC
+    lista_materii
+    RL
+    USO
+
+
+Redirectări de eroare
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ ls
+    EGC lista_materii RL USO
+    student@uso:~$ cat S02
+    cat: S02: No such file or directory
+    student@uso:~$ cat S02 2> erori_materii
+    student@uso:~$ cat erori_materii
+    cat: S02: No such file or directory
+
+Crearea arhivelor - ``tar``
+---------------------------
+
+.. code-block:: bash
+
+    student@uso:~$ ls
+    înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+    student@uso:~$ tar cvf înregistrări.tar înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ ls -lh
+    total 19M
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 11:56 înregistrări.tar
+
+Afișarea conținutului arhivelor - ``tar``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ tar tf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+
+Extragerea fișierelor din arhive - ``tar``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ tar xvf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ ls -lh
+    total 19M
+    -rw-r--r-- 1 student student 5.0M Aug 19 11:55 înregistrare_lab01.mov
+    -rw-r--r-- 1 student student 3.0M Aug 19 11:55 înregistrare_lab02.mov
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 înregistrare_lab03.mov
+    -rw-r--r-- 1 student student 9.1M Aug 19 12:04 înregistrări.tar
+
+Extragerea arhivelor la o cale specifică - ``tar``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ ls
+    înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov înregistrări.tar
+    student@uso:~$ mkdir -p dezarhivare/tar
+    student@uso:~$ tar xvf înregistrări.tar --directory dezarhivare/tar/
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    student@uso:~$ tree
+    .
+    |-- dezarhivare
+    |   ``-- tar
+    |       |-- înregistrare_lab01.mov
+    |       |-- înregistrare_lab02.mov
+    |       ``-- înregistrare_lab03.mov
+    |-- înregistrare_lab01.mov
+    |-- înregistrare_lab02.mov
+    |-- înregistrare_lab03.mov
+    ``-- înregistrări.tar
+
+    2 directories, 7 files
+
+Adăugarea de noi fișiere la arhive - ``tar``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ tar rvf înregistrări.tar înregistrare_lab04.mov
+    înregistrare_lab04.mov
+    student@uso:~$ tar tf înregistrări.tar
+    înregistrare_lab01.mov
+    înregistrare_lab02.mov
+    înregistrare_lab03.mov
+    înregistrare_lab04.mov
+
+Comprimare ``tar.gz``
+^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ tar -czvf inregistrari.tar.gz inregistrare_lab01.mov inregistrare_lab02.mov inregistrare_lab03.mov
+    inregistrare_lab01.mov
+    inregistrare_lab02.mov
+    inregistrare_lab03.mov
+    student@uso:~$ ls -l
+    -rw-r--r-- 1 student student   9441280 Sep 29 04:51 inregistrari.tar
+    -rw-r--r-- 1 student student   9439133 Oct 12 18:55 inregistrari.tar.gz
+
+Crearea arhivelor - ``zip``
+---------------------------
+
+.. code-block:: bash
+
+    student@uso:~$ zip înregistrări.zip înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov
+      adding: înregistrare_lab01.mov (deflated 0%)
+      adding: înregistrare_lab02.mov (deflated 0%)
+      adding: înregistrare_lab03.mov (deflated 0%)
+    student@uso:~$ ls
+    înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov înregistrări.zip
+
+Afișarea conținutului arhivelor  - ``zip``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ zip -sf înregistrări.zip
+    Archive contains:
+      înregistrare_lab01.mov
+      înregistrare_lab02.mov
+      înregistrare_lab03.mov
+
+Dezarhivarea arhivelor  - ``zip``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ ls
+    înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov înregistrări.zip
+    student@uso:~$ rm înregistrare_lab01.mov înregistrare_lab02.mov  înregistrare_lab03.mov
+    student@uso:~$ unzip înregistrări.zip
+    Archive:  înregistrări.zip
+      inflating: înregistrare_lab01.mov
+      inflating: înregistrare_lab02.mov
+      inflating: înregistrare_lab03.mov
+    student@uso:~$ ls
+    înregistrare_lab01.mov înregistrare_lab02.mov înregistrare_lab03.mov înregistrări.zip
+
+Dezarhivarea arhivelor la o cale specifică - ``zip``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ mkdir -p dezarhivare/zip
+    student@uso:~$ unzip înregistrări.zip -d dezarhivare/zip/
+    Archive:  înregistrări.zip
+      inflating: dezarhivare/zip/înregistrare_lab01.mov
+      inflating: dezarhivare/zip/înregistrare_lab02.mov
+      inflating: dezarhivare/zip/înregistrare_lab03.mov
+    student@uso:~$ tree
+    .
+    |-- dezarhivare
+    |   |-- zip
+    |       |-- înregistrare_lab01.mov
+    |       |-- înregistrare_lab02.mov
+    |       ``-- înregistrare_lab03.mov
+    |-- înregistrare_lab04.mov
+    ``-- înregistrări.zip
+
+    2 directories, 5 files
+
+Adăugarea de noi fișiere la arhive - ``zip``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    student@uso:~$ zip -u înregistrări.zip înregistrare_lab04.mov
+      adding: înregistrare_lab04.mov (deflated 0%)
+    student@uso:~$ zip -sf înregistrări.zip
+    Archive contains:
+      înregistrare_lab01.mov
+      înregistrare_lab02.mov
+      înregistrare_lab03.mov
+      înregistrare_lab04.mov
+    Total 4 entries (16777216 bytes)

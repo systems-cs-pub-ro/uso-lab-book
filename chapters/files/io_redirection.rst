@@ -14,7 +14,7 @@ Avem opțiunea de a direcționa (*redirecta*) doar ieșirea, doar eroarea sau am
 Redirectări simple
 ------------------
 
-În directorul ``/home/student`` (``~``) avem mai multe fișiere, câte unul pentru fiecare materie.
+Presupunem că în directorul ``/home/student`` (``~``) avem mai multe fișiere, câte unul pentru fiecare materie.
 Afișăm fișierele folosind comanda ``ls``:
 
 .. code-block:: bash
@@ -32,7 +32,7 @@ Salvăm outputul comenzii ``ls -lh`` de mai sus folosind caracterul ``>``, astfe
 
     student@uso:~$ ls -lh > lista_materii
     student@uso:~$ ls
-    USO RL EGC lista_materii
+    EGC lista_materii RL USO
 
 Observăm că acțiunea de mai sus a făcut două lucruri: a creat fișierul ``lista_materii`` și a introdus în conținutul fișierului rezultatul comenzii ``ls -lh``.
 
@@ -47,15 +47,17 @@ Vizualizăm conținutul fișierului ``lista_materii`` folosind comanda ``cat``:
 .. code-block:: bash
 
     student@uso:~$ cat lista_materii
+    total 9.2M
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
+    -rw-r--r-- 1 student student 209K Aug 19 12:00 lista_materii
     -rw-r--r-- 1 student student 5.0M Aug 19 11:55 USO
     -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
-
-Momentan fișierul ``lista_materii`` nu există pe sistemul vostru.
-Îl vom crea în continuare.
 
 .. note::
     Odată direcționat într-un fișier, fluxul de informații nu mai apare la ecran.
+
+Presupunem că fișierul ``lista_materii`` nu mai există pe sistemul vostru.
+Îl vom crea din nou în următoarele momente.
 
 Folosirea caracterului ``>`` suprascrie conținutul fișierului:
 
@@ -77,9 +79,13 @@ Folosirea caracterului ``>`` suprascrie conținutul fișierului:
     drwxr-xr-x   2 root root   4096 Sep  9 14:07 sbin
     drwxr-xr-x 137 root root   4096 Sep  9 14:07 share
     drwxr-xr-x   2 root root   4096 Aug 31  2015 src
+    student@uso:~$ echo "cats" > lista_materii
+    student@uso:~$ cat lista_materii
+    cats    
 
 Fișierul ``lista_materii`` nu era creat inițial.
 În urma comenzii ``ls -l /usr/ > lista_materii``, fișierul ``lista_materii`` a fost creat și populat cu ieșirea comenzii ``ls -l /usr/``.
+Comanda ``echo "cats" > lista_materii`` suprascrie conținutul inițial al fișierului, înlocuindu-l cu rezultatul comenzii ``echo "cats"``.
 
 Exerciții - redirectări simple
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -92,18 +98,23 @@ Redirectări prin anexare
 ------------------------
 
 Putem direcționa rezultatul comenzii, *fără* a suprascrie fișierul.
-Facem acest lucru folosim caracterele ``>>`` folosind fișierul trecut ``lista_materii``:
+Facem acest lucru folosim caracterele ``>>`` folosind fișierul creat anterior ``lista_materii``:
 
 .. code-block:: bash
 
     student@uso:~$ ls >> lista_materii
     student@uso:~$ ls
-    USO RL EGC lista_materii
+    EGC lista_materii RL USO
     student@uso:~$ cat lista_materii
+    total 9.2M
+    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
+    -rw-r--r-- 1 student student 209K Aug 19 12:00 lista_materii
     -rw-r--r-- 1 student student 5.0M Aug 19 11:55 USO
     -rw-r--r-- 1 student student 3.0M Aug 19 11:55 RL
-    -rw-r--r-- 1 student student 1.0M Aug 19 11:55 EGC
-    USO RL EGC lista_materii
+    EGC
+    lista_materii
+    RL
+    USO
 
 Acum avem în fișierul ``lista_materii``, pe lângă conținutul vechi, și outputul comenzii ``ls``.
 
@@ -131,12 +142,12 @@ Folosim caracterele ``2>`` pentru a direcționa ieșirea de eroare către un fi�
 .. code-block:: bash
 
     student@uso:~$ ls
-    USO RL EGC lista_materii
+    EGC lista_materii RL USO
     student@uso:~$ cat lista_materie
     cat: lista_materie: No such file or directory
 
 Am vrut să afișăm conținutul fișierului ``lista_materie``, însă acest fișier nu există.
-Am primit informația *No such file or Directory*, și aceasta este afișată sub formă de **eroare**.
+Am primit informația *No such file or directory*, și aceasta este afișată sub formă de **eroare**.
 
 Direcționăm conținutul fișierului ``SO2`` în fișierul ``materii``:
 
@@ -202,5 +213,5 @@ Exerciții
 * Redirectați (simplu) conținutul fișierului de la calea ``/etc/passwd`` într-un fișier cu numele ``utilizatori_si_grupuri``.
 * Redirectare (simplu) fișierul de la calea ``/etc/group`` în același fișier.
 * Repetați cele două operații de redirectare de mai sus folosind redirectare cu anexare.
-* Redirectați conținutul fișierului de la calea ``/etc/shadow`` în fișierul ``parole`` și afișați conținutul fișierului
+* Redirectați conținutul fișierului de la calea ``/etc/shadow`` în fișierul ``parole`` și afișați conținutul fișierului. HINT: Puteți folosi sudo!
 
