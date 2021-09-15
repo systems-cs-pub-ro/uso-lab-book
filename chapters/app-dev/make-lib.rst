@@ -22,7 +22,7 @@ Legarea executabilelor folosind biblioteci externe
         return 0;
     }
 
-În acest cod sursă am apelat 2 funcții diferite ``printf`` și ``factorial``.
+În acest cod sursă am apelat 3 funcții diferite ``printf``, ``scanf`` și ``factorial``.
 Găsim implementarea funcției ``factorial`` în fișierul ``algorithms.c``:
 
 .. code-block:: c
@@ -39,7 +39,7 @@ Găsim implementarea funcției ``factorial`` în fișierul ``algorithms.c``:
         return fact;
     }
 
-Găsim implementarea funcției ``printf`` în **biblioteca standard C** (*C Standard Library*).
+Găsim implementarea funcțiilor ``printf`` și ``scanf`` în **biblioteca standard C** (*C Standard Library*).
 Pentru a folosi funcția ``printf`` în fișierul ``main.c``, am inclus fișierul header ``stdio.h``.
 
 O **bibliotecă** este un fișier în care găsim o colecție de funcții generale, pe care le putem folosi în programele noastre, dar pe care nu le-am scris noi.

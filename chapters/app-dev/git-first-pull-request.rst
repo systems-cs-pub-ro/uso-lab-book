@@ -472,6 +472,21 @@ Pe parcursul creării acestui Pull Request țineți cont de următoarele:
 #. Dați un mesaj de commit și o descriere potrivită PR-ului vostru.
 #. Verificați pe tot parcursul dezvoltării starea repository-ului (``git status``) și istoricul de commituri (``git log``).
 
+Exercițiu colaborativ
+---------------------------
+
+Pentru proiecte mai mari, se generează încă de la început un branch numit 'development' pentru a păstra branch-ul principal *doar* pentru cod funcțional. De exemplu, în dezvoltarea unei aplicații, aceasta va fi dezvoltată pe branch-ul development (din care fiecare programator va lucra la funcționalități diferite, făcându-și alte branch-ul din acesta), iar, la final, când aplicația este completă, va fi încărcată printr-un Pull Request pe branch-ul principal. În viitor, dacă vor exista update-uri, se va lucra în continuare pe development, astfel încât aplicația acum lansată pe piață să fie mereu *sigură și stabilă*, branch-ul main fiind asociat și branch-ului de producție.
+
+#. Creează cu un coleg un repository, iar în el adăugați un fișier README și un fișier sursă .c.
+#. Creați-va un branch numit 'development'.
+#. Din branch-ul development, implementati niște simple funcționalități (funcții de afișare, comentarii, etc...)
+#. Dați push pentru a trimite commit-urile voastre către branch-urile de pe remote.
+#. Faceți câte un PR pentru a adauga modificările fiecăruia și asignati-l pe colegul vostru ca 'Reviewer'.
+#. După ce programul de pe branch-ul development este complet, treceți totul în branch-ul de producție 'master/main' printr-un PR.
+#. Dacă apar merge conflicts, cum le rezolvați?
+#. Good practice: după ce dați merge și integrați toată funcționalitatea de pe un anumit branch, este recomandat să îl ștergeți. Altfel, riscați să ajungeți la un proiect cu zeci de branch-uri printre care va veți pierde.
+
+
 .. _app_dev_pr_good_practices:
 
 Bune practici
