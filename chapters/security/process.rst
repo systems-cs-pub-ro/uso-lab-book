@@ -35,20 +35,20 @@ Mașina virtuală
 În continuare vom detalia pașii pentru pornirea unei mașini virtuale.
 Pentru rularea mașinii virtuale, trebuie să importați fișierul OVA în VirtualBox accesând *File* apoi *Import Appliance*, ca în imaginea de mai jos:
 
-.. figure:: import-appliance.png
+.. figure:: res/import-appliance.png
 
 Va apărea opțiunea de a selecta calea către fișierul OVA.
 Acest fișier conține mașina virtuală.
 
-.. figure:: import_appliance_ova_vbox.png
+.. figure:: res/import_appliance_ova_vbox.png
 
 Apoi va începe importul şi va arăta ca mai jos:
 
-.. figure:: screenshot_from_2018-09-27_23-15-10.png
+.. figure:: res/screenshot_from_2018-09-27_23-15-10.png
 
 După finalizarea importului, asigurați-vă că creați un host network: File -> Host Network Manager -> Create:
 
-.. figure:: screenshot_from_2019-11-29_16-50-52.png
+.. figure:: res/screenshot_from_2019-11-29_16-50-52.png
 
 Porniți mașina virtuală și autentificați-vă.
 
