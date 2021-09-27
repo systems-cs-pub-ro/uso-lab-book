@@ -92,6 +92,7 @@ USO lab book
    :caption: Automatizarea în linia de comandă
 
    chapters/cli-automation/intro.rst
+   chapters/cli-automation/gmail-templates.rst
    chapters/cli-automation/regex.rst
    chapters/cli-automation/scripting-intro.rst
    chapters/cli-automation/scripting-advanced.rst
