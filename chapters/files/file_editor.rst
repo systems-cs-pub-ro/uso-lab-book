@@ -171,5 +171,4 @@ Exerciții - editor în linie de comandă
    * Adăugați caracterul **#** la început de rând pentru liniile 2-8.
 
 #. * Scrieți cod C (similar exemplului de la editor grafic) pentru a afișa textul ``Make USO Great Again!``;
-   * Folosiți scurtăturile pentru indentare;
-   * Compilați folosind scurtătura ``Ctrl+b``.
+   * Folosiți scurtăturile pentru indentare.
