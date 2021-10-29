@@ -21,17 +21,10 @@ Conectarea la rețea și la Internet
 În cadrul acestei secțiuni vom învăța cum să reparăm problemele de
 conectivitate la rețea sau în alte cuvinte, problema "nu-mi merge
 Internetul". Pentru a face asta este necesar să parcurgem toate nivelurile de
-rețea prin care trec datele pentru a fi trimise în Internet, niveluri care
-alcătuiesc așa-numitul model TCP/IP (nume care vine de la cele mai folosite
-protocoale din Internet, TCP, respectiv IP). Fiecare nivel din acest model are
-un rol în stabilirea conectivității în Internet.
+rețea prin care trec datele pentru a fi trimise în Internet.
 
-.. image:: img/tcpip.png
-    :align: center
-
-În continuare vom inspecta pas cu pas fiecare nivel pentru a localiza unde
-anume s-ar putea întrerupe transmiterea datelor și cum putem să îl configurăm
-sumar.
+In continuare vom prezenta pașii pe care îi urmăm ca să verificăm funcționalitatea
+conexiunii la Internet și cum putem să facem niște configurații sumare.
 
 .. _network_connection_phys:
 
@@ -50,16 +43,16 @@ Așa arată un cablu de cupru de tip UTP (Unshielded Twisted Pair):
     :alt: Cablu UTP
 
 O altă componentă a nivelului fizic este placa de rețea a sistemului (in
-engleză, NIC - *Network Interface Card*). Aceasta va trimite datele prin mediul
-de transmisie, conectând dispozitivul la rețeaua locală.
+engleză, NIC - *Network Interface Card*), care va trimite datele prin mediul
+de transmisie.
 
 Majoritatea timpului problemele de conexiune la Internet vin de la faptul că nu
 este conectat cablul de Internet la placa de rețea sau de la faptul că avem
 conexiune slabă la rețeaua wireless.
 
 La nivel fizic, putem verifica conexiunea și funcționalitatea unei plăci de
-rețea uitându-ne la led-urile care reprezintă conexiunea la mediul fizic.
-Observăm în GIF-ul de mai jos cum arată led-urile unei plăci de rețea funcționale.
+rețea uitându-ne la ledurile care reprezintă conexiunea la mediul fizic.
+Observăm în GIF-ul de mai jos cum arată ledurile unei plăci de rețea funcționale.
 Dacă acestea nu sunt aprinse, atunci nu vom avea conectivitate la rețea.
 
 .. figure:: ./gifs/nic.gif
@@ -168,24 +161,30 @@ Identificarea adresei de Internet
     comanda ``./lab_prepare.sh connect internet``
 
 Internetul este o interconectare de dispozitive, numite stații și organizate în
-rețele, care se extinde pe toată Planeta. Există echipamente numite rutere,
-care se ocupă cu redirecționarea datelor de la un ruter la un alt ruter pentru găsirea
-unui drum rapid de la o stație la alta. 
+rețele, care se extinde pe toată Planeta. Datele trimise în Internet trebuie
+redirecționate de la un nod la altul, așa incât să ajungă rapid de la o
+stație la altă stație. 
 
 .. image:: img/LAN.png
     :align: center
     :alt: LAN
 
-Deci, pentru ca un calculator să comunice cu o altă stație, trebuie să aibă
-acces la un ruter care este conectat la restul rețelelor din Internet. De
-asemenea, dispozitivul trebuie să aibă un identificator, o adresă. Așa cum orice
-casă are o adresă unică, așa și fiecare stație are o adresă numită adresa IP
-(*Internet Protocol*).
+Deci, pentru ca o stație să comunice cu o altă stație din Internet, trebuie
+ca cele doua stații să fie conectate la Internet.
 
 .. note::
 
-    Fiecare interfață de rețea este o cale diferită către Internet, deci
-    fiecare are nevoie de a avea configurată câte o adresă IP.
+    Mai exact, stațiile trebuia sa aiba un punct de ieșire din rețeaua locală, conectat la
+    restul rețelelor din Internet, care se numește *default gateway* și de care vom menționa
+    mai târziu.
+
+Mai apoi, cele două stații treubuie să se poată adresa una alteia. Adică fiecare stație
+are nevoie de un identificator, o adresă. Cum fiecare casă din lume are o adresă cu
+care poate fi identificată unic, așa și fiecare stație are o adresă unică in Internet
+numită adresa IP (*Internet Protocol*).
+
+Fiecare interfață de rețea este o cale diferită către Internet, deci fiecare are
+nevoie de a avea configurată câte o adresă IP.
 
 Pentru a vedea adresele IP configurate pe interfețele de rețea folosim
 următoarea comandă:
@@ -212,33 +211,6 @@ vom lucra numai cu adrese de tip IPv4. Adresele IP ale interfețelor sunt scrise
 pe liniile care conțin ``inet``.  Adresele IPv4 sunt de forma ``A.B.C.D``, unde
 A, B, C și D sunt numere cu valori între 1 si 255.
 
-În plus, putem observa că după fiecare adresă există un ``/X``, unde X este un
-număr. Acesta este un prefix prin care prescurtăm masca de rețea. Masca de
-rețea este tot un număr de forma IP, dar are primii X biți 1 si următorii 0.
-De exemplu /24 codifică masca 255.255.255.0.
-
-.. note::
-
-    Pentru a calcula adresa de rețea se face operația de ȘI logic (&)
-    între adresa IP și mască. De exemplu, 10.10.10.2/24 are adresa de rețea
-    10.10.10.0 și adresa stației 10.10.10.2.
-
-In funcție de masca de rețea, într-o rețea locală pot fi alocate un anumit număr
-de adrese IP, iar ultimul IP este rezervat unui tip special de adresă numită broadcast.
-Adresa de broadcast este o modalitate de a trimite date simultan tuturor celorlalte
-stații din rețeaua locală. 
-
-.. note::
-
-    Pentru exemplul anterior, calculăm adresa de broadcast prin operația de SAU logic (|)
-    cu negatul măștii de rețea. Obținem adresa de broadcast 10.10.10.255.
-
-Acest sistem de organizare a IP-urilor este o soluție scalabilă pentru problema
-numărului limitat de adrese IPv4, care permite  distribuirea adreselor în funcție
-de nevoile fiecărei rețele. Totuși, utilizatorul normal nu iși pune problema de
-a afla adresa de rețea sau de a face calcule, pentru că are opțiunea de a-și
-configura automat adresa IP, cum prezentăm in secțiunea următoare.
-
 Pentru detalii despre adresele de tip IPv6 folosiți urmăriți această [#ipv6]_
 explicație.
 
@@ -257,7 +229,9 @@ Există două metode pentru configurarea unei adrese IP pe o interfață:
   informațiilor despre rețea, deoarece acestea vor fi primite automat de pe
   rețea.
 
-Vom insista pe configurarea dinamică, deoarece este mai simplă.
+Vom insista pe configurarea dinamică, deoarece este mai simplă. În plus, nu avem
+cum să aflăm informațiile despre rețea înainte de a configura interfața de
+rețea.
 
 Recapitulare - Pornirea interfețelor de rețea
 """""""""""""""""""""""""""""""""""""""""""""

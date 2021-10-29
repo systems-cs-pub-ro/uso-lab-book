@@ -542,6 +542,16 @@ stația ``10.10.10.3``.
 Securizarea conexiunii la Internet folosind un VPN
 --------------------------------------------------
 
+.. note::
+
+    Pentru rularea acestui demo rulați în directorul
+    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
+    Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
+    comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
+    ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
+    conecta la stația ``openvpn-client2``.
+
+
 O aplicație de tip VPN (*Virtual Private Network*) este o aplicație care permite
 crearea rețelelor de calculatoare în Internet fără ca acestea să fie neapărat în
 aceeași rețea fizică.
@@ -566,14 +576,6 @@ clienți și le va trimite mai departe dintr-o rețea locală în alta.
 
 Recapitulare - Identificarea adreselor IP ale interfețelor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. note::
-
-    Pentru rularea acestui demo rulați în directorul
-    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
-    Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
-    comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
-    ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
-    conecta la stația ``openvpn-client2``.
 
 Identificați adresele IP configurate pe interfețele stațiilor
 ``openvpn-client1`` și ``openvpn-client2``.
