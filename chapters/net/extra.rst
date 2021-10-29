@@ -180,7 +180,7 @@ scurtătura ``remote-stud``.
 Configurarea accesului prin chei SSH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-După cum am observat în secțiunea <TODO>, ca să
+După cum am observat în secțiunea :ref:`network_services_remotecli_key`, ca să
 propagăm cheia publică pe o stație este necesar să cunoaștem parola utilizatorului
 drept care vrem să ne autentificăm.
 
