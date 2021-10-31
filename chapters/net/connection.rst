@@ -174,7 +174,7 @@ ca cele doua stații să fie conectate la Internet.
 
 .. note::
 
-    Mai exact, stațiile trebuia sa aiba un punct de ieșire din rețeaua locală, conectat la
+    Mai exact, stațiile trebuie sa aiba un punct de ieșire din rețeaua locală, conectat la
     restul rețelelor din Internet, care se numește *default gateway* și de care vom menționa
     mai târziu.
 
