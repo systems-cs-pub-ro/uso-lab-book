@@ -178,7 +178,7 @@ ca cele doua stații să fie conectate la Internet.
     restul rețelelor din Internet, care se numește *default gateway* și de care vom menționa
     mai târziu.
 
-Mai apoi, cele două stații treubuie să se poată adresa una alteia. Adică fiecare stație
+Mai apoi, cele două stații trebuie să se poată adresa una alteia. Adică fiecare stație
 are nevoie de un identificator, o adresă. Cum fiecare casă din lume are o adresă cu
 care poate fi identificată unic, așa și fiecare stație are o adresă unică in Internet
 numită adresa IP (*Internet Protocol*).
