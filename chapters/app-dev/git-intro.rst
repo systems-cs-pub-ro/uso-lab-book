@@ -196,11 +196,3 @@ Sincronizarea lor se face prin intermediul operațiilor **push** și **pull** ca
     :alt: Conectarea repository-ului local cu cel remote
     :scale: 50%
 
-O metodă mai simplă
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-O metodă mult mai des abordată decât cea de mai sus ce implică legarea repo-ului local cu cel remote este *clonarea* remote-ului.
-
-Mai sus, am creat un repository pe Github, unul local, și apoi le-am legat. Acest lucru a implicat că noi, pe PC-ul nostru, să urmăm exact aceeași pași
-făcuți pe site chiar pe PC-ul nostru (crearea de directoare, documente, etc..), pentru a fi compatibile.
-
