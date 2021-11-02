@@ -6,14 +6,14 @@ Introducere în utilitarul Make și fișiere Makefile
 În secțiunile anterioare, am compilat fișiere cod sursă C folosind compilatorul GCC.
 Dezvoltarea unui program este un proces *continuu*, nu scriem tot codul dintr-o singură iterație și de multe ori ajungem să îl modificăm pe parcurs.
 Vrem să testăm schimbările aduse în program.
-Pentru aceasta trebuie să *recompilăm* fișierul/fișierele pe care le-am modificat și să creăm un nou executabil.
+Pentru aceasta trebuie să *recompilăm* fișierele pe care le-am modificat și să creăm un nou executabil.
 
 Automatizarea procesului de compilare ne ajută să fim eficienți atunci când dezvoltăm un proiect:
 * În loc să dăm de fiecare dată toate comenzile pentru recompilarea fișierelor, putem să dăm o singură comandă care să le facă pe toate.
-* De asemenea, putem să evităm compilarea unor fișiere pe care nu le-am modificat de la ultima compilare, astfel salvând mult timp.
+* Putem să evităm compilarea unor fișiere pe care nu le-am modificat de la ultima compilare, astfel salvând mult timp.
 Acest proces se numește *build automation*.
 Există mai multe soluții de build automation [#build_automation]_.
-În această carte vom folosi fișiere `Makefile <https://www.gnu.org/software/make/manual/make.html#Makefiles>`_ care fac disponibil utilitarul `Make <https://linux.die.net/man/1/make>`_ ca să automatizăm procesul de compilare.
+În această carte vom folosi utilitarul `Make <https://linux.die.net/man/1/make>`_ împreună cu fișiere `Makefile <https://www.gnu.org/software/make/manual/make.html#Makefiles>`_ ca să automatizăm procesul de compilare.
 
 În secțiunile următoare vom vedea cum funcționează utilitarul ``make`` și cum arată un fișier Makefile.
 După, vom crea un fișier Makefile pentru un proiect dat.
@@ -84,9 +84,7 @@ Fișierul ``Makefile`` folosit la programul Hangman are următorul conținut:
 Liniile din fișier sunt de două tipuri:
 
 #. **Regulă**, care are formatul ``regulă: <dependență>`` (``all: hangman`` sau ``clean:``). Regula trebuie să existe, dependența este opțională. Vom explica ce este o dependentă în secțiunea :ref:`app_dev_dependency_makefile`
-O *regulă* din fișierul Makefile este, de fapt, un nume asociat unui set de *comenzi*. Spunem că rulăm *regula* ``clean`` atunci când vrem să executăm *comanda* ``rm -rf *.o hangman``.
-Astfel, în loc să rulăm întreaga comandă, putem rula 'make <nume_regulă> în terminal, în cazul nostru, *make clean*.
-#. **Comandă**, care începe cu un ``Tab`` la începutul rândului, urmat de o comandă (``gcc -o hangman hangman.o``). Dacă sunt mai multe comenzi ce trebuiesc executate, *nu* inserăm mai multe taburi, ci toate comenzile vor fi scrise una sub alta, fiecare fiind la distanță de *un singur* tab de marginea din stânga.
+O *regulă* din fișierul Makefile este, de fapt, un nume asociat unui unei comenzi.
 
 .. code-block:: bash
 
@@ -95,7 +93,7 @@ Astfel, în loc să rulăm întreaga comandă, putem rula 'make <nume_regulă> �
     student@uso:~/support/simple-make$ ls
     hangman.c   Makefile
 
-Observăm deci că putem rula ``make + <nume regulă>``, dar și ``make`` simplu. Utilizând prima formă, din fișierul Makefile se va executa doar regula dorită, în cazul nostru fiind codul specific regulii 'clean'.
+#. Observăm deci că putem rula ``make + <nume regulă>``, dar și ``make`` simplu. Utilizând prima formă, din fișierul Makefile se va executa doar regula dorită, în cazul nostru fiind codul specific regulii 'clean'.
 Utilizând a doua formă, simplă, se va apela implicit prima regulă găsită din fișierul Makefile, în cazul nostru regula 'all'. Aceasta la rândul ei poate trimite către una sau mai multe reguli care să fie executate în succesiune, în cazul nostru urmând regula 'hangman'.
 
 .. _app_dev_create_first_makefile:
@@ -115,15 +113,15 @@ Adăugarea targetului all
 .. code-block:: bash
 
     student@uso: cd TODO
-    student@uso: ~/TODO$ ls
+    student@uso: ls
     TODO.c
 
 Creăm un fișier numit `Makefile` în care vom scrie primul target: `all` care trebuie să compileze codul sursă:
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ touch Makefile
-    student@uso: ~/TODO$ cat Makefile
+    student@uso: touch Makefile
+    student@uso: cat Makefile
     all: 
         gcc -o exec TODO.c
 
@@ -131,10 +129,10 @@ Ne asigurăm că Makefile-ul funcționează corect:
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ make all # sau doar simplu 'make', pentru că va chema prima regulă
+    student@uso: make all # sau doar simplu 'make', pentru că va chema prima regulă
     gcc -o exec TODO.c
 
-    student@uso: ~/TODO$ ./exec
+    student@uso: ./exec
     "Hello World!"
 
 .. _app_dev_add_clean_target_makefile:
@@ -158,13 +156,13 @@ Testăm că regula funcționează corect.
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ ls
+    student@uso: ls
     exec 
     Makefile 
     TODO.c 
-    student@uso: ~/TODO$ make clean
+    student@uso: make clean
     rm exec
-    student@uso: ~/TODO$  ls
+    student@uso:  ls
     Makefile 
     TODO.c
 
@@ -180,10 +178,10 @@ Redenumim fișierul `Makefile` anterior în `Makefile.TODO` și compilăm din no
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ mv Makefile Makefile.TODO
-    student@uso: ~/TODO$ make -f Makefile.TODO
+    student@uso: mv Makefile Makefile.TODO
+    student@uso: make -f Makefile.TODO
     gcc -o exec TODO.c
-    student@uso: ~/TODO$ ./exec
+    student@uso: ./exec
     "Hello World!"
 
 Observăm că efectul compilării este același.
@@ -200,7 +198,7 @@ La fel facem și pentru celelalte fișiere cod sursă din proiect.
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ cat Makefile
+    student@uso: cat Makefile
     all: 
         gcc -o exec TODO.c
 
@@ -214,7 +212,7 @@ Creăm fișierele obiect pentru fiecare cod sursă în parte:
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ make TODO.o
+    student@uso: make TODO.o
     gcc -c TODO.c
 
 .. _app_dev_update_build_target_makefile:
@@ -226,7 +224,7 @@ Acum că avem targeturi pentru creearea fișierelor obiect, trebuie să modific�
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ cat Makefile
+    student@uso: cat Makefile
     all: make_exec
  
     make_exec: TODO.o
@@ -246,7 +244,7 @@ Fișierele obiect obținute prin targeturile intermediare sunt fișiere generate
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ cat Makefile
+    student@uso: cat Makefile
     all: make_exec
  
     make_exec: TODO.o
@@ -268,10 +266,10 @@ Rulăm comanda `make` în terminal. În urma rulării ei obținem executabilul T
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ make
+    student@uso: make
     gcc -c TODO.c
     gcc -o exec TODO.c
-    student@uso: ~/TODO$ ls
+    student@uso: ls
     exec 
     Makefile 
     TODO.c
@@ -281,7 +279,7 @@ Rulăm comanda `make` în terminal. În urma rulării ei obținem executabilul T
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ make clean
+    student@uso: make clean
     rm exec
     rm *.o
 
@@ -292,9 +290,9 @@ Mai întâi generăm fișierele obiect, după care generăm fișierul executabil
 
 .. code-block:: bash
 
-    student@uso: ~/TODO$ make TODO.O
+    student@uso: make TODO.O
     gcc -c TODO.c
-    student@uso: ~/TODO$ make TODO
+    student@uso: make TODO
     gcc -o exec TODO.c
   
 

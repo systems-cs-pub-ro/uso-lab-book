@@ -20,8 +20,8 @@ Având commiturile în repository putem să gestionăm mai ușor proiectul, adic
 * să creăm o ramură de dezvoltare separată pornind de la un commit anterior, pe care să încercăm o funcționalitate nouă, fără a afecta restul proiectului
 
 Putem să ne gândim la un commit ca la un checkpoint. Când lucrăm pe repository-ul local, orice modificări aducem sunt doar la noi pe calculator.
-Asta înseamnă că un coleg cu care lucrezi la proiect nu va putea beneficia de ce ai lucrat tu. Astfel că, atunci când lucrăm la un proiect, periodic sau când terminăm un anumit task / o funcție importantă ce vrem să fim singuri că s-a salvat, vom da un commit.
-Practic, salvăm tot ce am lucrat într-un checkpoint cu nume sugestiv (un mesaj de commit) la care vom putea reveni mai târziu în cazul în care stricăm ceva în program.
+Asta înseamnă că un coleg cu care lucrezi la proiect nu va vedea ce ai lucrat tu. Astfel că, atunci când lucrăm la un proiect, periodic sau când terminăm un anumit task / o funcție importantă ce vrem să fim singuri că s-a salvat, vom face un commit.
+Mai exact, salvăm tot ce am lucrat într-un checkpoint cu nume sugestiv (un mesaj de commit) la care vom putea reveni mai târziu în cazul în care stricăm ceva în program.
 
 Git se ocupă de păstrarea și gestiunea istoricului repository-ului nostru prin păstrarea listei de commituri făcute.
 Adică Git păstrează un istoric de versiuni al proiectului.

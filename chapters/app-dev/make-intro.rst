@@ -6,7 +6,7 @@ Compilarea unui fișier cod sursă C
 În această secțiune urmărim să învățăm pașii pentru a compila un program, adică a-l aduce de la cod sursă la executabil.
 Pentru aceasta vom crea un program care verifică dacă un număr citit de la tastatură este prim sau nu.
 
-Pașii pe care îi vom face sunt următorii:
+Pașii pe care îi vom face sunt:
 * vom scrie într-un nou fișier cu extensia .c programul care implementează algoritmul
 * vom compila codul sursă folosind `compilatorul GCC <https://gcc.gnu.org>`_ 
 * vom testa că programul funcționează.
@@ -17,7 +17,7 @@ Crearea unui fișier cod sursă
 -----------------------------
 
 Creăm un fișier nou cu numele ``is-prime.c`` cu implementarea algoritmului de verificare.
-Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos (shift + insert pentru Linux):
+Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos:
 
 .. code-block:: c
 
@@ -59,7 +59,7 @@ Mai multe detalii despre folosirea editorului de text ``nano`` găsim în capito
 
 .. _app_dev_compile_aout:
 
-Compilarea codului sursă în executabilul numit ``a.out``
+Compilarea codului sursă în executabilul ``a.out``
 --------------------------------------------------
 
 Avem fișierul cod sursă ``is-prime.c`` și vrem să obținem un program pe care să-l rulăm pe sistemul nostru.
@@ -80,7 +80,7 @@ Creăm un executabil din fișierul ``is-prime.c`` folosind comanda ``gcc``: Astf
 Așa cum vedem în rezultatul rulări comenzii ``ls -l`` de mai sus, executabilul se numește ``a.out``.
 Acesta este numele **implicit** dat de GCC.
 Adică ``a.out`` va fi numele tuturor fișierelor executabile generate cu GCC, indiferent de fișierul cod sursă.
-Verificăm că fișierul ``a.out`` este într-adevăr un fișier executabil cu utilitarul/comanda 'file':
+Verificăm că fișierul ``a.out`` este într-adevăr un fișier executabil:
 
 .. code-block:: bash
 
@@ -99,9 +99,6 @@ Rulăm executabilul ``a.out`` în felul următor și introducem de la tastatură
 
 
 Programul funcționează: citește un număr de la tastatură și afișează dacă acesta este prim sau nu.
-Folosim './' pentru a specifica calea curentă. Orice executabil poate fi rulat prin tastarea întregii locații a acestuia sau a căii relative, în cazul nostru './' specificând folderul curent.
-Necesitatea acestului lucru apare pentru a diferenția executabilele acestea de utilitarele salvate în /usr/bin (ls, cd, mv, gcc, etc...).
-Putem rula executabilul ca un utilitar mutându-l pe acesta în folderul /usr/bin sau salvându-i locația în variabila PATH.
 
 .. _app_dev_compile_custom:
 
@@ -136,7 +133,6 @@ Rulăm executabilul ``is-prime`` în felul următor și introducem de la tastatu
 
 Vedem că, deși au nume diferit, programele ``a.out`` și ``is-prime`` au același comportament.
 Acest lucru este normal deoarece ele sunt 2 fișiere executabile obținute din același fișier cod sursă obținute folosind același compilator: GCC.
-Ordinea argumentelor pentru gcc nu contează, astfel că ``gcc -o is-prime is-prime.c`` este echivalent cu ``gcc is-prime.c -o is-prime``, contând doar ca după opțiunea ``-o`` să urmeze numele executabilului pe care vrem să îl obținem.
 
 .. _app_dev_make_intro_ex:
 
@@ -182,6 +178,4 @@ Exerciții
    Verificați funcționalitatea programului.
 #. Compilați fișierul ``is-palindrome.c`` într-un executabil cu numele ``is-palindrome`` folosind ``gcc``.
    Verificați funcționalitatea programului.
-#. Verificați dacă rezultatul executabilelor este identic. Deoarece provin din același cod sursă și sunt compilate cu același compilator, ar trebui să fie identice.
-Ce utilitar puteți folosi pentru a vedea dacă rezultatele sunt identice? Hint: diff / vimdiff.
-
+   

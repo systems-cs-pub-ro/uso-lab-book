@@ -10,8 +10,7 @@ Astfel, Git este utilitarul folosit în terminal, iar GitHub este serverul și a
 
 Folosim Github pentru:
 
-* Vor fi cazuri când vom *strica* o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos.
-În caz contrar, va trebui să salvăm diferite versiuni a proiectului nostru că niște checkpoints pe PC-ul nostru, ocupând mult spațiu de depozitare.
+* Vor fi cazuri când vom *strica* o versiune a codului și vom avea nevoie să revenim la o versiune corectă, caz în care un istoric de versiuni ne-ar fi de folos. În caz contrar, va trebui să salvăm diferite versiuni a proiectului nostru că niște checkpoints pe PC-ul nostru, ocupând mult spațiu de depozitare.
 
 * Vom putea să lucrăm la un proiect de pe un alt sistem, în afară de al nostru, sau vom vrea să cerem feedback pe codul scris de noi.
 
@@ -21,8 +20,6 @@ Dezvoltatorii au nevoie de acces la codul sursă al proiectului software la care
 * Pentru a putea rezolva problemele de sincronizare între doi sau mai mulți colegi de echipă care lucrează la același proiect, ne ajută să avem un **sistem de versionare a codului**, adică să avem un istoric de modificări.
 Fiecare modificare înseamnă o nouă versiune a proiectului; avem astfel o listă de versiuni gestionată de sistemul de versionare a codului.
 Pe lângă rezolvarea problemelor de sincronizare, versionarea codului aduce și alte avantaje cum ar fi revenirea la o versiune mai veche a proiectului, găsirea rapidă a autorului unei secvențe de cod sau, pur și simplu, organizarea unui proiect.
-
-* Să nu uităm că Github este CV-ul unui programator. Dacă un IT-st ar avea de ales în a trimite o pagină de text (CV) sau a trimite un link la GitHub, va alege mereu a doua variantă, pentru că GitHub arată de ce este în stare acel om. Este un **must-have**.
 
 
 .. note:: 
@@ -48,11 +45,10 @@ Pagina de pornire va arăta similar cu cea din imaginea de mai jos.
   :scale: 30%
   :alt: Pagina principală GitHub
 
-Introduceți un nume de utilizator (*username*), adresa voastră de e-mail (sau cea de la facultate, pentru a beneficia de Github PRO) și o parolă sigură pentru cont.
+Introduceți un nume de utilizator (*username*), adresa voastră de e-mail și o parolă sigură pentru cont.
 Pentru validarea contului, accesați-vă căsuța de e-mail.
 Acolo veți găsi un e-mail în care vi se explică cum se poate valida noul cont creat.
 Verificați și căsuța **spam** în caz că nu ați primit nimic în inbox.
-Dacă v-ați făcut contul de Github cu adresa de la facultate și ați obținut beneficiile PRO, din setări adăugați-o și pe cea personală și setați-o că 'Primary', pentru că adresa de la facultate nu va mai fi valabilă după terminarea facultății, dar vrem ca contul să rămână toată viața. 
 
 .. admonition:: **GitHub Student Pack**
 
@@ -64,7 +60,7 @@ Dacă v-ați făcut contul de Github cu adresa de la facultate și ați obținut
 Pregătirea inițială a mediului Git
 ----------------------------------
 
-Ca să utilizăm Github, trebuie sa configuram utilitarul Git, asa că facem în primă fază niște pași de configurare. Adică vom configura numele și e-mail-ul nostru, ca mai jos:
+Ca să utilizăm Git, facem în primă fază niște pași de configurare. Adică vom configura numele și e-mail-ul nostru, ca mai jos:
 
 .. code-block:: bash
 
@@ -83,13 +79,13 @@ De exemplu, pentru autorul acestei secțiuni, comenzile rulate sunt:
 .. _app_dev_create_first_repo:
 
 Această configurare trebuie făcută o singură dată pe PC / Virtual Machine.
-Pentru a verifica că setările s-au salvat, putem inspecta acest lucru rulând ``gît config --list``.
+Pentru a verifica că setările s-au salvat, verificăm rulând acest lucru rulând ``gît config --list``.
 
 Crearea primului repository
 ---------------------------
 
 Pentru a lucra la un proiect software, creăm un **repository software**.
-Un repository reprezintă o metodă de împărțire a proiectelor: poate fi o temă la o materie, poate conține chiar toate temele la o materie, în foldere diferite sau poate conține doar un simplu README.md (easter-egg, must try!).
+Un repository reprezintă o metodă de împărțire a proiectelor: poate fi o temă la o materie, poate conține chiar toate temele la o materie, în directoare diferite sau poate conține doar un simplu README.md;
 
 Vom crea unul pe GitHub (numit de acum remote), unul local (la noi pe PC), după care le vom interconecta.
 
@@ -130,8 +126,8 @@ Urmărim pașii prezentați în imaginea de mai jos și explicați imediat după
 
 #. Acum este momentul în care vom da un nume proiectului nostru, o descriere succintă a acestuia și vom putea decide dacă să fie **public** (vizibil tuturor utilizatorilor) sau **privat** (vizibil doar pentru noi și eventualii colaboratori ai proiectului).
    Ne va apărea un formular similar cu cel din imaginea de mai sus.
-   Pentru acest tutorial vom crea un repository **public** ) (se poate modifica vizibilitatea ulterior).
-   Este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru ``array-sorting-algorithms``. (se poate modifica numele ulterior)
+   Pentru acest tutorial vom crea un repository **public** ).
+   Este indicat ca numele repository-ului să descrie bine proiectul, în cazul nostru ``array-sorting-algorithms``.
    Descrierea proiectului este opțională, dar e recomandat să o adăugăm pentru a fi ușor de înțeles pentru cei care vor ajunge la proiectul nostru.
 
 #. Apăsăm pe ``Create repository``.
@@ -206,7 +202,5 @@ O metodă mai simplă
 O metodă mult mai des abordată decât cea de mai sus ce implică legarea repo-ului local cu cel remote este *clonarea* remote-ului.
 
 Mai sus, am creat un repository pe Github, unul local, și apoi le-am legat. Acest lucru a implicat că noi, pe PC-ul nostru, să urmăm exact aceeași pași
-făcuți pe site chiar pe PC-ul nostru (crearea de foldere, documente, etc..), pentru a fi compatibile.
+făcuți pe site chiar pe PC-ul nostru (crearea de directoare, documente, etc..), pentru a fi compatibile.
 
-O metodă mai simplă implică doar crearea repository-ului online (singurul loc unde se pot crea noi repository-uri) și clonarea lui pe PC-ul nostru,
-adică facerea unei copi identice, care clonează inclusiv legătură către site folosind comanda: ``gît clone https://github.com/NumeCont/NumeRepositoryComplet``.
