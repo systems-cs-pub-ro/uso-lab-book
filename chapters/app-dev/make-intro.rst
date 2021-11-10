@@ -27,7 +27,7 @@ Copiem codul sursă de mai jos și îl lipim în nano ca în imaginea de mai jos
     {
         int i;
 
-        for (i = 2; i < n / 2; i++) {
+        for (i = 2; i * i <= n; i++) {
             if (n % i == 0) {
                 return 0;
             }
