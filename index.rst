@@ -86,6 +86,20 @@ USO lab book
    chapters/improve-cli/improve-shell.rst
    chapters/improve-cli/term-multiplexing.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Investigarea securității sistemului
+
+   chapters/security/data.rst
+   chapters/security/auth.rst
+   chapters/security/transfer.rst
+   chapters/security/process.rst
+
+
+
+
+
 
 Indices and tables
 ==================
