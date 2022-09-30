@@ -4,17 +4,17 @@ O înțelegere mai bună a shellului
 =================================
 
 
-Configurarea shellului bash
+Configurarea shellului Bash
 ---------------------------
 
 Așa cum am menționat în secțiunea Configurarea rulării aplicațiilor, modul în care o aplicație rulează este configurabil.
-Fișierul de configurare al shellului **BASH** este ``~/.bashrc``.
+Fișierul de configurare al shellului **Bash** este ``~/.bashrc``.
 În directorul home al fiecărui utilizator se găsește un fișier ``.bashrc``.
-Există câte un fișier ``.bashrc`` în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor bash, fără a intra în conflict cu configurările bash ale altor utilizatori din sistem.
-Atunci când un utilizator pornește un shell bash, conținutul fișierului ``~/.bashrc`` este citit și sunt aplicate configurările specifice utilizatorului.
+Există câte un fișier ``.bashrc`` în directorul home al fiecărui utilizator pentru a le permite utilizatorilor să își personalizeze comportamentul shellului lor Bash, fără a intra în conflict cu configurările Bash ale altor utilizatori din sistem.
+Atunci când un utilizator pornește un shell Bash, conținutul fișierului ``~/.bashrc`` este citit și sunt aplicate configurările specifice utilizatorului.
 
-Shellul *bash*, ca majoritatea programelor, vine cu un set de configurări default care poate nu sunt pe placul tuturor utilizatorilor.
-Prin fișierul ``.bashrc`` utilizatorul poate modifica setul default a.î. să se potrivească cu stilul său: un exemplu des întâlnit este modificarea dimensiunii isoricului de comenzi.
+Shellul *Bash*, ca majoritatea programelor, vine cu un set de configurări implicite (default), care nu sunt pe placul tuturor utilizatorilor.
+Prin fișierul ``.bashrc`` utilizatorul poate modifica setul default astfel încât să se potrivească cu stilul său: un exemplu des întâlnit este modificarea dimensiunii istoricului de comenzi.
 
 Modificarea dimensiunii istoricului
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -35,7 +35,7 @@ Inspectăm conținutul fișierului ``~/.bashrc`` folosind comanda următoare:
     HISTFILESIZE=2000
     [...]
 
-Shellul bash reține istoricul de comenzi în fișierul ``~/.bash_history`` din directorul home al fiecărui utilizator.
+Shellul Bash reține istoricul de comenzi în fișierul ``~/.bash_history`` din directorul home al fiecărui utilizator.
 Valorile variabilelor ``HISTSIZE`` și ``HISTFILESIZE`` limitează numărul maxim de comenzi, respectiv linii, din fișierul ``~/.bash_history``.
 Dacă vrem să avem un istoric nelimitat putem seta valoarea variabilelor la un număr negativ.
 
@@ -49,7 +49,7 @@ Salvați modificările făcute.
 
 .. tip::
 
-    Pentru a afla mai multe despre valorile ``HISTSIZE`` și ``HISTFILESIZE`` accesați pagina de manual a terminalului bash (``man bash``) și căutați după numele variabilelor.
+    Pentru a afla mai multe despre valorile ``HISTSIZE`` și ``HISTFILESIZE`` accesați pagina de manual a shellului Bash (``man bash``) și căutați după numele variabilelor.
 
 
 Vizualizarea aliasurilor predefinite
@@ -64,10 +64,10 @@ Pentru a înțelege ce este un **alias**, rulăm comanda de mai jos:
 
 Un alias este un nume (*placeholder*) care înlocuiește un șir de caractere.
 Atunci când scriem în terminal numele unei comenzi, dacă numele scris este un alias, numele comenzii va fi înlocuit cu șirul de caractere definit în alias.
-Cu alte cuvinte, atunci când executăm comanda ``ls`` în terminalul bash, defapt executăm comanda ``ls --color=auto``.
+Cu alte cuvinte, atunci când executăm comanda ``ls`` în shellul Bash, de fapt executăm comanda ``ls --color=auto``.
 Opțiunea ``--color=auto`` este cea care ne colorează rezultatul comenzii ``ls``.
 
-Pentru a vedea toate aliasurile definite în instanța curentă de bash, folosim comanda ``alias``, ca în exemplul de mai jos:
+Pentru a vedea toate aliasurile definite în instanța curentă de Bash, folosim comanda ``alias``, ca în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -89,14 +89,14 @@ Pentru a vedea toate aliasurile definite în instanța curentă de bash, folosim
     alias ls='ls --color=auto'
     alias ncal='ncal -M
 
-Observăm că atât ``grep`` cât și ``egrep`` au câte un alias pentru opțiunea ``--color``, care în cazul acesta face highlight expresiei găsite.
+Observăm că atât ``grep`` cât și ``egrep`` au câte un alias pentru opțiunea ``--color``, care în cazul acesta evidenția expresia găsită.
 Putem defini un alias și pentru un typo pe care îl facem des, așa cum este cazul pentru ``gti``, un alias pentru comanda ``git``.
 
 O parte din aceste aliasuri sunt definite în fișierul ``~/.bashrc``, iar altele în fișierul ``~/.bash_aliases``.
-Conținutul fișierului ``~/.bash_aliases`` este inclus de către fișierul ``~/.bashrc`` la pornirea shellului bash.
+Conținutul fișierului ``~/.bash_aliases`` este inclus de către fișierul ``~/.bashrc`` la pornirea shellului Bash.
 Astfel, pentru o organizare mai bună, este recomandat ca utilizatorul să-și definească aliasurile în fișierul ``~/.bash_aliases``.
 
-Putem observa asta folosind comanda următoare:
+Putem observa acest lucru folosind comanda următoare:
 
 .. code-block:: bash
 
@@ -142,8 +142,8 @@ Dacă încercăm să folosim aliasul proaspăt definit, vom primi o eroare simil
       command 'mgt' from deb mgt
     [...]
 
-Acest lucru se întâmplă din cauză că fișierul ``~/.bashrc`` este citit atunci când pornim o instanță de bash (când deschidem un terminal).
-Ca să recitim fișierul, și să aplicăm modificările, folosim comanda ``source`` ca în exemplul de mai jos:
+Acest lucru se întâmplă din cauză că fișierul ``~/.bashrc`` este citit atunci când pornim o instanță de Bash (când deschidem un terminal).
+Ca să recitim fișierul, și să aplicăm modificările, folosim comanda ``source``, ca în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -160,7 +160,7 @@ Execuția comenzilor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Atunci când rulăm o comandă aceasta își poate încheia execuția în două moduri: cu **succes** sau cu **eșec**.
-Atunci când își încheie execuția, orice proces întoarce un cod de eroare, care este un număr:
+Atunci când își încheie execuția, orice proces întoarce un cod de ieșire (exit code), care este un număr:
 
 * Dacă numărul întors are valoarea ``0``, procesul și-a încheiat execuția cu succes.
 * Dacă numărul întors are orice altă valoare, procesul și-a încheiat execuția cu eroare, iar codul întors poate fi folosit pentru a afla mai multe informații despre eroarea pe care a întors-o procesul.
@@ -189,7 +189,7 @@ Urmărim exemplul de mai jos:
     student@uso:~$ echo $?
     2
 
-Observăm că în cazul fișierului inexistet, comanda ``ls non-existent`` a întors valoarea ``2``, așa cum era specificat și în pagina de manual.
+Observăm că în cazul fișierului inexistent, comanda ``ls non-existent`` a întors valoarea ``2``, așa cum era specificat și în pagina de manual.
 
 .. _improve_cli_improve_shell_oneliners:
 
@@ -205,7 +205,7 @@ De exemplu, atunci când vrem să instalăm o aplicație o rulăm trei comenzi:
 
 Preferăm să înlănțuim cele trei comenzi într-una singură pentru că astfel putem să pornim tot acest proces, să plecăm de la calculator, iar când ne întoarcem avem tot sistemul pregătit.
 
-Pentru a înlănțui comenzi în terminalul bash avem trei operatori disponibili:
+Pentru a înlănțui comenzi în shellul Bash avem trei operatori disponibili:
 
 * Operatorul ``;`` - este folosit pentru separarea comenzilor
   Urmăm exemplul de mai jos:
@@ -269,7 +269,7 @@ Exerciții
 """""""""
 
 #. Scrieți un oneliner cu ajutorul căruia descărcați arhiva tar de la adresa TODO, creați directorul ``~/operators/demo/tar`` și apoi dezarhivați conținutul în directorul creat.
-#. Actualizați onelinerul anterior a.î. după dezarhivare să pornească compilarea proiectului folosind comanda ``make build``.
+#. Actualizați onelinerul anterior astfel încât, după dezarhivare, să pornească compilarea proiectului folosind comanda ``make build``.
 
 Înlănțuirea comenzilor folosind operatorul ``|`` (pipe)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -458,7 +458,7 @@ De cele mai multe ori suntem în rumătorul scenariu:
 Redirectarea în mod *append*
 """"""""""""""""""""""""""""
 
-Implicit, operatoru ``>`` șterge (trunchează) conținutul fișierului destinație.
+Implicit, operatorul ``>`` șterge (trunchează) conținutul fișierului destinație.
 Dacă vrem să păstrăm conținutul fișierului și să adăugăm rezultatul redirectării în continuarea acestuia, folosim operatorul ``>>``.
 
 Rulați din nou exemplele de mai sus folosind operatorul ``>>`` în locul operatorului ``>``.

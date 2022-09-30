@@ -366,7 +366,7 @@ Afișarea informațiilor extinse despre fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 De cele mai multe ori suntem interesați să aflăm mai multe informații despre fișiere: cum ar fi tipul fișierului, permisiuni, ownership, dimensiunea și data ultimei modificări.
-Toate acestea sunt afișate prin utilizarea opțiunii ``-l``:
+Așa cum am văzut în secțiunea :ref:`files_long_listing`, toate acestea sunt afișate prin utilizarea opțiunii ``-l``:
 
 .. code-block:: bash
 
