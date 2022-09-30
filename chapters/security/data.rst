@@ -137,7 +137,7 @@ Un fișier oricât de mare va avea un rezumat de doar câteva zeci de octeți, n
 
 Procedura uzuală de verificare a integrității datelor este urmatoarea:
 
-.. figure:: res/hash.png
+.. figure:: ../files/res/hash.png
 
 
 Exemple de algoritmi de hashing: md5 (utilitar ``md5sum``), SHA-1 (utilitar ``sha1sum``), SHA-256 (utilitarul ``sha256sum``).
