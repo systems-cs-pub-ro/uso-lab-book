@@ -1,11 +1,15 @@
 Securitatea Accesului. Autentificare
 ====================================
 
-Autentificarea presupune transmiterea unor informații de autentificare compuse uzual dintr-un nume de utilizator (*username*) și un element de autentificare (*authentication token*), adesea o parolă.
+Autentificarea presupune transmiterea unor informații de secrete/personale (credențiale) compuse uzual dintr-un nume de utilizator (*username*) și un element de autentificare (*authentication token*), adesea o parolă.
 
 Pentru sporirea nivelului de securitate în cazul autentificării putem folosi autentificare de tip multi-factor (*multi-factor authentication*).
 Forma uzuală este *two-factor authentication* (2FA).
-În acest caz sunt folosite mai multe moduri de autentificare: o parolă și o parolă de tip one-time sau o parolă și un identificator biometric.
+În acest caz sunt folosite mai multe moduri de autentificare: parolă + e-mail sau parolă + identificator biometric sau alte combinații.
+Astfel, folosind două (sau mai multe) tipuri de autentificare, micșorăm șansele ca un actor malițios să ne poată impersona.
+
+Parole în Linux
+---------------
 
 În Linux informațiile despre utilizatori sunt reținute în fișierul ``/etc/passwd`` care este citibil de către toți utilizatorii.
 
@@ -44,6 +48,7 @@ Forma uzuală este *two-factor authentication* (2FA).
     Amazon:x:1001:1001::/home/Amazon:/bin/sh
 
 Observăm utilizatorii ``root``, ``student``, ``Amazon``.
+Chiar dacă fișierul se numește ``passwd`` acesta nu conține informații confidențiale.
 
 Informațiile despre parole sunt reținute în fișierul ``/etc/shadow`` care este citibil doar de procese privilegiate.
 
@@ -81,9 +86,10 @@ Informațiile despre parole sunt reținute în fișierul ``/etc/shadow`` care es
     avahi:*:16760:0:99999:7:::
     Amazon:$6$nlimOUzV$YmDo8EIcQ3KqGWt/6r4GRwxGfIBtpbd0kAT3tpYHVMYybhCTe6ZxB40GjPcZX3pVPANbkDwQKLlTPrnPc.7un.:18865:0:99999:7:::
 
-Observăm că în fișierul ``/etc/shadow`` parolele sunt reținute ca rezumat, nu în format plaintext.
+Pentru a accesa fișierul ``etc/shadow`` ca utilizator privilegiat, am utilizat cuvântul cheie ``sudo``.
+Observăm că în fișierul ``/etc/shadow`` parolele sunt reținute ca rezumat, nu în format citibil (plaintext).
 
-Pentru generale de parole folosim utilitarul ``pwgen``:
+Există diverse utilitare pentru generale de parole; cel mai uzual este utilitarul ``pwgen``:
 
 .. code-block:: bash
 
@@ -120,7 +126,7 @@ Observăm că am generat 160 parole a câte 8 caractere fiecare.
 
 Primul parametru se referă la numărul de caractere pentru fiecare parolă și al doilea se referă la numărul de parole generate.
 
-Putem complica parolele pentru a fi mai sigure, folosind parametrul ``-sync``:
+Putem adăuga complexitate parolelor pentru a fi mai sigure, folosind parametrul ``-sync``:
 
 .. code-block:: bash
 
@@ -138,16 +144,20 @@ Astfel, ``-c`` adaugă măcar o literă mare în parolă, ``-n`` adaugă cel pu�
 .. note::
    O parolă precum **Tr0oub4dor&3** este mai greu de reținut și mai ușor de spart decât passphrase-ul **horse battery staple**.
 
-   Parolele sa conțină un set de caractere cât mai larg, să nu fie doar litere mici.
    Ideal, parolele ar trebui să aibă minim 16 caractere, să conțină litere mari, cifre, semne de punctuație.
 
+Manager de parole
+-----------------
 
+Ținând cont de:
+* numărul mare de aplicații ce folosesc parole pentru autentificare
+* bunele practici de securitate ce recomandă folosirea parolelor de minim 16 caractere, cu litere mici, mari, cifre și semne de punctuație
 
-Ținând cont de numărul mare de parole folosite, trebuie să fie generate parole sau passphrase-uri diferite și greu de ghicit.
-Pentru aceasta este util să apelăm la **generatoare de parole**.
+este util să apelăm la **manager de parole**.
 
-Browserele web moderne au integrate generatoare de parole care vor completa automat câmpurile din formularele web de creare de conturi și parole:
+Browserele web moderne au integrate manager de parole care vor genera la cerere și vor completa automat câmpurile din formularele web de conturi și parole:
 
-.. figure:: res/pass_manager.png
+.. figure:: ../files/res/password_manager_chrome.png
 
-Pentru gestiunea și stocarea parolelor este recomandată folosirea unui **manager de parole** (*password manager* ).
+Avantajul managerului de parole din browser este disponibilitatea pe diverse dispozitive (i.e. parolele din Chrome pot fi folosite pe laptop, desktop, telefon mobil, tabletă, etc.)
+Dacă singura necesitate este autentificare pe web, managerul de parole din browser este suficient, însă există manager de parole ca aplicație separată pe sistemele gazdă.
