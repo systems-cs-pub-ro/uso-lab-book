@@ -86,6 +86,15 @@ USO lab book
    chapters/improve-cli/improve-shell.rst
    chapters/improve-cli/term-multiplexing.rst
 
+.. toctree::
+   :numbered:
+   :maxdepth: 3
+   :caption: Automatizarea în linia de comandă
+
+   chapters/cli-automation/intro.rst
+   chapters/cli-automation/regex.rst
+   chapters/cli-automation/scripting-intro.rst
+   chapters/cli-automation/scripting-advanced.rst
 
 Indices and tables
 ==================
