@@ -7,7 +7,7 @@ Securitatea în sistemul de fișiere
 
 Pentru accesul corect al fișierelor, sistemele de operare permit configurarea de **permisiuni de acces** (*access permissions* sau *access rights*).
 Așa cum am precizat mai sus, în cazul acestor permisiuni, utilizatorii și procesele lor sunt subiecții, iar fișierele sunt obiectele.
-În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am indicat în Secțiunea **TODO Secțiune**.
+În forma simplă, permisiunile pe fișiere și directoare sunt de citire, scriere și execuție, așa cum am văzut în Secțiunea **TODO Secțiune**.
 
 Pentru a afișa permisiunile fișierelor folosim utilitarul *ls* cu opțiunea *-l*:
 
