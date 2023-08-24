@@ -62,7 +62,7 @@ Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
     -rw-r--r-- 1 student student   37 Aug 26 14:30 NASDAQ
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
-Observăm că pentru a scoate permisiunile de citire folosim parametrul  *-r*, după care fisierul/directorul țintă.
+Observăm că pentru a scoate permisiunile de citire, pentru toate cele trei categorii (user, group, others), folosim opțiunea (flagul)  *-r*, după care fișierul/directorul țintă.
 Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul **TODO PERMISIUNI**.
 
 **TODO - Să vorbesc și despre chroot? Parcă e puțin cam mult**
