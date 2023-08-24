@@ -45,7 +45,7 @@ Acestea pot fi schimbate cu ajutorul utilitarului *chown*:
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
 Observăm din eroarea primită din partea sistemului că pentru a schimba deținătorul unui fișier este nevoie de drepturi privilegiate.
-Pentru asta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
+Pentru aceasta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
 Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
 
     Pentru a modifica permisiunile, folosim utilitarul *chmod*:
