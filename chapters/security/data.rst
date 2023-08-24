@@ -72,7 +72,7 @@ Exerciții - sistemul de fișiere
 
 #. Modificați permisiunile fișierului ``Google`` astfel încât doar utilizatorul care deține fișierul (*user*) să aibă drepturi de citire (*read*).
 #. Modificați permisiunile fișierului ``Netflix`` astfel încât doar grupul care deține fișierul (*group*) să aibă drepturi de execuție (*execute*).
-#. Modificați permisiunile fișierului ``Amazon`` astfel încât toți utilizatorii să aibă drepturi de scriere (*write*).
+#. Modificați permisiunile fișierului ``Amazon`` astfel încât toți utilizatorii (*others*) să aibă drepturi de scriere (*write*) asupra acestuia.
 
 
 Confidențialitatea datelor
