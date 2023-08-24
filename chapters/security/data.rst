@@ -25,7 +25,7 @@ Pentru a afișa permisiunile fișierelor folosim utilitarul *ls* cu opțiunea *-
 
 Pentru fiecare linie asociată unui fișier observăm primul caracter (*d* - director sau *-* fișier simplu) după care nouă caractere de tipul *r (read)*, *w (write)*, *x (execute)*.
 Pentru lipsa permisiunii respective avem caracterul *-*.
-Ne aducem aminte din capitolul **TODO Sectiune** că primele trei caractere se referă la utilizator, următoarele trei la grup, iar ultimele trei la restul utilizatorilor din sistem.
+Ne amintim din capitolul **TODO Sectiune** că primele trei caractere se referă la permisiunile care se aplică utilizatorului (*user*), următoarele trei se aplică grupului (*group*), iar ultimele trei se aplică restului utilizatorilor din sistem (*others*).
 
 Coloanele trei și patru de mai sus reprezintă utilizatorul și grupul ce dețin fișierul.
 Acestea pot fi schimbate cu ajutorul utilitarului *chown*:
