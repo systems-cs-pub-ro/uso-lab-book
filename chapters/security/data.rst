@@ -44,7 +44,7 @@ Acestea pot fi schimbate cu ajutorul utilitarului *chown*:
     -rw-r--r-- 1 student student   37 Aug 26 14:30 NASDAQ
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
-Observăm că pentru a schimba deținătorul unui fișier este nevoie de permisiuni de *root* (am primit eroare din partea sistemului).
+Observăm din eroarea primită din partea sistemului că pentru a schimba deținătorul unui fișier este nevoie de drepturi privilegiate.
 Pentru asta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
 Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
 
