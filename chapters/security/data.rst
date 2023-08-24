@@ -70,7 +70,7 @@ Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul **
 Exerciții - sistemul de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Modificați permisiunile fișierului ``Google`` astfel încât doar utilizatorul ce deține fișierul (*owner*) să aibă drepturi de citire (*read*).
+#. Modificați permisiunile fișierului ``Google`` astfel încât doar utilizatorul care deține fișierul (*user*) să aibă drepturi de citire (*read*).
 #. Modificați permisiunile fișierului ``Netflix`` astfel încât doar grupul ce deține fișierul (*owner*) să aibă drepturi de execuție (*execute*).
 #. Modificați permisiunile fișierului ``Amazon`` astfel încât toți utilizatorii să aibă drepturi de scriere (*write*).
 
