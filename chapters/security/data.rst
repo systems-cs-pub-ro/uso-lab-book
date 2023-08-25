@@ -48,7 +48,7 @@ Observăm din eroarea primită din partea sistemului că pentru a schimba dețin
 Pentru aceasta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
 Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
 
-    Pentru a modifica permisiunile, folosim utilitarul *chmod*:
+Pentru a modifica permisiunile, folosim utilitarul *chmod*:
 
 .. code-block:: bash
 
