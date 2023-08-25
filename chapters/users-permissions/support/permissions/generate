@@ -1,0 +1,63 @@
+#!/bin/bash
+
+touch noperm
+chmod 000 noperm
+
+echo "seeing is believing" > readonly
+chmod 400 readonly
+
+echo "test" > writeonly
+chmod 020 readonly
+
+cat > hello.sh <<END
+#!/bin/bash
+
+echo "Hello, World!"
+END
+chmod 644 hello.sh
+
+cat > bye.sh <<END
+#!/bin/bash
+
+echo "Goodbye, World!"
+END
+chmod 500 bye.sh
+
+cat > dec31.sh <<END
+#!/bin/bash
+
+echo "Happy New Year!"
+END
+chmod 100 dec31.sh
+
+mkdir demo-dir
+chmod 755 demo-dir
+
+pushd demo-dir > /dev/null 2>&1
+
+mkdir exec-dir
+echo "test-a" > exec-dir/a.txt
+echo "test-b" > exec-dir/b.txt
+chmod 100 exec-dir
+
+mkdir read-exec-dir
+echo "test-a" > exec-dir/a.txt
+echo "test-b" > exec-dir/b.txt
+chmod 500 read-exec-dir
+
+mkdir read-write-dir
+echo "test-a" > exec-dir/a.txt
+echo "test-b" > exec-dir/b.txt
+chmod 600 read-write-dir
+
+mkdir read-write-exec-dir
+echo "test-a" > exec-dir/a.txt
+echo "test-b" > exec-dir/b.txt
+chmod 700 read-write-dir
+
+mkdir write-exec-dir
+echo "test-a" > exec-dir/a.txt
+echo "test-b" > exec-dir/b.txt
+chmod 300 write-exec-dir
+
+popd > /dev/null 2>&1
