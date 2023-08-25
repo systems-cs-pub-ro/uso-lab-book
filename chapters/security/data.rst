@@ -48,7 +48,7 @@ Observăm din eroarea primită din partea sistemului că pentru a schimba dețin
 Pentru aceasta, am folosit utilitarul *sudo* împreună cu comanda *chown*.
 Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
 
-    Pentru a modifica permisiunile, folosim utilitarul *chmod*:
+Pentru a modifica permisiunile, folosim utilitarul *chmod*:
 
 .. code-block:: bash
 
@@ -63,9 +63,11 @@ Parametrii folosiți sunt *utilizator:grup* și fișierul ``Amazon``.
     drwxr-xr-x 2 student student 4096 Aug 26 12:58 Netflix
 
 Observăm că pentru a scoate permisiunile de citire, pentru toate cele trei categorii (user, group, others), folosim opțiunea (flagul)  *-r*, după care fișierul/directorul țintă.
-Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul **TODO PERMISIUNI**.
 
-**TODO - Să vorbesc și despre chroot? Parcă e puțin cam mult**
+.. note::
+    A nu se confunda *-r* folosit anterior cu *-R* ce aplică modificările recursiv pe toate fișierele și directoarele din cadrul directorului dat ca parametru.
+
+Pentru mai multe detalii de manipulare a permisiunilor, parcurgeți capitolul **TODO PERMISIUNI**.
 
 Exerciții - sistemul de fișiere
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
