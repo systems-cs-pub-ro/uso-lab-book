@@ -48,7 +48,7 @@ Parole în Linux
     Amazon:x:1001:1001::/home/Amazon:/bin/sh
 
 Observăm utilizatorii ``root``, ``student``, ``Amazon``.
-Chiar dacă fișierul se numește ``passwd`` acesta nu conține informații confidențiale.
+Chiar dacă fișierul se numește ``passwd`` acesta nu conține informații confidențiale, precum parole.
 
 Informațiile despre parole sunt reținute în fișierul ``/etc/shadow`` care este citibil doar de procese privilegiate.
 
@@ -139,12 +139,14 @@ Putem adăuga complexitate parolelor pentru a fi mai sigure, folosind parametrul
     student@uso-demo:~/securitate/stocks$ pwgen -sync 17 2
     vultw""8nkOj8H)u# nh<afGZt(#ag58-UW
 
-Astfel, ``-c`` adaugă măcar o literă mare în parolă, ``-n`` adaugă cel puțin o cifră, ``-y`` un caracter special, iar ``-s`` adaugă complexitate parolelor.
+Astfel, ``-c`` adaugă cel puțin o literă mare în parolă, ``-n`` adaugă cel puțin o cifră, ``-y`` un caracter special, iar ``-s`` adaugă complexitate parolelor.
 
 .. note::
    O parolă precum **Tr0oub4dor&3** este mai greu de reținut și mai ușor de spart decât passphrase-ul **horse battery staple**.
 
    Ideal, parolele ar trebui să aibă minim 16 caractere, să conțină litere mari, cifre, semne de punctuație.
+
+   Mai mult, folosirea multi-factor authentication este recomandată.
 
 Manager de parole
 -----------------
@@ -161,3 +163,24 @@ Browserele web moderne au integrate manager de parole care vor genera la cerere 
 
 Avantajul managerului de parole din browser este disponibilitatea pe diverse dispozitive (i.e. parolele din Chrome pot fi folosite pe laptop, desktop, telefon mobil, tabletă, etc.)
 Dacă singura necesitate este autentificare pe web, managerul de parole din browser este suficient, însă există manager de parole ca aplicație separată pe sistemele gazdă.
+
+Putem folosi manager de parole local, în cadrul sistemlui nostru de operare.
+Un astfel de exemplu este **Buttercup**, disponibil pe Linux, Windows, mobil, etc.
+Puteți descărca această aplicație de la acest link [#buttercup]_.
+
+Odată instalat, aplicația va avea următorul meniu:
+
+.. figure:: ../files/res/buttercup_initial.png
+
+Putem adăuga un **Vault** folosind mai multe opțiune de stocare.
+Pentru accesarea acestuia, este nevoie de o parolă (*password manager*).
+
+.. figure:: ../files/res/buttercup_medii_stocare.png
+
+În acest exemplu, folosim fișier local pe disc.
+În continuare adăugăm o parolă, ce va fi stocată în vault-ul creat:
+
+.. figure:: ../files/res/buttercup_add_pass.png 
+
+.. [#buttercup]
+    https://buttercup.pw/
