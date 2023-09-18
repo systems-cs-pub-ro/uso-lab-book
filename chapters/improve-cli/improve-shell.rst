@@ -175,8 +175,7 @@ Atunci când își încheie execuția, orice proces întoarce un cod de ieșire 
 
             2      if serious trouble (e.g., cannot access command-line argument).
 
-Pentru a vedea codul cu care și-a încheiat execuția o comandă folosim sintaxa ``$?``.
-Urmărim exemplul de mai jos:
+Pentru a vedea codul cu care și-a încheiat execuția o comandă folosim sintaxa ``$?``, așa cum observăm în exemplul de mai jos:
 
 .. code-block:: bash
 
@@ -307,48 +306,6 @@ Am folosit de mai multe ori operatorul ``|`` până acum:
       root         0  1074  2.2  0.0 45460 /usr/bin/containerd
       student   1000 12966  1.8  0.0 38216 /usr/lib/gnome-terminal/gnome-terminal-server
 
-Până acum am efectuat procesări text pe rezultatul unor comenzi.
-Folosind operatorul ``|`` și utilitarul ``xargs`` putem să folosim rezultatul pe post de argument pentru altă comandă, ca în exemplul de mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ find . -maxdepth 1 -type f | xargs ls -l
-    -rw------- 1 student student    10992 nov  6 14:56 ./.ICEauthority
-    -rw-r--r-- 1 student student      297 nov  7 00:18 ./.bash_aliases
-    -rw------- 1 student student    43604 nov  5 02:34 ./.bash_history
-    -rw-r--r-- 1 student student      220 aug  6  2018 ./.bash_logout
-    -rw-r--r-- 1 student student     3824 aug 13 19:04 ./.bashrc
-    -rw-r--r-- 1 student student     3159 aug 20  2018 ./.emacs
-    -rw-r--r-- 1 student student       87 aug 21  2018 ./.gitconfig
-    -rw------- 1 student student      361 nov  7 02:40 ./.lesshst
-
-Comanda din exemplul de mai sus afișează informații în format lung despre toate fișierele din directorul curent, excluzând directoarele.
-
-Dacă folosim opțiunea ``-p`` a utilitarului ``xargs``, acesta o să ne afișeze ce comandă urmează să execute și așteaptă confirmarea noastră prin apăsarea tastei ``y`` (yes) sau ``n`` (no).
-Este recomandat să folosiți opțiunea ``-p`` atunci când vă scrieți onelinerul pentru a verifica că comanda pe care urmează să o executați este corectă.
-În exemplul următor ne dorim să mutăm toate arhivele ``.tar`` în directorul ``archives``:
-
-.. code-block:: bash
-
-    student@uso:~$ ls *.tar | xargs -p mv archives
-    mv archives courses.tar labhidden.tar uso.tar wiki.tar ?...n
-
-Cu ajutorul opțiunii ``-p`` am putut să observăm că comanda nu are sintaxa dorită și am anulat execuția ei.
-Problema este că avem destinația (``archives``) înaintea arhivelor care trebuie mutate.
-
-Pentru a rezolva această problemă folosim opțiunea ``-I str``, ca mai jos:
-
-.. code-block:: bash
-
-    student@uso:~$ ls *.tar | xargs -I str -p mv str archives
-    mv courses.tar archives ?...n
-    mv labhidden.tar archives ?...n
-    mv uso.tar archives ?...n
-    mv wiki.tar archives ?...n
-
-Opțiunea ``-I`` va înlocui șirul de caractere ``str`` cu numele arhivelor primite din pipe, așa cum observăm mai sus.
-Șirul de caractere placeholder poate să fie orice, nu neapărat ``str``; comanda ``ls *.tar | xargs -I {} -p mv {} archives`` produce aceelași rezultat.
-
 Redirectări
 ^^^^^^^^^^^
 
@@ -380,7 +337,6 @@ Redirectarea ieșirilor standard
 Cum spuneam mai sus, majoritatea programelor pe care le folosim vor afișa rezultatele pe ecran.
 Acest comportament este bun atunci când ne scriem onelinerul care ne extrage informațiile căutate, dar cel mai probabil o să vrem să salvăm rezultatul procesării într-un fișier.
 
-Folosim operatorul ``>`` pentru a redirecta **STDOUT** sau **STDERR** într-un fișier.
 Pentru fiecare flux de date avem un număr, numit descriptor de fișier, asociat:
 
 * **STDIN** are asociat descriptorul de fișier 0
@@ -394,7 +350,7 @@ Pentru a redirecta ieșirea standard a erorilor folosim sintaxa ``cmd 2> nume-fi
 
     **Atenție!**
     În cazul în care fișierul destinație nu există, operatorul ``>`` îl va crea.
-    Dacă fișierul destinație există, operatorul ``>`` va șterge conținutul acestuia.
+    Dacă fișierul destinație există, operatorul ``>`` va suprascrie conținutul acestuia.
 
 Urmăm exemplul de mai jos:
 

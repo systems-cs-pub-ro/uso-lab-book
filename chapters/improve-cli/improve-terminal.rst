@@ -87,6 +87,10 @@ De aici, avem următoarele opțiuni:
 * Rulăm comanda pe care am găsit-o, folosind combinația de taste ``Ctrl+o``
 * Anulăm căutarea comenzii și revenim la starea inițială, folosind combinația de taste ``Ctrl+g``
 
+.. figure:: ./gifs/reverse-search.gif
+  :scale: 50%
+  :alt: Reprezentarea vizuală a căutării în istoricul de comenzi
+
 Căutarea este incrementală.
 Adică se rafinează pe măsură ce tastăm un caracter.
 Orice caracter apăsat rafinează căutarea.
