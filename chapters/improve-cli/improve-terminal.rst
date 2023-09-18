@@ -88,7 +88,7 @@ De aici, avem următoarele opțiuni:
 * Anulăm căutarea comenzii și revenim la starea inițială, folosind combinația de taste ``Ctrl+g``
 
 .. figure:: ./gifs/reverse-search.gif
-  :scale: 50%
+  :scale: 100%
   :alt: Reprezentarea vizuală a căutării în istoricul de comenzi
 
 Căutarea este incrementală.
