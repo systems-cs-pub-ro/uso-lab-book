@@ -307,10 +307,9 @@ Verificarea conectivității la o altă stație
 .. note::
 
     Pentru rularea acestui demo, comenzile vor fi rulate în cadrul mașinii
-    virtuale USO.
-
-Pentru a verifica conexiunea dintre două stații folosim comanda ``ping``. Această
-comandă trimite mesaje către o stație și așteaptă un răspuns de la ea.
+    virtuale USO. Pentru a verifica conexiunea dintre două stații folosim
+    comanda ping. Această comandă trimite mesaje către o stație și așteaptă un
+    răspuns de la ea.
 
 Atunci când testăm conexiunea la internet, vrem să verificăm câteva aspecte,
 odată ce am obținut o adresă IP de la serverul DHCP:
@@ -373,24 +372,23 @@ Pentru a identifica gateway-ul, folosim comanda ``ip route show`` în felul urm�
 .. code-block::
 
     student@uso:~$ ip route show
-    default via 10.0.2.2 dev ens33 proto dhcp metric 100
-    10.0.2.0/24 dev enp0s3 proto kernel scope link src 10.0.2.15 metric 100
-    169.254.0.0/16 dev enp0s3 scope link metric 1000
-    192.168.56.0/24 dev enp0s8 proto kernel scope link src 192.168.56.4 metric 101
+    default via 192.168.40.2 dev eth0 proto dhcp src 192.168.40.128 metric 100 
+    10.10.10.0/24 dev br1 proto kernel scope link src 10.10.10.253 
+    11.11.11.0/24 dev br2 proto kernel scope link src 11.11.11.253 
+    12.12.12.0/24 dev br3 proto kernel scope link src 12.12.12.253 
+    172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown 
+    192.168.40.0/24 dev eth0 proto kernel scope link src 192.168.40.128 metric 100 
+    192.168.40.2 dev eth0 proto dhcp scope link src 192.168.40.128 metric 100 
+    192.168.202.0/24 dev eth1 proto kernel scope link src 192.168.202.128 metric 100 
+    192.168.202.1 dev eth1 proto dhcp scope link src 192.168.202.128 metric 100
 
-Observăm că adresa IP a default gateway-ului este ``10.0.2.2``, deoarece
+Observăm că adresa IP a default gateway-ului este ``192.168.40.2``, deoarece
 acesta se află pe linia care conține șirul de caractere ``default``.
 
 Recapitulare - Afișarea adresei IP configurată pe o interfață
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Aflați adresa de rețea de pe interfața ``enp0s3``.
-
-.. admonition:: Observație:
-
-    Adresa IP a gateway-ului și adresa IP a interfeței ``enp0s3`` sunt foarte
-    similare. Acest lucru se întâmplă deoarece stațiile se află în aceeași
-    rețea.
+Aflați adresa de rețea de pe interfața ``eth1``.
 
 Exercițiu - Verificarea conectivității cu gateway-ul
 """"""""""""""""""""""""""""""""""""""""""""""""""""
@@ -399,7 +397,7 @@ Verificați conexiunea cu gateway-ul folosind comanda ``ping``.
 
 Pentru verificarea conexiunii la Internet este bine să verificăm cu o adresă
 consacrată, în care avem încredere că nu va avea probleme tehnice. Un astfel de
-exemplu este serverul oferit de Google de la adresa IP ``1.1.1.1``.
+exemplu este serverul oferit de Cloudflare de la adresa IP 1.1.1.1.
 
 Exercițiu - Verificarea conectivității la Internet
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -439,8 +437,16 @@ caractere ``DNS``.
     student@uso:~$ nmcli dev show | grep DNS
     IP4.DNS[1]:                             10.0.2.3
 
+Exista o posibilitate ca pe noua masina virtuala de laborator sa se gaseasca
+serverul DNS curent cu comanda:
+
+.. code-block::
+
+    student@uso:~$ resolvectl status | grep 'Current DNS'
+    Current DNS Server: 1.1.1.1
+
 Conform cu outputul comenzii, serverul DNS către care sunt trimise comenzi este
-``10.0.2.3``.
+1.1.1.1.
 
 Efectuarea cererilor DNS
 """"""""""""""""""""""""
