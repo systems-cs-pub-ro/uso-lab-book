@@ -107,7 +107,7 @@ Exercițiu - Descărcarea paginilor web
 * Descărcați pagina web de la adresa ``http://wttr.in/``. Afișați conținutul
   fișierului descărcat.
 
-* Descărcați fișierul ``http://elf.cs.pub.ro/uso/res/final/07-feb/heroes.csv``.
+* Descărcați fișierul ``http://elf.cs.pub.ro/uso/res/final/141/ex5.csv``.
   Ce tip de fișier este acesta?
 
 .. _network_services_remotecli:
@@ -143,7 +143,7 @@ Shell*) pentru a ne conecta la acesta în felul următor:
 .. code-block::
 
         student@uso:~$ hostname
-        uso
+        uso.local
         student@uso:~$ ssh root@10.10.10.3
         The authenticity of host '10.10.10.3 (10.10.10.3)' can't be established.
         ECDSA key fingerprint is SHA256:I3Ybkkk7nF2FjwVHMzjkyujDnhlRlnSwPRVwUKm6OCM.
@@ -152,9 +152,9 @@ Shell*) pentru a ne conecta la acesta în felul următor:
         root@10.10.10.3's password:
         Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-51-generic x86_64)
 
-         * Documentation:  https://help.ubuntu.com
-         * Management:     https://landscape.canonical.com
-         * Support:        https://ubuntu.com/advantage
+        * Documentation:  https://help.ubuntu.com
+        * Management:     https://landscape.canonical.com
+        * Support:        https://ubuntu.com/advantage
         This system has been minimized by removing packages and content that are
         not required on a system that users do not log into.
 
@@ -545,7 +545,8 @@ Securizarea conexiunii la Internet folosind un VPN
 .. note::
 
     Pentru rularea acestui demo rulați în directorul
-    ``~/uso.git/labs/03-user/lab-containers/`` comanda ``./lab_prepare.sh install vpn``.
+    ``~/uso.git/labs/03-user/lab-containers/`` comenzile ``./lab_prepare.sh install openvpn``,
+    ``./lab_prepare.sh install openvpn-client1`` și ``./lab_prepare.sh install openvpn-client2``.
     Pentru a ne conecta la infrastructura necesară acestei secțiuni, vom folosi
     comanda ``./lab_prepare.sh connect openvpn-client1`` pentru stația
     ``openvpn-client1`` și ``./lab_prepare.sh connect openvpn-client2`` pentru a vă
